@@ -1,21 +1,21 @@
 # zas-reproducibility-2024
 
-Materials for a two-part workshop on reproducibility given at the ZAS in October 2024 by Daniela Palleschi.
+Materials/website mat's for a two-part workshop on reproducibility given at the ZAS in October 2024 by Daniela Palleschi. Website can be viewed at: [https://github.com/daniela-palleschi/zas-reproducibility-2024](https://github.com/daniela-palleschi/zas-reproducibility-2024)
 
 ## Schedule
 
-- Day 1 (`slides/day1/`): Reproducibility, Data handling, (R)Project-oriented workflow
-    + reproducibility and data handling (`00-reproducibility/` and `01-Rworkflow/`)
-    + project management with R Projects and the `here` package  (`02-rprojects/`)
-    + literate programming and modular analyses with Quarto (`03-literate_programming/`)
-- Day 2 (`slides/day2/`): Package management with the `renv` package
-    + package management with the `renv` package (`01-renv/`)
-    + uploading a project to the OSF or Zenodo (`02-code_review/`)
-    + participant-suggested topics
+- Day 1: Reproducibility, Data handling, (R)Project-oriented workflow
+    + reproducibility
+    + workflow and data handling
+    + project management with R Projects and the `here` package
+- Day 2: Package management with the `renv` package
+    + literate programming and modular analyses with Quarto
+    + package management with the `renv` package
+    + uploading a project to the OSF or Zenodo and/orparticipant-suggested topics
   
 ## Folder structure
 
-- `slides/`: the slide materials from the workshop in four formats:
+- `_site/pages/`: the slide materials from the workshop in four formats:
     + `pdf`: pdf document containing the slide content (can be viewed in-browser)
     + `html`: html document containing the slide content, with links to slides and PDF on the bottom right hand side
     + `_slides.html`: HTML slides
