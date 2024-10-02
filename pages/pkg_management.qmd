@@ -4,7 +4,7 @@ subtitle: "Creating and maintaining project-relative package libraries with `ren
 author: "Daniela Palleschi"
 institute: Humboldt-Universität zu Berlin
 lang: en
-date: 2024-08-22
+date: 2024-10-17
 date-format: "ddd MMM D, YYYY"
 date-modified: last-modified
 language: 
@@ -24,12 +24,11 @@ format:
     colorlinks: true
     code-overflow: wrap
   revealjs:
-    footer: "SSOL 2024 - Reproducibility Workshop"
-    output-file: packages_slides.html
+    footer: "Packagemanagement with {renv}"
+    output-file: packages-slides.html
 editor_options: 
   chunk_output_type: console
-bibliography: bibs/pkg_management.bib
-csl: apa.csl
+bibliography: ../bibs/pkg_management.bib
 execute:
   echo: true
   eval: false
@@ -58,7 +57,7 @@ Today we will...
 - the [`renv` website](https://rstudio.github.io/renv/index.html) 
   + or [CRAN documentation](https://cran.r-project.org/web/packages/renv/index.html) and vignettes therein (e.g.,: [Introduction to renv](https://cran.r-project.org/web/packages/renv/vignettes/renv.html))
 
-# Packages
+# Packages  {data-stack-name="Packages"}
 
 - most open source software (like R) has a range of libraries available
   + created by other users/developers and shared for free
@@ -133,7 +132,7 @@ The additional benefit of `p_load()` is that, if you don't actually have one of 
   + when we update these packages for current analyses, this might disrupt the code from 3 years ago
 - we'll see one (partial) solution for this problem soon
 
-# Package versions
+# Package versions  {data-stack-name="Package versions"}
 
 - packages can be updated at any time
   + if hosted on the CRAN, they newer versions are first reviewed/rigorously tested
@@ -167,7 +166,7 @@ packageVersion("ggplot2")
 
 - the output should currently produce a single file path, something like:
 
-```{markdown}
+```
 > .libPaths()
 [1] "/Library/Frameworks/R.framework/Versions/4.4-arm64/Resources/library"
 ```
@@ -183,7 +182,7 @@ packageVersion("ggplot2")
 - we need a project-relative package library that is independent of the global library
   + we'll use the `renv` package to do this
 
-# `renv`
+# `renv`  {data-stack-name="{renv}"}
 
 - [`renv`](https://rstudio.github.io/renv/articles/renv.html) aids in maintaining *`r`*eproducible *`env`*ironments in R projects
 - available on the CRAN
@@ -241,7 +240,7 @@ install.packages("renv")
   # )
 ```
 
-# Initialise project library
+# Initialise project library  {data-stack-name="Initialise"}
 
 - run the following in the Console *or* in a code chunk but with `#| eval: false`
   + we only want to run this *once* per R Project
@@ -259,7 +258,7 @@ renv::init()
 
 - you should see something like this in the Console:
 
-```{markdown}
+```
 - Linking packages into the project library ... [137/137] Done!
 - Resolving missing dependencies ... 
 # Installing packages --------------------------------------------------------
@@ -325,7 +324,7 @@ source("renv/activate.R")
 .libPaths()
 ```
 
-```{markdown}
+```
 > .libPaths()
 [1] "/Users/danielapalleschi/Documents/IdSL/Teaching/SoSe24/M.A./r4repro_SoSe2024/renv/library/macos/R-4.4/aarch64-apple-darwin20"
 [2] "/Users/danielapalleschi/Library/Caches/org.R-project.R/R/renv/sandbox/macos/R-4.4/aarch64-apple-darwin20/f7156815"  
@@ -410,7 +409,7 @@ renv::status()
 
 - ideally, you'll usually get the following message:
 
-```{markdown}
+```
 > renv::status()
 No issues found -- the project is in a consistent state.
 ```

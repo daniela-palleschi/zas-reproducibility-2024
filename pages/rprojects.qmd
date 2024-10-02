@@ -4,7 +4,7 @@ subtitle: "Creating a project-oriented workflow in R"
 author: "Daniela Palleschi"
 institute: Humboldt-Universität zu Berlin
 lang: en
-date: 2024-08-22
+date: 2024-10-08
 date-format: "ddd MMM D, YYYY"
 date-modified: last-modified
 language: 
@@ -26,11 +26,12 @@ format:
     code-overflow: wrap
   revealjs:
     footer: "RProjects and {here}"
-    output-file: rprojects_slides.html
+    output-file: rprojects-slides.html
 editor_options: 
   chunk_output_type: console
-bibliography: bibs/rprojects.bib
-csl: apa.csl
+bibliography: ../bibs/rprojects.bib
+execute:
+  echo: false
 ---
 
 ```{r}
@@ -296,6 +297,8 @@ magick::image_read(here::here("media", "Horst_here.png"))
 
 ## The problem with `setwd()`
 
+::: {.fragment}
+
 > If the first line of your R script is
 >
 > `setwd("C:\Users\jenny\path\that\only\I\have")`
@@ -303,6 +306,8 @@ magick::image_read(here::here("media", "Horst_here.png"))
 > I will come into your office and SET YOUR COMPUTER ON FIRE🔥.
 
 --- [Jenny Bryan](https://x.com/hadleywickham/status/940021008764846080)
+
+:::
 
 - `setwd()` depends on your entire machine's folder structure
 - `setwd()` breaks when you

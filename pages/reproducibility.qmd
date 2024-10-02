@@ -12,8 +12,7 @@ language:
   title-block-modified: "Last Modified"
 format: 
   html:
-    # output-file: reproducibility.html
-    # include-in-header: ../../mathjax.html # for multiple
+    output-file: reproducibility.html
     number-sections: true
     number-depth: 2
     toc: true
@@ -28,12 +27,11 @@ format:
     code-overflow: wrap
   # clean-revealjs: default
   revealjs:
-    output-file: reproducibility_slides.html
+    output-file: reproducibility-slides.html
     footer: "Open Science Practicies: Reproducibility"
 editor_options: 
   chunk_output_type: console
-bibliography: bibs/reproducibility.bib
-csl: apa.csl
+bibliography: ../bibs/reproducibility.bib
 ---
 
 ```{r setup, eval = T, echo = F}
@@ -447,8 +445,3 @@ nocite: |
 
 ::: {#refs custom-style="Bibliography"}
 :::
-
-
-
-
-

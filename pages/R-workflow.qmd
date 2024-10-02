@@ -4,7 +4,7 @@ subtitle: "Project-oriented workflow"
 author: "Daniela Palleschi"
 institute: "Humboldt-Universität zu Berlin"
 lang: en
-date: 2024-08-21
+date: 2024-10-08
 date-format: "ddd MMM D, YYYY"
 date-modified: last-modified
 language: 
@@ -24,12 +24,11 @@ format:
     colorlinks: true
     code-overflow: wrap
   revealjs:
-    footer: "Folder and file management"
-    output-file: R-workflow_slides.html
+    footer: "R workflow"
+    output-file: R-workflow-slides.html
 editor_options: 
   chunk_output_type: console
-bibliography: bibs/R-workflow.bib
-csl: apa.csl
+bibliography: ../bibs/R-workflow.bib
 ---
 
 ```{r setup, eval = T, echo = F}
@@ -235,7 +234,6 @@ Today we will learn...
     -   not all collaborators know these tools
     -   track changes not currently possible
 
-
 # Setting up a project
 
 -   required installations/recent versions of:
@@ -265,8 +263,3 @@ nocite: |
 
 ::: {#refs custom-style="Bibliography"}
 :::
-
-
-
-
-

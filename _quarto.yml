@@ -21,28 +21,20 @@ website:
     search: true
     contents:
     - index.qmd
-    - section: "Day 1: Reproducibility + RProjects"
+    - section: "Day 1"
       contents:
-        - reproducibility.qmd
-        - R-workflow.qmd
-        - rprojects.qmd
-    - section: "Day 2: Package management"
+        - pages/reproducibility.qmd
+        - pages/R-workflow.qmd
+        - pages/rprojects.qmd
+    - section: "Day 2"
       contents:
-      - literate_programming.qmd
-      - pkg_management.qmd
+      - pages/literate_programming.qmd
+      - pages/pkg_management.qmd
 
-    # - references.qmd
-# 
-# 
-  
-
-# bibliography: references.bib
-# csl: apa.csl
+csl: apa.csl
 
 crossref:
   exm-prefix: ex.   # (default is "Figure")
-  # labels: alpha a        # (default is arabic)
-  # subref-labels: alpha t # (default is alpha a)
 
 format:
   html:
@@ -52,13 +44,11 @@ format:
         - custom.scss
       dark: darkly
     code-tools: true
-    # css: styles.css
     toc: true
-    # include-after-body: custom.html
     page-layout: full
     embed-resources: false
   revealjs:
-    logo: ZAS_Marke-Lang_weiss.svg
+    logo: logos/ZAS_Marke-Lang_weiss.svg
     theme: [simple, zas-footer.scss]
     link-external-newwindow: true
     sc-sb-title: true

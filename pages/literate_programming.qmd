@@ -4,7 +4,7 @@ subtitle: "Literate, linear programming and modularity"
 author: "Daniela Palleschi"
 institute: Humboldt-Universität zu Berlin
 lang: en
-date: 2024-08-23
+date: 2024-10-17
 date-format: "ddd MMM D, YYYY"
 date-modified: last-modified
 language: 
@@ -25,12 +25,12 @@ format:
     colorlinks: true
     code-overflow: wrap
   revealjs:
-    output-file: repro_code_slides.html
+    footer: "Reproducible code"
+    output-file: literate_programming-slides.html
     logo: ZAS_Marke-Lang_weiss.svg
 editor_options: 
   chunk_output_type: console
-bibliography: bibs/literate_programming.bib
-csl: apa.csl
+bibliography: ../bibs/literate_programming.bib
 ---
 
 ```{r}
