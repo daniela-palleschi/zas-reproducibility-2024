@@ -1,0 +1,454 @@
+---
+title: "Reproducible analyses in R"
+subtitle: "What, Why, and How?"
+author: "Daniela Palleschi"
+institute: "Leibniz-Zentrum Allgemeine Sprachwissenschaft (ZAS)"
+lang: en
+date: 2024-10-08
+date-format: "ddd MMM D, YYYY"
+date-modified: last-modified
+language: 
+  title-block-published: "Workshop Day 1.1"
+  title-block-modified: "Last Modified"
+format: 
+  html:
+    # output-file: reproducibility.html
+    # include-in-header: ../../mathjax.html # for multiple
+    number-sections: true
+    number-depth: 2
+    toc: true
+    code-overflow: wrap
+    code-tools: true
+    embed-resources: false
+  pdf:
+    output-file: reproducibility.pdf
+    toc: true
+    number-sections: false
+    colorlinks: true
+    code-overflow: wrap
+  # clean-revealjs: default
+  revealjs:
+    output-file: reproducibility_slides.html
+    footer: "Open Science Practicies: Reproducibility"
+editor_options: 
+  chunk_output_type: console
+bibliography: bibs/reproducibility.bib
+csl: apa.csl
+---
+
+```{r setup, eval = T, echo = F}
+knitr::opts_chunk$set(echo = T, # print chunks?
+                      eval = T, # run chunks?
+                      error = F, # print errors?
+                      warning = F, # print warnings?
+                      message = F, # print messages?
+                      cache = F # cache?; be careful with this!
+                      )
+```
+
+```{r}
+#| echo: false
+source(here::here("functions", "print_image.R"))
+```
+
+
+```{r}
+#| echo: false
+#| eval: false
+# run manually
+rbbt::bbt_update_bib(here::here("slides", "day1", "reproducibility.qmd"))
+```
+
+# Topics {.unnumbered .unlisted}
+
+-   Open Science Practices
+-   Reproducibility: What it is and why/how to practice it
+-   Concepts for building a reproducible workflow
+
+# What is Open Science? {data-stack-name="Open Science"}
+
+::: {.fragment}
+> “Open science” is an umbrella term used to refer to the concepts of openness, transparency, rigor, reproducibility, replicability, and accumulation of knowledge, which are considered fundamental features of science”
+
+--- @cruwell_seven_2019, p.3
+:::
+
+- a movement developed to respond to crisis in scientific research
+  + lack of accessibility, transparency, reproducibility, and replicability of previous research
+- transparency is key to all facets of Open Science
+  + it allows for full evaluation of all stages of science
+  
+- Open Access, software, data, code, materials...
+
+## Systemic problem in science
+
+- the combination of
+  - publication bias
+    + journals favour novel, significant findings
+  - publish or perish
+    + researchers' careers depend on publications
+
+- can/does/did lead to:
+  - HARKing
+    + Hypothesising After Results are Known
+  - p-hacking
+    + (re-)running analyses until a significant effect is found
+  - replication crisis
+    + pervasive failure to replicate previous research
+  
+## How to practice Open Science
+
+::: columns
+
+::: {.column width="60%"}
+- @fig-kathawalla shows some suggestions from @kathawalla_easing_2021
+
+- Open Science is not all-or-nothing
+- there are things I consider the bare minimum
+  + detailed experiment plan, ideally public
+  + openly available materials (e.g., stimuli)
+  + share code and data
+
+- the important thing is to do what you can
+  
+
+
+::: {.fragment}
+::: {.callout-tip appearance="simple"}
+Which Open Science research practices in @fig-kathawalla do you already practice? Are there any you'd like to start implementing?
+:::
+:::
+:::
+
+::: {.column width="40%"}
+::: {.fragment fragment-index=1}
+```{r echo = F, fig.env = "figure", fig.align = "center", set.cap.width=T, fig.cap="Image source: @kathawalla_easing_2021 (all rights reserved)"}
+#| label: fig-kathawalla
+#| out-width: 80%
+print_image(here::here("media/Kathawalla_research_cycle.png"))
+```
+:::
+:::
+
+:::
+
+::: {.content-hidden when-format="revealjs"}
+
+::: {.callout-note collapse=true}
+## The replication crisis
+
+The *replication crisis* refers to the failure of many replication studies to replicate the findings of influential studies. The result of this "crisis" is a move towards Open Science Practices, which emphasise transparency along all stages of research (conception, planning, data collection, data cleaning, data analysis, reporting). 
+
+The issue became more widespread with the publication of @ioannidis_why_2005, entitled *Most published research findigns are false*. This paper defined bias in terms of design, analysis, and presentation factors with a focus on issues with *p*-values and statistical power. Since then there have been many replication attempts of influential (and lesser influential) papers. Strikingly, @open_science_collaboration_estimating_2015 reports 100 psychological studies run by 270 collaborators. They reported significant effects in only 36% of replications, with 47% of originally reported effects falling within 95% CIs of the replication effect. In essence: fewer significant findings and smaller effect sizes were found in replication studies compared to the original 100 studies [@fig-replication].
+
+```{r}
+#| echo: false
+#| out-width: "60%"
+#| label: fig-replication
+#| fig-cap: "Source: @open_science_collaboration_estimating_2015 (all rights reserved)"
+print_image(here::here("media/Open_Sci_collab_2015_replication-effects.png"))
+```
+:::
+
+:::
+
+# Reproducibility {data-stack-name="Reproducibility"}
+
+## *What* is reproducibility?
+
+-   one piece of the Open Science pie
+-   generating the same results with the same data and analysis scripts
+  -   seems obvious, but requires organisation and forethought before and during data collection/analysis
+-   bare minimum: share the code and the data [@laurinavichyute_share_2022]
+
+### Reproducibility vs. replication
+
+- the two terms have been used interchangably in the past [e.g., in the title of @open_science_collaboration_estimating_2015]
+  + we'll define them as follows (and this is becoming the standard distinction, imo)
+
+::: columns
+
+::: {.column style="width: 50%; font-size: 60%; color: #8D203D"}
+
+**Reproducibility**
+
+- re-analysing the same data using (ideally) the same scripts, software...
+- aim: produce the same results (means, model estimates, etc.)
+- why: tests for errors, coding mistakes, biases, etc.
+:::
+
+::: {.column style="width: 50%; font-size: 60%; color: #8D203D"}
+
+**Replication**
+
+- re-running a previous experiment, ideally with the same materials, set-up...
+  - ideally the same analysis workflow as the original study (i.e., like reproducing the analyses but with new data)
+- aim: test whether results are replicated with new data in terms of direction and magnitude
+
+:::
+
+:::
+
+- in short:
+  - reproducibility = re-analysis of the *same data*
+  - replication = collection of *new data*
+
+## *Why* implement reproducibility in my workflow?
+
+- firstly: the help future you (or collaborators/other researchers)!
+  + you may return to your analyses tomorrow, next month, or next year
+- to ensure robustness and to document your steps
+  + 'researcher degrees of freedom' and the 'garden of forking paths': there's more than one way to analyse a certain dataset
+  + we can try to plan ahead in detail (e.g., pre-reigster your analysis plan), but there will always be decisions made that were not foreseen
+- lastly: it makes your life *much* easier and streamlines your workflow
+
+## *How* to implement reproducibility?
+
+- not exactly straightforward
+  + there are degrees of reproducibility
+  + the rest of our time will be spent on this topic
+- sharing code and data is a first step
+  + think of the FAIR principles of data sharing
+  + apply them to sharing analyses as well
+
+### Practice FAIR principles
+
+::: {.column width="100%"}
+-   guidelines for sharing digital resources
+-   refers broadly to (meta)data, let's extend them to analysis code
+:::
+
+::: columns
+::: {.column width="40%"}
+```{r}
+#| echo: false
+#| out-width: "80%"
+#| fig-align: center
+#| label: fig-FAIR
+#| fig-cap: "Source: [National Library of Medicine](https://www.nlm.nih.gov/oet/ed/cde/tutorial/02-300.html) (all rights reserved)"
+print_image(here::here("media/FAIR_nlm_nih.png"))
+```
+:::
+
+::: {.column width="60%"}
+-   **findable** and **accessible**: where materials are stored
+    -   in *findable* repositories
+    -   that are *accessible*, i.e., do not require an account
+-   **interoperable** and **reusable**: format of data (and code)
+    -   the importance of future use
+    -   and use beyond your precise computational environment
+:::
+:::
+
+### Conduct a code review
+
+-   a great way to test the FAIR principles
+    -   code review!
+    -   i.e., have a colleague try to access your data/run your code
+        -   either via an online repository
+        -   or send them your project folder
+
+### The reproducibility spectrum
+
+- reproducibility is on a continuum, referred to as the *reproducibility spectrum* in @peng_reproducible_2011 (@fig-peng_2011)
+  + *linked* means "*all data, metadata, and code [is] stored and linked with each other and with corresponding publications*" [@peng_reproducible_2011, p. 1227]
+  + *executable* is not explained, and is more difficult to guarantee long-term as it depends on software versions
+  + but at minimum we can assume it refers to code running on someone else's machine
+
+::: {.fragment fragment-index=1}
+```{r}
+#| echo: false
+#| out-width: "50%"
+#| fig-align: center
+#| label: fig-peng_2011
+#| fig-cap: "Source: @peng_reproducible_2011"
+print_image(here::here("media/peng_2011_reproducibility_spectrum.png"))
+```
+:::
+### Share the code, not just the data
+
+-   Why?
+    + key details are often missing from 'Methods' sections
+-   suggestions for researchers from @laurinavichyute_share_2022
+
+::: columns
+::: {.column width="50%"}
+1.  Share data in usable form
+    -   with pre-processing code
+2.  Use publicly accessible repositories
+    -   e.g., OSF
+3.  Use non-proprietary data formats
+    -   e.g., not `.xls` files (Excel)
+:::
+
+::: {.column width="50%"}
+4.  Provide documentation
+    -   e.g., README, data dictionaries
+5.  Share code *and* data
+    -   they estimate a 38% increase in reproducibility
+6.  Teach data management and computing skills
+    -   that's what this workshop is for!
+:::
+:::
+
+### Data and code $\neq$ Reproducibility
+
+-   access to data and code does not mean analyses are reproducible
+
+-   what can go wrong? Examples from @laurinavichyute_share_2022
+
+::: columns
+::: {.column width="50%"}
+1.  Data problems
+    -   inaccessible data
+    -   incomplete data (e.g., 2/3 experiments)
+2.  Code problems
+    -   incomplete code
+    -   error messages
+    -   code rot: outdated syntax or environment
+    -   proprietary software
+:::
+
+::: {.column width="50%"}
+3.  Documentation problems
+    -   data difficult to interpret
+    -   no README file/data dictionary
+    -   unclear folder/file/variable naming convention
+    -   manuscript contradicts code
+4.  Unclear terms of use
+    -   no licence specification
+:::
+:::
+
+
+### What should (ideally) be shared?
+
+::: columns
+::: {.column width="50%"}
+-   materials
+    -   protocols
+    -   stimuli
+    -   experiment set-up
+-   documentation
+    -   README
+    -   metadata
+:::
+
+::: {.column width="50%"}
+-   data
+    -   raw
+        -   e.g., text files, audio, video, or images
+    -   processed
+-   analysis code
+    -   pre-processing
+    -   analyses
+:::
+:::
+
+::: columns
+::: {.column width="50%"}
+-   materials are helpful for replication
+    -   but also for inspection of e.g., design
+:::
+
+::: {.column width="50%"}
+-   data and code are necessary for reproducibility
+    -   along with proper documentation of software used
+:::
+:::
+
+# Reproducibility rates of published works {data-stack-name="Reproducibility rates"}
+
+- rates of reproducibility vary across fields [see @bochynska_reproducible_2023 for a review]
+    - open access: 25-65%
+    - data and analyses sharing: 11-33%
+    - pre-registrations: 0-3%
+
+## Reproducibility rates in linguistic research {.smaller}
+
+::: columns
+::: {.column width="60%"}
+```{r}
+#| echo: false
+#| out-width: "95%"
+#| fig-align: center
+#| label: fig-bochynska
+#| fig-cap: "Source: @bochynska_reproducible_2023, p. 11 (all rights reserved)"
+print_image(here::here("media/bochynska_reproducibility.png"))
+```
+:::
+
+::: {.column width="40%"}
+-   meta-analysis of 519 randomly sampled articles from various linguistic journales
+    -   pre- and post-reproducibility crisis (2008/9, 2018/19) [@bochynska_reproducible_2023]
+    -   differentiated between primary (collected for study) and secondary (pre-existing) data
+-   reported a post-RC increase in shared materials, data, and analyses
+    -   but still low rates of each
+-   higher rates of secondary data sharing, presumably due to publicly available corpora
+-   data shared more often than analyses, pre- and post-RC
+:::
+:::
+
+## Journal of Memory and Language
+
+-   meta-analysis of articles from JML [@laurinavichyute_share_2022]
+    -   before and after an Open Science Policy was introduced in 2019
+
+```{r}
+#| echo: false
+#| out-width: "95%"
+#| fig-align: center
+#| label: fig-laurinavichyute
+#| fig-cap: "Source: @laurinavichyute_share_2022, p. 5 (all rights reserved)"
+print_image(here::here("media/laurinavichyute_reproducibility.png"))
+```
+
+-   code and data availability improved
+-   but reproducibility rate ranged from 34-56%, depending on criteria
+-   higher rates compared to field-wide meta-analysis [@bochynska_reproducible_2023]
+
+# Steps we'll take
+
+1. Open source software:
+    - R, an open source statistical programming language
+    - in RStudio, an IDE (integrated developer environment)
+    - with [R Projects](https://support.posit.co/hc/en-us/articles/200526207-Using-RStudio-Projects)
+
+2. Project-oriented workflow: 
+    - establish folder structure
+    - and file/variable naming conventions
+    - use project-relative filepaths with the `here` package
+    - establish and maintain project-relative package library with `renv` (time permitting)
+  
+::: {.content-visible when-format="revealjs"}
+# {-}
+:::
+    
+3. Practice literate programming:
+    - writing clean, commented, linear code
+    - in dynamic reports (e.g., Quarto, R markdown)
+    - practice modularity, i.e., 1 script = 1 purpose
+
+4. Sharing and checking our code
+    - uploading our code and data to an OSF repository
+    - conducting a code review
+
+# Topics 🏁 {.unnumbered .unlisted .uncounted}
+
+-   Open Science Practices ✅
+-   Reproducibility: What it is and why/how to practice it ✅
+-   Concepts for building a reproducible workflow ✅
+
+# References {.unlisted .unnumbered visibility="uncounted"}
+
+---
+nocite: |
+---
+
+::: {#refs custom-style="Bibliography"}
+:::
+
+
+
+
+

@@ -1,0 +1,272 @@
+---
+title: "Building a reproducible workflow in R"
+subtitle: "Project-oriented workflow"
+author: "Daniela Palleschi"
+institute: "Humboldt-Universität zu Berlin"
+lang: en
+date: 2024-08-21
+date-format: "ddd MMM D, YYYY"
+date-modified: last-modified
+language: 
+  title-block-published: "Workshop Day 1"
+  title-block-modified: "Last Modified"
+format: 
+  html:
+    number-sections: true
+    number-depth: 2
+    toc: true
+    code-overflow: wrap
+    code-tools: true
+    embed-resources: false
+  pdf:
+    toc: true
+    number-sections: false
+    colorlinks: true
+    code-overflow: wrap
+  revealjs:
+    footer: "Folder and file management"
+    output-file: R-workflow_slides.html
+editor_options: 
+  chunk_output_type: console
+bibliography: bibs/R-workflow.bib
+csl: apa.csl
+---
+
+```{r setup, eval = T, echo = F}
+knitr::opts_chunk$set(echo = T, # print chunks?
+                      eval = T, # run chunks?
+                      error = F, # print errors?
+                      warning = F, # print warnings?
+                      message = F, # print messages?
+                      cache = F # cache?; be careful with this!
+                      )
+```
+
+```{r}
+#| echo: false
+source(here::here("functions", "print_image.R"))
+```
+
+
+```{r}
+#| echo: false
+#| eval: false
+# run manually
+rbbt::bbt_update_bib(here::here("slides", "day1", "R-workflow", "R-workflow.qmd"))
+```
+
+# Learning Objectives {.unnumbered .unlisted}
+
+Today we will learn...
+
+-   about reproducibility practices beyond sharing code and data
+-   about project-oriented workflows
+-   what we will cover in this workshop
+
+
+# Building a reproducible workflow in R {data-stack-name="R 4 Repro"}
+
+- we now know some important principles of a reproducible workflow
+  + and that 'reproducibility' is not black-and-white
+  + but even the reproducibility spectrum is an oversimplification [@peng_reproducible_2011]
+
+- some additional resources that provide a list of tips include:
+  - @bowers_how_2016; @nagler_coding_1995; @wilson_good_2017; @corker_open_2022
+
+## Broadening the reproducibilty spectrum
+
+-   there are different levels of reproducibility
+    -   the *bare minimum* is sharing the code and data
+    -   *and* including session information:
+        -   which operating system was used
+        -   which software/package versions were used
+-   going bigger:
+    -   project-oriented workflow
+    -   project-specific filepaths
+    -   contained in a single project folder
+-   we will be using RProjects to achieve this
+
+## Project management
+
+-   folder structure
+-   project-relative file paths
+-   appropriate documentation
+    -   e.g., README
+-   it's great to map out your project structure early on
+    -   but it will grow as you go along
+    -   reproducible principles facilitate adapting as it grows
+
+::: {.content-visible when-format="revealjs"}
+### Naming conventions {.smaller}
+:::
+::: {.content-visible unless-format="revealjs"}
+### Naming conventions
+:::
+
+- there are some "rules" for naming files and folders
+    + [The Turing Way: Naming files, folders, and other things](https://the-turing-way.netlify.app/project-design/filenaming.html)
+    + [Jenny Bryan: naming things (Reproducible Science Workshop 2015)](https://speakerdeck.com/jennybc/how-to-name-files)
+
+::: columns
+
+::: {.column width="50%"}
+
+1. Avoid special characters
+    + ensures machine readability
+2. Make names concise but meaningful
+    + ensures human-readability
+3. Avoid spaces
+    + try `CamelCase`, snake case (`snake_case`), or skewer case (`skewer-case`)
+    + or use hyphens (`-`) to separate chunks, and underscores (`_`) to connect words of the same chunk
+
+:::
+
+::: {.column width="50%"}
+4. Consider default ordering
+    + e.g., with dates: `YYYY-MM-DD`
+    + with folders or files: numerical prefixes (e.g., `01-data_cleaning.R`, `02-data_visualisation.R`)
+5. Be *consistent*
+
+:::
+
+:::
+
+# Data management and sharing {data-stack-name="Data Management"}
+
+## DM(S)P
+
+- Data Management (and Sharing) Plans (DMP) are required by some funding bodies
+  + even if not, they're an important 
+- questions to consider:
+  + do I have data from human participants?
+  + do I have data from vulnerable groups (children, patients, etc.)
+  + have I collected any identifiable data from humans? (direct or indirect)
+
+### Facilitating data management/sharing
+
+- planning and implementing folder structure, file and variable names
+- keep everything relevant to a certain project in one place (i.e., folder)
+  + use subfolders appropriately
+  + avoid mixing subfolders and files within a single folder
+
+## Literate programming
+
+> Instead of imagining that our main task is to instruct a *computer* what to do, let us concentrate rather on explaining to *human beings* what we want a computer to do.
+
+--- @Knuth_literate_1984, p. 97
+
+::: columns
+::: {.column width="100%"}
+-   originally used to refer to writing programs
+-   but also applies to analysis code
+    -   especially if we're aiming for reproducibility
+:::
+
+::: {.column width="50%"}
+-   main concepts:
+
+    -   code is linear [this pre-dates @Knuth_literate_1984]
+    -   informative but concise commenting
+:::
+
+::: {.column width="50%"}
+-   main benefits:
+
+    -   facilitates maintenance
+    -   helpful for future-you, collaborators, etc.
+:::
+:::
+
+## Documentation
+
+-   metadata
+    -   project README
+    -   codebook/data dictionary
+
+-   README should contain
+    -   a project description
+    -   relevant links
+    -   description of folder structure
+
+-   can be updated as the project develops
+
+-   README.md files in GitHub/Lab are automatically used as a project description
+    -   `.md` is a plain text document
+    -   uses markdown syntax
+
+## Version control (not covered in this workshop)
+
+-   git: local tracking
+-   useful for the analysis and writing phases
+    -   but can be tricky for collaboration
+-   GitHub/GitLab: remote tracking
+    -   store your changes to your local git repository
+    -   then push them to your remote repository
+-   safe guards against local hardware/software issues
+    -   lost or damaged computer or local files
+-   and allows for collaboration or sharing
+
+## Persistant (public) storage
+
+-   GitHub/Lab are sub-optimal
+    -   developer-focused
+    -   typically lack thorough documentation/metadata
+    -   not very user-friendly for non-users
+-   OSF, Zenodo
+    -   Open Science-focused
+    -   can be linked to a GitHub/Lab repository
+    -   facilitate thorough documentation
+    -   user-friendly
+
+## Writing (not covered in this workshop)
+
+-   dynamic reports with Markdown syntax
+
+    -   e.g., Rmarkdown, Quarto
+    -   integration of data, code, and prose
+        -   facilitates cross-referencing within document
+        -   integration of citation management tools
+        -   supports LaTeX syntax for example sentences and tables
+
+-   `papaja` package for APA-formatted Rmarkdown documents
+
+-   challenge: collaboration
+
+    -   not all collaborators know these tools
+    -   track changes not currently possible
+
+
+# Setting up a project
+
+-   required installations/recent versions of:
+    -   R
+        -   preferably version `4.4.0`, "Puppy Cup" or higher
+        -   check current version with `R.version`
+        -   download/update: <https://cran.r-project.org/bin/macosx/>
+    -   RStudio
+        -   preferably a version from 2024
+        -   Help \> Check for updates
+        -   new install: <https://posit.co/download/rstudio-desktop/>
+
+# Learning objectives 🏁 {.unnumbered .unlisted .uncounted}
+
+Today we learned...
+
+-   about reproducibility practices beyond sharing code and data ✅
+-   about project-oriented workflows ✅
+-   what we will cover in this workshop ✅
+
+# References {.unlisted .unnumbered visibility="uncounted"}
+
+---
+nocite: |
+  @seibold_6_nodate
+---
+
+::: {#refs custom-style="Bibliography"}
+:::
+
+
+
+
+
