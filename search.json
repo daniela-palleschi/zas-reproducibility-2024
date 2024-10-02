@@ -562,7 +562,7 @@
     "href": "index_slides.html#schedule",
     "title": "Reproducible Analyses in R (ZAS Workshop)",
     "section": "Schedule",
-    "text": "Schedule\nTable 1 shows the tentative plan for the workshop and may be adjusted based on the needs of the participants.\n\n\n\nTable 1: Tentative schedule for the 2-day workshop\n\n\n\n\n\n\n\n\n\nDay 1: Tues. Oct. 8, 1-4pm\n\n\n(i)\nOpen Science Practices and reproducibility\n\n\n(ii)\nData management: folder/file organisation, data handling\n\n\n(iii)\nWorking with RProjects + project-relative filepaths with {here}\n\n\n(iv)\nModular analyses and literate programming with Quarto\n\n\nDay 2: Thurs. Oct. 17, 1-4pm\n\n\n(v)\nPackage management with {renv}\n\n\n(vi)\nParticipant-requested topics, and/or:\n\n\n(vii)\nCode review via online repositories"
+    "text": "Schedule\nTable 1 shows the tentative plan for the workshop and may be adjusted based on the needs of the participants.\n\n\n\nTable 1: Tentative schedule for the 2-day workshop\n\n\n\n\n\n\n\n\n\nDay 1: Tues. Oct. 8, 1-4pm\n\n\n(i)\nOpen Science Practices and reproducibility\n\n\n(ii)\nData management: folder/file organisation, data handling\n\n\n(iii)\nWorking with RProjects + project-relative filepaths with {here}\n\n\nDay 2: Thurs. Oct. 17, 1-4pm\n\n\n(iv)\nModular analyses and literate programming with Quarto\n\n\n(v)\nPackage management with {renv}\n\n\n(vii)\nCode review via online repositories"
   },
   {
     "objectID": "index_slides.html#how-to-navigate-this-website",
@@ -594,7 +594,7 @@
     "href": "index.html#schedule",
     "title": "",
     "section": "Schedule",
-    "text": "Schedule\nTable 1 shows the tentative plan for the workshop and may be adjusted based on the needs of the participants.\n\n\n\n\nTable 1: Tentative schedule for the 2-day workshop\n\n\n\n\n\n\n\n\n\n\n\n\nDay 1: Tues. Oct. 8, 1-4pm\n\n\n(i)\nOpen Science Practices and reproducibility\n\n\n(ii)\nData management: folder/file organisation, data handling\n\n\n(iii)\nWorking with RProjects + project-relative filepaths with {here}\n\n\n(iv)\nModular analyses and literate programming with Quarto\n\n\nDay 2: Thurs. Oct. 17, 1-4pm\n\n\n(v)\nPackage management with {renv}\n\n\n(vi)\nParticipant-requested topics, and/or:\n\n\n(vii)\nCode review via online repositories",
+    "text": "Schedule\nTable 1 shows the tentative plan for the workshop and may be adjusted based on the needs of the participants.\n\n\n\n\nTable 1: Tentative schedule for the 2-day workshop\n\n\n\n\n\n\n\n\n\n\n\n\nDay 1: Tues. Oct. 8, 1-4pm\n\n\n(i)\nOpen Science Practices and reproducibility\n\n\n(ii)\nData management: folder/file organisation, data handling\n\n\n(iii)\nWorking with RProjects + project-relative filepaths with {here}\n\n\nDay 2: Thurs. Oct. 17, 1-4pm\n\n\n(iv)\nModular analyses and literate programming with Quarto\n\n\n(v)\nPackage management with {renv}\n\n\n(vii)\nCode review via online repositories",
     "crumbs": [
       "D. Palleschi",
       "Workshop overview"
