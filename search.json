@@ -337,7 +337,7 @@
     "href": "pages/rprojects.html#opening-a-project",
     "title": "RProjects",
     "section": "Opening a Project",
-    "text": "Opening a Project\n\nto open a project, locate its .Rproj file and double-click\nor if you’re already in RStudio, you can use the Project (None) drop-down (top right)\n\n\n\n\nmagick::image_read(here::here(\"media\", \"rstudio_click_open.png\"))\n\n\n\n\n\n\n\nFigure 1: Double-click .Rproj\n\n\n\n\n\n\n\nmagick::image_read(here::here(\"media\", \"rstudio_project_open.png\"))\n\n\n\n\n\n\n\nFigure 2: Open from RStudio",
+    "text": "Opening a Project\n\nto open a project, locate its .Rproj file and double-click\nor if you’re already in RStudio, you can use the Project (None) drop-down (top right)\n\n\n\n\n\n\n\n\n\n\n\nFigure 1: Double-click .Rproj\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 2: Open from RStudio",
     "crumbs": [
       "D. Palleschi",
       "Day 1",
@@ -361,7 +361,7 @@
     "href": "pages/rprojects.html#global-rstudio-options",
     "title": "RProjects",
     "section": "Global RStudio options",
-    "text": "Global RStudio options\n\n\n\nmagick::image_read(here::here(\"media\", \"RStudio_global-options.png\"))\n\n\n\n\n\n\n\nFigure 3: RStudio settings for reproducibility\n\n\n\n\n\n\n\nTools &gt; Global Options\n\nWorkspace: Restore .RData into workspace at startup: NO\nSave workspace to .RData on exit: Never\n\nthis will ensure that you are always starting with a clean slate\n\nand that your code is not dependent on some pacakge or object you created in another session\n\nthis is also how RMarkdown and Quarto scripts run\n\nthey start with an empty environment and run the script linearly",
+    "text": "Global RStudio options\n\n\n\n\n\n\n\n\n\n\nFigure 3: RStudio settings for reproducibility\n\n\n\n\n\n\n\nTools &gt; Global Options\n\nWorkspace: Restore .RData into workspace at startup: NO\nSave workspace to .RData on exit: Never\n\nthis will ensure that you are always starting with a clean slate\n\nand that your code is not dependent on some pacakge or object you created in another session\n\nthis is also how RMarkdown and Quarto scripts run\n\nthey start with an empty environment and run the script linearly",
     "crumbs": [
       "D. Palleschi",
       "Day 1",
@@ -385,7 +385,7 @@
     "href": "pages/rprojects.html#identifying-your-rproject",
     "title": "RProjects",
     "section": "Identifying your RProject",
-    "text": "Identifying your RProject\n\nthere are a ways to check which (if any) RProject you’re in\n\nthere are 6 differences between Figure 4 and Figure 5\nwhich is in an RProject session?\n\n\n\nSpot the differencesShow the differences\n\n\n\n\n\nmagick::image_read(here::here(\"media\", \"rstudio_noproject.png\"))\n\n\n\n\n\n\n\nFigure 4: RStudio Session A\n\n\n\n\n\n\n\n\n\nmagick::image_read(here::here(\"media\", \"rstudio_project.png\"))\n\n\n\n\n\n\n\nFigure 5: RStudio Session B\n\n\n\n\n\n\n\n\n\n\nmagick::image_read(here::here(\"media\", \"rproject_spot-the-diffs.png\"))\n\n\n\n\n\n\n\nFigure 6: How to tell if you’re in a project",
+    "text": "Identifying your RProject\n\nthere are a ways to check which (if any) RProject you’re in\n\nthere are 6 differences between Figure 4 and Figure 5\nwhich is in an RProject session?\n\n\n\nSpot the differencesShow the differences\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 4: RStudio Session A\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 5: RStudio Session B\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 6: How to tell if you’re in a project",
     "crumbs": [
       "D. Palleschi",
       "Day 1",
@@ -397,7 +397,7 @@
     "href": "pages/rprojects.html#the-problem-with-setwd",
     "title": "RProjects",
     "section": "The problem with setwd()",
-    "text": "The problem with setwd()\n\nIf the first line of your R script is\nsetwd(\"C:\\Users\\jenny\\path\\that\\only\\I\\have\")\nI will come into your office and SET YOUR COMPUTER ON FIRE🔥.\n\n— Jenny Bryan\n\nsetwd() depends on your entire machine’s folder structure\nsetwd() breaks when you\n\nsend your project folder to a collaborator\nmake your analyses open\nchange the location of your project folder\n\nusing slashes is also dependent on your operating system",
+    "text": "The problem with setwd()\n\n\nIf the first line of your R script is\nsetwd(\"C:\\Users\\jenny\\path\\that\\only\\I\\have\")\nI will come into your office and SET YOUR COMPUTER ON FIRE🔥.\n\n— Jenny Bryan\n\n\nsetwd() depends on your entire machine’s folder structure\nsetwd() breaks when you\n\nsend your project folder to a collaborator\nmake your analyses open\nchange the location of your project folder\n\nusing slashes is also dependent on your operating system",
     "crumbs": [
       "D. Palleschi",
       "Day 1",
@@ -471,7 +471,7 @@
     "href": "pages/rprojects-slides.html#opening-a-project",
     "title": "RProjects",
     "section": "Opening a Project",
-    "text": "Opening a Project\n\nto open a project, locate its .Rproj file and double-click\nor if you’re already in RStudio, you can use the Project (None) drop-down (top right)\n\n\n\n\nmagick::image_read(here::here(\"media\", \"rstudio_click_open.png\"))\n\n\n\nFigure 1: Double-click .Rproj\n\n\n\n\n\n\n\n\n\nmagick::image_read(here::here(\"media\", \"rstudio_project_open.png\"))\n\n\n\nFigure 2: Open from RStudio"
+    "text": "Opening a Project\n\nto open a project, locate its .Rproj file and double-click\nor if you’re already in RStudio, you can use the Project (None) drop-down (top right)\n\n\n\n\n\n\n\nFigure 1: Double-click .Rproj\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 2: Open from RStudio"
   },
   {
     "objectID": "pages/rprojects-slides.html#adding-a-readme-file",
@@ -485,7 +485,7 @@
     "href": "pages/rprojects-slides.html#global-rstudio-options",
     "title": "RProjects",
     "section": "Global RStudio options",
-    "text": "Global RStudio options\n\n\n\nmagick::image_read(here::here(\"media\", \"RStudio_global-options.png\"))\n\n\n\nFigure 3: RStudio settings for reproducibility\n\n\n\n\n\n\n\n\n\n\nTools &gt; Global Options\n\n\nWorkspace: Restore .RData into workspace at startup: NO\nSave workspace to .RData on exit: Never\n\n\nthis will ensure that you are always starting with a clean slate\n\nand that your code is not dependent on some pacakge or object you created in another session\n\n\nthis is also how RMarkdown and Quarto scripts run\n\nthey start with an empty environment and run the script linearly"
+    "text": "Global RStudio options\n\n\n\n\n\n\nFigure 3: RStudio settings for reproducibility\n\n\n\n\n\n\n\n\n\n\nTools &gt; Global Options\n\n\nWorkspace: Restore .RData into workspace at startup: NO\nSave workspace to .RData on exit: Never\n\n\nthis will ensure that you are always starting with a clean slate\n\nand that your code is not dependent on some pacakge or object you created in another session\n\n\nthis is also how RMarkdown and Quarto scripts run\n\nthey start with an empty environment and run the script linearly"
   },
   {
     "objectID": "pages/rprojects-slides.html#section-1",
@@ -499,14 +499,14 @@
     "href": "pages/rprojects-slides.html#identifying-your-rproject",
     "title": "RProjects",
     "section": "Identifying your RProject",
-    "text": "Identifying your RProject\n\nthere are a ways to check which (if any) RProject you’re in\n\nthere are 6 differences between Figure 4 and Figure 5\n\nwhich is in an RProject session?\n\n\n\n\n\nSpot the differences\nShow the differences\n\n\n\n\n\n\nmagick::image_read(here::here(\"media\", \"rstudio_noproject.png\"))\n\n\n\nFigure 4: RStudio Session A\n\n\n\n\n\n\n\n\n\n\n\nmagick::image_read(here::here(\"media\", \"rstudio_project.png\"))\n\n\n\nFigure 5: RStudio Session B\n\n\n\n\n\n\n\n\n\n\n\nmagick::image_read(here::here(\"media\", \"rproject_spot-the-diffs.png\"))\n\n\n\nFigure 6: How to tell if you’re in a project"
+    "text": "Identifying your RProject\n\nthere are a ways to check which (if any) RProject you’re in\n\nthere are 6 differences between Figure 4 and Figure 5\n\nwhich is in an RProject session?\n\n\n\n\n\nSpot the differences\nShow the differences\n\n\n\n\n\n\n\n\n\nFigure 4: RStudio Session A\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 5: RStudio Session B\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 6: How to tell if you’re in a project"
   },
   {
     "objectID": "pages/rprojects-slides.html#the-problem-with-setwd",
     "href": "pages/rprojects-slides.html#the-problem-with-setwd",
     "title": "RProjects",
     "section": "The problem with setwd()\n",
-    "text": "The problem with setwd()\n\n\nIf the first line of your R script is\nsetwd(\"C:\\Users\\jenny\\path\\that\\only\\I\\have\")\nI will come into your office and SET YOUR COMPUTER ON FIRE🔥.\n\n— Jenny Bryan\n\n\nsetwd() depends on your entire machine’s folder structure\n\nsetwd() breaks when you\n\nsend your project folder to a collaborator\nmake your analyses open\nchange the location of your project folder\n\n\nusing slashes is also dependent on your operating system"
+    "text": "The problem with setwd()\n\n\n\nIf the first line of your R script is\nsetwd(\"C:\\Users\\jenny\\path\\that\\only\\I\\have\")\nI will come into your office and SET YOUR COMPUTER ON FIRE🔥.\n\n— Jenny Bryan\n\n\n\nsetwd() depends on your entire machine’s folder structure\n\nsetwd() breaks when you\n\nsend your project folder to a collaborator\nmake your analyses open\nchange the location of your project folder\n\n\nusing slashes is also dependent on your operating system"
   },
   {
     "objectID": "pages/rprojects-slides.html#the-benefit-of-here",
