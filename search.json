@@ -4,63 +4,108 @@
     "href": "pages/R-workflow.html",
     "title": "Building a reproducible workflow in R",
     "section": "",
-    "text": "Today we will learn…\n\nabout reproducibility practices beyond sharing code and data\nabout project-oriented workflows\nwhat we will cover in this workshop"
+    "text": "Today we will learn…\n\nabout reproducibility practices beyond sharing code and data\nabout project-oriented workflows\nwhat we will cover in this workshop",
+    "crumbs": [
+      "D. Palleschi",
+      "Day 1: Reproducibility + RProjects",
+      "Building a reproducible workflow in R"
+    ]
   },
   {
     "objectID": "pages/R-workflow.html#broadening-the-reproducibilty-spectrum",
     "href": "pages/R-workflow.html#broadening-the-reproducibilty-spectrum",
     "title": "Building a reproducible workflow in R",
     "section": "1.1 Broadening the reproducibilty spectrum",
-    "text": "1.1 Broadening the reproducibilty spectrum\n\nthere are different levels of reproducibility\n\nthe bare minimum is sharing the code and data\nand including session information:\n\nwhich operating system was used\nwhich software/package versions were used\n\n\ngoing bigger:\n\nproject-oriented workflow\nproject-specific filepaths\ncontained in a single project folder\n\nwe will be using RProjects to achieve this"
+    "text": "1.1 Broadening the reproducibilty spectrum\n\nthere are different levels of reproducibility\n\nthe bare minimum is sharing the code and data\nand including session information:\n\nwhich operating system was used\nwhich software/package versions were used\n\n\ngoing bigger:\n\nproject-oriented workflow\nproject-specific filepaths\ncontained in a single project folder\n\nwe will be using RProjects to achieve this",
+    "crumbs": [
+      "D. Palleschi",
+      "Day 1: Reproducibility + RProjects",
+      "Building a reproducible workflow in R"
+    ]
   },
   {
     "objectID": "pages/R-workflow.html#project-management",
     "href": "pages/R-workflow.html#project-management",
     "title": "Building a reproducible workflow in R",
     "section": "1.2 Project management",
-    "text": "1.2 Project management\n\nfolder structure\nproject-relative file paths\nappropriate documentation\n\ne.g., README\n\nit’s great to map out your project structure early on\n\nbut it will grow as you go along\nreproducible principles facilitate adapting as it grows\n\n\n\nNaming conventions\n\nthere are some “rules” for naming files and folders\n\nThe Turing Way: Naming files, folders, and other things\nJenny Bryan: naming things (Reproducible Science Workshop 2015)\n\n\n\n\n\nAvoid special characters\n\nensures machine readability\n\nMake names concise but meaningful\n\nensures human-readability\n\nAvoid spaces\n\ntry CamelCase, snake case (snake_case), or skewer case (skewer-case)\nor use hyphens (-) to separate chunks, and underscores (_) to connect words of the same chunk\n\n\n\n\nConsider default ordering\n\ne.g., with dates: YYYY-MM-DD\nwith folders or files: numerical prefixes (e.g., 01-data_cleaning.R, 02-data_visualisation.R)\n\nBe consistent"
+    "text": "1.2 Project management\n\nfolder structure\nproject-relative file paths\nappropriate documentation\n\ne.g., README\n\nit’s great to map out your project structure early on\n\nbut it will grow as you go along\nreproducible principles facilitate adapting as it grows\n\n\n\nNaming conventions\n\nthere are some “rules” for naming files and folders\n\nThe Turing Way: Naming files, folders, and other things\nJenny Bryan: naming things (Reproducible Science Workshop 2015)\n\n\n\n\n\nAvoid special characters\n\nensures machine readability\n\nMake names concise but meaningful\n\nensures human-readability\n\nAvoid spaces\n\ntry CamelCase, snake case (snake_case), or skewer case (skewer-case)\nor use hyphens (-) to separate chunks, and underscores (_) to connect words of the same chunk\n\n\n\n\nConsider default ordering\n\ne.g., with dates: YYYY-MM-DD\nwith folders or files: numerical prefixes (e.g., 01-data_cleaning.R, 02-data_visualisation.R)\n\nBe consistent",
+    "crumbs": [
+      "D. Palleschi",
+      "Day 1: Reproducibility + RProjects",
+      "Building a reproducible workflow in R"
+    ]
   },
   {
     "objectID": "pages/R-workflow.html#dmsp",
     "href": "pages/R-workflow.html#dmsp",
     "title": "Building a reproducible workflow in R",
     "section": "2.1 DM(S)P",
-    "text": "2.1 DM(S)P\n\nData Management (and Sharing) Plans (DMP) are required by some funding bodies\n\neven if not, they’re an important\n\nquestions to consider:\n\ndo I have data from human participants?\ndo I have data from vulnerable groups (children, patients, etc.)\nhave I collected any identifiable data from humans? (direct or indirect)\n\n\n\nFacilitating data management/sharing\n\nplanning and implementing folder structure, file and variable names\nkeep everything relevant to a certain project in one place (i.e., folder)\n\nuse subfolders appropriately\navoid mixing subfolders and files within a single folder"
+    "text": "2.1 DM(S)P\n\nData Management (and Sharing) Plans (DMP) are required by some funding bodies\n\neven if not, they’re an important\n\nquestions to consider:\n\ndo I have data from human participants?\ndo I have data from vulnerable groups (children, patients, etc.)\nhave I collected any identifiable data from humans? (direct or indirect)\n\n\n\nFacilitating data management/sharing\n\nplanning and implementing folder structure, file and variable names\nkeep everything relevant to a certain project in one place (i.e., folder)\n\nuse subfolders appropriately\navoid mixing subfolders and files within a single folder",
+    "crumbs": [
+      "D. Palleschi",
+      "Day 1: Reproducibility + RProjects",
+      "Building a reproducible workflow in R"
+    ]
   },
   {
     "objectID": "pages/R-workflow.html#literate-programming",
     "href": "pages/R-workflow.html#literate-programming",
     "title": "Building a reproducible workflow in R",
     "section": "2.2 Literate programming",
-    "text": "2.2 Literate programming\n\nInstead of imagining that our main task is to instruct a computer what to do, let us concentrate rather on explaining to human beings what we want a computer to do.\n\n— Knuth (1984), p. 97\n\n\n\noriginally used to refer to writing programs\nbut also applies to analysis code\n\nespecially if we’re aiming for reproducibility\n\n\n\n\nmain concepts:\n\ncode is linear (this pre-dates Knuth, 1984)\ninformative but concise commenting\n\n\n\n\nmain benefits:\n\nfacilitates maintenance\nhelpful for future-you, collaborators, etc."
+    "text": "2.2 Literate programming\n\nInstead of imagining that our main task is to instruct a computer what to do, let us concentrate rather on explaining to human beings what we want a computer to do.\n\n— Knuth (1984), p. 97\n\n\n\noriginally used to refer to writing programs\nbut also applies to analysis code\n\nespecially if we’re aiming for reproducibility\n\n\n\n\nmain concepts:\n\ncode is linear (this pre-dates Knuth, 1984)\ninformative but concise commenting\n\n\n\n\nmain benefits:\n\nfacilitates maintenance\nhelpful for future-you, collaborators, etc.",
+    "crumbs": [
+      "D. Palleschi",
+      "Day 1: Reproducibility + RProjects",
+      "Building a reproducible workflow in R"
+    ]
   },
   {
     "objectID": "pages/R-workflow.html#documentation",
     "href": "pages/R-workflow.html#documentation",
     "title": "Building a reproducible workflow in R",
     "section": "2.3 Documentation",
-    "text": "2.3 Documentation\n\nmetadata\n\nproject README\ncodebook/data dictionary\n\nREADME should contain\n\na project description\nrelevant links\ndescription of folder structure\n\ncan be updated as the project develops\nREADME.md files in GitHub/Lab are automatically used as a project description\n\n.md is a plain text document\nuses markdown syntax"
+    "text": "2.3 Documentation\n\nmetadata\n\nproject README\ncodebook/data dictionary\n\nREADME should contain\n\na project description\nrelevant links\ndescription of folder structure\n\ncan be updated as the project develops\nREADME.md files in GitHub/Lab are automatically used as a project description\n\n.md is a plain text document\nuses markdown syntax",
+    "crumbs": [
+      "D. Palleschi",
+      "Day 1: Reproducibility + RProjects",
+      "Building a reproducible workflow in R"
+    ]
   },
   {
     "objectID": "pages/R-workflow.html#version-control-not-covered-in-this-workshop",
     "href": "pages/R-workflow.html#version-control-not-covered-in-this-workshop",
     "title": "Building a reproducible workflow in R",
     "section": "2.4 Version control (not covered in this workshop)",
-    "text": "2.4 Version control (not covered in this workshop)\n\ngit: local tracking\nuseful for the analysis and writing phases\n\nbut can be tricky for collaboration\n\nGitHub/GitLab: remote tracking\n\nstore your changes to your local git repository\nthen push them to your remote repository\n\nsafe guards against local hardware/software issues\n\nlost or damaged computer or local files\n\nand allows for collaboration or sharing"
+    "text": "2.4 Version control (not covered in this workshop)\n\ngit: local tracking\nuseful for the analysis and writing phases\n\nbut can be tricky for collaboration\n\nGitHub/GitLab: remote tracking\n\nstore your changes to your local git repository\nthen push them to your remote repository\n\nsafe guards against local hardware/software issues\n\nlost or damaged computer or local files\n\nand allows for collaboration or sharing",
+    "crumbs": [
+      "D. Palleschi",
+      "Day 1: Reproducibility + RProjects",
+      "Building a reproducible workflow in R"
+    ]
   },
   {
     "objectID": "pages/R-workflow.html#persistant-public-storage",
     "href": "pages/R-workflow.html#persistant-public-storage",
     "title": "Building a reproducible workflow in R",
     "section": "2.5 Persistant (public) storage",
-    "text": "2.5 Persistant (public) storage\n\nGitHub/Lab are sub-optimal\n\ndeveloper-focused\ntypically lack thorough documentation/metadata\nnot very user-friendly for non-users\n\nOSF, Zenodo\n\nOpen Science-focused\ncan be linked to a GitHub/Lab repository\nfacilitate thorough documentation\nuser-friendly"
+    "text": "2.5 Persistant (public) storage\n\nGitHub/Lab are sub-optimal\n\ndeveloper-focused\ntypically lack thorough documentation/metadata\nnot very user-friendly for non-users\n\nOSF, Zenodo\n\nOpen Science-focused\ncan be linked to a GitHub/Lab repository\nfacilitate thorough documentation\nuser-friendly",
+    "crumbs": [
+      "D. Palleschi",
+      "Day 1: Reproducibility + RProjects",
+      "Building a reproducible workflow in R"
+    ]
   },
   {
     "objectID": "pages/R-workflow.html#writing-not-covered-in-this-workshop",
     "href": "pages/R-workflow.html#writing-not-covered-in-this-workshop",
     "title": "Building a reproducible workflow in R",
     "section": "2.6 Writing (not covered in this workshop)",
-    "text": "2.6 Writing (not covered in this workshop)\n\ndynamic reports with Markdown syntax\n\ne.g., Rmarkdown, Quarto\nintegration of data, code, and prose\n\nfacilitates cross-referencing within document\nintegration of citation management tools\nsupports LaTeX syntax for example sentences and tables\n\n\npapaja package for APA-formatted Rmarkdown documents\nchallenge: collaboration\n\nnot all collaborators know these tools\ntrack changes not currently possible"
+    "text": "2.6 Writing (not covered in this workshop)\n\ndynamic reports with Markdown syntax\n\ne.g., Rmarkdown, Quarto\nintegration of data, code, and prose\n\nfacilitates cross-referencing within document\nintegration of citation management tools\nsupports LaTeX syntax for example sentences and tables\n\n\npapaja package for APA-formatted Rmarkdown documents\nchallenge: collaboration\n\nnot all collaborators know these tools\ntrack changes not currently possible",
+    "crumbs": [
+      "D. Palleschi",
+      "Day 1: Reproducibility + RProjects",
+      "Building a reproducible workflow in R"
+    ]
   },
   {
     "objectID": "pages/R-workflow_slides.html#broadening-the-reproducibilty-spectrum",
