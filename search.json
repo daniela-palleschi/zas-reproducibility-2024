@@ -168,91 +168,156 @@
     "href": "pages/rprojects.html",
     "title": "RProjects",
     "section": "",
-    "text": "Today we will…\n\nlearn about project-oriented workflows\ncreate an RProject\nuse project-relative filepaths with the here package"
+    "text": "Today we will…\n\nlearn about project-oriented workflows\ncreate an RProject\nuse project-relative filepaths with the here package",
+    "crumbs": [
+      "D. Palleschi",
+      "Day 1: Reproducibility + RProjects",
+      "RProjects"
+    ]
   },
   {
     "objectID": "pages/rprojects.html#folder-structure",
     "href": "pages/rprojects.html#folder-structure",
     "title": "RProjects",
     "section": "Folder structure",
-    "text": "Folder structure\n\na core computer literacy skill\n\nkeep your Desktop as empty as possible\nhave a sensible folder structure\navoid mixing subfolders and files\n\ni.e., if a folder contains subfolders, ideally it should not contain files"
+    "text": "Folder structure\n\na core computer literacy skill\n\nkeep your Desktop as empty as possible\nhave a sensible folder structure\navoid mixing subfolders and files\n\ni.e., if a folder contains subfolders, ideally it should not contain files",
+    "crumbs": [
+      "D. Palleschi",
+      "Day 1: Reproducibility + RProjects",
+      "RProjects"
+    ]
   },
   {
     "objectID": "pages/rprojects.html#creating-a-new-project",
     "href": "pages/rprojects.html#creating-a-new-project",
     "title": "RProjects",
     "section": "Creating a new Project",
-    "text": "Creating a new Project\n\nwhen?\n\nwhenever you’re starting a new course or project which will use R\n\nwhy?\n\nto keep all the relavent materials in one place\n\nwhere?\n\nsomewhere that makes sense, e.g., a folder called SoSe2024 or Mastersarbeit\n\nhow?\n\nFile &gt; New Project &gt; New Directory &gt; New Project &gt; [Directory name] &gt; Create Project\n\n\n\n\n\n\n\n\n\n\nNew RProject\n\n\n\nCreate a new RProject for this workshop\n\nFile &gt; New Project &gt; New Directory &gt; New Project &gt; [Directory name] &gt; Create Project\nmake sure you choose a sensible location"
+    "text": "Creating a new Project\n\nwhen?\n\nwhenever you’re starting a new course or project which will use R\n\nwhy?\n\nto keep all the relavent materials in one place\n\nwhere?\n\nsomewhere that makes sense, e.g., a folder called SoSe2024 or Mastersarbeit\n\nhow?\n\nFile &gt; New Project &gt; New Directory &gt; New Project &gt; [Directory name] &gt; Create Project\n\n\n\n\n\n\n\n\n\n\nNew RProject\n\n\n\nCreate a new RProject for this workshop\n\nFile &gt; New Project &gt; New Directory &gt; New Project &gt; [Directory name] &gt; Create Project\nmake sure you choose a sensible location",
+    "crumbs": [
+      "D. Palleschi",
+      "Day 1: Reproducibility + RProjects",
+      "RProjects"
+    ]
   },
   {
     "objectID": "pages/rprojects.html#opening-a-project",
     "href": "pages/rprojects.html#opening-a-project",
     "title": "RProjects",
     "section": "Opening a Project",
-    "text": "Opening a Project\n\nto open a project, locate its .Rproj file and double-click\nor if you’re already in RStudio, you can use the Project (None) drop-down (top right)\n\n\n\n\nmagick::image_read(here::here(\"media\", \"rstudio_click_open.png\"))\n\n\n\n\n\n\n\nFigure 1: Double-click .Rproj\n\n\n\n\n\n\n\nmagick::image_read(here::here(\"media\", \"rstudio_project_open.png\"))\n\n\n\n\n\n\n\nFigure 2: Open from RStudio"
+    "text": "Opening a Project\n\nto open a project, locate its .Rproj file and double-click\nor if you’re already in RStudio, you can use the Project (None) drop-down (top right)\n\n\n\n\nmagick::image_read(here::here(\"media\", \"rstudio_click_open.png\"))\n\n\n\n\n\n\n\nFigure 1: Double-click .Rproj\n\n\n\n\n\n\n\nmagick::image_read(here::here(\"media\", \"rstudio_project_open.png\"))\n\n\n\n\n\n\n\nFigure 2: Open from RStudio",
+    "crumbs": [
+      "D. Palleschi",
+      "Day 1: Reproducibility + RProjects",
+      "RProjects"
+    ]
   },
   {
     "objectID": "pages/rprojects.html#adding-a-readme-file",
     "href": "pages/rprojects.html#adding-a-readme-file",
     "title": "RProjects",
     "section": "Adding a README file",
-    "text": "Adding a README file\n\nFile &gt; New File &gt; Markdown File (not R Markdown!)\n\nadd some text describing the purpose of this project\ninclude your name, the date\nuse Markdown formatting (e.g., # for headings, *italics*, **bold**)\n\nsave as README.md in your project directory"
+    "text": "Adding a README file\n\nFile &gt; New File &gt; Markdown File (not R Markdown!)\n\nadd some text describing the purpose of this project\ninclude your name, the date\nuse Markdown formatting (e.g., # for headings, *italics*, **bold**)\n\nsave as README.md in your project directory",
+    "crumbs": [
+      "D. Palleschi",
+      "Day 1: Reproducibility + RProjects",
+      "RProjects"
+    ]
   },
   {
     "objectID": "pages/rprojects.html#global-rstudio-options",
     "href": "pages/rprojects.html#global-rstudio-options",
     "title": "RProjects",
     "section": "Global RStudio options",
-    "text": "Global RStudio options\n\n\n\nmagick::image_read(here::here(\"media\", \"RStudio_global-options.png\"))\n\n\n\n\n\n\n\nFigure 3: RStudio settings for reproducibility\n\n\n\n\n\n\n\nTools &gt; Global Options\n\nWorkspace: Restore .RData into workspace at startup: NO\nSave workspace to .RData on exit: Never\n\nthis will ensure that you are always starting with a clean slate\n\nand that your code is not dependent on some pacakge or object you created in another session\n\nthis is also how RMarkdown and Quarto scripts run\n\nthey start with an empty environment and run the script linearly"
+    "text": "Global RStudio options\n\n\n\nmagick::image_read(here::here(\"media\", \"RStudio_global-options.png\"))\n\n\n\n\n\n\n\nFigure 3: RStudio settings for reproducibility\n\n\n\n\n\n\n\nTools &gt; Global Options\n\nWorkspace: Restore .RData into workspace at startup: NO\nSave workspace to .RData on exit: Never\n\nthis will ensure that you are always starting with a clean slate\n\nand that your code is not dependent on some pacakge or object you created in another session\n\nthis is also how RMarkdown and Quarto scripts run\n\nthey start with an empty environment and run the script linearly",
+    "crumbs": [
+      "D. Palleschi",
+      "Day 1: Reproducibility + RProjects",
+      "RProjects"
+    ]
   },
   {
     "objectID": "pages/rprojects.html#section-1",
     "href": "pages/rprojects.html#section-1",
     "title": "RProjects",
     "section": "",
-    "text": "Global settings\n\n\n\nChange your Global Options so that\n\nWorkspace: Restore .RData into workspace at startup: NO\nSave workspace to .RData on exit: Never"
+    "text": "Global settings\n\n\n\nChange your Global Options so that\n\nWorkspace: Restore .RData into workspace at startup: NO\nSave workspace to .RData on exit: Never",
+    "crumbs": [
+      "D. Palleschi",
+      "Day 1: Reproducibility + RProjects",
+      "RProjects"
+    ]
   },
   {
     "objectID": "pages/rprojects.html#identifying-your-rproject",
     "href": "pages/rprojects.html#identifying-your-rproject",
     "title": "RProjects",
     "section": "Identifying your RProject",
-    "text": "Identifying your RProject\n\nthere are a ways to check which (if any) RProject you’re in\n\nthere are 6 differences between Figure 4 and Figure 5\nwhich is in an RProject session?\n\n\n\nSpot the differencesShow the differences\n\n\n\n\n\nmagick::image_read(here::here(\"media\", \"rstudio_noproject.png\"))\n\n\n\n\n\n\n\nFigure 4: RStudio Session A\n\n\n\n\n\n\n\n\n\nmagick::image_read(here::here(\"media\", \"rstudio_project.png\"))\n\n\n\n\n\n\n\nFigure 5: RStudio Session B\n\n\n\n\n\n\n\n\n\n\nmagick::image_read(here::here(\"media\", \"rproject_spot-the-diffs.png\"))\n\n\n\n\n\n\n\nFigure 6: How to tell if you’re in a project"
+    "text": "Identifying your RProject\n\nthere are a ways to check which (if any) RProject you’re in\n\nthere are 6 differences between Figure 4 and Figure 5\nwhich is in an RProject session?\n\n\n\nSpot the differencesShow the differences\n\n\n\n\n\nmagick::image_read(here::here(\"media\", \"rstudio_noproject.png\"))\n\n\n\n\n\n\n\nFigure 4: RStudio Session A\n\n\n\n\n\n\n\n\n\nmagick::image_read(here::here(\"media\", \"rstudio_project.png\"))\n\n\n\n\n\n\n\nFigure 5: RStudio Session B\n\n\n\n\n\n\n\n\n\n\nmagick::image_read(here::here(\"media\", \"rproject_spot-the-diffs.png\"))\n\n\n\n\n\n\n\nFigure 6: How to tell if you’re in a project",
+    "crumbs": [
+      "D. Palleschi",
+      "Day 1: Reproducibility + RProjects",
+      "RProjects"
+    ]
   },
   {
     "objectID": "pages/rprojects.html#the-problem-with-setwd",
     "href": "pages/rprojects.html#the-problem-with-setwd",
     "title": "RProjects",
     "section": "The problem with setwd()",
-    "text": "The problem with setwd()\n\nIf the first line of your R script is\nsetwd(\"C:\\Users\\jenny\\path\\that\\only\\I\\have\")\nI will come into your office and SET YOUR COMPUTER ON FIRE🔥.\n\n— Jenny Bryan\n\nsetwd() depends on your entire machine’s folder structure\nsetwd() breaks when you\n\nsend your project folder to a collaborator\nmake your analyses open\nchange the location of your project folder\n\nusing slashes is also dependent on your operating system"
+    "text": "The problem with setwd()\n\nIf the first line of your R script is\nsetwd(\"C:\\Users\\jenny\\path\\that\\only\\I\\have\")\nI will come into your office and SET YOUR COMPUTER ON FIRE🔥.\n\n— Jenny Bryan\n\nsetwd() depends on your entire machine’s folder structure\nsetwd() breaks when you\n\nsend your project folder to a collaborator\nmake your analyses open\nchange the location of your project folder\n\nusing slashes is also dependent on your operating system",
+    "crumbs": [
+      "D. Palleschi",
+      "Day 1: Reproducibility + RProjects",
+      "RProjects"
+    ]
   },
   {
     "objectID": "pages/rprojects.html#the-benefit-of-here",
     "href": "pages/rprojects.html#the-benefit-of-here",
     "title": "RProjects",
     "section": "The benefit of here()",
-    "text": "The benefit of here()\n\nuses the top-level directory of your project as the working directory\ncan separate folder names with a comma"
+    "text": "The benefit of here()\n\nuses the top-level directory of your project as the working directory\ncan separate folder names with a comma",
+    "crumbs": [
+      "D. Palleschi",
+      "Day 1: Reproducibility + RProjects",
+      "RProjects"
+    ]
   },
   {
     "objectID": "pages/rprojects.html#section-3",
     "href": "pages/rprojects.html#section-3",
     "title": "RProjects",
     "section": "",
-    "text": "here\n\n\n\nLoad the dataset using here\n\nInstall here (e.g., install.packages(\"here\"))\nLoad here at the beginning of your package\n\nor use here:: before calling a function\n\nUse the here() function to load in your data\nInspect the dataset however you usually would (e.g., summary(), names(), etc.)\nSave your script"
+    "text": "here\n\n\n\nLoad the dataset using here\n\nInstall here (e.g., install.packages(\"here\"))\nLoad here at the beginning of your package\n\nor use here:: before calling a function\n\nUse the here() function to load in your data\nInspect the dataset however you usually would (e.g., summary(), names(), etc.)\nSave your script",
+    "crumbs": [
+      "D. Palleschi",
+      "Day 1: Reproducibility + RProjects",
+      "RProjects"
+    ]
   },
   {
     "objectID": "pages/rprojects.html#herehere",
     "href": "pages/rprojects.html#herehere",
     "title": "RProjects",
     "section": "here::here()",
-    "text": "here::here()\n\ninstall package\n\n\n\n\nIn the Console\n\ninstall.packages(\"here\")\n\n\n\nload package and call the here function\n\n\n# load package\nlibrary(here)\n\n# read in data\ndf_data &lt;- read.csv(here(\"data\", \"data_lifetime_pilot.csv\"))\n\n\nor directly call the here function without loading the package\n\n\n# read in data without loading here\ndf_data &lt;- read.csv(here::here(\"data\", \"data_lifetime_pilot.csv\"))\n\n\nnote that I stored the data with the prefix df_\n\ndf stands for dataframe\n\nI recommend using object-type defining prefixes for all objects in your Environment\n\ne.g., fit_ for models, fig_ for figures, sum_ for summaries, tbl_ for tables, etc."
+    "text": "here::here()\n\ninstall package\n\n\n\n\nIn the Console\n\ninstall.packages(\"here\")\n\n\n\nload package and call the here function\n\n\n# load package\nlibrary(here)\n\n# read in data\ndf_data &lt;- read.csv(here(\"data\", \"data_lifetime_pilot.csv\"))\n\n\nor directly call the here function without loading the package\n\n\n# read in data without loading here\ndf_data &lt;- read.csv(here::here(\"data\", \"data_lifetime_pilot.csv\"))\n\n\nnote that I stored the data with the prefix df_\n\ndf stands for dataframe\n\nI recommend using object-type defining prefixes for all objects in your Environment\n\ne.g., fit_ for models, fig_ for figures, sum_ for summaries, tbl_ for tables, etc.",
+    "crumbs": [
+      "D. Palleschi",
+      "Day 1: Reproducibility + RProjects",
+      "RProjects"
+    ]
   },
   {
     "objectID": "pages/rprojects.html#section-4",
     "href": "pages/rprojects.html#section-4",
     "title": "RProjects",
     "section": "",
-    "text": "Reproduce your analysis\n\n\n\n\nPerform some data exploration (e.g., with names(), summary(), dplyr::glimpse(), whatever you typically do)\nSave your script, then close RStudio/your Rproject.\nRe-open the project. Can you re-run the script?"
+    "text": "Reproduce your analysis\n\n\n\n\nPerform some data exploration (e.g., with names(), summary(), dplyr::glimpse(), whatever you typically do)\nSave your script, then close RStudio/your Rproject.\nRe-open the project. Can you re-run the script?",
+    "crumbs": [
+      "D. Palleschi",
+      "Day 1: Reproducibility + RProjects",
+      "RProjects"
+    ]
   },
   {
     "objectID": "pages/rprojects_slides.html#folder-structure",
