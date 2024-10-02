@@ -564,55 +564,95 @@
     "href": "pages/reproducibility.html",
     "title": "Reproducible analyses in R",
     "section": "",
-    "text": "Open Science Practices\nReproducibility: What it is and why/how to practice it\nConcepts for building a reproducible workflow"
+    "text": "Open Science Practices\nReproducibility: What it is and why/how to practice it\nConcepts for building a reproducible workflow",
+    "crumbs": [
+      "D. Palleschi",
+      "Day 1: Reproducibility + RProjects",
+      "Reproducible analyses in R"
+    ]
   },
   {
     "objectID": "pages/reproducibility.html#systemic-problem-in-science",
     "href": "pages/reproducibility.html#systemic-problem-in-science",
     "title": "Reproducible analyses in R",
     "section": "1.1 Systemic problem in science",
-    "text": "1.1 Systemic problem in science\n\nthe combination of\n\npublication bias\n\njournals favour novel, significant findings\n\npublish or perish\n\nresearchers’ careers depend on publications\n\n\ncan/does/did lead to:\n\nHARKing\n\nHypothesising After Results are Known\n\np-hacking\n\n(re-)running analyses until a significant effect is found\n\nreplication crisis\n\npervasive failure to replicate previous research"
+    "text": "1.1 Systemic problem in science\n\nthe combination of\n\npublication bias\n\njournals favour novel, significant findings\n\npublish or perish\n\nresearchers’ careers depend on publications\n\n\ncan/does/did lead to:\n\nHARKing\n\nHypothesising After Results are Known\n\np-hacking\n\n(re-)running analyses until a significant effect is found\n\nreplication crisis\n\npervasive failure to replicate previous research",
+    "crumbs": [
+      "D. Palleschi",
+      "Day 1: Reproducibility + RProjects",
+      "Reproducible analyses in R"
+    ]
   },
   {
     "objectID": "pages/reproducibility.html#how-to-practice-open-science",
     "href": "pages/reproducibility.html#how-to-practice-open-science",
     "title": "Reproducible analyses in R",
     "section": "1.2 How to practice Open Science",
-    "text": "1.2 How to practice Open Science\n\n\n\nFigure 1 shows some suggestions from Kathawalla et al. (2021)\nOpen Science is not all-or-nothing\nthere are things I consider the bare minimum\n\ndetailed experiment plan, ideally public\nopenly available materials (e.g., stimuli)\nshare code and data\n\nthe important thing is to do what you can\n\n\n\n\n\n\n\n\nWhich Open Science research practices in Figure 1 do you already practice? Are there any you’d like to start implementing?\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 1: Image source: Kathawalla et al. (2021) (all rights reserved)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nThe replication crisis\n\n\n\n\n\nThe replication crisis refers to the failure of many replication studies to replicate the findings of influential studies. The result of this “crisis” is a move towards Open Science Practices, which emphasise transparency along all stages of research (conception, planning, data collection, data cleaning, data analysis, reporting).\nThe issue became more widespread with the publication of Ioannidis (2005), entitled Most published research findigns are false. This paper defined bias in terms of design, analysis, and presentation factors with a focus on issues with p-values and statistical power. Since then there have been many replication attempts of influential (and lesser influential) papers. Strikingly, Open Science Collaboration (2015) reports 100 psychological studies run by 270 collaborators. They reported significant effects in only 36% of replications, with 47% of originally reported effects falling within 95% CIs of the replication effect. In essence: fewer significant findings and smaller effect sizes were found in replication studies compared to the original 100 studies Figure 2.\n\n\n\n\n\n\n\n\nFigure 2: Source: Open Science Collaboration (2015) (all rights reserved)"
+    "text": "1.2 How to practice Open Science\n\n\n\nFigure 1 shows some suggestions from Kathawalla et al. (2021)\nOpen Science is not all-or-nothing\nthere are things I consider the bare minimum\n\ndetailed experiment plan, ideally public\nopenly available materials (e.g., stimuli)\nshare code and data\n\nthe important thing is to do what you can\n\n\n\n\n\n\n\n\nWhich Open Science research practices in Figure 1 do you already practice? Are there any you’d like to start implementing?\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 1: Image source: Kathawalla et al. (2021) (all rights reserved)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nThe replication crisis\n\n\n\n\n\nThe replication crisis refers to the failure of many replication studies to replicate the findings of influential studies. The result of this “crisis” is a move towards Open Science Practices, which emphasise transparency along all stages of research (conception, planning, data collection, data cleaning, data analysis, reporting).\nThe issue became more widespread with the publication of Ioannidis (2005), entitled Most published research findigns are false. This paper defined bias in terms of design, analysis, and presentation factors with a focus on issues with p-values and statistical power. Since then there have been many replication attempts of influential (and lesser influential) papers. Strikingly, Open Science Collaboration (2015) reports 100 psychological studies run by 270 collaborators. They reported significant effects in only 36% of replications, with 47% of originally reported effects falling within 95% CIs of the replication effect. In essence: fewer significant findings and smaller effect sizes were found in replication studies compared to the original 100 studies Figure 2.\n\n\n\n\n\n\n\n\nFigure 2: Source: Open Science Collaboration (2015) (all rights reserved)",
+    "crumbs": [
+      "D. Palleschi",
+      "Day 1: Reproducibility + RProjects",
+      "Reproducible analyses in R"
+    ]
   },
   {
     "objectID": "pages/reproducibility.html#what-is-reproducibility",
     "href": "pages/reproducibility.html#what-is-reproducibility",
     "title": "Reproducible analyses in R",
     "section": "2.1 What is reproducibility?",
-    "text": "2.1 What is reproducibility?\n\none piece of the Open Science pie\ngenerating the same results with the same data and analysis scripts\nseems obvious, but requires organisation and forethought before and during data collection/analysis\nbare minimum: share the code and the data (Laurinavichyute et al., 2022)\n\n\nReproducibility vs. replication\n\nthe two terms have been used interchangably in the past (e.g., in the title of Open Science Collaboration, 2015)\n\nwe’ll define them as follows (and this is becoming the standard distinction, imo)\n\n\n\n\nReproducibility\n\nre-analysing the same data using (ideally) the same scripts, software…\naim: produce the same results (means, model estimates, etc.)\nwhy: tests for errors, coding mistakes, biases, etc.\n\n\nReplication\n\nre-running a previous experiment, ideally with the same materials, set-up…\n\nideally the same analysis workflow as the original study (i.e., like reproducing the analyses but with new data)\n\naim: test whether results are replicated with new data in terms of direction and magnitude\n\n\n\n\nin short:\n\nreproducibility = re-analysis of the same data\nreplication = collection of new data"
+    "text": "2.1 What is reproducibility?\n\none piece of the Open Science pie\ngenerating the same results with the same data and analysis scripts\nseems obvious, but requires organisation and forethought before and during data collection/analysis\nbare minimum: share the code and the data (Laurinavichyute et al., 2022)\n\n\nReproducibility vs. replication\n\nthe two terms have been used interchangably in the past (e.g., in the title of Open Science Collaboration, 2015)\n\nwe’ll define them as follows (and this is becoming the standard distinction, imo)\n\n\n\n\nReproducibility\n\nre-analysing the same data using (ideally) the same scripts, software…\naim: produce the same results (means, model estimates, etc.)\nwhy: tests for errors, coding mistakes, biases, etc.\n\n\nReplication\n\nre-running a previous experiment, ideally with the same materials, set-up…\n\nideally the same analysis workflow as the original study (i.e., like reproducing the analyses but with new data)\n\naim: test whether results are replicated with new data in terms of direction and magnitude\n\n\n\n\nin short:\n\nreproducibility = re-analysis of the same data\nreplication = collection of new data",
+    "crumbs": [
+      "D. Palleschi",
+      "Day 1: Reproducibility + RProjects",
+      "Reproducible analyses in R"
+    ]
   },
   {
     "objectID": "pages/reproducibility.html#why-implement-reproducibility-in-my-workflow",
     "href": "pages/reproducibility.html#why-implement-reproducibility-in-my-workflow",
     "title": "Reproducible analyses in R",
     "section": "2.2 Why implement reproducibility in my workflow?",
-    "text": "2.2 Why implement reproducibility in my workflow?\n\nfirstly: the help future you (or collaborators/other researchers)!\n\nyou may return to your analyses tomorrow, next month, or next year\n\nto ensure robustness and to document your steps\n\n‘researcher degrees of freedom’ and the ‘garden of forking paths’: there’s more than one way to analyse a certain dataset\nwe can try to plan ahead in detail (e.g., pre-reigster your analysis plan), but there will always be decisions made that were not foreseen\n\nlastly: it makes your life much easier and streamlines your workflow"
+    "text": "2.2 Why implement reproducibility in my workflow?\n\nfirstly: the help future you (or collaborators/other researchers)!\n\nyou may return to your analyses tomorrow, next month, or next year\n\nto ensure robustness and to document your steps\n\n‘researcher degrees of freedom’ and the ‘garden of forking paths’: there’s more than one way to analyse a certain dataset\nwe can try to plan ahead in detail (e.g., pre-reigster your analysis plan), but there will always be decisions made that were not foreseen\n\nlastly: it makes your life much easier and streamlines your workflow",
+    "crumbs": [
+      "D. Palleschi",
+      "Day 1: Reproducibility + RProjects",
+      "Reproducible analyses in R"
+    ]
   },
   {
     "objectID": "pages/reproducibility.html#how-to-implement-reproducibility",
     "href": "pages/reproducibility.html#how-to-implement-reproducibility",
     "title": "Reproducible analyses in R",
     "section": "2.3 How to implement reproducibility?",
-    "text": "2.3 How to implement reproducibility?\n\nnot exactly straightforward\n\nthere are degrees of reproducibility\nthe rest of our time will be spent on this topic\n\nsharing code and data is a first step\n\nthink of the FAIR principles of data sharing\napply them to sharing analyses as well\n\n\n\nPractice FAIR principles\n\n\nguidelines for sharing digital resources\nrefers broadly to (meta)data, let’s extend them to analysis code\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 3: Source: National Library of Medicine (all rights reserved)\n\n\n\n\n\n\n\nfindable and accessible: where materials are stored\n\nin findable repositories\nthat are accessible, i.e., do not require an account\n\ninteroperable and reusable: format of data (and code)\n\nthe importance of future use\nand use beyond your precise computational environment\n\n\n\n\n\n\nConduct a code review\n\na great way to test the FAIR principles\n\ncode review!\ni.e., have a colleague try to access your data/run your code\n\neither via an online repository\nor send them your project folder\n\n\n\n\n\nThe reproducibility spectrum\n\nreproducibility is on a continuum, referred to as the reproducibility spectrum in Peng (2011) (Figure 4)\n\nlinked means “all data, metadata, and code [is] stored and linked with each other and with corresponding publications” (Peng, 2011, p. 1227)\nexecutable is not explained, and is more difficult to guarantee long-term as it depends on software versions\nbut at minimum we can assume it refers to code running on someone else’s machine\n\n\n\n\n\n\n\n\n\n\n\nFigure 4: Source: Peng (2011)\n\n\n\n\n\n\n\n\nShare the code, not just the data\n\nWhy?\n\nkey details are often missing from ‘Methods’ sections\n\nsuggestions for researchers from Laurinavichyute et al. (2022)\n\n\n\n\nShare data in usable form\n\nwith pre-processing code\n\nUse publicly accessible repositories\n\ne.g., OSF\n\nUse non-proprietary data formats\n\ne.g., not .xls files (Excel)\n\n\n\n\nProvide documentation\n\ne.g., README, data dictionaries\n\nShare code and data\n\nthey estimate a 38% increase in reproducibility\n\nTeach data management and computing skills\n\nthat’s what this workshop is for!\n\n\n\n\n\n\nData and code \\(\\neq\\) Reproducibility\n\naccess to data and code does not mean analyses are reproducible\nwhat can go wrong? Examples from Laurinavichyute et al. (2022)\n\n\n\n\nData problems\n\ninaccessible data\nincomplete data (e.g., 2/3 experiments)\n\nCode problems\n\nincomplete code\nerror messages\ncode rot: outdated syntax or environment\nproprietary software\n\n\n\n\nDocumentation problems\n\ndata difficult to interpret\nno README file/data dictionary\nunclear folder/file/variable naming convention\nmanuscript contradicts code\n\nUnclear terms of use\n\nno licence specification\n\n\n\n\n\n\nWhat should (ideally) be shared?\n\n\n\nmaterials\n\nprotocols\nstimuli\nexperiment set-up\n\ndocumentation\n\nREADME\nmetadata\n\n\n\n\ndata\n\nraw\n\ne.g., text files, audio, video, or images\n\nprocessed\n\nanalysis code\n\npre-processing\nanalyses\n\n\n\n\n\n\n\nmaterials are helpful for replication\n\nbut also for inspection of e.g., design\n\n\n\n\ndata and code are necessary for reproducibility\n\nalong with proper documentation of software used"
+    "text": "2.3 How to implement reproducibility?\n\nnot exactly straightforward\n\nthere are degrees of reproducibility\nthe rest of our time will be spent on this topic\n\nsharing code and data is a first step\n\nthink of the FAIR principles of data sharing\napply them to sharing analyses as well\n\n\n\nPractice FAIR principles\n\n\nguidelines for sharing digital resources\nrefers broadly to (meta)data, let’s extend them to analysis code\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 3: Source: National Library of Medicine (all rights reserved)\n\n\n\n\n\n\n\nfindable and accessible: where materials are stored\n\nin findable repositories\nthat are accessible, i.e., do not require an account\n\ninteroperable and reusable: format of data (and code)\n\nthe importance of future use\nand use beyond your precise computational environment\n\n\n\n\n\n\nConduct a code review\n\na great way to test the FAIR principles\n\ncode review!\ni.e., have a colleague try to access your data/run your code\n\neither via an online repository\nor send them your project folder\n\n\n\n\n\nThe reproducibility spectrum\n\nreproducibility is on a continuum, referred to as the reproducibility spectrum in Peng (2011) (Figure 4)\n\nlinked means “all data, metadata, and code [is] stored and linked with each other and with corresponding publications” (Peng, 2011, p. 1227)\nexecutable is not explained, and is more difficult to guarantee long-term as it depends on software versions\nbut at minimum we can assume it refers to code running on someone else’s machine\n\n\n\n\n\n\n\n\n\n\n\nFigure 4: Source: Peng (2011)\n\n\n\n\n\n\n\n\nShare the code, not just the data\n\nWhy?\n\nkey details are often missing from ‘Methods’ sections\n\nsuggestions for researchers from Laurinavichyute et al. (2022)\n\n\n\n\nShare data in usable form\n\nwith pre-processing code\n\nUse publicly accessible repositories\n\ne.g., OSF\n\nUse non-proprietary data formats\n\ne.g., not .xls files (Excel)\n\n\n\n\nProvide documentation\n\ne.g., README, data dictionaries\n\nShare code and data\n\nthey estimate a 38% increase in reproducibility\n\nTeach data management and computing skills\n\nthat’s what this workshop is for!\n\n\n\n\n\n\nData and code \\(\\neq\\) Reproducibility\n\naccess to data and code does not mean analyses are reproducible\nwhat can go wrong? Examples from Laurinavichyute et al. (2022)\n\n\n\n\nData problems\n\ninaccessible data\nincomplete data (e.g., 2/3 experiments)\n\nCode problems\n\nincomplete code\nerror messages\ncode rot: outdated syntax or environment\nproprietary software\n\n\n\n\nDocumentation problems\n\ndata difficult to interpret\nno README file/data dictionary\nunclear folder/file/variable naming convention\nmanuscript contradicts code\n\nUnclear terms of use\n\nno licence specification\n\n\n\n\n\n\nWhat should (ideally) be shared?\n\n\n\nmaterials\n\nprotocols\nstimuli\nexperiment set-up\n\ndocumentation\n\nREADME\nmetadata\n\n\n\n\ndata\n\nraw\n\ne.g., text files, audio, video, or images\n\nprocessed\n\nanalysis code\n\npre-processing\nanalyses\n\n\n\n\n\n\n\nmaterials are helpful for replication\n\nbut also for inspection of e.g., design\n\n\n\n\ndata and code are necessary for reproducibility\n\nalong with proper documentation of software used",
+    "crumbs": [
+      "D. Palleschi",
+      "Day 1: Reproducibility + RProjects",
+      "Reproducible analyses in R"
+    ]
   },
   {
     "objectID": "pages/reproducibility.html#reproducibility-rates-in-linguistic-research",
     "href": "pages/reproducibility.html#reproducibility-rates-in-linguistic-research",
     "title": "Reproducible analyses in R",
     "section": "3.1 Reproducibility rates in linguistic research",
-    "text": "3.1 Reproducibility rates in linguistic research\n\n\n\n\n\n\n\n\n\n\nFigure 5: Source: Bochynska et al. (2023), p. 11 (all rights reserved)\n\n\n\n\n\n\n\nmeta-analysis of 519 randomly sampled articles from various linguistic journales\n\npre- and post-reproducibility crisis (2008/9, 2018/19) (Bochynska et al., 2023)\ndifferentiated between primary (collected for study) and secondary (pre-existing) data\n\nreported a post-RC increase in shared materials, data, and analyses\n\nbut still low rates of each\n\nhigher rates of secondary data sharing, presumably due to publicly available corpora\ndata shared more often than analyses, pre- and post-RC"
+    "text": "3.1 Reproducibility rates in linguistic research\n\n\n\n\n\n\n\n\n\n\nFigure 5: Source: Bochynska et al. (2023), p. 11 (all rights reserved)\n\n\n\n\n\n\n\nmeta-analysis of 519 randomly sampled articles from various linguistic journales\n\npre- and post-reproducibility crisis (2008/9, 2018/19) (Bochynska et al., 2023)\ndifferentiated between primary (collected for study) and secondary (pre-existing) data\n\nreported a post-RC increase in shared materials, data, and analyses\n\nbut still low rates of each\n\nhigher rates of secondary data sharing, presumably due to publicly available corpora\ndata shared more often than analyses, pre- and post-RC",
+    "crumbs": [
+      "D. Palleschi",
+      "Day 1: Reproducibility + RProjects",
+      "Reproducible analyses in R"
+    ]
   },
   {
     "objectID": "pages/reproducibility.html#journal-of-memory-and-language",
     "href": "pages/reproducibility.html#journal-of-memory-and-language",
     "title": "Reproducible analyses in R",
     "section": "3.2 Journal of Memory and Language",
-    "text": "3.2 Journal of Memory and Language\n\nmeta-analysis of articles from JML (Laurinavichyute et al., 2022)\n\nbefore and after an Open Science Policy was introduced in 2019\n\n\n\n\n\n\n\n\n\n\nFigure 6: Source: Laurinavichyute et al. (2022), p. 5 (all rights reserved)\n\n\n\n\n\n\ncode and data availability improved\nbut reproducibility rate ranged from 34-56%, depending on criteria\nhigher rates compared to field-wide meta-analysis (Bochynska et al., 2023)"
+    "text": "3.2 Journal of Memory and Language\n\nmeta-analysis of articles from JML (Laurinavichyute et al., 2022)\n\nbefore and after an Open Science Policy was introduced in 2019\n\n\n\n\n\n\n\n\n\n\nFigure 6: Source: Laurinavichyute et al. (2022), p. 5 (all rights reserved)\n\n\n\n\n\n\ncode and data availability improved\nbut reproducibility rate ranged from 34-56%, depending on criteria\nhigher rates compared to field-wide meta-analysis (Bochynska et al., 2023)",
+    "crumbs": [
+      "D. Palleschi",
+      "Day 1: Reproducibility + RProjects",
+      "Reproducible analyses in R"
+    ]
   }
 ]
