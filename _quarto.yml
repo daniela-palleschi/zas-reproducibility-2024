@@ -1,0 +1,100 @@
+project:
+  type: website
+
+website:
+  title: "Reproducible Analyses in R (ZAS Workshop)"
+  twitter-card: true
+  navbar:
+    right:
+      - icon: home
+        href: https://daniela-palleschi.github.io/
+        text: D. Palleschi
+      - icon: github
+        href: https://github.com/daniela-palleschi/zas-reproducibility-2024
+        aria-label: Source Code
+      - icon: life-preserver
+        href: https://osf.io/vtk2q/
+        aria-label: OSF materials
+  sidebar:
+    style: "docked"
+    collapse-level: 1
+    search: true
+    contents:
+    - index.qmd
+    - section: "Day 1: Reproducibility + RProjects"
+      contents:
+        - reproducibility.qmd
+        - R-workflow.qmd
+        - rprojects.qmd
+    - section: "Day 2: Package management"
+      contents:
+      - literate_programming.qmd
+      - pkg_management.qmd
+
+    # - references.qmd
+# 
+# 
+  
+
+# bibliography: references.bib
+# csl: apa.csl
+
+crossref:
+  exm-prefix: ex.   # (default is "Figure")
+  # labels: alpha a        # (default is arabic)
+  # subref-labels: alpha t # (default is alpha a)
+
+format:
+  html:
+    theme:
+      light: 
+        - flatly
+        - custom.scss
+      dark: darkly
+    code-tools: true
+    # css: styles.css
+    toc: true
+    # include-after-body: custom.html
+    page-layout: full
+    embed-resources: false
+  revealjs:
+    logo: ZAS_Marke-Lang_weiss.svg
+    theme: [simple, zas-footer.scss]
+    link-external-newwindow: true
+    sc-sb-title: true
+    code-overflow: wrap
+    width: 1600
+    height: 900
+    progress: true
+    scrollable: true
+    slide-number: c/t
+    code-link: true
+    incremental: true
+    toc: false
+    toc-depth: 2
+    toc-title: 'Overview'
+    navigation-mode: linear
+    controls-layout: bottom-right
+    fig-cap-location: top
+    font-size: 0.6em
+    slide-level: 4
+    embed-resources: false
+    fig-align: center
+    fig-dpi: 300
+    simplemenu:
+        barhtml:
+            header: "<div class='menubar'></a><ul class='menu'></ul><div class='slide-number'></div><div>"
+        scale: 0.5
+revealjs-plugins:
+  - simplemenu # https://github.com/Martinomagnifico/quarto-simplemenu
+execute:
+  eval: true
+  echo: true
+  message: false
+  error: false
+  warning: false
+  fig-align: "center"
+  fig-asp: .618
+
+
+
