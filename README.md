@@ -1,6 +1,6 @@
 # zas-reproducibility-2024
 
-Materials/website mat's for a two-part workshop on reproducibility given at the ZAS in October 2024 by Daniela Palleschi. Website can be viewed at: [https://github.com/daniela-palleschi/zas-reproducibility-2024](https://github.com/daniela-palleschi/zas-reproducibility-2024)
+Materials/website mat's for a two-part workshop on reproducibility given at the ZAS in October 2024 by Daniela Palleschi. Website can be viewed at: [https://daniela-palleschi.github.io/zas-reproducibility-2024/](https://daniela-palleschi.github.io/zas-reproducibility-2024/)
 
 ## Schedule
 
