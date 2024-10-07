@@ -4,7 +4,7 @@
     "href": "pages/literate_programming.html",
     "title": "Writing Reproducible Code",
     "section": "",
-    "text": "learn about literate programming and modular analyses\ncreate and render a dynamic report with Quarto\nload data using here",
+    "text": "modular analyses and literate programming\ncreate and render a dynamic report with Quarto\ndocumenting your dependencies",
     "crumbs": [
       "D. Palleschi",
       "Day 2",
@@ -15,8 +15,8 @@
     "objectID": "pages/literate_programming.html#writing-linear-code",
     "href": "pages/literate_programming.html#writing-linear-code",
     "title": "Writing Reproducible Code",
-    "section": "Writing linear code",
-    "text": "Writing linear code\n\nyou need to load a package before you call a function from it\n\nif we’re just working in an R session, before means temporally prior\nwith linear code, before means higher up in the script\n\nsuch pre-requisite code must\n\nbe present in the script\nappear above the first line of code that uses a function from this package\n\nmissing pre-requisite code might not throw an error message\n\nbut might produce output we aren’t expecting\ne.g., forgetting to filter out certain observations\nor forgetting that some observations have been filtered out",
+    "section": "3.1 Writing linear code",
+    "text": "3.1 Writing linear code\n\nyou need to load a package before you call a function from it\n\nif we’re just working in an R session, before means temporally prior\nwith linear code, before means higher up in the script\n\nsuch pre-requisite code must\n\nbe present in the script\nappear above the first line of code that uses a function from this package\n\nmissing pre-requisite code might not throw an error message\n\nbut might produce output we aren’t expecting\ne.g., forgetting to filter out certain observations\nor forgetting that some observations have been filtered out",
     "crumbs": [
       "D. Palleschi",
       "Day 2",
@@ -27,8 +27,8 @@
     "objectID": "pages/literate_programming.html#literate-programming",
     "href": "pages/literate_programming.html#literate-programming",
     "title": "Writing Reproducible Code",
-    "section": "Literate programming",
-    "text": "Literate programming\n\nInstead of imagining that our main task is to instruct a computer what to do, let us concentrate rather on explaining to human beings what we want a computer to do.\n\n— Knuth (1984), p. 97\n\nrefers to writing and documenting our code so that humans can understand it\n\nimportant for us: we are (generally) not professional programmers, nor are our peers\n\nwe need to not only know what our code is doing when we look back at it in the future/share it\nthe easiest way: informative comments\n\nthe length and frequency of these comments is your choice",
+    "section": "3.2 Literate programming",
+    "text": "3.2 Literate programming\n\nInstead of imagining that our main task is to instruct a computer what to do, let us concentrate rather on explaining to human beings what we want a computer to do.\n\n— Knuth (1984), p. 97\n\nrefers to writing and documenting our code so that humans can understand it\n\nimportant for us: we are (generally) not professional programmers, nor are our peers\n\nwe need to not only know what our code is doing when we look back at it in the future/share it\nthe easiest way: informative comments\n\nthe length and frequency of these comments is your choice",
     "crumbs": [
       "D. Palleschi",
       "Day 2",
@@ -39,8 +39,8 @@
     "objectID": "pages/literate_programming.html#example-r-script-1",
     "href": "pages/literate_programming.html#example-r-script-1",
     "title": "Writing Reproducible Code",
-    "section": "Example R script",
-    "text": "Example R script\n#| eval: false\n#| echo: true\n#| code-fold: false\n#| code-summary: \"Example\"\n\n# Analysis script for phoneme paper\n# author: Joe DiMaggio\n# date: Feb. 29, 2024\n# purpose: analyse cleaned dataset\n\n# Set-up ###\n\n# load required packages\nlibrary(dplyr) # data wrangling\nlibrary(readr) # loding data\nlibrary(here) # project-relative file path\n\n# Load-in data\ndf_phon &lt;- read_csv(here(\"data\", \"phoneme_tidy_data.csv\"))\n\n# Explore data ###\nsummary(df_phone)\n\nbegins with some meta-information about the document, including its purpose\n\naids in knowing which scripts to run in which sequence\n\nthere are three hashtags after some headings (###)\n\nthis is helpful because it structures the outline of the document in RStudio\n\nthe purpose of chunks of code are written above\n\ndescription of specific lines of code are also given",
+    "section": "3.3 Example R script",
+    "text": "3.3 Example R script\n#| eval: false\n#| echo: true\n#| code-fold: false\n#| code-summary: \"Example\"\n\n# Analysis script for phoneme paper\n# author: Joe DiMaggio\n# date: Feb. 29, 2024\n# purpose: analyse cleaned dataset\n\n# Set-up ###\n\n# load required packages\nlibrary(dplyr) # data wrangling\nlibrary(readr) # loding data\nlibrary(here) # project-relative file path\n\n# Load-in data\ndf_phon &lt;- read_csv(here(\"data\", \"phoneme_tidy_data.csv\"))\n\n# Explore data ###\nsummary(df_phone)\n\nbegins with some meta-information about the document, including its purpose\n\naids in knowing which scripts to run in which sequence\n\nthere are three hashtags after some headings (###)\n\nthis is helpful because it structures the outline of the document in RStudio\n\nthe purpose of chunks of code are written above\n\ndescription of specific lines of code are also given",
     "crumbs": [
       "D. Palleschi",
       "Day 2",
@@ -51,8 +51,8 @@
     "objectID": "pages/literate_programming.html#yaml",
     "href": "pages/literate_programming.html#yaml",
     "title": "Writing Reproducible Code",
-    "section": "YAML",
-    "text": "YAML\n\nthe section at the very top fenced by ---\ncontains all the meta information about your document\n\ne.g. title, author name, date\nalso formatting information, e.g. type of output file\n\nthere are many document formatting and customisation options that we won’t cover in this course\nbut for example I have many YAML formatting options in the source code of my slides\n\n\n---\ntitle: \"My title\"\n---\n\n\n\n\n\n\n\nYAML\n\n\n\n\n\nchange the title if you want to do so.\nguess how to add a subtitle (hint: it is similar to adding a title)\nadd an author, author: ‘firstname lastname’ (see example below)\nadd a table of contents (Table of Contents = toc) by changing format so that it looks like this:\n\n\n---\ntitle: \"Dynamic reports\"\nauthor: \"Daniela Palleschi\"\nformat:\n  pdf:\n    toc: true\n---\n\n\nRender the document. Do you see the changes?",
+    "section": "4.1 YAML",
+    "text": "4.1 YAML\n\nthe section at the very top fenced by ---\ncontains all the meta information about your document\n\ne.g. title, author name, date\nalso formatting information, e.g. type of output file\n\nthere are many document formatting and customisation options that we won’t cover in this course\nbut for example I have many YAML formatting options in the source code of my slides\n\n\n---\ntitle: \"My title\"\n---\n\n\n\n\n\n\n\nYAML\n\n\n\n\n\nchange the title if you want to do so.\nguess how to add a subtitle (hint: it is similar to adding a title)\nadd an author, author: ‘firstname lastname’ (see example below)\nadd a table of contents (Table of Contents = toc) by changing format so that it looks like this:\n\n\n---\ntitle: \"Dynamic reports\"\nauthor: \"Daniela Palleschi\"\nformat:\n  pdf:\n    toc: true\n---\n\n\nRender the document. Do you see the changes?",
     "crumbs": [
       "D. Palleschi",
       "Day 2",
@@ -63,8 +63,8 @@
     "objectID": "pages/literate_programming.html#structure-your-reports",
     "href": "pages/literate_programming.html#structure-your-reports",
     "title": "Writing Reproducible Code",
-    "section": "Structure your reports",
-    "text": "Structure your reports\n\nremember to use (sub-)headings (e.g., # Set-up)\ndescribe the function/purpose at the beginning of the script\ndocument your train of thought and findings throughout the script\n\ne.g., why are you producing this plot, what does it tell you?\n\ngive an overview of the findings/end result at the end\nit’s wise to avoid very long, multi-purpose scripts\n\nrule of thumb: one script per product or purpose\ne.g., data cleaning, exploration, analysis, publication figures, etc.",
+    "section": "4.2 Structure your reports",
+    "text": "4.2 Structure your reports\n\nremember to use (sub-)headings (e.g., # Set-up)\ndescribe the function/purpose at the beginning of the script\ndocument your train of thought and findings throughout the script\n\ne.g., why are you producing this plot, what does it tell you?\n\ngive an overview of the findings/end result at the end\nit’s wise to avoid very long, multi-purpose scripts\n\nrule of thumb: one script per product or purpose\ne.g., data cleaning, exploration, analysis, publication figures, etc.",
     "crumbs": [
       "D. Palleschi",
       "Day 2",
@@ -75,8 +75,8 @@
     "objectID": "pages/literate_programming.html#code-chunks",
     "href": "pages/literate_programming.html#code-chunks",
     "title": "Writing Reproducible Code",
-    "section": "Code chunks",
-    "text": "Code chunks\n\nthe main benefit of dynamic reports: combining text with code (and code output)\nR code goes in code chunks:\n\n\n```{r}\n2+2\n```\n\n[1] 4\n\n\n\nto add a code chunk: Code &gt; Insert Chunk\n\nor use the keyboard shortcut: Cmd+Opt+I (Mac) / Ctrl+Alt+I (Windows)\n\n\n\n\n\n\n\n\nAdding structure and code chunks\n\n\n\n\n\nUse the example R script above to create a structured document\n\nuse headings (#) and subheadings (##) accordingly\n\nLoad in our dataset in a code chunk\nRender the document. Do you see the changes?",
+    "section": "4.3 Code chunks",
+    "text": "4.3 Code chunks\n\nthe main benefit of dynamic reports: combining text with code (and code output)\nR code goes in code chunks:\n\n\n```{r}\n2+2\n```\n\n[1] 4\n\n\n\nto add a code chunk: Code &gt; Insert Chunk\n\nor use the keyboard shortcut: Cmd+Opt+I (Mac) / Ctrl+Alt+I (Windows)\n\n\n\n\n\n\n\n\nAdding structure and code chunks\n\n\n\n\n\nUse the example R script above to create a structured document\n\nuse headings (#) and subheadings (##) accordingly\n\nLoad in our dataset in a code chunk\nRender the document. Do you see the changes?",
     "crumbs": [
       "D. Palleschi",
       "Day 2",
@@ -87,8 +87,8 @@
     "objectID": "pages/literate_programming.html#session-info",
     "href": "pages/literate_programming.html#session-info",
     "title": "Writing Reproducible Code",
-    "section": "Session info",
-    "text": "Session info\n\nso, print your session info at the end of every script\n\nthis will print your R version, package versions, and more\n\n\n\nsessionInfo()",
+    "section": "5.1 Session info",
+    "text": "5.1 Session info\n\nso, print your session info at the end of every script\n\nthis will print your R version, package versions, and more\n\n\n\nsessionInfo()",
     "crumbs": [
       "D. Palleschi",
       "Day 2",
@@ -150,6 +150,743 @@
     "title": "Writing Reproducible Code",
     "section": "Session info",
     "text": "Session info\n\nso, print your session info at the end of every script\n\nthis will print your R version, package versions, and more\n\n\n\n\nsessionInfo()"
+  },
+  {
+    "objectID": "pages/packages.html",
+    "href": "pages/packages.html",
+    "title": "Package management",
+    "section": "",
+    "text": "Today we will…\n\nlearn about R package repositories\nlearn how package dependencies can break code\nuse the renv package to create and maintain a project-relative package library"
+  },
+  {
+    "objectID": "pages/packages.html#cran-packages",
+    "href": "pages/packages.html#cran-packages",
+    "title": "Package management",
+    "section": "1.1 CRAN packages",
+    "text": "1.1 CRAN packages\n\nthe Comprehensive R Archive Network: R’s central software repository\n\ncurrently 20,888 available!\n\nan archive of the most recent package versions\nfor a package to be included in the CRAN, it must go through a lot of tests and checks\n\nany updates or changes must again be reviewed before being added to CRAN\n\nCRAN packages can be installed using install.packages(), as we’ve been doing\n\n\n\n\n\n\n\npacman package (optional)\n\n\n\n\n\na package management tool\nwe’ll use the p_load() function to replace install.packages() and library() in our worksflow\n\ntakes a list of packages, and checks if each package is installed already\nif yes, the package is loaded (as with library())\nif no, the package is installed (as with install.packages()) and then loaded (as with library())\n\nonly works with CRAN packages (which is all we have for now anyway), although pacman has a function for developer packages (which we’ll talk about later)\n\nTo get started: install pacman (install.packages(\"pacman\")). Then, you can load in your packages using pacman::p_load(), or with a long list of library() calls like we’ve previously done (you see why I prefer p_load()!).\n\n\n\n\n\nLoading packages with `pacman::p_load()`\n\npacman::p_load(tidyverse, here, janitor)\n\n\n\n\n\n\nLoading packages with `library()`\n\nlibrary(tidyverse)\nlibrary(here)\nlibrary(janitor)\n\n\n\n\nThe additional benefit of p_load() is that, if you don’t actually have one of the packages installed it will automatically be installed and then loaded. With library() you would instead get an error message."
+  },
+  {
+    "objectID": "pages/packages.html#developer-packages",
+    "href": "pages/packages.html#developer-packages",
+    "title": "Package management",
+    "section": "1.2 Developer packages",
+    "text": "1.2 Developer packages\n\noften hosted on GitHub or GitLab, where packages are typically developed before being reviewed and added to the CRAN\n\nbenefit: you can make whatever you changes to your package that you like without having to pass a review on the CRAN\n\nsince CRAN packages are often developed on GH or GL, pre-release (beta) versions will often be available on a GH repo\npackages/package versions on GH cannot be installed via install.packages()\n\nwe’ll see later how to do this"
+  },
+  {
+    "objectID": "pages/packages.html#dependencies",
+    "href": "pages/packages.html#dependencies",
+    "title": "Package management",
+    "section": "1.3 Dependencies",
+    "text": "1.3 Dependencies\n\nsome packages are dependent on specific versions of other packages\n\nif so, you will be prompted during installation to install these dependencies\nbut beware: sometimes this overwrites an existing package version you already have, which can break code that was written with this older version\n\nthis is especially true because, as our projects are currently set up, we have one global package version on our computer\n\nso analyses we ran 3 years ago would’ve used older versions of packages\nwhen we update these packages for current analyses, this might disrupt the code from 3 years ago\n\nwe’ll see one (partial) solution for this problem soon"
+  },
+  {
+    "objectID": "pages/packages.html#updating-packages",
+    "href": "pages/packages.html#updating-packages",
+    "title": "Package management",
+    "section": "2.1 Updating packages",
+    "text": "2.1 Updating packages\n\nto check if a package needs updating, you can:\n\ngo to Tools &gt; Check for package updates, or\nrun update.packages()\n\neach will tell you which packages can be updated to which versions\n\nand give you the option of updating these packages"
+  },
+  {
+    "objectID": "pages/packages.html#package-library",
+    "href": "pages/packages.html#package-library",
+    "title": "Package management",
+    "section": "2.2 Package library",
+    "text": "2.2 Package library\n\nwhere do all these installed packages go?\n\na folder that contains all the packages, called a library\n\nto find out where this (global) package library is, run .libPaths()\n\n\n.libPaths()\n\n\nthe output should currently produce a single file path, something like:\n\n&gt; .libPaths()\n[1] \"/Library/Frameworks/R.framework/Versions/4.4-arm64/Resources/library\"\n\nthis is the location of your global package library"
+  },
+  {
+    "objectID": "pages/packages.html#package-versions-and-reproducibility",
+    "href": "pages/packages.html#package-versions-and-reproducibility",
+    "title": "Package management",
+    "section": "2.3 Package versions and reproducibility",
+    "text": "2.3 Package versions and reproducibility\n\nwe’ve seen that package versions and dependencies can easily break our existing code\nthis means that older projects that were built using previous package versions won’t be able to run if we update these packages in our global package library\n\nalso a problem in the future: our current code will depend on the package versions we’re using today\n\nwe need a project-relative package library that is independent of the global library\n\nwe’ll use the renv package to do this"
+  },
+  {
+    "objectID": "pages/packages.html#limits-of-renv",
+    "href": "pages/packages.html#limits-of-renv",
+    "title": "Package management",
+    "section": "3.1 Limits of renv",
+    "text": "3.1 Limits of renv\nrenv…\n\n\n…can\n\nkeep track of packages and their versions\ncreate a project-specific library per R version\nautomatically load/install these package versions\n\n\n…cannot\n\nmake a project reproducible across all computational environments\nload/install package versions that are incompatible with current R versions or computational environments\nguarantee full long-term reproduciblity"
+  },
+  {
+    "objectID": "pages/packages.html#renv-workflow",
+    "href": "pages/packages.html#renv-workflow",
+    "title": "Package management",
+    "section": "3.2 renv workflow",
+    "text": "3.2 renv workflow\n\nFigure 1 visualises a project workflow with renv\nnext we’ll see how we use these functions to set-up and maintain a project-specific package library\n\n\n\n\n\n\n\n\n\nFigure 1: Source: CRAN vignette ‘Introduction to renv’ (all rights reserved)"
+  },
+  {
+    "objectID": "pages/packages.html#new-files",
+    "href": "pages/packages.html#new-files",
+    "title": "Package management",
+    "section": "4.1 New files",
+    "text": "4.1 New files\n\nrenv::init() creates three new files or directories\n\nrenv.lock\nrenv/\n.Rprofile\n\nexplore these files/folders and see if you can figure out what they contain"
+  },
+  {
+    "objectID": "pages/packages.html#renv.lock",
+    "href": "pages/packages.html#renv.lock",
+    "title": "Package management",
+    "section": "4.2 renv.lock",
+    "text": "4.2 renv.lock\n\ncontains metadata about the packages and their versions that you have installed\n\nthis is enough metadata to re-install these package versions on a new machine\n\ntwo main components:\n\nR: info on R version and list of repositories where packages were installed from\nPackages: a record per package with necessary info for re-installation"
+  },
+  {
+    "objectID": "pages/packages.html#renv-1",
+    "href": "pages/packages.html#renv-1",
+    "title": "Package management",
+    "section": "4.3 renv/",
+    "text": "4.3 renv/\n\nimportantly, contains your project-relative library/\n\nthis is instead of using the one library on your computer\n\nprovides us with “isolation”: the package versions used in an R Project is independent of the global library\n\nin other words, different R Projects can use different package versions\nupdating packages globally, or in one project, will not affect other project libraries"
+  },
+  {
+    "objectID": "pages/packages.html#rprofile",
+    "href": "pages/packages.html#rprofile",
+    "title": "Package management",
+    "section": "4.4 .RProfile",
+    "text": "4.4 .RProfile\n\nruns whenver you (re-)start your R Project\nat this point, should contain a single line:\n\n\nsource(\"renv/activate.R\")\n\n\nif you go to this R script, you’ll send a lot of code\n\nthis essentially loads in your project library"
+  },
+  {
+    "objectID": "pages/packages.html#project-library",
+    "href": "pages/packages.html#project-library",
+    "title": "Package management",
+    "section": "4.5 Project library",
+    "text": "4.5 Project library\n\nnow if we re-run .libPaths(), we should see our project library\n\n\n\n\nRun in the Console\n\n.libPaths()\n\n\n&gt; .libPaths()\n[1] \"/Users/danielapalleschi/Documents/IdSL/Teaching/SoSe24/M.A./r4repro_SoSe2024/renv/library/macos/R-4.4/aarch64-apple-darwin20\"\n[2] \"/Users/danielapalleschi/Library/Caches/org.R-project.R/R/renv/sandbox/macos/R-4.4/aarch64-apple-darwin20/f7156815\"  \n\n[1] is the local project library path\n[2] is the path to a global package cache that renv maintains so that you don’t repeatedly download packages to your machine for each project library\n\ne.g., if we already have ggplot2 installed globally on our machine, whenever we want to add it to a project library we don’t need to re-install it entirely from the CRAN (unless we want a different package version)"
+  },
+  {
+    "objectID": "pages/packages.html#installing-a-new-package",
+    "href": "pages/packages.html#installing-a-new-package",
+    "title": "Package management",
+    "section": "5.1 Installing a new package",
+    "text": "5.1 Installing a new package\n\nlet’s also install a package I’m confident you don’t already have on your machine (as you might’ve already worked with lme4 in other classes)\n\n[brms] for Bayesian regression models using Stan\n\n\n\n\nCode\ninstall.packages(\"brms\")\nrenv::install(\"brms\")\n\n\n\nand if we want a specific package version:\n\n\nrenv::install(\"brms@2.19.0\")"
+  },
+  {
+    "objectID": "pages/packages.html#installing-developer-packages",
+    "href": "pages/packages.html#installing-developer-packages",
+    "title": "Package management",
+    "section": "5.2 Installing developer packages",
+    "text": "5.2 Installing developer packages\n\nnot all packages are available on the CRAN\n\nwe can install developer packages from GitHub or GitLab using, e.g., the install_github() function from either the remotes or devtools package (both are very common)\n\n\n\nremotes::install_github(\"paul-buerkner/brms\")\ndevtools::install_github(\"paul-buerkner/brms\")\n\n\nor we can use renv::install()\n\n\n# most recent version\nrenv::install(\"paul-buerkner/brms\")\n\n\n# a specific previous version, for which you'll need the commit ID\nrenv::install(\"paul-buerkner/brms@db6ddde90ba533cb3942bc5a62b03803773b9844\")"
+  },
+  {
+    "objectID": "pages/packages.html#updating-renv.lock-file",
+    "href": "pages/packages.html#updating-renv.lock-file",
+    "title": "Package management",
+    "section": "6.1 Updating renv.lock file",
+    "text": "6.1 Updating renv.lock file\n\nto update the lockfile and library, simply run:\n\n\nrenv::snapshot()\n\n\nyou’ll be given a list of changes to be made and asked if you want to proceed\n\nif not problems are mentioned, then you can go ahead"
+  },
+  {
+    "objectID": "pages/packages.html#posit-public-package-manager",
+    "href": "pages/packages.html#posit-public-package-manager",
+    "title": "Package management",
+    "section": "9.1 Posit Public Package Manager",
+    "text": "9.1 Posit Public Package Manager\n\nPosit (formerly called RStudio, the parent company of R) has a public package manager: https://packagemanager.posit.co/client/#/\nyou can select a snapshot of the CRAN at a specific date: https://packagemanager.posit.co/client/#/repos/cran/setup\n\nSnapshots: do you want to freeze package versions to enhance reproducibility?: Select Yes, always install packages from the date I choose\nfollow the rest of the instructions"
+  },
+  {
+    "objectID": "pages/packages-slides.html#cran-packages",
+    "href": "pages/packages-slides.html#cran-packages",
+    "title": "Package management",
+    "section": "CRAN packages",
+    "text": "CRAN packages\n\nthe Comprehensive R Archive Network: R’s central software repository\n\ncurrently 20,888 available!\n\n\nan archive of the most recent package versions\nfor a package to be included in the CRAN, it must go through a lot of tests and checks\n\nany updates or changes must again be reviewed before being added to CRAN\n\n\nCRAN packages can be installed using install.packages(), as we’ve been doing"
+  },
+  {
+    "objectID": "pages/packages-slides.html#section",
+    "href": "pages/packages-slides.html#section",
+    "title": "Package management",
+    "section": "",
+    "text": "pacman package (optional)\n\n\n\n\na package management tool\nwe’ll use the p_load() function to replace install.packages() and library() in our worksflow\n\ntakes a list of packages, and checks if each package is installed already\nif yes, the package is loaded (as with library())\nif no, the package is installed (as with install.packages()) and then loaded (as with library())\n\n\nonly works with CRAN packages (which is all we have for now anyway), although pacman has a function for developer packages (which we’ll talk about later)\n\nTo get started: install pacman (install.packages(\"pacman\")). Then, you can load in your packages using pacman::p_load(), or with a long list of library() calls like we’ve previously done (you see why I prefer p_load()!).\n\n\n\n\n\nLoading packages with `pacman::p_load()`\n\npacman::p_load(tidyverse, here, janitor)\n\n\n\n\n\n\nLoading packages with `library()`\n\nlibrary(tidyverse)\nlibrary(here)\nlibrary(janitor)\n\n\n\n\nThe additional benefit of p_load() is that, if you don’t actually have one of the packages installed it will automatically be installed and then loaded. With library() you would instead get an error message."
+  },
+  {
+    "objectID": "pages/packages-slides.html#developer-packages",
+    "href": "pages/packages-slides.html#developer-packages",
+    "title": "Package management",
+    "section": "Developer packages",
+    "text": "Developer packages\n\noften hosted on GitHub or GitLab, where packages are typically developed before being reviewed and added to the CRAN\n\nbenefit: you can make whatever you changes to your package that you like without having to pass a review on the CRAN\n\n\nsince CRAN packages are often developed on GH or GL, pre-release (beta) versions will often be available on a GH repo\npackages/package versions on GH cannot be installed via install.packages()\n\nwe’ll see later how to do this"
+  },
+  {
+    "objectID": "pages/packages-slides.html#dependencies",
+    "href": "pages/packages-slides.html#dependencies",
+    "title": "Package management",
+    "section": "Dependencies",
+    "text": "Dependencies\n\nsome packages are dependent on specific versions of other packages\n\nif so, you will be prompted during installation to install these dependencies\nbut beware: sometimes this overwrites an existing package version you already have, which can break code that was written with this older version\n\n\nthis is especially true because, as our projects are currently set up, we have one global package version on our computer\n\nso analyses we ran 3 years ago would’ve used older versions of packages\nwhen we update these packages for current analyses, this might disrupt the code from 3 years ago\n\n\nwe’ll see one (partial) solution for this problem soon"
+  },
+  {
+    "objectID": "pages/packages-slides.html#updating-packages",
+    "href": "pages/packages-slides.html#updating-packages",
+    "title": "Package management",
+    "section": "Updating packages",
+    "text": "Updating packages\n\nto check if a package needs updating, you can:\n\ngo to Tools &gt; Check for package updates, or\nrun update.packages()\n\n\n\neach will tell you which packages can be updated to which versions\n\nand give you the option of updating these packages"
+  },
+  {
+    "objectID": "pages/packages-slides.html#package-library",
+    "href": "pages/packages-slides.html#package-library",
+    "title": "Package management",
+    "section": "Package library",
+    "text": "Package library\n\nwhere do all these installed packages go?\n\na folder that contains all the packages, called a library\n\n\nto find out where this (global) package library is, run .libPaths()\n\n\n\n.libPaths()\n\n\nthe output should currently produce a single file path, something like:\n\n&gt; .libPaths()\n[1] \"/Library/Frameworks/R.framework/Versions/4.4-arm64/Resources/library\"\n\nthis is the location of your global package library"
+  },
+  {
+    "objectID": "pages/packages-slides.html#package-versions-and-reproducibility",
+    "href": "pages/packages-slides.html#package-versions-and-reproducibility",
+    "title": "Package management",
+    "section": "Package versions and reproducibility",
+    "text": "Package versions and reproducibility\n\nwe’ve seen that package versions and dependencies can easily break our existing code\nthis means that older projects that were built using previous package versions won’t be able to run if we update these packages in our global package library\n\nalso a problem in the future: our current code will depend on the package versions we’re using today\n\n\nwe need a project-relative package library that is independent of the global library\n\nwe’ll use the renv package to do this"
+  },
+  {
+    "objectID": "pages/packages-slides.html#limits-of-renv",
+    "href": "pages/packages-slides.html#limits-of-renv",
+    "title": "Package management",
+    "section": "Limits of renv\n",
+    "text": "Limits of renv\n\nrenv…\n\n\n…can\n\nkeep track of packages and their versions\ncreate a project-specific library per R version\nautomatically load/install these package versions\n\n\n…cannot\n\nmake a project reproducible across all computational environments\nload/install package versions that are incompatible with current R versions or computational environments\nguarantee full long-term reproduciblity"
+  },
+  {
+    "objectID": "pages/packages-slides.html#renv-workflow",
+    "href": "pages/packages-slides.html#renv-workflow",
+    "title": "Package management",
+    "section": "\nrenv workflow",
+    "text": "renv workflow\n\n\nFigure 1 visualises a project workflow with renv\n\nnext we’ll see how we use these functions to set-up and maintain a project-specific package library\n\n\n\nFigure 1: Source: CRAN vignette ‘Introduction to renv’ (all rights reserved)"
+  },
+  {
+    "objectID": "pages/packages-slides.html#section-1",
+    "href": "pages/packages-slides.html#section-1",
+    "title": "Package management",
+    "section": "",
+    "text": "you should see something like this in the Console:\n\n- Linking packages into the project library ... [137/137] Done!\n- Resolving missing dependencies ... \n# Installing packages --------------------------------------------------------\nThe following package(s) will be updated in the lockfile:\n\n# CRAN -----------------------------------------------------------------------\n[long list of packages and their versions]\n\nThe version of R recorded in the lockfile will be updated:\n- R               [* -&gt; 4.4.0]\n\n- Lockfile written to \"~/Documents/IdSL/Teaching/SoSe24/M.A./r4repro_student/renv.lock\".\n\nRestarting R session...\n\n- Project '~/Documents/IdSL/Teaching/SoSe24/M.A./r4repro_student' loaded. [renv 1.0.7]"
+  },
+  {
+    "objectID": "pages/packages-slides.html#new-files",
+    "href": "pages/packages-slides.html#new-files",
+    "title": "Package management",
+    "section": "New files",
+    "text": "New files\n\n\nrenv::init() creates three new files or directories\n\nrenv.lock\nrenv/\n.Rprofile\n\n\nexplore these files/folders and see if you can figure out what they contain"
+  },
+  {
+    "objectID": "pages/packages-slides.html#renv.lock",
+    "href": "pages/packages-slides.html#renv.lock",
+    "title": "Package management",
+    "section": "renv.lock",
+    "text": "renv.lock\n\ncontains metadata about the packages and their versions that you have installed\n\nthis is enough metadata to re-install these package versions on a new machine\n\n\ntwo main components:\n\n\nR: info on R version and list of repositories where packages were installed from\n\nPackages: a record per package with necessary info for re-installation"
+  },
+  {
+    "objectID": "pages/packages-slides.html#renv-1",
+    "href": "pages/packages-slides.html#renv-1",
+    "title": "Package management",
+    "section": "renv/",
+    "text": "renv/\n\nimportantly, contains your project-relative library/\n\nthis is instead of using the one library on your computer\n\n\nprovides us with “isolation”: the package versions used in an R Project is independent of the global library\n\nin other words, different R Projects can use different package versions\nupdating packages globally, or in one project, will not affect other project libraries"
+  },
+  {
+    "objectID": "pages/packages-slides.html#rprofile",
+    "href": "pages/packages-slides.html#rprofile",
+    "title": "Package management",
+    "section": ".RProfile",
+    "text": ".RProfile\n\nruns whenver you (re-)start your R Project\nat this point, should contain a single line:\n\n\nsource(\"renv/activate.R\")\n\n\nif you go to this R script, you’ll send a lot of code\n\nthis essentially loads in your project library"
+  },
+  {
+    "objectID": "pages/packages-slides.html#project-library",
+    "href": "pages/packages-slides.html#project-library",
+    "title": "Package management",
+    "section": "Project library",
+    "text": "Project library\n\nnow if we re-run .libPaths(), we should see our project library\n\n\n\n\nRun in the Console\n\n.libPaths()\n\n\n&gt; .libPaths()\n[1] \"/Users/danielapalleschi/Documents/IdSL/Teaching/SoSe24/M.A./r4repro_SoSe2024/renv/library/macos/R-4.4/aarch64-apple-darwin20\"\n[2] \"/Users/danielapalleschi/Library/Caches/org.R-project.R/R/renv/sandbox/macos/R-4.4/aarch64-apple-darwin20/f7156815\"  \n\n\n[1] is the local project library path\n\n[2] is the path to a global package cache that renv maintains so that you don’t repeatedly download packages to your machine for each project library\n\ne.g., if we already have ggplot2 installed globally on our machine, whenever we want to add it to a project library we don’t need to re-install it entirely from the CRAN (unless we want a different package version)"
+  },
+  {
+    "objectID": "pages/packages-slides.html#installing-a-new-package",
+    "href": "pages/packages-slides.html#installing-a-new-package",
+    "title": "Package management",
+    "section": "Installing a new package",
+    "text": "Installing a new package\n\nlet’s also install a package I’m confident you don’t already have on your machine (as you might’ve already worked with lme4 in other classes)\n\n[brms] for Bayesian regression models using Stan\n\n\n\n\nCodeinstall.packages(\"brms\")\nrenv::install(\"brms\")\n\n\n\nand if we want a specific package version:\n\n\nrenv::install(\"brms@2.19.0\")"
+  },
+  {
+    "objectID": "pages/packages-slides.html#installing-developer-packages",
+    "href": "pages/packages-slides.html#installing-developer-packages",
+    "title": "Package management",
+    "section": "Installing developer packages",
+    "text": "Installing developer packages\n\nnot all packages are available on the CRAN\n\nwe can install developer packages from GitHub or GitLab using, e.g., the install_github() function from either the remotes or devtools package (both are very common)\n\n\n\n\nremotes::install_github(\"paul-buerkner/brms\")\ndevtools::install_github(\"paul-buerkner/brms\")\n\n\n\nor we can use renv::install()\n\n\n\n# most recent version\nrenv::install(\"paul-buerkner/brms\")\n\n\n# a specific previous version, for which you'll need the commit ID\nrenv::install(\"paul-buerkner/brms@db6ddde90ba533cb3942bc5a62b03803773b9844\")"
+  },
+  {
+    "objectID": "pages/packages-slides.html#updating-renv.lock-file",
+    "href": "pages/packages-slides.html#updating-renv.lock-file",
+    "title": "Package management",
+    "section": "Updating renv.lock file",
+    "text": "Updating renv.lock file\n\nto update the lockfile and library, simply run:\n\n\nrenv::snapshot()\n\n\nyou’ll be given a list of changes to be made and asked if you want to proceed\n\nif not problems are mentioned, then you can go ahead"
+  },
+  {
+    "objectID": "pages/packages-slides.html#posit-public-package-manager",
+    "href": "pages/packages-slides.html#posit-public-package-manager",
+    "title": "Package management",
+    "section": "Posit Public Package Manager",
+    "text": "Posit Public Package Manager\n\nPosit (formerly called RStudio, the parent company of R) has a public package manager: https://packagemanager.posit.co/client/#/\n\nyou can select a snapshot of the CRAN at a specific date: https://packagemanager.posit.co/client/#/repos/cran/setup\n\n\nSnapshots: do you want to freeze package versions to enhance reproducibility?: Select Yes, always install packages from the date I choose\n\nfollow the rest of the instructions"
+  },
+  {
+    "objectID": "examples/eda-cwiek_2021.html",
+    "href": "examples/eda-cwiek_2021.html",
+    "title": "EDA of Lacina et al. (2023)",
+    "section": "",
+    "text": "This script produces an exploratory data analysis of the online experiment dataset from @cwiek_novel_2021 (OSF: osf.io/4na58/)"
+  },
+  {
+    "objectID": "examples/eda-cwiek_2021.html#accuracy-distributions",
+    "href": "examples/eda-cwiek_2021.html#accuracy-distributions",
+    "title": "EDA of Lacina et al. (2023)",
+    "section": "Accuracy distributions",
+    "text": "Accuracy distributions\n\ndf_icon |&gt; \n  distinct(id, unique_item, .keep_all = T) |&gt; \n  tabyl(english_L2, category, acc) |&gt; \n  adorn_totals(where = c(\"col\", \"row\"))\n\n$`0`\n english_L2 action noun property Total\n      FALSE   1367 2260     2411  6038\n       TRUE   4520 7543     8573 20636\n      Total   5887 9803    10984 26674\n\n$`1`\n english_L2 action  noun property Total\n      FALSE   3166  4539     3128 10833\n       TRUE  11156 15979    10643 37778\n      Total  14322 20518    13771 48611\n\n\n48611 correct responses overall, 26674 incorrect."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "",
+    "section": "",
+    "text": "Code",
+    "crumbs": [
+      "D. Palleschi",
+      "Workshop overview"
+    ]
+  },
+  {
+    "objectID": "index.html#schedule",
+    "href": "index.html#schedule",
+    "title": "",
+    "section": "Schedule",
+    "text": "Schedule\nTable 1 shows the tentative plan for the workshop and may be adjusted based on the needs of the participants.\n\n\n\n\nTable 1: Tentative schedule for the 2-day workshop\n\n\n\n\n\n\n\n\n\n\n\n\n\nDay 1: Tues. Oct. 8, 1-4pm\n\n\n(i)\nOpen Science Practices and reproducibility\n\n\n(ii)\nData management: folder/file organisation, data handling\n\n\n(iii)\nWorking with RProjects + project-relative filepaths with {here}\n\n\nDay 2: Thurs. Oct. 17, 1-4pm\n\n\n(iv)\nModular analyses and literate programming with Quarto\n\n\n(v)\nPackage management with {renv}\n\n\n(vii)\nCode review via online repositories",
+    "crumbs": [
+      "D. Palleschi",
+      "Workshop overview"
+    ]
+  },
+  {
+    "objectID": "index.html#how-to-navigate-this-website",
+    "href": "index.html#how-to-navigate-this-website",
+    "title": "",
+    "section": "How to navigate this website",
+    "text": "How to navigate this website\nEach topic is listed in the sidebar in chronological order. Three output formats are available, all with the same content:\n\nHTML page (landing page)\nPDF of content (sub-optimally formatted)\nSlides in RevealJS format\n\nThe contents were formatted for the slide output. Tables and figures may be too large/small in HTML and PDF format (especially the latter). Each page of the website presents the HTML format. The other 2 formats can be viewed by clicking on their symbol under ‘Other Formats’ (right sidebar).",
+    "crumbs": [
+      "D. Palleschi",
+      "Workshop overview"
+    ]
+  },
+  {
+    "objectID": "index.html#software-r-and-rstudio",
+    "href": "index.html#software-r-and-rstudio",
+    "title": "",
+    "section": "Software: R and RStudio",
+    "text": "Software: R and RStudio\nPlease make sure you have recent versions of R and RStudio installed prior to the workshop. Below you will find information on how to check which version of R and RStudio you currently have, and how to install or update them as needed.\n\nCheck software versions\n\nR\nTo check which version of R you currently have, run the command R.version$version.string in the Console (to print just the version name and release date), or R.version$nickname (to print the nickname).\n\n\n\nIn the Console: print R version and release date\n\nR.version$version.string\n\n\n[1] \"R version 4.4.1 (2024-06-14)\"\n\n\n\n\n\nIn the Console: print R version nickname\n\nR.version$nickname\n\n\n[1] \"Race for Your Life\"\n\n\n\n\nR\nTo check which version of RStudio you currently have, run the command R.version$version.string in the Console (to print just the version name and release date), or R.version$nickname (to print the nickname). Be sure to include these only in the Console, as Rmarkdown/Quarto scripts will not be able to run these commands.\n\n\n\nIn the Console: print RStudio version number\n\nRStudio.Version()$version\n\n\n\n\n\nIn the Console: print RStudio version nickname\n\nRStudio.Version()$release_name\n\n\nAlternatively, you can go to Help &gt; About RStudio in RStudio. You should see a pop-up like Figure 1.\n\n\n\n\n\n\n\n\nFigure 1: Help &gt; About RStudio\n\n\n\n\n\n\n\n\nIntall/update software\n\nInstall or update R\n\nN.B., I am currently using version 4.4.1 (Race for Your Life, 2024-06-14)\nhaving an R version from 2022.07 or later should suffice\n\n\n\n\n\n\n\n\nDisclaimer: Updating R\n\n\n\nBeware that updating R can interfere with on-going R projects you are currently working on, most notably because you will need to re-install packages (and thus you may be installing more recent package versions which may break existing code). If you are currently in the middle of analysing some data, you may not want to update R right now. In this case, just make note of which version you’re currently running (e.g., by running R.version in the Console)\n\n\n\nInstall or update RStudio\n\nI am currently using RStudio version 2023.12.1+402, as I encountered issues when updating to 2024.04.2+764 in April when it was released. As a rule of thumb, I update R and/or RStudio a few months after their initial release, and when I know I have time to fix any bugs that might pop up (i.e., I don’t have a looming deadline)",
+    "crumbs": [
+      "D. Palleschi",
+      "Workshop overview"
+    ]
+  },
+  {
+    "objectID": "index_slides.html#schedule",
+    "href": "index_slides.html#schedule",
+    "title": "Reproducible Workflow in R (ZAS Workshop)",
+    "section": "Schedule",
+    "text": "Schedule\nTable 1 shows the tentative plan for the workshop and may be adjusted based on the needs of the participants.\n\n\n\nTable 1: Tentative schedule for the 2-day workshop\n\n\n\n\n\n\n\n\n\n\nDay 1: Tues. Oct. 8, 1-4pm\n\n\n(i)\nOpen Science Practices and reproducibility\n\n\n(ii)\nData management: folder/file organisation, data handling\n\n\n(iii)\nWorking with RProjects + project-relative filepaths with {here}\n\n\nDay 2: Thurs. Oct. 17, 1-4pm\n\n\n(iv)\nModular analyses and literate programming with Quarto\n\n\n(v)\nPackage management with {renv}\n\n\n(vii)\nCode review via online repositories"
+  },
+  {
+    "objectID": "index_slides.html#how-to-navigate-this-website",
+    "href": "index_slides.html#how-to-navigate-this-website",
+    "title": "Reproducible Workflow in R (ZAS Workshop)",
+    "section": "How to navigate this website",
+    "text": "How to navigate this website\nEach topic is listed in the sidebar in chronological order. Three output formats are available, all with the same content:\n\nHTML page (landing page)\nPDF of content (sub-optimally formatted)\nSlides in RevealJS format\n\nThe contents were formatted for the slide output. Tables and figures may be too large/small in HTML and PDF format (especially the latter). Each page of the website presents the HTML format. The other 2 formats can be viewed by clicking on their symbol under ‘Other Formats’ (right sidebar)."
+  },
+  {
+    "objectID": "index_slides.html#software-r-and-rstudio",
+    "href": "index_slides.html#software-r-and-rstudio",
+    "title": "Reproducible Workflow in R (ZAS Workshop)",
+    "section": "Software: R and RStudio",
+    "text": "Software: R and RStudio\nPlease make sure you have recent versions of R and RStudio installed prior to the workshop. Below you will find information on how to check which version of R and RStudio you currently have, and how to install or update them as needed."
+  },
+  {
+    "objectID": "examples/literate-programming.html",
+    "href": "examples/literate-programming.html",
+    "title": "Literate programming",
+    "section": "",
+    "text": "Set-up environment: load packages and data\n\n\nInstall the tidyverse and here packages. This will not run when we render the script.\n\n# install packages\ninstall.packages(\"tidyverse\")\ninstall.packages(\"here\")\n\nLoad required packages.\n\n# load packages\nlibrary(tidyverse)\nlibrary(here)\n\nPrint the project directory filepath using the here package.\n\n# print project directory\nhere()\n\n[1] \"/Users/danielapalleschi/Documents/ZAS/zas-reproducibility-2024\"\n\n\n\n\n\n\ndf_icon &lt;- read_csv(here(\"data\", \"cwiek_2021-online_cleaned.csv\"))"
+  },
+  {
+    "objectID": "examples/literate-programming.html#packages",
+    "href": "examples/literate-programming.html#packages",
+    "title": "Literate programming",
+    "section": "",
+    "text": "Install the tidyverse and here packages. This will not run when we render the script.\n\n# install packages\ninstall.packages(\"tidyverse\")\ninstall.packages(\"here\")\n\nLoad required packages.\n\n# load packages\nlibrary(tidyverse)\nlibrary(here)\n\nPrint the project directory filepath using the here package.\n\n# print project directory\nhere()\n\n[1] \"/Users/danielapalleschi/Documents/ZAS/zas-reproducibility-2024\""
+  },
+  {
+    "objectID": "examples/literate-programming.html#load-data",
+    "href": "examples/literate-programming.html#load-data",
+    "title": "Literate programming",
+    "section": "",
+    "text": "df_icon &lt;- read_csv(here(\"data\", \"cwiek_2021-online_cleaned.csv\"))"
+  },
+  {
+    "objectID": "pages/R-Projects-slides.html#folder-structure",
+    "href": "pages/R-Projects-slides.html#folder-structure",
+    "title": "R-Projects",
+    "section": "Folder structure",
+    "text": "Folder structure\n\na core computer literacy skill\n\nkeep your Desktop as empty as possible\nhave a sensible folder structure\navoid mixing subfolders and files\n\ni.e., if a folder contains subfolders, ideally it should not contain files"
+  },
+  {
+    "objectID": "pages/R-Projects-slides.html#creating-a-new-project",
+    "href": "pages/R-Projects-slides.html#creating-a-new-project",
+    "title": "R-Projects",
+    "section": "Creating a new Project",
+    "text": "Creating a new Project\n\nwhen?\n\nwhenever you’re starting a new course oR-Project which will use R\n\n\nwhy?\n\nto keep all the relavent materials in one place\n\n\nwhere?\n\nsomewhere that makes sense, e.g., a folder called SoSe2024 or Mastersarbeit\n\n\n\nhow?\n\nFile &gt; New Project &gt; New Directory &gt; New Project &gt; [Directory name] &gt; Create Project"
+  },
+  {
+    "objectID": "pages/R-Projects-slides.html#opening-a-project",
+    "href": "pages/R-Projects-slides.html#opening-a-project",
+    "title": "R-Projects",
+    "section": "Opening a Project",
+    "text": "Opening a Project\n\nto open a project, locate its .Rproj file and double-click\nor if you’re already in RStudio, you can use the Project (None) drop-down (top right)\n\n\n\n\n\n\n\nFigure 1: Double-click .Rproj\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 2: Open from RStudio"
+  },
+  {
+    "objectID": "pages/R-Projects-slides.html#adding-a-readme-file",
+    "href": "pages/R-Projects-slides.html#adding-a-readme-file",
+    "title": "R-Projects",
+    "section": "Adding a README file",
+    "text": "Adding a README file\n\n\nFile &gt; New File &gt; Markdown File (not R Markdown!)\n\nadd some text describing the purpose of this project\ninclude your name, the date\nuse Markdown formatting (e.g., # for headings, *italics*, **bold**)\n\n\nsave as README.md in youR-Project directory"
+  },
+  {
+    "objectID": "pages/R-Projects-slides.html#global-rstudio-options",
+    "href": "pages/R-Projects-slides.html#global-rstudio-options",
+    "title": "R-Projects",
+    "section": "Global RStudio options",
+    "text": "Global RStudio options\n\n\n\n\n\n\nFigure 3: RStudio settings for reproducibility\n\n\n\n\n\n\n\n\n\n\nTools &gt; Global Options\n\n\nWorkspace: Restore .RData into workspace at startup: NO\nSave workspace to .RData on exit: Never\n\n\nthis will ensure that you are always starting with a clean slate\n\nand that your code is not dependent on some pacakge or object you created in another session\n\n\nthis is also how RMarkdown and Quarto scripts run\n\nthey start with an empty environment and run the script linearly"
+  },
+  {
+    "objectID": "pages/R-Projects-slides.html#section-1",
+    "href": "pages/R-Projects-slides.html#section-1",
+    "title": "R-Projects",
+    "section": "",
+    "text": "Global settings\n\n\nChange your Global Options so that\n\n\nWorkspace: Restore .RData into workspace at startup: NO\nSave workspace to .RData on exit: Never"
+  },
+  {
+    "objectID": "pages/R-Projects-slides.html#identifying-your-r-project",
+    "href": "pages/R-Projects-slides.html#identifying-your-r-project",
+    "title": "R-Projects",
+    "section": "Identifying your R-Project",
+    "text": "Identifying your R-Project\n\nthere are a ways to check which (if any) R-Project you’re in\n\nthere are 6 differences between Figure 4 and Figure 5\n\nwhich is in an R-Project session?\n\n\n\n\n\nSpot the differences\nShow the differences\n\n\n\n\n\n\n\n\n\nFigure 4: RStudio Session A\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 5: RStudio Session B\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 6: How to tell if you’re in a project"
+  },
+  {
+    "objectID": "pages/R-Projects-slides.html#folder-structure-1",
+    "href": "pages/R-Projects-slides.html#folder-structure-1",
+    "title": "R-Projects",
+    "section": "Folder structure",
+    "text": "Folder structure\n\nsome folders you’ll typically want to have:\n\n\ndata: containing your dataset(s)\n\nscripts (or analyses, etc.): containing any analysis scripts\n\nmanuscript: containing any write-ups of your results\n\nmaterials: containing relevant experiment materials (e.g., stimuli)\n\n\nlet’s just create the first 2 (data and scripts)"
+  },
+  {
+    "objectID": "pages/R-Projects-slides.html#section-4",
+    "href": "pages/R-Projects-slides.html#section-4",
+    "title": "R-Projects",
+    "section": "",
+    "text": "Figure 7: Illustration by Allison Horst"
+  },
+  {
+    "objectID": "pages/R-Projects-slides.html#the-problem-with-setwd",
+    "href": "pages/R-Projects-slides.html#the-problem-with-setwd",
+    "title": "R-Projects",
+    "section": "The problem with setwd()\n",
+    "text": "The problem with setwd()\n\n\n\nIf the first line of your R script is\nsetwd(\"C:\\Users\\jenny\\path\\that\\only\\I\\have\")\nI will come into your office and SET YOUR COMPUTER ON FIRE🔥.\n\n— Jenny Bryan\n\n\n\nsetwd() depends on your entire machine’s folder structure\n\nsetwd() breaks when you\n\nsend youR-Project folder to a collaborator\nmake your analyses open\nchange the location of youR-Project folder\n\n\nusing slashes is also dependent on your operating system"
+  },
+  {
+    "objectID": "pages/R-Projects-slides.html#the-benefit-of-here",
+    "href": "pages/R-Projects-slides.html#the-benefit-of-here",
+    "title": "R-Projects",
+    "section": "The benefit of here()\n",
+    "text": "The benefit of here()\n\n\nuses the top-level directory of your Project as the working directory\n\nmeaning we never need to specify the path to our project folder relative to our current higher-level folder structure\n\n\ncan separate folder names with a comma\n\nmeaning it doesn’t matter if the original code was written on a Mac or a Windows machine"
+  },
+  {
+    "objectID": "pages/R-Projects-slides.html#section-6",
+    "href": "pages/R-Projects-slides.html#section-6",
+    "title": "R-Projects",
+    "section": "",
+    "text": "here\n\n\nIn your R Project, load the cwiek_2021-online_cleaned.csv data using here\n\nInstall here (if needed; e.g., install.packages(\"here\"))\nLoad here at the beginning of your package\n\nor use here:: before calling a function\n\n\nUse the here() function to load in your data\nInspect the dataset however you usually would (e.g., summary(), names(), etc.)\nSave your script"
+  },
+  {
+    "objectID": "pages/R-Projects-slides.html#herehere",
+    "href": "pages/R-Projects-slides.html#herehere",
+    "title": "R-Projects",
+    "section": "here::here()",
+    "text": "here::here()\n\ninstall package\n\n\n\n\nIn the Console\n\ninstall.packages(\"here\")\n\n\n\nload package and call the here function\n\n\n# load package\nlibrary(here)\n\n# read in data\ndf_icon &lt;- read.csv(here(\"data\", \"cwiek_2021-online_cleaned.csv\"))\n\n\nor directly call the here function without loading the package\n\n\n# read in data without loading here\ndf_icon &lt;- read.csv(here::here(\"data\", \"cwiek_2021-online_cleaned.csv\"))"
+  },
+  {
+    "objectID": "pages/R-Projects-slides.html#section-8",
+    "href": "pages/R-Projects-slides.html#section-8",
+    "title": "R-Projects",
+    "section": "",
+    "text": "Reproduce your analysis\n\n\n\nPerform some data exploration (e.g., with names(), summary(), dplyr::glimpse(), whatever you typically do)\nSave your script, then close RStudio/your R-Project.\nRe-open the project. Can you re-run the script?"
+  },
+  {
+    "objectID": "pages/R-Projects.html",
+    "href": "pages/R-Projects.html",
+    "title": "R-Projects",
+    "section": "",
+    "text": "Project-oriented workflows\ncreating an R-Project\nproject-relative filepaths with the here package",
+    "crumbs": [
+      "D. Palleschi",
+      "Day 1",
+      "R-Projects"
+    ]
+  },
+  {
+    "objectID": "pages/R-Projects.html#folder-structure",
+    "href": "pages/R-Projects.html#folder-structure",
+    "title": "R-Projects",
+    "section": "2.1 Folder structure",
+    "text": "2.1 Folder structure\n\na core computer literacy skill\n\nkeep your Desktop as empty as possible\nhave a sensible folder structure\navoid mixing subfolders and files\n\ni.e., if a folder contains subfolders, ideally it should not contain files",
+    "crumbs": [
+      "D. Palleschi",
+      "Day 1",
+      "R-Projects"
+    ]
+  },
+  {
+    "objectID": "pages/R-Projects.html#creating-a-new-project",
+    "href": "pages/R-Projects.html#creating-a-new-project",
+    "title": "R-Projects",
+    "section": "3.1 Creating a new Project",
+    "text": "3.1 Creating a new Project\n\nwhen?\n\nwhenever you’re starting a new course oR-Project which will use R\n\nwhy?\n\nto keep all the relavent materials in one place\n\nwhere?\n\nsomewhere that makes sense, e.g., a folder called SoSe2024 or Mastersarbeit\n\nhow?\n\nFile &gt; New Project &gt; New Directory &gt; New Project &gt; [Directory name] &gt; Create Project\n\n\n\n\n\n\n\n\n\n\nNew R-Project\n\n\n\nCreate a new R-Project for this workshop\n\nFile &gt; New Project &gt; New Directory &gt; New Project &gt; [Directory name] &gt; Create Project\nmake sure you choose a sensible location",
+    "crumbs": [
+      "D. Palleschi",
+      "Day 1",
+      "R-Projects"
+    ]
+  },
+  {
+    "objectID": "pages/R-Projects.html#opening-a-project",
+    "href": "pages/R-Projects.html#opening-a-project",
+    "title": "R-Projects",
+    "section": "3.2 Opening a Project",
+    "text": "3.2 Opening a Project\n\nto open a project, locate its .Rproj file and double-click\nor if you’re already in RStudio, you can use the Project (None) drop-down (top right)\n\n\n\n\n\n\n\n\n\n\n\nFigure 1: Double-click .Rproj\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 2: Open from RStudio",
+    "crumbs": [
+      "D. Palleschi",
+      "Day 1",
+      "R-Projects"
+    ]
+  },
+  {
+    "objectID": "pages/R-Projects.html#adding-a-readme-file",
+    "href": "pages/R-Projects.html#adding-a-readme-file",
+    "title": "R-Projects",
+    "section": "3.3 Adding a README file",
+    "text": "3.3 Adding a README file\n\nFile &gt; New File &gt; Markdown File (not R Markdown!)\n\nadd some text describing the purpose of this project\ninclude your name, the date\nuse Markdown formatting (e.g., # for headings, *italics*, **bold**)\n\nsave as README.md in youR-Project directory",
+    "crumbs": [
+      "D. Palleschi",
+      "Day 1",
+      "R-Projects"
+    ]
+  },
+  {
+    "objectID": "pages/R-Projects.html#global-rstudio-options",
+    "href": "pages/R-Projects.html#global-rstudio-options",
+    "title": "R-Projects",
+    "section": "3.4 Global RStudio options",
+    "text": "3.4 Global RStudio options\n\n\n\n\n\n\n\n\n\n\nFigure 3: RStudio settings for reproducibility\n\n\n\n\n\n\n\nTools &gt; Global Options\n\nWorkspace: Restore .RData into workspace at startup: NO\nSave workspace to .RData on exit: Never\n\nthis will ensure that you are always starting with a clean slate\n\nand that your code is not dependent on some pacakge or object you created in another session\n\nthis is also how RMarkdown and Quarto scripts run\n\nthey start with an empty environment and run the script linearly",
+    "crumbs": [
+      "D. Palleschi",
+      "Day 1",
+      "R-Projects"
+    ]
+  },
+  {
+    "objectID": "pages/R-Projects.html#section-1",
+    "href": "pages/R-Projects.html#section-1",
+    "title": "R-Projects",
+    "section": "",
+    "text": "Global settings\n\n\n\nChange your Global Options so that\n\nWorkspace: Restore .RData into workspace at startup: NO\nSave workspace to .RData on exit: Never",
+    "crumbs": [
+      "D. Palleschi",
+      "Day 1",
+      "R-Projects"
+    ]
+  },
+  {
+    "objectID": "pages/R-Projects.html#identifying-your-r-project",
+    "href": "pages/R-Projects.html#identifying-your-r-project",
+    "title": "R-Projects",
+    "section": "3.5 Identifying your R-Project",
+    "text": "3.5 Identifying your R-Project\n\nthere are a ways to check which (if any) R-Project you’re in\n\nthere are 6 differences between Figure 4 and Figure 5\nwhich is in an R-Project session?\n\n\n\nSpot the differencesShow the differences\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 4: RStudio Session A\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 5: RStudio Session B\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 6: How to tell if you’re in a project",
+    "crumbs": [
+      "D. Palleschi",
+      "Day 1",
+      "R-Projects"
+    ]
+  },
+  {
+    "objectID": "pages/R-Projects.html#folder-structure-1",
+    "href": "pages/R-Projects.html#folder-structure-1",
+    "title": "R-Projects",
+    "section": "3.6 Folder structure",
+    "text": "3.6 Folder structure\n\nsome folders you’ll typically want to have:\n\ndata: containing your dataset(s)\nscripts (or analyses, etc.): containing any analysis scripts\nmanuscript: containing any write-ups of your results\nmaterials: containing relevant experiment materials (e.g., stimuli)\n\nlet’s just create the first 2 (data and scripts)\n\n\ndata/\n\ndo you have “raw”, i.e., pre-processed data?\n\nif so, you might want to create a raw sub-folder\nand any other relevant sub-folders (e.g., processed or tidy)\n\ndownload the online_cleaned.csv dataset from the GitHub or OSF repo from Ćwiek et al. (2021)\n\nor, move a dataset of your own to this folder\n\nsave the file as cwiek_2021-online_cleaned.csv\n\n\ndescription of data collection:\n\n\n\nIn an online experiment with listeners of 25 different languages (from nine language families), participants listened to the 90 vocalizations (three for each of the 30 meanings), and for each, guessed its intended meaning from six written alternatives\n– Ćwiek et al. (2021)\n\n\n\nyou could also download the data directly from GitHub in R:\n\n\n\nwrite.csv(\n  file = \"data/cwiek_2021-online_cleaned.csv\",\n  read.csv(\"https://raw.githubusercontent.com/bodowinter/iconicity_challenge/refs/heads/master/data/online_cleaned.csv\")\n  )\n\n\n\n\nscripts/\n\ntry to create a single script for each “product”\n\ne.g., anonymised data, ‘cleaned’ data, data exploration, visualisation, analyses, etc.\n\nyou can create sub-folders as the project develops and move scripts around\n\nfor now, let’s create a new script to take a look at our data\n\n\n\n\n\n\n\n\n\n\n\nNew script\n\n\n\nCreate a new script:\n\nFile &gt; New File &gt; Choose your preferred script type\nSave it in your scripts/ folder: File &gt; Save as...\n\n\n\n\n\nLoad in the data\n\nload in the data however you normally would\n\ne.g., read.csv(), readr::read_csv(), …\n\n\n\n\nExercise: mini-Code Review\n\n\n\n\n\n\nR-Project template\n\n\n\n\n\nDownload the R-Project template at https://osf.io/ctmwj/\nOpen (or switch to) rproject-template.Rproj\nInspect the folder structure and the files.\nLook at the scripts/ folder. Is it clear which scripts should be run first?\nTry running 02-visualisation.R first. Do you encounter any problems?",
+    "crumbs": [
+      "D. Palleschi",
+      "Day 1",
+      "R-Projects"
+    ]
+  },
+  {
+    "objectID": "pages/R-Projects.html#the-problem-with-setwd",
+    "href": "pages/R-Projects.html#the-problem-with-setwd",
+    "title": "R-Projects",
+    "section": "4.1 The problem with setwd()",
+    "text": "4.1 The problem with setwd()\n\n\nIf the first line of your R script is\nsetwd(\"C:\\Users\\jenny\\path\\that\\only\\I\\have\")\nI will come into your office and SET YOUR COMPUTER ON FIRE🔥.\n\n— Jenny Bryan\n\n\nsetwd() depends on your entire machine’s folder structure\nsetwd() breaks when you\n\nsend youR-Project folder to a collaborator\nmake your analyses open\nchange the location of youR-Project folder\n\nusing slashes is also dependent on your operating system\n\n\ntrying to use somebody else’s (or your former) folder path will result in a warning message like:\n\n\nError in setwd(\"/Users/danielapalleschi/Documents/R/rproject-template\") : cannot change working directory",
+    "crumbs": [
+      "D. Palleschi",
+      "Day 1",
+      "R-Projects"
+    ]
+  },
+  {
+    "objectID": "pages/R-Projects.html#the-benefit-of-here",
+    "href": "pages/R-Projects.html#the-benefit-of-here",
+    "title": "R-Projects",
+    "section": "4.2 The benefit of here()",
+    "text": "4.2 The benefit of here()\n\nuses the top-level directory of your Project as the working directory\n\nmeaning we never need to specify the path to our project folder relative to our current higher-level folder structure\n\ncan separate folder names with a comma\n\nmeaning it doesn’t matter if the original code was written on a Mac or a Windows machine",
+    "crumbs": [
+      "D. Palleschi",
+      "Day 1",
+      "R-Projects"
+    ]
+  },
+  {
+    "objectID": "pages/R-Projects.html#section-6",
+    "href": "pages/R-Projects.html#section-6",
+    "title": "R-Projects",
+    "section": "",
+    "text": "here\n\n\n\nIn your R Project, load the cwiek_2021-online_cleaned.csv data using here\n\nInstall here (if needed; e.g., install.packages(\"here\"))\nLoad here at the beginning of your package\n\nor use here:: before calling a function\n\nUse the here() function to load in your data\nInspect the dataset however you usually would (e.g., summary(), names(), etc.)\nSave your script",
+    "crumbs": [
+      "D. Palleschi",
+      "Day 1",
+      "R-Projects"
+    ]
+  },
+  {
+    "objectID": "pages/R-Projects.html#herehere",
+    "href": "pages/R-Projects.html#herehere",
+    "title": "R-Projects",
+    "section": "4.3 here::here()",
+    "text": "4.3 here::here()\n\ninstall package\n\n\n\n\nIn the Console\n\ninstall.packages(\"here\")\n\n\n\nload package and call the here function\n\n\n# load package\nlibrary(here)\n\n# read in data\ndf_icon &lt;- read.csv(here(\"data\", \"cwiek_2021-online_cleaned.csv\"))\n\n\nor directly call the here function without loading the package\n\n\n# read in data without loading here\ndf_icon &lt;- read.csv(here::here(\"data\", \"cwiek_2021-online_cleaned.csv\"))\n\n\nnote that I stored the data with the prefix df_\n\ndf stands for dataframe\n\nI recommend using object-type defining prefixes for all objects in your Environment\n\ne.g., fit_ for models, fig_ for figures, sum_ for summaries, tbl_ for tables, etc.",
+    "crumbs": [
+      "D. Palleschi",
+      "Day 1",
+      "R-Projects"
+    ]
+  },
+  {
+    "objectID": "pages/R-Projects.html#section-8",
+    "href": "pages/R-Projects.html#section-8",
+    "title": "R-Projects",
+    "section": "",
+    "text": "Reproduce your analysis\n\n\n\n\nPerform some data exploration (e.g., with names(), summary(), dplyr::glimpse(), whatever you typically do)\nSave your script, then close RStudio/your R-Project.\nRe-open the project. Can you re-run the script?",
+    "crumbs": [
+      "D. Palleschi",
+      "Day 1",
+      "R-Projects"
+    ]
+  },
+  {
+    "objectID": "pages/reproducibility-slides.html#systemic-problem-in-science",
+    "href": "pages/reproducibility-slides.html#systemic-problem-in-science",
+    "title": "Reproducible analyses in R",
+    "section": "Systemic problem in science",
+    "text": "Systemic problem in science\n\nthe combination of\n\npublication bias\n\njournals favour novel, significant findings\n\n\npublish or perish\n\nresearchers’ careers depend on publications\n\n\n\n\ncan/does/did lead to:\n\nHARKing\n\nHypothesising After Results are Known\n\n\np-hacking\n\n(re-)running analyses until a significant effect is found\n\n\nreplication crisis\n\npervasive failure to replicate previous research"
+  },
+  {
+    "objectID": "pages/reproducibility-slides.html#how-to-practice-open-science",
+    "href": "pages/reproducibility-slides.html#how-to-practice-open-science",
+    "title": "Reproducible analyses in R",
+    "section": "How to practice Open Science",
+    "text": "How to practice Open Science\n\n\n\nFigure 1 shows some suggestions from Kathawalla et al. (2021)\nOpen Science is not all-or-nothing\n\nthere are things I consider the bare minimum\n\ndetailed experiment plan, ideally public\nopenly available materials (e.g., stimuli)\nshare code and data\n\n\nthe important thing is to do what you can\n\n\n\n\n\n\n\n\nWhich Open Science research practices in Figure 1 do you already practice? Are there any you’d like to start implementing?\n\n\n\n\n\n\n\n\n\n\nFigure 1: Image source: Kathawalla et al. (2021) (all rights reserved)"
+  },
+  {
+    "objectID": "pages/reproducibility-slides.html#what-is-reproducibility",
+    "href": "pages/reproducibility-slides.html#what-is-reproducibility",
+    "title": "Reproducible analyses in R",
+    "section": "\nWhat is reproducibility?",
+    "text": "What is reproducibility?\n\none piece of the Open Science pie\ngenerating the same results with the same data and analysis scripts\nseems obvious, but requires organisation and forethought before and during data collection/analysis\nbare minimum: share the code and the data (Laurinavichyute et al., 2022)"
+  },
+  {
+    "objectID": "pages/reproducibility-slides.html#why-implement-reproducibility-in-my-workflow",
+    "href": "pages/reproducibility-slides.html#why-implement-reproducibility-in-my-workflow",
+    "title": "Reproducible analyses in R",
+    "section": "\nWhy implement reproducibility in my workflow?",
+    "text": "Why implement reproducibility in my workflow?\n\nfirstly: the help future you (or collaborators/other researchers)!\n\nyou may return to your analyses tomorrow, next month, or next year\n\n\nto ensure robustness and to document your steps\n\n‘researcher degrees of freedom’ and the ‘garden of forking paths’: there’s more than one way to analyse a certain dataset\nwe can try to plan ahead in detail (e.g., pre-reigster your analysis plan), but there will always be decisions made that were not foreseen\n\n\nlastly: it makes your life much easier and streamlines your workflow"
+  },
+  {
+    "objectID": "pages/reproducibility-slides.html#how-to-implement-reproducibility",
+    "href": "pages/reproducibility-slides.html#how-to-implement-reproducibility",
+    "title": "Reproducible analyses in R",
+    "section": "\nHow to implement reproducibility?",
+    "text": "How to implement reproducibility?\n\nnot exactly straightforward\n\nthere are degrees of reproducibility\nthe rest of our time will be spent on this topic\n\n\nsharing code and data is a first step\n\nthink of the FAIR principles of data sharing\napply them to sharing analyses as well"
+  },
+  {
+    "objectID": "pages/reproducibility-slides.html#reproducibility-rates-of-published-works",
+    "href": "pages/reproducibility-slides.html#reproducibility-rates-of-published-works",
+    "title": "Reproducible analyses in R",
+    "section": "Reproducibility rates of published works",
+    "text": "Reproducibility rates of published works\n\nrates of reproducibility vary across fields (see Bochynska et al., 2023 for a review)\n\nopen access: 25-65%\ndata and analyses sharing: 11-33%\npre-registrations: 0-3%"
+  },
+  {
+    "objectID": "pages/reproducibility-slides.html#beyond-the-reproducibility-spectrum",
+    "href": "pages/reproducibility-slides.html#beyond-the-reproducibility-spectrum",
+    "title": "Reproducible analyses in R",
+    "section": "Beyond the reproducibility spectrum",
+    "text": "Beyond the reproducibility spectrum\n\nthere are different levels of reproducibility\n\nthe bare minimum is sharing the code and data\n\nand including session information:\n\nwhich operating system was used\nwhich software/package versions were used\n\n\n\n\ngoing bigger:\n\nproject-oriented workflow\nproject-specific filepaths\ncontained in a single project folder\n\n\nwe will be using RProjects to achieve this"
+  },
+  {
+    "objectID": "pages/reproducibility-slides.html#project-management",
+    "href": "pages/reproducibility-slides.html#project-management",
+    "title": "Reproducible analyses in R",
+    "section": "Project management",
+    "text": "Project management\n\nfolder structure\nproject-relative file paths\nappropriate documentation\n\ne.g., README files\n\n\nit’s great to map out your project structure early on\n\nbut it will grow as you go along\nreproducible principles facilitate adapting as it grows"
+  },
+  {
+    "objectID": "pages/reproducibility-slides.html#naming-conventions",
+    "href": "pages/reproducibility-slides.html#naming-conventions",
+    "title": "Reproducible analyses in R",
+    "section": "Naming conventions",
+    "text": "Naming conventions\n\nthere are some “rules” for naming files, folders, and variables\n\nThe Turing Way: Naming files, folders, and other things\nJenny Bryan: naming things (Reproducible Science Workshop 2015)\nDanielle Navarro: Project structure\n\n\n\n\n\n\n\nAvoid special characters\n\nensures machine readability\n\n\n\nMake names concise but meaningful\n\nensures human-readability\n\n\n\nAvoid spaces\n\ntry CamelCase, snake case (snake_case), or skewer case (skewer-case)\nor use hyphens (-) to separate chunks, and underscores (_) to connect words of the same chunk\n\n\n\n\n\n\nConsider default ordering\n\ne.g., with dates (ISO 8601): YYYY-MM-DD\n\nwith folders or files: numerical prefixes (e.g., 01-data_cleaning.R, 02-data_visualisation.R)\n\n\n\nBe consistent\n\nas long as your names are machine and human readable"
+  },
+  {
+    "objectID": "pages/reproducibility-slides.html#literate-programming",
+    "href": "pages/reproducibility-slides.html#literate-programming",
+    "title": "Reproducible analyses in R",
+    "section": "Literate programming",
+    "text": "Literate programming\n\nInstead of imagining that our main task is to instruct a computer what to do, let us concentrate rather on explaining to human beings what we want a computer to do.\n\n— Knuth (1984), p. 97\n\n\n\noriginally used to refer to writing programs\nbut also applies to analysis code\n\nespecially if we’re aiming for reproducibility\n\n\n\n\n\n\nmain concepts:\n\ncode is linear (this pre-dates Knuth, 1984)\n\ninformative but concise commenting\n\n\n\n\n\n\nmain benefits:\n\nfacilitates maintenance\nhelpful for future-you, collaborators, etc."
+  },
+  {
+    "objectID": "pages/reproducibility-slides.html#version-control-not-covered-in-this-workshop",
+    "href": "pages/reproducibility-slides.html#version-control-not-covered-in-this-workshop",
+    "title": "Reproducible analyses in R",
+    "section": "Version control (not covered in this workshop)",
+    "text": "Version control (not covered in this workshop)\n\ngit: local tracking\nuseful for the analysis and writing phases\n\nbut can be tricky for collaboration\n\n\nGitHub/GitLab: remote tracking\n\nstore your changes to your local git repository\nthen push them to your remote repository\n\n\nsafe guards against local hardware/software issues\n\nlost or damaged computer or local files\n\n\nand allows for collaboration or sharing"
+  },
+  {
+    "objectID": "pages/reproducibility-slides.html#writing-not-covered-in-this-workshop",
+    "href": "pages/reproducibility-slides.html#writing-not-covered-in-this-workshop",
+    "title": "Reproducible analyses in R",
+    "section": "Writing (not covered in this workshop)",
+    "text": "Writing (not covered in this workshop)\n\n\ndynamic reports with Markdown syntax\n\ne.g., Rmarkdown, Quarto\nintegration of data, code, and prose\n\nfacilitates cross-referencing within document\nintegration of citation management tools\nsupports LaTeX syntax for example sentences and tables\n\n\n\n\npapaja package for APA-formatted Rmarkdown documents\n\nchallenge: collaboration\n\nnot all collaborators know these tools\ntrack changes not currently possible"
+  },
+  {
+    "objectID": "pages/reproducibility-slides.html#data-management-and-sharing-plans-dmsp",
+    "href": "pages/reproducibility-slides.html#data-management-and-sharing-plans-dmsp",
+    "title": "Reproducible analyses in R",
+    "section": "Data Management (and Sharing) Plans (DM(S)P)",
+    "text": "Data Management (and Sharing) Plans (DM(S)P)\n\nresearch data management is relevant for all stages of the data life cycle\n\nplanning, collection, processing, archiving, publishing\n\n\nDMSPs are required by some funding bodies\n\neven if not, they’re an important part of project planning\n\n\nquestions to consider:\n\ndo I have data from human participants?\ndo I have data from vulnerable groups (children, patients, etc.)\nhave I collected any identifiable data from humans? (direct or indirect)"
+  },
+  {
+    "objectID": "pages/reproducibility-slides.html#documentation",
+    "href": "pages/reproducibility-slides.html#documentation",
+    "title": "Reproducible analyses in R",
+    "section": "Documentation",
+    "text": "Documentation\n\n\nmetadata\n\nproject README\ncodebook/data dictionary\n\n\n\nREADME should contain\n\na project description\nrelevant links\ndescription of folder structure\n\n\ncan be updated as the project develops\n\nREADME.md files in GitHub/Lab are automatically used as a project description\n\n\n.md is a plain text document\nuses markdown syntax\n\n\nREAMD files don’t need to be markdown files, but"
+  },
+  {
+    "objectID": "pages/reproducibility-slides.html#version-control-again",
+    "href": "pages/reproducibility-slides.html#version-control-again",
+    "title": "Reproducible analyses in R",
+    "section": "Version control (again)",
+    "text": "Version control (again)\n\nversion control is an important aspect of data management\n\ncan be done with git, or manually\n\n\nmanual version control ()"
+  },
+  {
+    "objectID": "pages/reproducibility-slides.html#persistant-public-storage",
+    "href": "pages/reproducibility-slides.html#persistant-public-storage",
+    "title": "Reproducible analyses in R",
+    "section": "Persistant (public) storage",
+    "text": "Persistant (public) storage\n\nGitHub/Lab are sub-optimal\n\ndeveloper-focused\ntypically lack thorough documentation/metadata\nnot very user-friendly for non-users\n\n\nOSF, Zenodo\n\nOpen Science-focused\ncan be linked to a GitHub/Lab repository\nfacilitate thorough documentation\nuser-friendly"
   },
   {
     "objectID": "pages/reproducibility.html",
@@ -354,842 +1091,5 @@
       "Day 1",
       "Reproducible analyses in R"
     ]
-  },
-  {
-    "objectID": "pages/reproducibility-slides.html#systemic-problem-in-science",
-    "href": "pages/reproducibility-slides.html#systemic-problem-in-science",
-    "title": "Reproducible analyses in R",
-    "section": "Systemic problem in science",
-    "text": "Systemic problem in science\n\nthe combination of\n\npublication bias\n\njournals favour novel, significant findings\n\n\npublish or perish\n\nresearchers’ careers depend on publications\n\n\n\n\ncan/does/did lead to:\n\nHARKing\n\nHypothesising After Results are Known\n\n\np-hacking\n\n(re-)running analyses until a significant effect is found\n\n\nreplication crisis\n\npervasive failure to replicate previous research"
-  },
-  {
-    "objectID": "pages/reproducibility-slides.html#how-to-practice-open-science",
-    "href": "pages/reproducibility-slides.html#how-to-practice-open-science",
-    "title": "Reproducible analyses in R",
-    "section": "How to practice Open Science",
-    "text": "How to practice Open Science\n\n\n\nFigure 1 shows some suggestions from Kathawalla et al. (2021)\nOpen Science is not all-or-nothing\n\nthere are things I consider the bare minimum\n\ndetailed experiment plan, ideally public\nopenly available materials (e.g., stimuli)\nshare code and data\n\n\nthe important thing is to do what you can\n\n\n\n\n\n\n\n\nWhich Open Science research practices in Figure 1 do you already practice? Are there any you’d like to start implementing?\n\n\n\n\n\n\n\n\n\n\nFigure 1: Image source: Kathawalla et al. (2021) (all rights reserved)"
-  },
-  {
-    "objectID": "pages/reproducibility-slides.html#what-is-reproducibility",
-    "href": "pages/reproducibility-slides.html#what-is-reproducibility",
-    "title": "Reproducible analyses in R",
-    "section": "\nWhat is reproducibility?",
-    "text": "What is reproducibility?\n\none piece of the Open Science pie\ngenerating the same results with the same data and analysis scripts\nseems obvious, but requires organisation and forethought before and during data collection/analysis\nbare minimum: share the code and the data (Laurinavichyute et al., 2022)"
-  },
-  {
-    "objectID": "pages/reproducibility-slides.html#why-implement-reproducibility-in-my-workflow",
-    "href": "pages/reproducibility-slides.html#why-implement-reproducibility-in-my-workflow",
-    "title": "Reproducible analyses in R",
-    "section": "\nWhy implement reproducibility in my workflow?",
-    "text": "Why implement reproducibility in my workflow?\n\nfirstly: the help future you (or collaborators/other researchers)!\n\nyou may return to your analyses tomorrow, next month, or next year\n\n\nto ensure robustness and to document your steps\n\n‘researcher degrees of freedom’ and the ‘garden of forking paths’: there’s more than one way to analyse a certain dataset\nwe can try to plan ahead in detail (e.g., pre-reigster your analysis plan), but there will always be decisions made that were not foreseen\n\n\nlastly: it makes your life much easier and streamlines your workflow"
-  },
-  {
-    "objectID": "pages/reproducibility-slides.html#how-to-implement-reproducibility",
-    "href": "pages/reproducibility-slides.html#how-to-implement-reproducibility",
-    "title": "Reproducible analyses in R",
-    "section": "\nHow to implement reproducibility?",
-    "text": "How to implement reproducibility?\n\nnot exactly straightforward\n\nthere are degrees of reproducibility\nthe rest of our time will be spent on this topic\n\n\nsharing code and data is a first step\n\nthink of the FAIR principles of data sharing\napply them to sharing analyses as well"
-  },
-  {
-    "objectID": "pages/reproducibility-slides.html#reproducibility-rates-of-published-works",
-    "href": "pages/reproducibility-slides.html#reproducibility-rates-of-published-works",
-    "title": "Reproducible analyses in R",
-    "section": "Reproducibility rates of published works",
-    "text": "Reproducibility rates of published works\n\nrates of reproducibility vary across fields (see Bochynska et al., 2023 for a review)\n\nopen access: 25-65%\ndata and analyses sharing: 11-33%\npre-registrations: 0-3%"
-  },
-  {
-    "objectID": "pages/reproducibility-slides.html#beyond-the-reproducibility-spectrum",
-    "href": "pages/reproducibility-slides.html#beyond-the-reproducibility-spectrum",
-    "title": "Reproducible analyses in R",
-    "section": "Beyond the reproducibility spectrum",
-    "text": "Beyond the reproducibility spectrum\n\nthere are different levels of reproducibility\n\nthe bare minimum is sharing the code and data\n\nand including session information:\n\nwhich operating system was used\nwhich software/package versions were used\n\n\n\n\ngoing bigger:\n\nproject-oriented workflow\nproject-specific filepaths\ncontained in a single project folder\n\n\nwe will be using RProjects to achieve this"
-  },
-  {
-    "objectID": "pages/reproducibility-slides.html#project-management",
-    "href": "pages/reproducibility-slides.html#project-management",
-    "title": "Reproducible analyses in R",
-    "section": "Project management",
-    "text": "Project management\n\nfolder structure\nproject-relative file paths\nappropriate documentation\n\ne.g., README files\n\n\nit’s great to map out your project structure early on\n\nbut it will grow as you go along\nreproducible principles facilitate adapting as it grows"
-  },
-  {
-    "objectID": "pages/reproducibility-slides.html#naming-conventions",
-    "href": "pages/reproducibility-slides.html#naming-conventions",
-    "title": "Reproducible analyses in R",
-    "section": "Naming conventions",
-    "text": "Naming conventions\n\nthere are some “rules” for naming files, folders, and variables\n\nThe Turing Way: Naming files, folders, and other things\nJenny Bryan: naming things (Reproducible Science Workshop 2015)\nDanielle Navarro: Project structure\n\n\n\n\n\n\n\nAvoid special characters\n\nensures machine readability\n\n\n\nMake names concise but meaningful\n\nensures human-readability\n\n\n\nAvoid spaces\n\ntry CamelCase, snake case (snake_case), or skewer case (skewer-case)\nor use hyphens (-) to separate chunks, and underscores (_) to connect words of the same chunk\n\n\n\n\n\n\nConsider default ordering\n\ne.g., with dates (ISO 8601): YYYY-MM-DD\n\nwith folders or files: numerical prefixes (e.g., 01-data_cleaning.R, 02-data_visualisation.R)\n\n\n\nBe consistent\n\nas long as your names are machine and human readable"
-  },
-  {
-    "objectID": "pages/reproducibility-slides.html#literate-programming",
-    "href": "pages/reproducibility-slides.html#literate-programming",
-    "title": "Reproducible analyses in R",
-    "section": "Literate programming",
-    "text": "Literate programming\n\nInstead of imagining that our main task is to instruct a computer what to do, let us concentrate rather on explaining to human beings what we want a computer to do.\n\n— Knuth (1984), p. 97\n\n\n\noriginally used to refer to writing programs\nbut also applies to analysis code\n\nespecially if we’re aiming for reproducibility\n\n\n\n\n\n\nmain concepts:\n\ncode is linear (this pre-dates Knuth, 1984)\n\ninformative but concise commenting\n\n\n\n\n\n\nmain benefits:\n\nfacilitates maintenance\nhelpful for future-you, collaborators, etc."
-  },
-  {
-    "objectID": "pages/reproducibility-slides.html#version-control-not-covered-in-this-workshop",
-    "href": "pages/reproducibility-slides.html#version-control-not-covered-in-this-workshop",
-    "title": "Reproducible analyses in R",
-    "section": "Version control (not covered in this workshop)",
-    "text": "Version control (not covered in this workshop)\n\ngit: local tracking\nuseful for the analysis and writing phases\n\nbut can be tricky for collaboration\n\n\nGitHub/GitLab: remote tracking\n\nstore your changes to your local git repository\nthen push them to your remote repository\n\n\nsafe guards against local hardware/software issues\n\nlost or damaged computer or local files\n\n\nand allows for collaboration or sharing"
-  },
-  {
-    "objectID": "pages/reproducibility-slides.html#writing-not-covered-in-this-workshop",
-    "href": "pages/reproducibility-slides.html#writing-not-covered-in-this-workshop",
-    "title": "Reproducible analyses in R",
-    "section": "Writing (not covered in this workshop)",
-    "text": "Writing (not covered in this workshop)\n\n\ndynamic reports with Markdown syntax\n\ne.g., Rmarkdown, Quarto\nintegration of data, code, and prose\n\nfacilitates cross-referencing within document\nintegration of citation management tools\nsupports LaTeX syntax for example sentences and tables\n\n\n\n\npapaja package for APA-formatted Rmarkdown documents\n\nchallenge: collaboration\n\nnot all collaborators know these tools\ntrack changes not currently possible"
-  },
-  {
-    "objectID": "pages/reproducibility-slides.html#data-management-and-sharing-plans-dmsp",
-    "href": "pages/reproducibility-slides.html#data-management-and-sharing-plans-dmsp",
-    "title": "Reproducible analyses in R",
-    "section": "Data Management (and Sharing) Plans (DM(S)P)",
-    "text": "Data Management (and Sharing) Plans (DM(S)P)\n\nresearch data management is relevant for all stages of the data life cycle\n\nplanning, collection, processing, archiving, publishing\n\n\nDMSPs are required by some funding bodies\n\neven if not, they’re an important part of project planning\n\n\nquestions to consider:\n\ndo I have data from human participants?\ndo I have data from vulnerable groups (children, patients, etc.)\nhave I collected any identifiable data from humans? (direct or indirect)"
-  },
-  {
-    "objectID": "pages/reproducibility-slides.html#documentation",
-    "href": "pages/reproducibility-slides.html#documentation",
-    "title": "Reproducible analyses in R",
-    "section": "Documentation",
-    "text": "Documentation\n\n\nmetadata\n\nproject README\ncodebook/data dictionary\n\n\n\nREADME should contain\n\na project description\nrelevant links\ndescription of folder structure\n\n\ncan be updated as the project develops\n\nREADME.md files in GitHub/Lab are automatically used as a project description\n\n\n.md is a plain text document\nuses markdown syntax\n\n\nREAMD files don’t need to be markdown files, but"
-  },
-  {
-    "objectID": "pages/reproducibility-slides.html#version-control-again",
-    "href": "pages/reproducibility-slides.html#version-control-again",
-    "title": "Reproducible analyses in R",
-    "section": "Version control (again)",
-    "text": "Version control (again)\n\nversion control is an important aspect of data management\n\ncan be done with git, or manually\n\n\nmanual version control ()"
-  },
-  {
-    "objectID": "pages/reproducibility-slides.html#persistant-public-storage",
-    "href": "pages/reproducibility-slides.html#persistant-public-storage",
-    "title": "Reproducible analyses in R",
-    "section": "Persistant (public) storage",
-    "text": "Persistant (public) storage\n\nGitHub/Lab are sub-optimal\n\ndeveloper-focused\ntypically lack thorough documentation/metadata\nnot very user-friendly for non-users\n\n\nOSF, Zenodo\n\nOpen Science-focused\ncan be linked to a GitHub/Lab repository\nfacilitate thorough documentation\nuser-friendly"
-  },
-  {
-    "objectID": "pages/R-Projects.html",
-    "href": "pages/R-Projects.html",
-    "title": "R-Projects",
-    "section": "",
-    "text": "Today we will…\n\nlearn about project-oriented workflows\ncreate an R-Project\nuse project-relative filepaths with the here package",
-    "crumbs": [
-      "D. Palleschi",
-      "Day 1",
-      "R-Projects"
-    ]
-  },
-  {
-    "objectID": "pages/R-Projects.html#folder-structure",
-    "href": "pages/R-Projects.html#folder-structure",
-    "title": "R-Projects",
-    "section": "Folder structure",
-    "text": "Folder structure\n\na core computer literacy skill\n\nkeep your Desktop as empty as possible\nhave a sensible folder structure\navoid mixing subfolders and files\n\ni.e., if a folder contains subfolders, ideally it should not contain files",
-    "crumbs": [
-      "D. Palleschi",
-      "Day 1",
-      "R-Projects"
-    ]
-  },
-  {
-    "objectID": "pages/R-Projects.html#creating-a-new-project",
-    "href": "pages/R-Projects.html#creating-a-new-project",
-    "title": "R-Projects",
-    "section": "Creating a new Project",
-    "text": "Creating a new Project\n\nwhen?\n\nwhenever you’re starting a new course oR-Project which will use R\n\nwhy?\n\nto keep all the relavent materials in one place\n\nwhere?\n\nsomewhere that makes sense, e.g., a folder called SoSe2024 or Mastersarbeit\n\nhow?\n\nFile &gt; New Project &gt; New Directory &gt; New Project &gt; [Directory name] &gt; Create Project\n\n\n\n\n\n\n\n\n\n\nNew R-Project\n\n\n\nCreate a new R-Project for this workshop\n\nFile &gt; New Project &gt; New Directory &gt; New Project &gt; [Directory name] &gt; Create Project\nmake sure you choose a sensible location",
-    "crumbs": [
-      "D. Palleschi",
-      "Day 1",
-      "R-Projects"
-    ]
-  },
-  {
-    "objectID": "pages/R-Projects.html#opening-a-project",
-    "href": "pages/R-Projects.html#opening-a-project",
-    "title": "R-Projects",
-    "section": "Opening a Project",
-    "text": "Opening a Project\n\nto open a project, locate its .Rproj file and double-click\nor if you’re already in RStudio, you can use the Project (None) drop-down (top right)\n\n\n\n\n\n\n\n\n\n\n\nFigure 1: Double-click .Rproj\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 2: Open from RStudio",
-    "crumbs": [
-      "D. Palleschi",
-      "Day 1",
-      "R-Projects"
-    ]
-  },
-  {
-    "objectID": "pages/R-Projects.html#adding-a-readme-file",
-    "href": "pages/R-Projects.html#adding-a-readme-file",
-    "title": "R-Projects",
-    "section": "Adding a README file",
-    "text": "Adding a README file\n\nFile &gt; New File &gt; Markdown File (not R Markdown!)\n\nadd some text describing the purpose of this project\ninclude your name, the date\nuse Markdown formatting (e.g., # for headings, *italics*, **bold**)\n\nsave as README.md in youR-Project directory",
-    "crumbs": [
-      "D. Palleschi",
-      "Day 1",
-      "R-Projects"
-    ]
-  },
-  {
-    "objectID": "pages/R-Projects.html#global-rstudio-options",
-    "href": "pages/R-Projects.html#global-rstudio-options",
-    "title": "R-Projects",
-    "section": "Global RStudio options",
-    "text": "Global RStudio options\n\n\n\n\n\n\n\n\n\n\nFigure 3: RStudio settings for reproducibility\n\n\n\n\n\n\n\nTools &gt; Global Options\n\nWorkspace: Restore .RData into workspace at startup: NO\nSave workspace to .RData on exit: Never\n\nthis will ensure that you are always starting with a clean slate\n\nand that your code is not dependent on some pacakge or object you created in another session\n\nthis is also how RMarkdown and Quarto scripts run\n\nthey start with an empty environment and run the script linearly",
-    "crumbs": [
-      "D. Palleschi",
-      "Day 1",
-      "R-Projects"
-    ]
-  },
-  {
-    "objectID": "pages/R-Projects.html#section-1",
-    "href": "pages/R-Projects.html#section-1",
-    "title": "R-Projects",
-    "section": "",
-    "text": "Global settings\n\n\n\nChange your Global Options so that\n\nWorkspace: Restore .RData into workspace at startup: NO\nSave workspace to .RData on exit: Never",
-    "crumbs": [
-      "D. Palleschi",
-      "Day 1",
-      "R-Projects"
-    ]
-  },
-  {
-    "objectID": "pages/R-Projects.html#identifying-your-r-project",
-    "href": "pages/R-Projects.html#identifying-your-r-project",
-    "title": "R-Projects",
-    "section": "Identifying your R-Project",
-    "text": "Identifying your R-Project\n\nthere are a ways to check which (if any) R-Project you’re in\n\nthere are 6 differences between Figure 4 and Figure 5\nwhich is in an R-Project session?\n\n\n\nSpot the differencesShow the differences\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 4: RStudio Session A\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 5: RStudio Session B\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 6: How to tell if you’re in a project",
-    "crumbs": [
-      "D. Palleschi",
-      "Day 1",
-      "R-Projects"
-    ]
-  },
-  {
-    "objectID": "pages/R-Projects.html#the-problem-with-setwd",
-    "href": "pages/R-Projects.html#the-problem-with-setwd",
-    "title": "R-Projects",
-    "section": "The problem with setwd()",
-    "text": "The problem with setwd()\n\n\nIf the first line of your R script is\nsetwd(\"C:\\Users\\jenny\\path\\that\\only\\I\\have\")\nI will come into your office and SET YOUR COMPUTER ON FIRE🔥.\n\n— Jenny Bryan\n\n\nsetwd() depends on your entire machine’s folder structure\nsetwd() breaks when you\n\nsend youR-Project folder to a collaborator\nmake your analyses open\nchange the location of youR-Project folder\n\nusing slashes is also dependent on your operating system\n\n\ntrying to use somebody else’s (or your former) folder path will result in a warning message like:\n\n\nError in setwd(\"/Users/danielapalleschi/Documents/R/rproject-template\") : cannot change working directory",
-    "crumbs": [
-      "D. Palleschi",
-      "Day 1",
-      "R-Projects"
-    ]
-  },
-  {
-    "objectID": "pages/R-Projects.html#the-benefit-of-here",
-    "href": "pages/R-Projects.html#the-benefit-of-here",
-    "title": "R-Projects",
-    "section": "The benefit of here()",
-    "text": "The benefit of here()\n\nuses the top-level directory of your Project as the working directory\n\nmeaning we never need to specify the path to our project folder relative to our current higher-level folder structure\n\ncan separate folder names with a comma\n\nmeaning it doesn’t matter if the original code was written on a Mac or a Windows machine",
-    "crumbs": [
-      "D. Palleschi",
-      "Day 1",
-      "R-Projects"
-    ]
-  },
-  {
-    "objectID": "pages/R-Projects.html#section-6",
-    "href": "pages/R-Projects.html#section-6",
-    "title": "R-Projects",
-    "section": "",
-    "text": "here\n\n\n\nIn your R Project, load the cwiek_2021- using here\n\nInstall here (e.g., install.packages(\"here\"))\nLoad here at the beginning of your package\n\nor use here:: before calling a function\n\nUse the here() function to load in your data\nInspect the dataset however you usually would (e.g., summary(), names(), etc.)\nSave your script",
-    "crumbs": [
-      "D. Palleschi",
-      "Day 1",
-      "R-Projects"
-    ]
-  },
-  {
-    "objectID": "pages/R-Projects.html#herehere",
-    "href": "pages/R-Projects.html#herehere",
-    "title": "R-Projects",
-    "section": "here::here()",
-    "text": "here::here()\n\ninstall package\n\n\n\n\nIn the Console\n\ninstall.packages(\"here\")\n\n\n\nload package and call the here function\n\n\n# load package\nlibrary(here)\n\n# read in data\ndf_data &lt;- read.csv(here(\"data\", \"data_lifetime_pilot.csv\"))\n\n\nor directly call the here function without loading the package\n\n\n# read in data without loading here\ndf_data &lt;- read.csv(here::here(\"data\", \"data_lifetime_pilot.csv\"))\n\n\nnote that I stored the data with the prefix df_\n\ndf stands for dataframe\n\nI recommend using object-type defining prefixes for all objects in your Environment\n\ne.g., fit_ for models, fig_ for figures, sum_ for summaries, tbl_ for tables, etc.",
-    "crumbs": [
-      "D. Palleschi",
-      "Day 1",
-      "R-Projects"
-    ]
-  },
-  {
-    "objectID": "pages/R-Projects.html#section-7",
-    "href": "pages/R-Projects.html#section-7",
-    "title": "R-Projects",
-    "section": "",
-    "text": "Reproduce your analysis\n\n\n\n\nPerform some data exploration (e.g., with names(), summary(), dplyr::glimpse(), whatever you typically do)\nSave your script, then close RStudio/your R-Project.\nRe-open the project. Can you re-run the script?",
-    "crumbs": [
-      "D. Palleschi",
-      "Day 1",
-      "R-Projects"
-    ]
-  },
-  {
-    "objectID": "pages/R-Projects-slides.html#folder-structure",
-    "href": "pages/R-Projects-slides.html#folder-structure",
-    "title": "R-Projects",
-    "section": "Folder structure",
-    "text": "Folder structure\n\na core computer literacy skill\n\nkeep your Desktop as empty as possible\nhave a sensible folder structure\navoid mixing subfolders and files\n\ni.e., if a folder contains subfolders, ideally it should not contain files"
-  },
-  {
-    "objectID": "pages/R-Projects-slides.html#creating-a-new-project",
-    "href": "pages/R-Projects-slides.html#creating-a-new-project",
-    "title": "R-Projects",
-    "section": "Creating a new Project",
-    "text": "Creating a new Project\n\nwhen?\n\nwhenever you’re starting a new course oR-Project which will use R\n\n\nwhy?\n\nto keep all the relavent materials in one place\n\n\nwhere?\n\nsomewhere that makes sense, e.g., a folder called SoSe2024 or Mastersarbeit\n\n\n\nhow?\n\nFile &gt; New Project &gt; New Directory &gt; New Project &gt; [Directory name] &gt; Create Project"
-  },
-  {
-    "objectID": "pages/R-Projects-slides.html#opening-a-project",
-    "href": "pages/R-Projects-slides.html#opening-a-project",
-    "title": "R-Projects",
-    "section": "Opening a Project",
-    "text": "Opening a Project\n\nto open a project, locate its .Rproj file and double-click\nor if you’re already in RStudio, you can use the Project (None) drop-down (top right)\n\n\n\n\n\n\n\nFigure 1: Double-click .Rproj\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 2: Open from RStudio"
-  },
-  {
-    "objectID": "pages/R-Projects-slides.html#adding-a-readme-file",
-    "href": "pages/R-Projects-slides.html#adding-a-readme-file",
-    "title": "R-Projects",
-    "section": "Adding a README file",
-    "text": "Adding a README file\n\n\nFile &gt; New File &gt; Markdown File (not R Markdown!)\n\nadd some text describing the purpose of this project\ninclude your name, the date\nuse Markdown formatting (e.g., # for headings, *italics*, **bold**)\n\n\nsave as README.md in youR-Project directory"
-  },
-  {
-    "objectID": "pages/R-Projects-slides.html#global-rstudio-options",
-    "href": "pages/R-Projects-slides.html#global-rstudio-options",
-    "title": "R-Projects",
-    "section": "Global RStudio options",
-    "text": "Global RStudio options\n\n\n\n\n\n\nFigure 3: RStudio settings for reproducibility\n\n\n\n\n\n\n\n\n\n\nTools &gt; Global Options\n\n\nWorkspace: Restore .RData into workspace at startup: NO\nSave workspace to .RData on exit: Never\n\n\nthis will ensure that you are always starting with a clean slate\n\nand that your code is not dependent on some pacakge or object you created in another session\n\n\nthis is also how RMarkdown and Quarto scripts run\n\nthey start with an empty environment and run the script linearly"
-  },
-  {
-    "objectID": "pages/R-Projects-slides.html#section-1",
-    "href": "pages/R-Projects-slides.html#section-1",
-    "title": "R-Projects",
-    "section": "",
-    "text": "Global settings\n\n\nChange your Global Options so that\n\n\nWorkspace: Restore .RData into workspace at startup: NO\nSave workspace to .RData on exit: Never"
-  },
-  {
-    "objectID": "pages/R-Projects-slides.html#identifying-your-r-project",
-    "href": "pages/R-Projects-slides.html#identifying-your-r-project",
-    "title": "R-Projects",
-    "section": "Identifying your R-Project",
-    "text": "Identifying your R-Project\n\nthere are a ways to check which (if any) R-Project you’re in\n\nthere are 6 differences between Figure 4 and Figure 5\n\nwhich is in an R-Project session?\n\n\n\n\n\nSpot the differences\nShow the differences\n\n\n\n\n\n\n\n\n\nFigure 4: RStudio Session A\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 5: RStudio Session B\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 6: How to tell if you’re in a project"
-  },
-  {
-    "objectID": "pages/R-Projects-slides.html#section-4",
-    "href": "pages/R-Projects-slides.html#section-4",
-    "title": "R-Projects",
-    "section": "",
-    "text": "Figure 7: Illustration by Allison Horst"
-  },
-  {
-    "objectID": "pages/R-Projects-slides.html#the-problem-with-setwd",
-    "href": "pages/R-Projects-slides.html#the-problem-with-setwd",
-    "title": "R-Projects",
-    "section": "The problem with setwd()\n",
-    "text": "The problem with setwd()\n\n\n\nIf the first line of your R script is\nsetwd(\"C:\\Users\\jenny\\path\\that\\only\\I\\have\")\nI will come into your office and SET YOUR COMPUTER ON FIRE🔥.\n\n— Jenny Bryan\n\n\n\nsetwd() depends on your entire machine’s folder structure\n\nsetwd() breaks when you\n\nsend youR-Project folder to a collaborator\nmake your analyses open\nchange the location of youR-Project folder\n\n\nusing slashes is also dependent on your operating system"
-  },
-  {
-    "objectID": "pages/R-Projects-slides.html#the-benefit-of-here",
-    "href": "pages/R-Projects-slides.html#the-benefit-of-here",
-    "title": "R-Projects",
-    "section": "The benefit of here()\n",
-    "text": "The benefit of here()\n\n\nuses the top-level directory of your Project as the working directory\n\nmeaning we never need to specify the path to our project folder relative to our current higher-level folder structure\n\n\ncan separate folder names with a comma\n\nmeaning it doesn’t matter if the original code was written on a Mac or a Windows machine"
-  },
-  {
-    "objectID": "pages/R-Projects-slides.html#section-6",
-    "href": "pages/R-Projects-slides.html#section-6",
-    "title": "R-Projects",
-    "section": "",
-    "text": "here\n\n\nIn your R Project, load the cwiek_2021- using here\n\nInstall here (e.g., install.packages(\"here\"))\nLoad here at the beginning of your package\n\nor use here:: before calling a function\n\n\nUse the here() function to load in your data\nInspect the dataset however you usually would (e.g., summary(), names(), etc.)\nSave your script"
-  },
-  {
-    "objectID": "pages/R-Projects-slides.html#herehere",
-    "href": "pages/R-Projects-slides.html#herehere",
-    "title": "R-Projects",
-    "section": "here::here()",
-    "text": "here::here()\n\ninstall package\n\n\n\n\nIn the Console\n\ninstall.packages(\"here\")\n\n\n\nload package and call the here function\n\n\n# load package\nlibrary(here)\n\n# read in data\ndf_data &lt;- read.csv(here(\"data\", \"data_lifetime_pilot.csv\"))\n\n\nor directly call the here function without loading the package\n\n\n# read in data without loading here\ndf_data &lt;- read.csv(here::here(\"data\", \"data_lifetime_pilot.csv\"))\n\n\nnote that I stored the data with the prefix df_\n\n\ndf stands for dataframe\n\n\nI recommend using object-type defining prefixes for all objects in your Environment\n\ne.g., fit_ for models, fig_ for figures, sum_ for summaries, tbl_ for tables, etc."
-  },
-  {
-    "objectID": "pages/R-Projects-slides.html#section-7",
-    "href": "pages/R-Projects-slides.html#section-7",
-    "title": "R-Projects",
-    "section": "",
-    "text": "Reproduce your analysis\n\n\n\nPerform some data exploration (e.g., with names(), summary(), dplyr::glimpse(), whatever you typically do)\nSave your script, then close RStudio/your R-Project.\nRe-open the project. Can you re-run the script?"
-  },
-  {
-    "objectID": "examples/literate-programming.html",
-    "href": "examples/literate-programming.html",
-    "title": "Literate programming",
-    "section": "",
-    "text": "Set-up environment: load packages and data\n\n\nInstall the tidyverse and here packages. This will not run when we render the script.\n\n# install packages\ninstall.packages(\"tidyverse\")\ninstall.packages(\"here\")\n\nLoad required packages.\n\n# load packages\nlibrary(tidyverse)\nlibrary(here)\n\nPrint the project directory filepath using the here package.\n\n# print project directory\nhere()\n\n[1] \"/Users/danielapalleschi/Documents/ZAS/zas-reproducibility-2024\"\n\n\n\n\n\n\ndf_icon &lt;- read_csv(here(\"data\", \"cwiek_2021-online_cleaned.csv\"))"
-  },
-  {
-    "objectID": "examples/literate-programming.html#packages",
-    "href": "examples/literate-programming.html#packages",
-    "title": "Literate programming",
-    "section": "",
-    "text": "Install the tidyverse and here packages. This will not run when we render the script.\n\n# install packages\ninstall.packages(\"tidyverse\")\ninstall.packages(\"here\")\n\nLoad required packages.\n\n# load packages\nlibrary(tidyverse)\nlibrary(here)\n\nPrint the project directory filepath using the here package.\n\n# print project directory\nhere()\n\n[1] \"/Users/danielapalleschi/Documents/ZAS/zas-reproducibility-2024\""
-  },
-  {
-    "objectID": "examples/literate-programming.html#load-data",
-    "href": "examples/literate-programming.html#load-data",
-    "title": "Literate programming",
-    "section": "",
-    "text": "df_icon &lt;- read_csv(here(\"data\", \"cwiek_2021-online_cleaned.csv\"))"
-  },
-  {
-    "objectID": "index_slides.html#schedule",
-    "href": "index_slides.html#schedule",
-    "title": "Reproducible Analyses in R (ZAS Workshop)",
-    "section": "Schedule",
-    "text": "Schedule\nTable 1 shows the tentative plan for the workshop and may be adjusted based on the needs of the participants.\n\n\n\nTable 1: Tentative schedule for the 2-day workshop\n\n\n\n\n\n\n\n\n\n\nDay 1: Tues. Oct. 8, 1-4pm\n\n\n(i)\nOpen Science Practices and reproducibility\n\n\n(ii)\nData management: folder/file organisation, data handling\n\n\n(iii)\nWorking with RProjects + project-relative filepaths with {here}\n\n\nDay 2: Thurs. Oct. 17, 1-4pm\n\n\n(iv)\nModular analyses and literate programming with Quarto\n\n\n(v)\nPackage management with {renv}\n\n\n(vii)\nCode review via online repositories"
-  },
-  {
-    "objectID": "index_slides.html#how-to-navigate-this-website",
-    "href": "index_slides.html#how-to-navigate-this-website",
-    "title": "Reproducible Analyses in R (ZAS Workshop)",
-    "section": "How to navigate this website",
-    "text": "How to navigate this website\nEach topic is listed in the sidebar in chronological order. Three output formats are available, all with the same content:\n\nHTML page (landing page)\nPDF of content (sub-optimally formatted)\nSlides in RevealJS format\n\nThe contents were formatted for the slide output. Tables and figures may be too large/small in HTML and PDF format (especially the latter). Each page of the website presents the HTML format. The other 2 formats can be viewed by clicking on their symbol under ‘Other Formats’ (right sidebar)."
-  },
-  {
-    "objectID": "index_slides.html#software-r-and-rstudio",
-    "href": "index_slides.html#software-r-and-rstudio",
-    "title": "Reproducible Analyses in R (ZAS Workshop)",
-    "section": "Software: R and RStudio",
-    "text": "Software: R and RStudio\nPlease make sure you have recent versions of R and RStudio installed prior to the workshop. Below you will find information on how to check which version of R and RStudio you currently have, and how to install or update them as needed."
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "",
-    "section": "",
-    "text": "Code",
-    "crumbs": [
-      "D. Palleschi",
-      "Workshop overview"
-    ]
-  },
-  {
-    "objectID": "index.html#schedule",
-    "href": "index.html#schedule",
-    "title": "",
-    "section": "Schedule",
-    "text": "Schedule\nTable 1 shows the tentative plan for the workshop and may be adjusted based on the needs of the participants.\n\n\n\n\nTable 1: Tentative schedule for the 2-day workshop\n\n\n\n\n\n\n\n\n\n\n\n\n\nDay 1: Tues. Oct. 8, 1-4pm\n\n\n(i)\nOpen Science Practices and reproducibility\n\n\n(ii)\nData management: folder/file organisation, data handling\n\n\n(iii)\nWorking with RProjects + project-relative filepaths with {here}\n\n\nDay 2: Thurs. Oct. 17, 1-4pm\n\n\n(iv)\nModular analyses and literate programming with Quarto\n\n\n(v)\nPackage management with {renv}\n\n\n(vii)\nCode review via online repositories",
-    "crumbs": [
-      "D. Palleschi",
-      "Workshop overview"
-    ]
-  },
-  {
-    "objectID": "index.html#how-to-navigate-this-website",
-    "href": "index.html#how-to-navigate-this-website",
-    "title": "",
-    "section": "How to navigate this website",
-    "text": "How to navigate this website\nEach topic is listed in the sidebar in chronological order. Three output formats are available, all with the same content:\n\nHTML page (landing page)\nPDF of content (sub-optimally formatted)\nSlides in RevealJS format\n\nThe contents were formatted for the slide output. Tables and figures may be too large/small in HTML and PDF format (especially the latter). Each page of the website presents the HTML format. The other 2 formats can be viewed by clicking on their symbol under ‘Other Formats’ (right sidebar).",
-    "crumbs": [
-      "D. Palleschi",
-      "Workshop overview"
-    ]
-  },
-  {
-    "objectID": "index.html#software-r-and-rstudio",
-    "href": "index.html#software-r-and-rstudio",
-    "title": "",
-    "section": "Software: R and RStudio",
-    "text": "Software: R and RStudio\nPlease make sure you have recent versions of R and RStudio installed prior to the workshop. Below you will find information on how to check which version of R and RStudio you currently have, and how to install or update them as needed.\n\nCheck software versions\n\nR\nTo check which version of R you currently have, run the command R.version$version.string in the Console (to print just the version name and release date), or R.version$nickname (to print the nickname).\n\n\n\nIn the Console: print R version and release date\n\nR.version$version.string\n\n\n[1] \"R version 4.4.1 (2024-06-14)\"\n\n\n\n\n\nIn the Console: print R version nickname\n\nR.version$nickname\n\n\n[1] \"Race for Your Life\"\n\n\n\n\nR\nTo check which version of RStudio you currently have, run the command R.version$version.string in the Console (to print just the version name and release date), or R.version$nickname (to print the nickname). Be sure to include these only in the Console, as Rmarkdown/Quarto scripts will not be able to run these commands.\n\n\n\nIn the Console: print RStudio version number\n\nRStudio.Version()$version\n\n\n\n\n\nIn the Console: print RStudio version nickname\n\nRStudio.Version()$release_name\n\n\nAlternatively, you can go to Help &gt; About RStudio in RStudio. You should see a pop-up like Figure 1.\n\n\n\n\n\n\n\n\nFigure 1: Help &gt; About RStudio\n\n\n\n\n\n\n\n\nIntall/update software\n\nInstall or update R\n\nN.B., I am currently using version 4.4.1 (Race for Your Life, 2024-06-14)\nhaving an R version from 2022.07 or later should suffice\n\n\n\n\n\n\n\n\nDisclaimer: Updating R\n\n\n\nBeware that updating R can interfere with on-going R projects you are currently working on, most notably because you will need to re-install packages (and thus you may be installing more recent package versions which may break existing code). If you are currently in the middle of analysing some data, you may not want to update R right now. In this case, just make note of which version you’re currently running (e.g., by running R.version in the Console)\n\n\n\nInstall or update RStudio\n\nI am currently using RStudio version 2023.12.1+402, as I encountered issues when updating to 2024.04.2+764 in April when it was released. As a rule of thumb, I update R and/or RStudio a few months after their initial release, and when I know I have time to fix any bugs that might pop up (i.e., I don’t have a looming deadline)",
-    "crumbs": [
-      "D. Palleschi",
-      "Workshop overview"
-    ]
-  },
-  {
-    "objectID": "examples/eda-cwiek_2021.html",
-    "href": "examples/eda-cwiek_2021.html",
-    "title": "EDA of Lacina et al. (2023)",
-    "section": "",
-    "text": "This script produces an exploratory data analysis of the online experiment dataset from @cwiek_novel_2021 (OSF: osf.io/4na58/)"
-  },
-  {
-    "objectID": "examples/eda-cwiek_2021.html#accuracy-distributions",
-    "href": "examples/eda-cwiek_2021.html#accuracy-distributions",
-    "title": "EDA of Lacina et al. (2023)",
-    "section": "Accuracy distributions",
-    "text": "Accuracy distributions\n\ndf_icon |&gt; \n  distinct(id, unique_item, .keep_all = T) |&gt; \n  tabyl(english_L2, category, acc) |&gt; \n  adorn_totals(where = c(\"col\", \"row\"))\n\n$`0`\n english_L2 action noun property Total\n      FALSE   1367 2260     2411  6038\n       TRUE   4520 7543     8573 20636\n      Total   5887 9803    10984 26674\n\n$`1`\n english_L2 action  noun property Total\n      FALSE   3166  4539     3128 10833\n       TRUE  11156 15979    10643 37778\n      Total  14322 20518    13771 48611\n\n\n48611 correct responses overall, 26674 incorrect."
-  },
-  {
-    "objectID": "pages/packages-slides.html#cran-packages",
-    "href": "pages/packages-slides.html#cran-packages",
-    "title": "Package management",
-    "section": "CRAN packages",
-    "text": "CRAN packages\n\nthe Comprehensive R Archive Network: R’s central software repository\n\ncurrently 20,888 available!\n\n\nan archive of the most recent package versions\nfor a package to be included in the CRAN, it must go through a lot of tests and checks\n\nany updates or changes must again be reviewed before being added to CRAN\n\n\nCRAN packages can be installed using install.packages(), as we’ve been doing"
-  },
-  {
-    "objectID": "pages/packages-slides.html#section",
-    "href": "pages/packages-slides.html#section",
-    "title": "Package management",
-    "section": "",
-    "text": "pacman package (optional)\n\n\n\n\na package management tool\nwe’ll use the p_load() function to replace install.packages() and library() in our worksflow\n\ntakes a list of packages, and checks if each package is installed already\nif yes, the package is loaded (as with library())\nif no, the package is installed (as with install.packages()) and then loaded (as with library())\n\n\nonly works with CRAN packages (which is all we have for now anyway), although pacman has a function for developer packages (which we’ll talk about later)\n\nTo get started: install pacman (install.packages(\"pacman\")). Then, you can load in your packages using pacman::p_load(), or with a long list of library() calls like we’ve previously done (you see why I prefer p_load()!).\n\n\n\n\n\nLoading packages with `pacman::p_load()`\n\npacman::p_load(tidyverse, here, janitor)\n\n\n\n\n\n\nLoading packages with `library()`\n\nlibrary(tidyverse)\nlibrary(here)\nlibrary(janitor)\n\n\n\n\nThe additional benefit of p_load() is that, if you don’t actually have one of the packages installed it will automatically be installed and then loaded. With library() you would instead get an error message."
-  },
-  {
-    "objectID": "pages/packages-slides.html#developer-packages",
-    "href": "pages/packages-slides.html#developer-packages",
-    "title": "Package management",
-    "section": "Developer packages",
-    "text": "Developer packages\n\noften hosted on GitHub or GitLab, where packages are typically developed before being reviewed and added to the CRAN\n\nbenefit: you can make whatever you changes to your package that you like without having to pass a review on the CRAN\n\n\nsince CRAN packages are often developed on GH or GL, pre-release (beta) versions will often be available on a GH repo\npackages/package versions on GH cannot be installed via install.packages()\n\nwe’ll see later how to do this"
-  },
-  {
-    "objectID": "pages/packages-slides.html#dependencies",
-    "href": "pages/packages-slides.html#dependencies",
-    "title": "Package management",
-    "section": "Dependencies",
-    "text": "Dependencies\n\nsome packages are dependent on specific versions of other packages\n\nif so, you will be prompted during installation to install these dependencies\nbut beware: sometimes this overwrites an existing package version you already have, which can break code that was written with this older version\n\n\nthis is especially true because, as our projects are currently set up, we have one global package version on our computer\n\nso analyses we ran 3 years ago would’ve used older versions of packages\nwhen we update these packages for current analyses, this might disrupt the code from 3 years ago\n\n\nwe’ll see one (partial) solution for this problem soon"
-  },
-  {
-    "objectID": "pages/packages-slides.html#updating-packages",
-    "href": "pages/packages-slides.html#updating-packages",
-    "title": "Package management",
-    "section": "Updating packages",
-    "text": "Updating packages\n\nto check if a package needs updating, you can:\n\ngo to Tools &gt; Check for package updates, or\nrun update.packages()\n\n\n\neach will tell you which packages can be updated to which versions\n\nand give you the option of updating these packages"
-  },
-  {
-    "objectID": "pages/packages-slides.html#package-library",
-    "href": "pages/packages-slides.html#package-library",
-    "title": "Package management",
-    "section": "Package library",
-    "text": "Package library\n\nwhere do all these installed packages go?\n\na folder that contains all the packages, called a library\n\n\nto find out where this (global) package library is, run .libPaths()\n\n\n\n.libPaths()\n\n\nthe output should currently produce a single file path, something like:\n\n&gt; .libPaths()\n[1] \"/Library/Frameworks/R.framework/Versions/4.4-arm64/Resources/library\"\n\nthis is the location of your global package library"
-  },
-  {
-    "objectID": "pages/packages-slides.html#package-versions-and-reproducibility",
-    "href": "pages/packages-slides.html#package-versions-and-reproducibility",
-    "title": "Package management",
-    "section": "Package versions and reproducibility",
-    "text": "Package versions and reproducibility\n\nwe’ve seen that package versions and dependencies can easily break our existing code\nthis means that older projects that were built using previous package versions won’t be able to run if we update these packages in our global package library\n\nalso a problem in the future: our current code will depend on the package versions we’re using today\n\n\nwe need a project-relative package library that is independent of the global library\n\nwe’ll use the renv package to do this"
-  },
-  {
-    "objectID": "pages/packages-slides.html#limits-of-renv",
-    "href": "pages/packages-slides.html#limits-of-renv",
-    "title": "Package management",
-    "section": "Limits of renv\n",
-    "text": "Limits of renv\n\nrenv…\n\n\n…can\n\nkeep track of packages and their versions\ncreate a project-specific library per R version\nautomatically load/install these package versions\n\n\n…cannot\n\nmake a project reproducible across all computational environments\nload/install package versions that are incompatible with current R versions or computational environments\nguarantee full long-term reproduciblity"
-  },
-  {
-    "objectID": "pages/packages-slides.html#renv-workflow",
-    "href": "pages/packages-slides.html#renv-workflow",
-    "title": "Package management",
-    "section": "\nrenv workflow",
-    "text": "renv workflow\n\n\nFigure 1 visualises a project workflow with renv\n\nnext we’ll see how we use these functions to set-up and maintain a project-specific package library\n\n\n\nFigure 1: Source: CRAN vignette ‘Introduction to renv’ (all rights reserved)"
-  },
-  {
-    "objectID": "pages/packages-slides.html#section-1",
-    "href": "pages/packages-slides.html#section-1",
-    "title": "Package management",
-    "section": "",
-    "text": "you should see something like this in the Console:\n\n- Linking packages into the project library ... [137/137] Done!\n- Resolving missing dependencies ... \n# Installing packages --------------------------------------------------------\nThe following package(s) will be updated in the lockfile:\n\n# CRAN -----------------------------------------------------------------------\n[long list of packages and their versions]\n\nThe version of R recorded in the lockfile will be updated:\n- R               [* -&gt; 4.4.0]\n\n- Lockfile written to \"~/Documents/IdSL/Teaching/SoSe24/M.A./r4repro_student/renv.lock\".\n\nRestarting R session...\n\n- Project '~/Documents/IdSL/Teaching/SoSe24/M.A./r4repro_student' loaded. [renv 1.0.7]"
-  },
-  {
-    "objectID": "pages/packages-slides.html#new-files",
-    "href": "pages/packages-slides.html#new-files",
-    "title": "Package management",
-    "section": "New files",
-    "text": "New files\n\n\nrenv::init() creates three new files or directories\n\nrenv.lock\nrenv/\n.Rprofile\n\n\nexplore these files/folders and see if you can figure out what they contain"
-  },
-  {
-    "objectID": "pages/packages-slides.html#renv.lock",
-    "href": "pages/packages-slides.html#renv.lock",
-    "title": "Package management",
-    "section": "renv.lock",
-    "text": "renv.lock\n\ncontains metadata about the packages and their versions that you have installed\n\nthis is enough metadata to re-install these package versions on a new machine\n\n\ntwo main components:\n\n\nR: info on R version and list of repositories where packages were installed from\n\nPackages: a record per package with necessary info for re-installation"
-  },
-  {
-    "objectID": "pages/packages-slides.html#renv-1",
-    "href": "pages/packages-slides.html#renv-1",
-    "title": "Package management",
-    "section": "renv/",
-    "text": "renv/\n\nimportantly, contains your project-relative library/\n\nthis is instead of using the one library on your computer\n\n\nprovides us with “isolation”: the package versions used in an R Project is independent of the global library\n\nin other words, different R Projects can use different package versions\nupdating packages globally, or in one project, will not affect other project libraries"
-  },
-  {
-    "objectID": "pages/packages-slides.html#rprofile",
-    "href": "pages/packages-slides.html#rprofile",
-    "title": "Package management",
-    "section": ".RProfile",
-    "text": ".RProfile\n\nruns whenver you (re-)start your R Project\nat this point, should contain a single line:\n\n\nsource(\"renv/activate.R\")\n\n\nif you go to this R script, you’ll send a lot of code\n\nthis essentially loads in your project library"
-  },
-  {
-    "objectID": "pages/packages-slides.html#project-library",
-    "href": "pages/packages-slides.html#project-library",
-    "title": "Package management",
-    "section": "Project library",
-    "text": "Project library\n\nnow if we re-run .libPaths(), we should see our project library\n\n\n\n\nRun in the Console\n\n.libPaths()\n\n\n&gt; .libPaths()\n[1] \"/Users/danielapalleschi/Documents/IdSL/Teaching/SoSe24/M.A./r4repro_SoSe2024/renv/library/macos/R-4.4/aarch64-apple-darwin20\"\n[2] \"/Users/danielapalleschi/Library/Caches/org.R-project.R/R/renv/sandbox/macos/R-4.4/aarch64-apple-darwin20/f7156815\"  \n\n\n[1] is the local project library path\n\n[2] is the path to a global package cache that renv maintains so that you don’t repeatedly download packages to your machine for each project library\n\ne.g., if we already have ggplot2 installed globally on our machine, whenever we want to add it to a project library we don’t need to re-install it entirely from the CRAN (unless we want a different package version)"
-  },
-  {
-    "objectID": "pages/packages-slides.html#installing-a-new-package",
-    "href": "pages/packages-slides.html#installing-a-new-package",
-    "title": "Package management",
-    "section": "Installing a new package",
-    "text": "Installing a new package\n\nlet’s also install a package I’m confident you don’t already have on your machine (as you might’ve already worked with lme4 in other classes)\n\n[brms] for Bayesian regression models using Stan\n\n\n\n\nCodeinstall.packages(\"brms\")\nrenv::install(\"brms\")\n\n\n\nand if we want a specific package version:\n\n\nrenv::install(\"brms@2.19.0\")"
-  },
-  {
-    "objectID": "pages/packages-slides.html#installing-developer-packages",
-    "href": "pages/packages-slides.html#installing-developer-packages",
-    "title": "Package management",
-    "section": "Installing developer packages",
-    "text": "Installing developer packages\n\nnot all packages are available on the CRAN\n\nwe can install developer packages from GitHub or GitLab using, e.g., the install_github() function from either the remotes or devtools package (both are very common)\n\n\n\n\nremotes::install_github(\"paul-buerkner/brms\")\ndevtools::install_github(\"paul-buerkner/brms\")\n\n\n\nor we can use renv::install()\n\n\n\n# most recent version\nrenv::install(\"paul-buerkner/brms\")\n\n\n# a specific previous version, for which you'll need the commit ID\nrenv::install(\"paul-buerkner/brms@db6ddde90ba533cb3942bc5a62b03803773b9844\")"
-  },
-  {
-    "objectID": "pages/packages-slides.html#updating-renv.lock-file",
-    "href": "pages/packages-slides.html#updating-renv.lock-file",
-    "title": "Package management",
-    "section": "Updating renv.lock file",
-    "text": "Updating renv.lock file\n\nto update the lockfile and library, simply run:\n\n\nrenv::snapshot()\n\n\nyou’ll be given a list of changes to be made and asked if you want to proceed\n\nif not problems are mentioned, then you can go ahead"
-  },
-  {
-    "objectID": "pages/packages-slides.html#posit-public-package-manager",
-    "href": "pages/packages-slides.html#posit-public-package-manager",
-    "title": "Package management",
-    "section": "Posit Public Package Manager",
-    "text": "Posit Public Package Manager\n\nPosit (formerly called RStudio, the parent company of R) has a public package manager: https://packagemanager.posit.co/client/#/\n\nyou can select a snapshot of the CRAN at a specific date: https://packagemanager.posit.co/client/#/repos/cran/setup\n\n\nSnapshots: do you want to freeze package versions to enhance reproducibility?: Select Yes, always install packages from the date I choose\n\nfollow the rest of the instructions"
-  },
-  {
-    "objectID": "pages/packages.html",
-    "href": "pages/packages.html",
-    "title": "Package management",
-    "section": "",
-    "text": "Today we will…\n\nlearn about R package repositories\nlearn how package dependencies can break code\nuse the renv package to create and maintain a project-relative package library"
-  },
-  {
-    "objectID": "pages/packages.html#cran-packages",
-    "href": "pages/packages.html#cran-packages",
-    "title": "Package management",
-    "section": "1.1 CRAN packages",
-    "text": "1.1 CRAN packages\n\nthe Comprehensive R Archive Network: R’s central software repository\n\ncurrently 20,888 available!\n\nan archive of the most recent package versions\nfor a package to be included in the CRAN, it must go through a lot of tests and checks\n\nany updates or changes must again be reviewed before being added to CRAN\n\nCRAN packages can be installed using install.packages(), as we’ve been doing\n\n\n\n\n\n\n\npacman package (optional)\n\n\n\n\n\na package management tool\nwe’ll use the p_load() function to replace install.packages() and library() in our worksflow\n\ntakes a list of packages, and checks if each package is installed already\nif yes, the package is loaded (as with library())\nif no, the package is installed (as with install.packages()) and then loaded (as with library())\n\nonly works with CRAN packages (which is all we have for now anyway), although pacman has a function for developer packages (which we’ll talk about later)\n\nTo get started: install pacman (install.packages(\"pacman\")). Then, you can load in your packages using pacman::p_load(), or with a long list of library() calls like we’ve previously done (you see why I prefer p_load()!).\n\n\n\n\n\nLoading packages with `pacman::p_load()`\n\npacman::p_load(tidyverse, here, janitor)\n\n\n\n\n\n\nLoading packages with `library()`\n\nlibrary(tidyverse)\nlibrary(here)\nlibrary(janitor)\n\n\n\n\nThe additional benefit of p_load() is that, if you don’t actually have one of the packages installed it will automatically be installed and then loaded. With library() you would instead get an error message."
-  },
-  {
-    "objectID": "pages/packages.html#developer-packages",
-    "href": "pages/packages.html#developer-packages",
-    "title": "Package management",
-    "section": "1.2 Developer packages",
-    "text": "1.2 Developer packages\n\noften hosted on GitHub or GitLab, where packages are typically developed before being reviewed and added to the CRAN\n\nbenefit: you can make whatever you changes to your package that you like without having to pass a review on the CRAN\n\nsince CRAN packages are often developed on GH or GL, pre-release (beta) versions will often be available on a GH repo\npackages/package versions on GH cannot be installed via install.packages()\n\nwe’ll see later how to do this"
-  },
-  {
-    "objectID": "pages/packages.html#dependencies",
-    "href": "pages/packages.html#dependencies",
-    "title": "Package management",
-    "section": "1.3 Dependencies",
-    "text": "1.3 Dependencies\n\nsome packages are dependent on specific versions of other packages\n\nif so, you will be prompted during installation to install these dependencies\nbut beware: sometimes this overwrites an existing package version you already have, which can break code that was written with this older version\n\nthis is especially true because, as our projects are currently set up, we have one global package version on our computer\n\nso analyses we ran 3 years ago would’ve used older versions of packages\nwhen we update these packages for current analyses, this might disrupt the code from 3 years ago\n\nwe’ll see one (partial) solution for this problem soon"
-  },
-  {
-    "objectID": "pages/packages.html#updating-packages",
-    "href": "pages/packages.html#updating-packages",
-    "title": "Package management",
-    "section": "2.1 Updating packages",
-    "text": "2.1 Updating packages\n\nto check if a package needs updating, you can:\n\ngo to Tools &gt; Check for package updates, or\nrun update.packages()\n\neach will tell you which packages can be updated to which versions\n\nand give you the option of updating these packages"
-  },
-  {
-    "objectID": "pages/packages.html#package-library",
-    "href": "pages/packages.html#package-library",
-    "title": "Package management",
-    "section": "2.2 Package library",
-    "text": "2.2 Package library\n\nwhere do all these installed packages go?\n\na folder that contains all the packages, called a library\n\nto find out where this (global) package library is, run .libPaths()\n\n\n.libPaths()\n\n\nthe output should currently produce a single file path, something like:\n\n&gt; .libPaths()\n[1] \"/Library/Frameworks/R.framework/Versions/4.4-arm64/Resources/library\"\n\nthis is the location of your global package library"
-  },
-  {
-    "objectID": "pages/packages.html#package-versions-and-reproducibility",
-    "href": "pages/packages.html#package-versions-and-reproducibility",
-    "title": "Package management",
-    "section": "2.3 Package versions and reproducibility",
-    "text": "2.3 Package versions and reproducibility\n\nwe’ve seen that package versions and dependencies can easily break our existing code\nthis means that older projects that were built using previous package versions won’t be able to run if we update these packages in our global package library\n\nalso a problem in the future: our current code will depend on the package versions we’re using today\n\nwe need a project-relative package library that is independent of the global library\n\nwe’ll use the renv package to do this"
-  },
-  {
-    "objectID": "pages/packages.html#limits-of-renv",
-    "href": "pages/packages.html#limits-of-renv",
-    "title": "Package management",
-    "section": "3.1 Limits of renv",
-    "text": "3.1 Limits of renv\nrenv…\n\n\n…can\n\nkeep track of packages and their versions\ncreate a project-specific library per R version\nautomatically load/install these package versions\n\n\n…cannot\n\nmake a project reproducible across all computational environments\nload/install package versions that are incompatible with current R versions or computational environments\nguarantee full long-term reproduciblity"
-  },
-  {
-    "objectID": "pages/packages.html#renv-workflow",
-    "href": "pages/packages.html#renv-workflow",
-    "title": "Package management",
-    "section": "3.2 renv workflow",
-    "text": "3.2 renv workflow\n\nFigure 1 visualises a project workflow with renv\nnext we’ll see how we use these functions to set-up and maintain a project-specific package library\n\n\n\n\n\n\n\n\n\nFigure 1: Source: CRAN vignette ‘Introduction to renv’ (all rights reserved)"
-  },
-  {
-    "objectID": "pages/packages.html#new-files",
-    "href": "pages/packages.html#new-files",
-    "title": "Package management",
-    "section": "4.1 New files",
-    "text": "4.1 New files\n\nrenv::init() creates three new files or directories\n\nrenv.lock\nrenv/\n.Rprofile\n\nexplore these files/folders and see if you can figure out what they contain"
-  },
-  {
-    "objectID": "pages/packages.html#renv.lock",
-    "href": "pages/packages.html#renv.lock",
-    "title": "Package management",
-    "section": "4.2 renv.lock",
-    "text": "4.2 renv.lock\n\ncontains metadata about the packages and their versions that you have installed\n\nthis is enough metadata to re-install these package versions on a new machine\n\ntwo main components:\n\nR: info on R version and list of repositories where packages were installed from\nPackages: a record per package with necessary info for re-installation"
-  },
-  {
-    "objectID": "pages/packages.html#renv-1",
-    "href": "pages/packages.html#renv-1",
-    "title": "Package management",
-    "section": "4.3 renv/",
-    "text": "4.3 renv/\n\nimportantly, contains your project-relative library/\n\nthis is instead of using the one library on your computer\n\nprovides us with “isolation”: the package versions used in an R Project is independent of the global library\n\nin other words, different R Projects can use different package versions\nupdating packages globally, or in one project, will not affect other project libraries"
-  },
-  {
-    "objectID": "pages/packages.html#rprofile",
-    "href": "pages/packages.html#rprofile",
-    "title": "Package management",
-    "section": "4.4 .RProfile",
-    "text": "4.4 .RProfile\n\nruns whenver you (re-)start your R Project\nat this point, should contain a single line:\n\n\nsource(\"renv/activate.R\")\n\n\nif you go to this R script, you’ll send a lot of code\n\nthis essentially loads in your project library"
-  },
-  {
-    "objectID": "pages/packages.html#project-library",
-    "href": "pages/packages.html#project-library",
-    "title": "Package management",
-    "section": "4.5 Project library",
-    "text": "4.5 Project library\n\nnow if we re-run .libPaths(), we should see our project library\n\n\n\n\nRun in the Console\n\n.libPaths()\n\n\n&gt; .libPaths()\n[1] \"/Users/danielapalleschi/Documents/IdSL/Teaching/SoSe24/M.A./r4repro_SoSe2024/renv/library/macos/R-4.4/aarch64-apple-darwin20\"\n[2] \"/Users/danielapalleschi/Library/Caches/org.R-project.R/R/renv/sandbox/macos/R-4.4/aarch64-apple-darwin20/f7156815\"  \n\n[1] is the local project library path\n[2] is the path to a global package cache that renv maintains so that you don’t repeatedly download packages to your machine for each project library\n\ne.g., if we already have ggplot2 installed globally on our machine, whenever we want to add it to a project library we don’t need to re-install it entirely from the CRAN (unless we want a different package version)"
-  },
-  {
-    "objectID": "pages/packages.html#installing-a-new-package",
-    "href": "pages/packages.html#installing-a-new-package",
-    "title": "Package management",
-    "section": "5.1 Installing a new package",
-    "text": "5.1 Installing a new package\n\nlet’s also install a package I’m confident you don’t already have on your machine (as you might’ve already worked with lme4 in other classes)\n\n[brms] for Bayesian regression models using Stan\n\n\n\n\nCode\ninstall.packages(\"brms\")\nrenv::install(\"brms\")\n\n\n\nand if we want a specific package version:\n\n\nrenv::install(\"brms@2.19.0\")"
-  },
-  {
-    "objectID": "pages/packages.html#installing-developer-packages",
-    "href": "pages/packages.html#installing-developer-packages",
-    "title": "Package management",
-    "section": "5.2 Installing developer packages",
-    "text": "5.2 Installing developer packages\n\nnot all packages are available on the CRAN\n\nwe can install developer packages from GitHub or GitLab using, e.g., the install_github() function from either the remotes or devtools package (both are very common)\n\n\n\nremotes::install_github(\"paul-buerkner/brms\")\ndevtools::install_github(\"paul-buerkner/brms\")\n\n\nor we can use renv::install()\n\n\n# most recent version\nrenv::install(\"paul-buerkner/brms\")\n\n\n# a specific previous version, for which you'll need the commit ID\nrenv::install(\"paul-buerkner/brms@db6ddde90ba533cb3942bc5a62b03803773b9844\")"
-  },
-  {
-    "objectID": "pages/packages.html#updating-renv.lock-file",
-    "href": "pages/packages.html#updating-renv.lock-file",
-    "title": "Package management",
-    "section": "6.1 Updating renv.lock file",
-    "text": "6.1 Updating renv.lock file\n\nto update the lockfile and library, simply run:\n\n\nrenv::snapshot()\n\n\nyou’ll be given a list of changes to be made and asked if you want to proceed\n\nif not problems are mentioned, then you can go ahead"
-  },
-  {
-    "objectID": "pages/packages.html#posit-public-package-manager",
-    "href": "pages/packages.html#posit-public-package-manager",
-    "title": "Package management",
-    "section": "9.1 Posit Public Package Manager",
-    "text": "9.1 Posit Public Package Manager\n\nPosit (formerly called RStudio, the parent company of R) has a public package manager: https://packagemanager.posit.co/client/#/\nyou can select a snapshot of the CRAN at a specific date: https://packagemanager.posit.co/client/#/repos/cran/setup\n\nSnapshots: do you want to freeze package versions to enhance reproducibility?: Select Yes, always install packages from the date I choose\nfollow the rest of the instructions"
-  },
-  {
-    "objectID": "pages/R-workflow-slides.html#broadening-the-reproducibilty-spectrum",
-    "href": "pages/R-workflow-slides.html#broadening-the-reproducibilty-spectrum",
-    "title": "Building a reproducible workflow in R",
-    "section": "Broadening the reproducibilty spectrum",
-    "text": "Broadening the reproducibilty spectrum\n\nthere are different levels of reproducibility\n\nthe bare minimum is sharing the code and data\n\nand including session information:\n\nwhich operating system was used\nwhich software/package versions were used\n\n\n\n\ngoing bigger:\n\nproject-oriented workflow\nproject-specific filepaths\ncontained in a single project folder\n\n\nwe will be using RProjects to achieve this"
-  },
-  {
-    "objectID": "pages/R-workflow-slides.html#project-management",
-    "href": "pages/R-workflow-slides.html#project-management",
-    "title": "Building a reproducible workflow in R",
-    "section": "Project management",
-    "text": "Project management\n\nfolder structure\nproject-relative file paths\nappropriate documentation\n\ne.g., README\n\n\nit’s great to map out your project structure early on\n\nbut it will grow as you go along\nreproducible principles facilitate adapting as it grows"
-  },
-  {
-    "objectID": "pages/R-workflow-slides.html#dmsp",
-    "href": "pages/R-workflow-slides.html#dmsp",
-    "title": "Building a reproducible workflow in R",
-    "section": "DM(S)P",
-    "text": "DM(S)P\n\nData Management (and Sharing) Plans (DMP) are required by some funding bodies\n\neven if not, they’re an important\n\n\nquestions to consider:\n\ndo I have data from human participants?\ndo I have data from vulnerable groups (children, patients, etc.)\nhave I collected any identifiable data from humans? (direct or indirect)"
-  },
-  {
-    "objectID": "pages/R-workflow-slides.html#literate-programming",
-    "href": "pages/R-workflow-slides.html#literate-programming",
-    "title": "Building a reproducible workflow in R",
-    "section": "Literate programming",
-    "text": "Literate programming\n\nInstead of imagining that our main task is to instruct a computer what to do, let us concentrate rather on explaining to human beings what we want a computer to do.\n\n— Knuth (1984), p. 97\n\n\n\noriginally used to refer to writing programs\nbut also applies to analysis code\n\nespecially if we’re aiming for reproducibility\n\n\n\n\n\n\nmain concepts:\n\ncode is linear (this pre-dates Knuth, 1984)\n\ninformative but concise commenting\n\n\n\n\n\n\nmain benefits:\n\nfacilitates maintenance\nhelpful for future-you, collaborators, etc."
-  },
-  {
-    "objectID": "pages/R-workflow-slides.html#documentation",
-    "href": "pages/R-workflow-slides.html#documentation",
-    "title": "Building a reproducible workflow in R",
-    "section": "Documentation",
-    "text": "Documentation\n\n\nmetadata\n\nproject README\ncodebook/data dictionary\n\n\n\nREADME should contain\n\na project description\nrelevant links\ndescription of folder structure\n\n\ncan be updated as the project develops\n\nREADME.md files in GitHub/Lab are automatically used as a project description\n\n\n.md is a plain text document\nuses markdown syntax"
-  },
-  {
-    "objectID": "pages/R-workflow-slides.html#version-control-not-covered-in-this-workshop",
-    "href": "pages/R-workflow-slides.html#version-control-not-covered-in-this-workshop",
-    "title": "Building a reproducible workflow in R",
-    "section": "Version control (not covered in this workshop)",
-    "text": "Version control (not covered in this workshop)\n\ngit: local tracking\nuseful for the analysis and writing phases\n\nbut can be tricky for collaboration\n\n\nGitHub/GitLab: remote tracking\n\nstore your changes to your local git repository\nthen push them to your remote repository\n\n\nsafe guards against local hardware/software issues\n\nlost or damaged computer or local files\n\n\nand allows for collaboration or sharing"
-  },
-  {
-    "objectID": "pages/R-workflow-slides.html#persistant-public-storage",
-    "href": "pages/R-workflow-slides.html#persistant-public-storage",
-    "title": "Building a reproducible workflow in R",
-    "section": "Persistant (public) storage",
-    "text": "Persistant (public) storage\n\nGitHub/Lab are sub-optimal\n\ndeveloper-focused\ntypically lack thorough documentation/metadata\nnot very user-friendly for non-users\n\n\nOSF, Zenodo\n\nOpen Science-focused\ncan be linked to a GitHub/Lab repository\nfacilitate thorough documentation\nuser-friendly"
-  },
-  {
-    "objectID": "pages/R-workflow-slides.html#writing-not-covered-in-this-workshop",
-    "href": "pages/R-workflow-slides.html#writing-not-covered-in-this-workshop",
-    "title": "Building a reproducible workflow in R",
-    "section": "Writing (not covered in this workshop)",
-    "text": "Writing (not covered in this workshop)\n\n\ndynamic reports with Markdown syntax\n\ne.g., Rmarkdown, Quarto\nintegration of data, code, and prose\n\nfacilitates cross-referencing within document\nintegration of citation management tools\nsupports LaTeX syntax for example sentences and tables\n\n\n\n\npapaja package for APA-formatted Rmarkdown documents\n\nchallenge: collaboration\n\nnot all collaborators know these tools\ntrack changes not currently possible"
-  },
-  {
-    "objectID": "pages/R-workflow.html",
-    "href": "pages/R-workflow.html",
-    "title": "Building a reproducible workflow in R",
-    "section": "",
-    "text": "Today we will learn…\n\nabout reproducibility practices beyond sharing code and data\nabout project-oriented workflows\nwhat we will cover in this workshop"
-  },
-  {
-    "objectID": "pages/R-workflow.html#broadening-the-reproducibilty-spectrum",
-    "href": "pages/R-workflow.html#broadening-the-reproducibilty-spectrum",
-    "title": "Building a reproducible workflow in R",
-    "section": "1.1 Broadening the reproducibilty spectrum",
-    "text": "1.1 Broadening the reproducibilty spectrum\n\nthere are different levels of reproducibility\n\nthe bare minimum is sharing the code and data\nand including session information:\n\nwhich operating system was used\nwhich software/package versions were used\n\n\ngoing bigger:\n\nproject-oriented workflow\nproject-specific filepaths\ncontained in a single project folder\n\nwe will be using RProjects to achieve this"
-  },
-  {
-    "objectID": "pages/R-workflow.html#project-management",
-    "href": "pages/R-workflow.html#project-management",
-    "title": "Building a reproducible workflow in R",
-    "section": "1.2 Project management",
-    "text": "1.2 Project management\n\nfolder structure\nproject-relative file paths\nappropriate documentation\n\ne.g., README\n\nit’s great to map out your project structure early on\n\nbut it will grow as you go along\nreproducible principles facilitate adapting as it grows\n\n\n\nNaming conventions\n\nthere are some “rules” for naming files and folders\n\nThe Turing Way: Naming files, folders, and other things\nJenny Bryan: naming things (Reproducible Science Workshop 2015)\n\n\n\n\n\nAvoid special characters\n\nensures machine readability\n\nMake names concise but meaningful\n\nensures human-readability\n\nAvoid spaces\n\ntry CamelCase, snake case (snake_case), or skewer case (skewer-case)\nor use hyphens (-) to separate chunks, and underscores (_) to connect words of the same chunk\n\n\n\n\nConsider default ordering\n\ne.g., with dates: YYYY-MM-DD\nwith folders or files: numerical prefixes (e.g., 01-data_cleaning.R, 02-data_visualisation.R)\n\nBe consistent"
-  },
-  {
-    "objectID": "pages/R-workflow.html#dmsp",
-    "href": "pages/R-workflow.html#dmsp",
-    "title": "Building a reproducible workflow in R",
-    "section": "2.1 DM(S)P",
-    "text": "2.1 DM(S)P\n\nData Management (and Sharing) Plans (DMP) are required by some funding bodies\n\neven if not, they’re an important\n\nquestions to consider:\n\ndo I have data from human participants?\ndo I have data from vulnerable groups (children, patients, etc.)\nhave I collected any identifiable data from humans? (direct or indirect)\n\n\n\nFacilitating data management/sharing\n\nplanning and implementing folder structure, file and variable names\nkeep everything relevant to a certain project in one place (i.e., folder)\n\nuse subfolders appropriately\navoid mixing subfolders and files within a single folder"
-  },
-  {
-    "objectID": "pages/R-workflow.html#literate-programming",
-    "href": "pages/R-workflow.html#literate-programming",
-    "title": "Building a reproducible workflow in R",
-    "section": "2.2 Literate programming",
-    "text": "2.2 Literate programming\n\nInstead of imagining that our main task is to instruct a computer what to do, let us concentrate rather on explaining to human beings what we want a computer to do.\n\n— Knuth (1984), p. 97\n\n\n\noriginally used to refer to writing programs\nbut also applies to analysis code\n\nespecially if we’re aiming for reproducibility\n\n\n\n\nmain concepts:\n\ncode is linear (this pre-dates Knuth, 1984)\ninformative but concise commenting\n\n\n\n\nmain benefits:\n\nfacilitates maintenance\nhelpful for future-you, collaborators, etc."
-  },
-  {
-    "objectID": "pages/R-workflow.html#documentation",
-    "href": "pages/R-workflow.html#documentation",
-    "title": "Building a reproducible workflow in R",
-    "section": "2.3 Documentation",
-    "text": "2.3 Documentation\n\nmetadata\n\nproject README\ncodebook/data dictionary\n\nREADME should contain\n\na project description\nrelevant links\ndescription of folder structure\n\ncan be updated as the project develops\nREADME.md files in GitHub/Lab are automatically used as a project description\n\n.md is a plain text document\nuses markdown syntax"
-  },
-  {
-    "objectID": "pages/R-workflow.html#version-control-not-covered-in-this-workshop",
-    "href": "pages/R-workflow.html#version-control-not-covered-in-this-workshop",
-    "title": "Building a reproducible workflow in R",
-    "section": "2.4 Version control (not covered in this workshop)",
-    "text": "2.4 Version control (not covered in this workshop)\n\ngit: local tracking\nuseful for the analysis and writing phases\n\nbut can be tricky for collaboration\n\nGitHub/GitLab: remote tracking\n\nstore your changes to your local git repository\nthen push them to your remote repository\n\nsafe guards against local hardware/software issues\n\nlost or damaged computer or local files\n\nand allows for collaboration or sharing"
-  },
-  {
-    "objectID": "pages/R-workflow.html#persistant-public-storage",
-    "href": "pages/R-workflow.html#persistant-public-storage",
-    "title": "Building a reproducible workflow in R",
-    "section": "2.5 Persistant (public) storage",
-    "text": "2.5 Persistant (public) storage\n\nGitHub/Lab are sub-optimal\n\ndeveloper-focused\ntypically lack thorough documentation/metadata\nnot very user-friendly for non-users\n\nOSF, Zenodo\n\nOpen Science-focused\ncan be linked to a GitHub/Lab repository\nfacilitate thorough documentation\nuser-friendly"
-  },
-  {
-    "objectID": "pages/R-workflow.html#writing-not-covered-in-this-workshop",
-    "href": "pages/R-workflow.html#writing-not-covered-in-this-workshop",
-    "title": "Building a reproducible workflow in R",
-    "section": "2.6 Writing (not covered in this workshop)",
-    "text": "2.6 Writing (not covered in this workshop)\n\ndynamic reports with Markdown syntax\n\ne.g., Rmarkdown, Quarto\nintegration of data, code, and prose\n\nfacilitates cross-referencing within document\nintegration of citation management tools\nsupports LaTeX syntax for example sentences and tables\n\n\npapaja package for APA-formatted Rmarkdown documents\nchallenge: collaboration\n\nnot all collaborators know these tools\ntrack changes not currently possible"
   }
 ]

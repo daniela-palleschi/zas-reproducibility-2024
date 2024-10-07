@@ -8,12 +8,13 @@ date: 2024-10-17
 date-format: "ddd MMM D, YYYY"
 date-modified: last-modified
 language: 
-  title-block-published: "Workshop Day 3"
+  title-block-published: "Workshop Day 2"
   title-block-modified: "Last Modified"
 format: 
   html:
     output-file: literate_programming.html
-    number-sections: false
+    number-sections: true
+    number-depth: 2
     toc: true
     code-overflow: wrap
     code-tools: true
@@ -27,7 +28,6 @@ format:
   revealjs:
     footer: "Reproducible code"
     output-file: literate_programming-slides.html
-    logo: ZAS_Marke-Lang_weiss.svg
 editor_options: 
   chunk_output_type: console
 bibliography: ../bibs/literate_programming.bib
@@ -40,13 +40,13 @@ bibliography: ../bibs/literate_programming.bib
 rbbt::bbt_update_bib(here::here("literate_programming.qmd"))
 ```
 
-# Learning objectives
+# Topics
 
-- learn about literate programming and modular analyses
+- modular analyses and literate programming
 - create and render a dynamic report with Quarto
-- load data using `here`
+- documenting your dependencies
 
-# Modular analyses
+# Modular analyses {data-stack-name="Modular analyses"}
 
 - recall our `scripts` folder (which you might've named `analysis` or something else)
 - ideally, this would also contain subfolders, one for each stage of your analysis
@@ -57,7 +57,7 @@ rbbt::bbt_update_bib(here::here("literate_programming.qmd"))
 ::: {.content-visible unless-format="revealjs"}
 
 ::: {.callout-tip collapse=true}
-# Modularity
+## Modularity
 
 The concept of modularity relating to data analysis refers to saving different stages of data manipulation and analysis in separate scripts [@nagler_coding_1995]. An important step is to also ensure the scripts are appropriately named so that the structure of your analysis/scripts folder "can be a map itself" [@bowers_how_2016, p. 838].
 
@@ -78,7 +78,7 @@ Where EDA refers to Exploratory Data Analysis, where I look at things like distr
 
 :::
 
-# Reproducible code
+# Reproducible code {data-stack-name="Reproducible code"}
 
 - how you write your code is the first step in making it reproducible
 
@@ -165,7 +165,7 @@ summary(df_phone)
 - the purpose of chunks of code are written above
   + description of specific lines of code are also given
 
-# Dynamic reports
+# Dynamic reports {data-stack-name="Dynamic reports"}
 
 - R scripts are useful, but don't show the code output
   + and commenting can get clunky
@@ -298,7 +298,7 @@ format:
 :::
 :::
 
-# Documenting package dependencies
+# Documenting package dependencies {data-stack-name="Dependencies"}
 
 - R and R package versions are both open source, and are frequently updated
   + you might've run your code using `dplyr` version `1.1.0` or later, which introduced the `.by` per-operation grouping argument
@@ -318,7 +318,13 @@ format:
 sessionInfo()
 ```
 
+::: {.content-hidden when-format="revealjs"}
 # Tips and tricks
+:::
+
+::: {.content-visible when-format="revealjs"}
+# Tips and tricks {.smaller}
+:::
 
 - when you start a new script make sure you *always* start with a clean R environment: `Session > Restart R` or `Cmd/Ctrl+Shift+0`
   + this means no packages, data, functions, or any other dependencies are loaded
@@ -333,7 +339,7 @@ sessionInfo()
 # Hands-on: working with Quarto
 
 ::: {.content-visible when-format="revealjs"}
-Follow the instructions on the workshop website: [Hands-on: working with Quarto](https://daniela-palleschi.github.io/SSOL24-reproducibility-workshop/slides/day3/repro_code.html#hands-on-working-with-quarto)
+Follow the instructions on the workshop website: [Hands-on: working with Quarto](https://daniela-palleschi.github.io/zas-reproducibility-2024/pages/literate_programming.html#hands-on-working-with-quarto)
 :::
 
 ::: {.content-visible unless-format="revealjs"}
@@ -406,6 +412,12 @@ cat(readr::read_file(here::here("examples/literate-programming.qmd")))
 :::
 
 :::
+
+# Topics 🏁 {.unnumbered .unlisted .nonincremental}
+
+- modular analyses and literate programming  ✅
+- create and render a dynamic report with Quarto  ✅
+- documenting your dependencies ✅
   
 # Session Info {-}
 

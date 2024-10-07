@@ -13,7 +13,8 @@ language:
 format: 
   html:
     output-file: R-Projects.html
-    number-sections: false
+    number-sections: true
+    number-depth: 2
     toc: true
     code-overflow: wrap
     code-tools: true
@@ -40,13 +41,11 @@ execute:
 rbbt::bbt_update_bib(here::here("pages", "RProjects.qmd"))
 ```
 
-# Learning Objectives {.unnumbered .unlisted}
+# Topics {.unnumbered .unlisted}
 
-Today we will...
-
--   learn about project-oriented workflows
--   create an R-Project
--   use project-relative filepaths with the `here` package
+-   Project-oriented workflows
+-   creating an R-Project
+-   project-relative filepaths with the `here` package
 
 # Installation requirements
 
@@ -244,7 +243,7 @@ magick::image_read(here::here("media", "RProject_spot-the-diffs.png"))
 
 :::
 
-# Folder structure  {data-stack-name="Folder structure"}
+## Folder structure
 
 - some folders you'll typically want to have:
   + `data`: containing your dataset(s)
@@ -269,20 +268,28 @@ magick::image_read(here::here("media", "RProject_spot-the-diffs.png"))
 
 - description of data collection:
 
+::: {.fragment}
+
 > In an online experiment with listeners of 25 different languages (from nine language families), participants listened to the 90 vocalizations (three for each of the 30 meanings), and for each, guessed its intended meaning from six written alternatives
 >
 -- @cwiek_novel_2021
 
+:::
+
 - you could also download the data directly from GitHub in R:
 
 ::: {.fragment}
+
 ```{r}
 #| eval: false
+#| echo: true
 write.csv(
   file = "data/cwiek_2021-online_cleaned.csv",
   read.csv("https://raw.githubusercontent.com/bodowinter/iconicity_challenge/refs/heads/master/data/online_cleaned.csv")
   )
 ```
+
+:::
 
 ```{r}
 #| echo: false
@@ -290,7 +297,7 @@ write.csv(
 write_csv(
   file = here::here("data/cwiek_2021-online_cleaned.csv"), read_csv("https://raw.githubusercontent.com/bodowinter/iconicity_challenge/refs/heads/master/data/online_cleaned.csv"))
 ```
-:::
+
 
 ### `scripts/`
 
@@ -391,9 +398,9 @@ magick::image_read(here::here("media", "Horst_here.png"))
 ::: {.callout-tip}
 # `here`
 
-In your R Project, load the `cwiek_2021-` using `here`
+In your R Project, load the `cwiek_2021-online_cleaned.csv` data using `here`
 
-1. Install `here` (e.g., `install.packages("here")`)
+1. Install `here` (if needed; e.g., `install.packages("here")`)
 2. Load `here` at the beginning of your package
     + or use `here::` before calling a function
 3. Use the `here()` function to load in your data
@@ -421,7 +428,7 @@ install.packages("here")
 library(here)
 
 # read in data
-df_data <- read.csv(here("data", "data_lifetime_pilot.csv"))
+df_icon <- read.csv(here("data", "cwiek_2021-online_cleaned.csv"))
 ```
 
 - or directly call the `here` function without loading the package
@@ -431,8 +438,12 @@ df_data <- read.csv(here("data", "data_lifetime_pilot.csv"))
 #| echo: true
 
 # read in data without loading here
-df_data <- read.csv(here::here("data", "data_lifetime_pilot.csv"))
+df_icon <- read.csv(here::here("data", "cwiek_2021-online_cleaned.csv"))
 ```
+
+::: {.content-visible when-format="revealjs"}
+### {.unlisted .uncounted .unnumbered}
+:::
 
 - note that I stored the data with the prefix `df_`
   + `df` stands for dataframe
@@ -449,13 +460,11 @@ df_data <- read.csv(here::here("data", "data_lifetime_pilot.csv"))
 2. Re-open the project. Can you re-run the script?
 :::
 
-# Learning objectives 🏁 {.unnumbered .unlisted .uncounted}
+# Topics 🏁 {.unnumbered .unlisted .nonincremental}
 
-Today we learned...
-
--   learn about project-oriented workflows ✅
--   create an R-Project ✅
--   establish a self-contained project environment with `here` ✅
+-   Project-oriented workflows ✅
+-   creating an R-Project ✅
+-   project-relative filepaths with the `here` package ✅
 
 # References {.unlisted .unnumbered visibility="uncounted"}
 

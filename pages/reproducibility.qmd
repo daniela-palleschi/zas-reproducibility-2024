@@ -607,20 +607,6 @@ print_image(here::here("media/laurinavichyute_reproducibility.png"))
     -   facilitate thorough documentation
     -   user-friendly
 
-
-
-# Setting up a project
-
--   required installations/recent versions of:
-    -   R
-        -   preferably version `4.4.0`, "Puppy Cup" or higher
-        -   check current version with `R.version`
-        -   download/update: <https://cran.r-project.org/bin/macosx/>
-    -   RStudio
-        -   preferably a version from 2024
-        -   Help \> Check for updates
-        -   new install: <https://posit.co/download/rstudio-desktop/>
-
 # Steps we'll take
 
 1. Open source software:
