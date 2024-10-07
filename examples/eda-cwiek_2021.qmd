@@ -1,0 +1,110 @@
+---
+title: "EDA of Lacina et al. (2023)"
+author: "Daniela Palleschi"
+date: "08/23/2024"
+format:
+  html:
+    toc: true
+---
+
+This script produces an exploratory data analysis of the online experiment dataset from [@cwiek_novel_2021](https://doi.org/10.1038/s41598-021-89445-4) (OSF: [osf.io/4na58/](https://osf.io/4na58/))
+
+# Set-up
+
+Load required packages.
+
+```{r}
+library(tidyverse)
+library(here)
+library(janitor) # a package for tidying data
+```
+
+Load data.
+
+```{r}
+df_icon <- read_csv(here("data", "cwiek_2021-online_cleaned.csv")) |> 
+  # clean up names
+  janitor::clean_names() |> 
+  # replace r_t with rt_
+  rename_at(vars(contains("l2")), ~ str_replace(., "l2", "L2")) |> 
+  rename_at(vars(contains("l1")), ~ str_replace(., "l1", "L1"))
+```
+
+# Explore dataset
+
+Check out variables.
+
+```{r}
+glimpse(df_icon)
+```
+
+```{r}
+length(unique(df_icon$id))
+```
+
+```{r}
+length(unique(df_icon$L1))
+```
+
+```{r}
+df_icon |> 
+  distinct(id, .keep_all = T) |> 
+  tabyl(english_L2) |> 
+  adorn_totals()
+```
+
+
+There were `r length(unique(df_icon$id))` participants from `r length(unique(df_icon$L1))` L1 groups, 654 of whom speak English as an L2.
+
+```{r}
+length(unique(df_icon$unique_item))
+```
+
+```{r}
+length(unique(df_icon$meaning))
+```
+
+There were `r length(unique(df_icon$unique_item))` unique audio files with `r length(unique(df_icon$meaning))` unique meanings.
+
+```{r}
+df_icon |> 
+  distinct(unique_item, id, .keep_all = T) |> 
+  tabyl(english_L2, acc) |> 
+  adorn_totals(where = c("col", "row"))
+```
+
+There were 4752 unique trials (24 items x 198 participants). Evenly distributed across the four conditions.
+
+
+```{r}
+df_icon |> 
+  distinct(id, unique_item, .keep_all = T) |> 
+  count(id) |> 
+  count(n)
+```
+
+We don't have data from all 90 unique items from all participants. The range of responses per participant is 75-90.
+
+## Accuracy distributions
+
+```{r}
+df_icon |> 
+  distinct(id, unique_item, .keep_all = T) |> 
+  tabyl(english_L2, category, acc) |> 
+  adorn_totals(where = c("col", "row"))
+```
+
+48611 correct responses overall, 26674 incorrect.
+
+# Session Info
+
+```{r}
+sessionInfo()
+```
+
+
+
+
+
+
+
