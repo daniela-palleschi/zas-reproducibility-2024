@@ -9,9 +9,9 @@
 <link href="../site_libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.57">
+<meta name="generator" content="quarto-1.4.553">
 <meta name="author" content="Daniela Palleschi">
-<title>Reproducible Analyses in R (ZAS Workshop) – Package management</title>
+<title>Reproducible Analyses in R (ZAS Workshop) - Package management</title>
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -42,7 +42,7 @@
     }
     @media print {
     pre > code.sourceCode { white-space: pre-wrap; }
-    pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
     }
     pre.numberSource code
       { counter-reset: source-line 0; }
@@ -70,7 +70,7 @@
     code span.at { color: #657422; } /* Attribute */
     code span.bn { color: #ad0000; } /* BaseN */
     code span.bu { } /* BuiltIn */
-    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
+    code span.cf { color: #003b4f; } /* ControlFlow */
     code span.ch { color: #20794d; } /* Char */
     code span.cn { color: #8f5902; } /* Constant */
     code span.co { color: #5e5e5e; } /* Comment */
@@ -84,7 +84,7 @@
     code span.fu { color: #4758ab; } /* Function */
     code span.im { color: #00769e; } /* Import */
     code span.in { color: #5e5e5e; } /* Information */
-    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
+    code span.kw { color: #003b4f; } /* Keyword */
     code span.op { color: #5e5e5e; } /* Operator */
     code span.ot { color: #003b4f; } /* Other */
     code span.pp { color: #ad0000; } /* Preprocessor */
@@ -407,7 +407,7 @@
       margin-right: 0; 
     }
   </style>
-<meta name="twitter:title" content="Package management – Reproducible Analyses in R (ZAS Workshop)">
+<meta name="twitter:title" content="Reproducible Analyses in R (ZAS Workshop) - Package management">
 <meta name="twitter:description" content="Creating and maintaining project-relative package libraries with renv">
 <meta name="twitter:card" content="summary">
 </head>
@@ -424,7 +424,7 @@
 Daniela Palleschi 
 </div>
         <p class="quarto-title-affiliation">
-            Humboldt-Universität zu Berlin
+            Leibniz-Zentrum Allgemeine Sprachwissenschaft
           </p>
     </div>
 </div>
@@ -521,7 +521,8 @@ Daniela Palleschi
 <span id="cb2-3"><a></a><span class="fu">library</span>(janitor)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
-</div></div>
+</div>
+</div>
 <p>The additional benefit of <code>p_load()</code> is that, if you don’t actually have one of the packages installed it will automatically be installed and then loaded. With <code><a href="https://rdrr.io/r/base/library.html">library()</a></code> you would instead get an error message.</p>
 </div>
 </div>
@@ -666,7 +667,8 @@ Daniela Palleschi
 <li class="fragment">load/install package versions that are incompatible with current R versions or computational environments</li>
 <li class="fragment">guarantee full long-term reproduciblity</li>
 </ul>
-</div></div>
+</div>
+</div>
 </section><section id="renv-workflow" class="title-slide slide level2 center"><h2>
 <code>renv</code> workflow</h2>
 <ul>
@@ -975,12 +977,12 @@ No issues found -- the project is in a consistent state.</code></pre>
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a></a><span class="fu">sessionInfo</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>R version 4.4.1 (2024-06-14)
-Platform: x86_64-apple-darwin20
-Running under: macOS Sonoma 14.6.1
+Platform: aarch64-apple-darwin20
+Running under: macOS Sonoma 14.6
 
 Matrix products: default
-BLAS:   /Library/Frameworks/R.framework/Versions/4.4-x86_64/Resources/lib/libRblas.0.dylib 
-LAPACK: /Library/Frameworks/R.framework/Versions/4.4-x86_64/Resources/lib/libRlapack.dylib;  LAPACK version 3.12.0
+BLAS:   /Library/Frameworks/R.framework/Versions/4.4-arm64/Resources/lib/libRblas.0.dylib 
+LAPACK: /Library/Frameworks/R.framework/Versions/4.4-arm64/Resources/lib/libRlapack.dylib;  LAPACK version 3.12.0
 
 locale:
 [1] en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8
@@ -992,11 +994,11 @@ attached base packages:
 [1] stats     graphics  grDevices utils     datasets  methods   base     
 
 loaded via a namespace (and not attached):
- [1] digest_0.6.37     fastmap_1.2.0     xfun_0.47         magrittr_2.0.3   
- [5] knitr_1.48        htmltools_0.5.8.1 rmarkdown_2.28    cli_3.6.3        
+ [1] digest_0.6.35     fastmap_1.2.0     xfun_0.45         magrittr_2.0.3   
+ [5] knitr_1.47        htmltools_0.5.8.1 rmarkdown_2.27    cli_3.6.2        
  [9] compiler_4.4.1    rprojroot_2.0.4   here_1.0.1        rstudioapi_0.16.0
-[13] tools_4.4.1       evaluate_0.24.0   Rcpp_1.0.13       yaml_2.3.10      
-[17] magick_2.8.5      rlang_1.1.4       jsonlite_1.8.8   </code></pre>
+[13] tools_4.4.1       evaluate_0.24.0   Rcpp_1.0.12       yaml_2.3.8       
+[17] magick_2.8.3      rlang_1.1.4       jsonlite_1.8.8   </code></pre>
 </div>
 </div>
 </section><section id="learning-objectives-1" class="title-slide slide level1 unlisted unnumbered center"><h1>Learning objectives</h1>
@@ -1280,7 +1282,18 @@ Rodrigues, B. (2023). <em>Building reproducible analytical pipelines with <span>
         }
         return false;
       }
-      const onCopySuccess = function(e) {
+      const clipboard = new window.ClipboardJS('.code-copy-button', {
+        text: function(trigger) {
+          const codeEl = trigger.previousElementSibling.cloneNode(true);
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+        }
+      });
+      clipboard.on('success', function(e) {
         // button target
         const button = e.trigger;
         // don't keep focus
@@ -1312,29 +1325,7 @@ Rodrigues, B. (2023). <em>Building reproducible analytical pipelines with <span>
         }, 1000);
         // clear code selection
         e.clearSelection();
-      }
-      const getTextToCopy = function(trigger) {
-          const codeEl = trigger.previousElementSibling.cloneNode(true);
-          for (const childEl of codeEl.children) {
-            if (isCodeAnnotation(childEl)) {
-              childEl.remove();
-            }
-          }
-          return codeEl.innerText;
-      }
-      const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
-        text: getTextToCopy
       });
-      clipboard.on('success', onCopySuccess);
-      if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-        // For code content inside modals, clipBoardJS needs to be initialized with a container option
-        // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
-        const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
-          text: getTextToCopy,
-          container: window.document.getElementById('quarto-embedded-source-code-modal')
-        });
-        clipboardModal.on('success', onCopySuccess);
-      }
         var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
         var mailtoRegex = new RegExp(/^mailto:/);
           var filterRegex = new RegExp("https:\/\/daniela-palleschi\.github\.io\/zas-reproducibility-2024\/");
@@ -1342,7 +1333,7 @@ Rodrigues, B. (2023). <em>Building reproducible analytical pipelines with <span>
             return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
         }
         // Inspect non-navigation links and adorn them if external
-     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
         for (var i=0; i<links.length; i++) {
           const link = links[i];
           if (!isInternal(link.href)) {
