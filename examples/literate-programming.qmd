@@ -1,0 +1,82 @@
+---
+title: "Literate programming"
+author: "Daniela Palleschi"
+date: "08/22/2024"
+format:
+  html:
+    toc: true
+---
+
+# Set-up
+
+Set-up environment: load packages and data
+
+## Packages
+
+Install the tidyverse and here packages. This will not run when we render the script.
+
+```{r}
+#| eval: false
+# install packages
+install.packages("tidyverse")
+install.packages("here")
+```
+
+Load required packages.
+
+```{r}
+# load packages
+library(tidyverse)
+library(here)
+```
+
+Print the project directory filepath using the `here` package.
+
+```{r}
+# print project directory
+here()
+```
+
+## Load data
+
+```{r}
+df_chromy <- read_csv(here("data", "chromy_et-al_2023_English_final.csv"))
+```
+
+
+# Data exploration
+
+Take a look at the data using `glimpse()` from the `dplyr` package.
+
+```{r}
+glimpse(df_chromy)
+```
+
+Summary statistics of self-paced reading times (all sentence regions).
+
+```{r}
+summary(df_chromy$ReadTimes)
+```
+
+Visualise distribution of reading times (milliseconds) for critical sentence regions. I'll use base R functions to keep things simple for now.
+
+```{r}
+plot(df_chromy$ReadTimes, df_chromy$WordNo)
+```
+
+There were some long observations.
+
+We see some sentence positions had overall shorter reading times (e.g., sentence positions 7 and 11) and some had more spread (e.g., 1 through 6, 12).
+
+# Session Info
+
+```{r}
+sessionInfo()
+```
+
+
+
+
+
+
+

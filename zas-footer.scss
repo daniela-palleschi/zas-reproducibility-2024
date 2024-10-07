@@ -1,0 +1,29 @@
+/*-- scss:defaults --*/
+
+$custom-background: #8D203D !default; // ZAS colour
+
+/*-- scss:rules --*/
+
+.reveal .footer {
+    color: #ffffff; // footer font colour
+    background-color: $custom-background;
+    display: block;
+    position: fixed;
+    padding-bottom: 12px;
+    padding-top: 12px;
+    bottom: 0px !important; // Makes footer div flush with bottom of slide
+    width: 100%;
+    z-index: 2 !important; // Sets the footer div further down the z-index
+  }
+  
+.reveal .slide-logo {
+    margin-bottom: 6px !important; // Lowers logo more in line with rest of footer
+    z-index: 5 !important; // Keeps logo above footer div
+  }
+  
+  // PROGRESS BAR COLOUR: https://stackoverflow.com/questions/62762033/reveal-js-how-to-change-progress-bar-width
+.reveal .progress {
+  // background: rgba(0, 0, 0, 0.2);
+  color: #A54F65;
+  height: 0.6%;
+}
