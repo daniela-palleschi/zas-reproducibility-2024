@@ -174,7 +174,7 @@ div.csl-indent {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Writing Reproducible Code</li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../pages/literate_programming.html">Day 2</a></li><li class="breadcrumb-item"><a href="../pages/literate_programming.html">Writing Reproducible Code</a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -215,11 +215,30 @@ div.csl-indent {
  <span class="menu-text">Reproducible analyses in R</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../pages/R-Projects.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">R-Projects</span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
-      <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">Day 2</span></span>
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+ <span class="menu-text">Day 2</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../pages/literate_programming.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Writing Reproducible Code</span></a>
+  </div>
+</li>
+      </ul>
   </li>
     </ul>
     </div>
@@ -255,11 +274,15 @@ div.csl-indent {
   <li><a href="#session-info-1" id="toc-session-info-1" class="nav-link" data-scroll-target="#session-info-1">Session Info</a></li>
   </ul>
 <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="literate_programming.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li><li><a href="literate_programming-slides.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></nav>
-    </div>
+    <div class="quarto-margin-footer"><div class="margin-footer-item">
+<div style="text-align: center;">
+<p><a href="https://www.leibniz-zas.de/en/" target="_blank" rel="noopener noreferrer" style="display: inline-block; margin-right: 20px;"> <img src="../logos/ZAS_Marke-Kurz_4c.png" alt="https://www.leibniz-zas.de/en/" style="height: 70px; width: auto;"> </a> <a href="https://www.leibniz-gemeinschaft.de/en/" target="_blank" rel="noopener noreferrer" style="display: inline-block;"> <img src="../logos/Leibniz-Gemeinschaft-Logo-ENG_blau.png" alt="https://www.leibniz-gemeinschaft.de/en/" style="height: 60px; width: auto;"> </a></p>
+</div>
+</div></div></div>
 <!-- main -->
 <main class="content column-body" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../pages/literate_programming.html">Day 2</a></li><li class="breadcrumb-item"><a href="../pages/literate_programming.html">Writing Reproducible Code</a></li></ol></nav>
 <div class="quarto-title">
 <div class="quarto-title-block"><div><h1 class="title">Writing Reproducible Code</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
 <p class="subtitle lead">Literate, linear programming and modularity</p>
@@ -747,7 +770,7 @@ Task: Editing your Quarto document
 <li>In a new code chunk, add the comment <code># print project directory</code> and the code <code>here()</code></li>
 </ul></li>
 <li><p>Render the document</p></li>
-<li><p>In a code chunk: load in the dataset (e.g., <code>df_chromy &lt;- read_csv(here::here("data", "chromy_et-al_2023_English_final.csv"))</code>)</p>
+<li><p>In a code chunk: load in the dataset (e.g., <code>df_icon &lt;- read_csv(here::here("data", "cwiek_2021-online_cleaned.csv"))</code>)</p>
 <ul>
 <li>explore the dataset however you normally would (e.g., <code>summary()</code>)</li>
 <li>if you have some experience with R, try producing plots of the data</li>
@@ -816,7 +839,7 @@ here()
 ## Load data
 
 ```{r}
-df_chromy &lt;- read_csv(here("data", "chromy_et-al_2023_English_final.csv"))
+df_icon &lt;- read_csv(here("data", "cwiek_2021-online_cleaned.csv"))
 ```
 
 
@@ -825,24 +848,24 @@ df_chromy &lt;- read_csv(here("data", "chromy_et-al_2023_English_final.csv"))
 Take a look at the data using `glimpse()` from the `dplyr` package.
 
 ```{r}
-glimpse(df_chromy)
+glimpse(df_icon)
 ```
 
-Summary statistics of self-paced reading times (all sentence regions).
+Summary statistics of longitude and latitude.
 
 ```{r}
-summary(df_chromy$ReadTimes)
+summary(df_icon$Latitude)
+```
+
+```{r}
+summary(df_icon$Longitude)
 ```
 
 Visualise distribution of reading times (milliseconds) for critical sentence regions. I'll use base R functions to keep things simple for now.
 
 ```{r}
-plot(df_chromy$ReadTimes, df_chromy$WordNo)
+plot(df_icon$Latitude, df_icon$Longitude)
 ```
-
-There were some long observations.
-
-We see some sentence positions had overall shorter reading times (e.g., sentence positions 7 and 11) and some had more spread (e.g., 1 through 6, 12).
 
 # Session Info
 
@@ -1900,7 +1923,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb13-397"><a href="#cb13-397" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-398"><a href="#cb13-398" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>Render the document</span>
 <span id="cb13-399"><a href="#cb13-399" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-400"><a href="#cb13-400" aria-hidden="true" tabindex="-1"></a><span class="ss">6. </span>In a code chunk: load in the dataset (e.g., <span class="in">`df_chromy &lt;- read_csv(here::here("data", "chromy_et-al_2023_English_final.csv"))`</span>)</span>
+<span id="cb13-400"><a href="#cb13-400" aria-hidden="true" tabindex="-1"></a><span class="ss">6. </span>In a code chunk: load in the dataset (e.g., <span class="in">`df_icon &lt;- read_csv(here::here("data", "cwiek_2021-online_cleaned.csv"))`</span>)</span>
 <span id="cb13-401"><a href="#cb13-401" aria-hidden="true" tabindex="-1"></a><span class="ss">    + </span>explore the dataset however you normally would (e.g., <span class="in">`summary()`</span>)</span>
 <span id="cb13-402"><a href="#cb13-402" aria-hidden="true" tabindex="-1"></a><span class="ss">    + </span>if you have some experience with R, try producing plots of the data</span>
 <span id="cb13-403"><a href="#cb13-403" aria-hidden="true" tabindex="-1"></a>  </span>

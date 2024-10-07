@@ -4,56 +4,96 @@
     "href": "pages/literate_programming.html",
     "title": "Writing Reproducible Code",
     "section": "",
-    "text": "learn about literate programming and modular analyses\ncreate and render a dynamic report with Quarto\nload data using here"
+    "text": "learn about literate programming and modular analyses\ncreate and render a dynamic report with Quarto\nload data using here",
+    "crumbs": [
+      "D. Palleschi",
+      "Day 2",
+      "Writing Reproducible Code"
+    ]
   },
   {
     "objectID": "pages/literate_programming.html#writing-linear-code",
     "href": "pages/literate_programming.html#writing-linear-code",
     "title": "Writing Reproducible Code",
     "section": "Writing linear code",
-    "text": "Writing linear code\n\nyou need to load a package before you call a function from it\n\nif we’re just working in an R session, before means temporally prior\nwith linear code, before means higher up in the script\n\nsuch pre-requisite code must\n\nbe present in the script\nappear above the first line of code that uses a function from this package\n\nmissing pre-requisite code might not throw an error message\n\nbut might produce output we aren’t expecting\ne.g., forgetting to filter out certain observations\nor forgetting that some observations have been filtered out"
+    "text": "Writing linear code\n\nyou need to load a package before you call a function from it\n\nif we’re just working in an R session, before means temporally prior\nwith linear code, before means higher up in the script\n\nsuch pre-requisite code must\n\nbe present in the script\nappear above the first line of code that uses a function from this package\n\nmissing pre-requisite code might not throw an error message\n\nbut might produce output we aren’t expecting\ne.g., forgetting to filter out certain observations\nor forgetting that some observations have been filtered out",
+    "crumbs": [
+      "D. Palleschi",
+      "Day 2",
+      "Writing Reproducible Code"
+    ]
   },
   {
     "objectID": "pages/literate_programming.html#literate-programming",
     "href": "pages/literate_programming.html#literate-programming",
     "title": "Writing Reproducible Code",
     "section": "Literate programming",
-    "text": "Literate programming\n\nInstead of imagining that our main task is to instruct a computer what to do, let us concentrate rather on explaining to human beings what we want a computer to do.\n\n— Knuth (1984), p. 97\n\nrefers to writing and documenting our code so that humans can understand it\n\nimportant for us: we are (generally) not professional programmers, nor are our peers\n\nwe need to not only know what our code is doing when we look back at it in the future/share it\nthe easiest way: informative comments\n\nthe length and frequency of these comments is your choice"
+    "text": "Literate programming\n\nInstead of imagining that our main task is to instruct a computer what to do, let us concentrate rather on explaining to human beings what we want a computer to do.\n\n— Knuth (1984), p. 97\n\nrefers to writing and documenting our code so that humans can understand it\n\nimportant for us: we are (generally) not professional programmers, nor are our peers\n\nwe need to not only know what our code is doing when we look back at it in the future/share it\nthe easiest way: informative comments\n\nthe length and frequency of these comments is your choice",
+    "crumbs": [
+      "D. Palleschi",
+      "Day 2",
+      "Writing Reproducible Code"
+    ]
   },
   {
     "objectID": "pages/literate_programming.html#example-r-script-1",
     "href": "pages/literate_programming.html#example-r-script-1",
     "title": "Writing Reproducible Code",
     "section": "Example R script",
-    "text": "Example R script\n#| eval: false\n#| echo: true\n#| code-fold: false\n#| code-summary: \"Example\"\n\n# Analysis script for phoneme paper\n# author: Joe DiMaggio\n# date: Feb. 29, 2024\n# purpose: analyse cleaned dataset\n\n# Set-up ###\n\n# load required packages\nlibrary(dplyr) # data wrangling\nlibrary(readr) # loding data\nlibrary(here) # project-relative file path\n\n# Load-in data\ndf_phon &lt;- read_csv(here(\"data\", \"phoneme_tidy_data.csv\"))\n\n# Explore data ###\nsummary(df_phone)\n\nbegins with some meta-information about the document, including its purpose\n\naids in knowing which scripts to run in which sequence\n\nthere are three hashtags after some headings (###)\n\nthis is helpful because it structures the outline of the document in RStudio\n\nthe purpose of chunks of code are written above\n\ndescription of specific lines of code are also given"
+    "text": "Example R script\n#| eval: false\n#| echo: true\n#| code-fold: false\n#| code-summary: \"Example\"\n\n# Analysis script for phoneme paper\n# author: Joe DiMaggio\n# date: Feb. 29, 2024\n# purpose: analyse cleaned dataset\n\n# Set-up ###\n\n# load required packages\nlibrary(dplyr) # data wrangling\nlibrary(readr) # loding data\nlibrary(here) # project-relative file path\n\n# Load-in data\ndf_phon &lt;- read_csv(here(\"data\", \"phoneme_tidy_data.csv\"))\n\n# Explore data ###\nsummary(df_phone)\n\nbegins with some meta-information about the document, including its purpose\n\naids in knowing which scripts to run in which sequence\n\nthere are three hashtags after some headings (###)\n\nthis is helpful because it structures the outline of the document in RStudio\n\nthe purpose of chunks of code are written above\n\ndescription of specific lines of code are also given",
+    "crumbs": [
+      "D. Palleschi",
+      "Day 2",
+      "Writing Reproducible Code"
+    ]
   },
   {
     "objectID": "pages/literate_programming.html#yaml",
     "href": "pages/literate_programming.html#yaml",
     "title": "Writing Reproducible Code",
     "section": "YAML",
-    "text": "YAML\n\nthe section at the very top fenced by ---\ncontains all the meta information about your document\n\ne.g. title, author name, date\nalso formatting information, e.g. type of output file\n\nthere are many document formatting and customisation options that we won’t cover in this course\nbut for example I have many YAML formatting options in the source code of my slides\n\n\n---\ntitle: \"My title\"\n---\n\n\n\n\n\n\n\nYAML\n\n\n\n\n\nchange the title if you want to do so.\nguess how to add a subtitle (hint: it is similar to adding a title)\nadd an author, author: ‘firstname lastname’ (see example below)\nadd a table of contents (Table of Contents = toc) by changing format so that it looks like this:\n\n\n---\ntitle: \"Dynamic reports\"\nauthor: \"Daniela Palleschi\"\nformat:\n  pdf:\n    toc: true\n---\n\n\nRender the document. Do you see the changes?"
+    "text": "YAML\n\nthe section at the very top fenced by ---\ncontains all the meta information about your document\n\ne.g. title, author name, date\nalso formatting information, e.g. type of output file\n\nthere are many document formatting and customisation options that we won’t cover in this course\nbut for example I have many YAML formatting options in the source code of my slides\n\n\n---\ntitle: \"My title\"\n---\n\n\n\n\n\n\n\nYAML\n\n\n\n\n\nchange the title if you want to do so.\nguess how to add a subtitle (hint: it is similar to adding a title)\nadd an author, author: ‘firstname lastname’ (see example below)\nadd a table of contents (Table of Contents = toc) by changing format so that it looks like this:\n\n\n---\ntitle: \"Dynamic reports\"\nauthor: \"Daniela Palleschi\"\nformat:\n  pdf:\n    toc: true\n---\n\n\nRender the document. Do you see the changes?",
+    "crumbs": [
+      "D. Palleschi",
+      "Day 2",
+      "Writing Reproducible Code"
+    ]
   },
   {
     "objectID": "pages/literate_programming.html#structure-your-reports",
     "href": "pages/literate_programming.html#structure-your-reports",
     "title": "Writing Reproducible Code",
     "section": "Structure your reports",
-    "text": "Structure your reports\n\nremember to use (sub-)headings (e.g., # Set-up)\ndescribe the function/purpose at the beginning of the script\ndocument your train of thought and findings throughout the script\n\ne.g., why are you producing this plot, what does it tell you?\n\ngive an overview of the findings/end result at the end\nit’s wise to avoid very long, multi-purpose scripts\n\nrule of thumb: one script per product or purpose\ne.g., data cleaning, exploration, analysis, publication figures, etc."
+    "text": "Structure your reports\n\nremember to use (sub-)headings (e.g., # Set-up)\ndescribe the function/purpose at the beginning of the script\ndocument your train of thought and findings throughout the script\n\ne.g., why are you producing this plot, what does it tell you?\n\ngive an overview of the findings/end result at the end\nit’s wise to avoid very long, multi-purpose scripts\n\nrule of thumb: one script per product or purpose\ne.g., data cleaning, exploration, analysis, publication figures, etc.",
+    "crumbs": [
+      "D. Palleschi",
+      "Day 2",
+      "Writing Reproducible Code"
+    ]
   },
   {
     "objectID": "pages/literate_programming.html#code-chunks",
     "href": "pages/literate_programming.html#code-chunks",
     "title": "Writing Reproducible Code",
     "section": "Code chunks",
-    "text": "Code chunks\n\nthe main benefit of dynamic reports: combining text with code (and code output)\nR code goes in code chunks:\n\n\n```{r}\n2+2\n```\n\n[1] 4\n\n\n\nto add a code chunk: Code &gt; Insert Chunk\n\nor use the keyboard shortcut: Cmd+Opt+I (Mac) / Ctrl+Alt+I (Windows)\n\n\n\n\n\n\n\n\nAdding structure and code chunks\n\n\n\n\n\nUse the example R script above to create a structured document\n\nuse headings (#) and subheadings (##) accordingly\n\nLoad in our dataset in a code chunk\nRender the document. Do you see the changes?"
+    "text": "Code chunks\n\nthe main benefit of dynamic reports: combining text with code (and code output)\nR code goes in code chunks:\n\n\n```{r}\n2+2\n```\n\n[1] 4\n\n\n\nto add a code chunk: Code &gt; Insert Chunk\n\nor use the keyboard shortcut: Cmd+Opt+I (Mac) / Ctrl+Alt+I (Windows)\n\n\n\n\n\n\n\n\nAdding structure and code chunks\n\n\n\n\n\nUse the example R script above to create a structured document\n\nuse headings (#) and subheadings (##) accordingly\n\nLoad in our dataset in a code chunk\nRender the document. Do you see the changes?",
+    "crumbs": [
+      "D. Palleschi",
+      "Day 2",
+      "Writing Reproducible Code"
+    ]
   },
   {
     "objectID": "pages/literate_programming.html#session-info",
     "href": "pages/literate_programming.html#session-info",
     "title": "Writing Reproducible Code",
     "section": "Session info",
-    "text": "Session info\n\nso, print your session info at the end of every script\n\nthis will print your R version, package versions, and more\n\n\n\nsessionInfo()"
+    "text": "Session info\n\nso, print your session info at the end of every script\n\nthis will print your R version, package versions, and more\n\n\n\nsessionInfo()",
+    "crumbs": [
+      "D. Palleschi",
+      "Day 2",
+      "Writing Reproducible Code"
+    ]
   },
   {
     "objectID": "pages/literate_programming-slides.html#writing-linear-code",
@@ -184,11 +224,11 @@
     ]
   },
   {
-    "objectID": "pages/reproducibility.html#reproducibility-rates-in-linguistic-research",
-    "href": "pages/reproducibility.html#reproducibility-rates-in-linguistic-research",
+    "objectID": "pages/reproducibility.html#reproducibility-rates-of-published-works",
+    "href": "pages/reproducibility.html#reproducibility-rates-of-published-works",
     "title": "Reproducible analyses in R",
-    "section": "3.1 Reproducibility rates in linguistic research",
-    "text": "3.1 Reproducibility rates in linguistic research\n\n\n\n\n\n\n\n\n\n\nFigure 5: Source: Bochynska et al. (2023), p. 11 (all rights reserved)\n\n\n\n\n\n\n\nmeta-analysis of 519 randomly sampled articles from various linguistic journales\n\npre- and post-reproducibility crisis (2008/9, 2018/19) (Bochynska et al., 2023)\ndifferentiated between primary (collected for study) and secondary (pre-existing) data\n\nreported a post-RC increase in shared materials, data, and analyses\n\nbut still low rates of each\n\nhigher rates of secondary data sharing, presumably due to publicly available corpora\ndata shared more often than analyses, pre- and post-RC",
+    "section": "2.4 Reproducibility rates of published works",
+    "text": "2.4 Reproducibility rates of published works\n\nrates of reproducibility vary across fields (see Bochynska et al., 2023 for a review)\n\nopen access: 25-65%\ndata and analyses sharing: 11-33%\npre-registrations: 0-3%\n\n\n\nReproducibility rates in linguistic research\n\n\n\n\n\n\n\n\n\n\nFigure 5: Source: Bochynska et al. (2023), p. 11 (all rights reserved)\n\n\n\n\n\n\n\nmeta-analysis of 519 randomly sampled articles from various linguistic journales\n\npre- and post-reproducibility crisis (2008/9, 2018/19) (Bochynska et al., 2023)\ndifferentiated between primary (collected for study) and secondary (pre-existing) data\n\nreported a post-RC increase in shared materials, data, and analyses\n\nbut still low rates of each\n\nhigher rates of secondary data sharing, presumably due to publicly available corpora\ndata shared more often than analyses, pre- and post-RC\n\n\n\n\n\nJournal of Memory and Language\n\nmeta-analysis of articles from JML (Laurinavichyute et al., 2022)\n\nbefore and after an Open Science Policy was introduced in 2019\n\n\n\n\n\n\n\n\n\n\nFigure 6: Source: Laurinavichyute et al. (2022), p. 5 (all rights reserved)\n\n\n\n\n\n\ncode and data availability improved\nbut reproducibility rate ranged from 34-56%, depending on criteria\nhigher rates compared to field-wide meta-analysis (Bochynska et al., 2023)",
     "crumbs": [
       "D. Palleschi",
       "Day 1",
@@ -196,11 +236,119 @@
     ]
   },
   {
-    "objectID": "pages/reproducibility.html#journal-of-memory-and-language",
-    "href": "pages/reproducibility.html#journal-of-memory-and-language",
+    "objectID": "pages/reproducibility.html#beyond-the-reproducibility-spectrum",
+    "href": "pages/reproducibility.html#beyond-the-reproducibility-spectrum",
     "title": "Reproducible analyses in R",
-    "section": "3.2 Journal of Memory and Language",
-    "text": "3.2 Journal of Memory and Language\n\nmeta-analysis of articles from JML (Laurinavichyute et al., 2022)\n\nbefore and after an Open Science Policy was introduced in 2019\n\n\n\n\n\n\n\n\n\n\nFigure 6: Source: Laurinavichyute et al. (2022), p. 5 (all rights reserved)\n\n\n\n\n\n\ncode and data availability improved\nbut reproducibility rate ranged from 34-56%, depending on criteria\nhigher rates compared to field-wide meta-analysis (Bochynska et al., 2023)",
+    "section": "3.1 Beyond the reproducibility spectrum",
+    "text": "3.1 Beyond the reproducibility spectrum\n\nthere are different levels of reproducibility\n\nthe bare minimum is sharing the code and data\nand including session information:\n\nwhich operating system was used\nwhich software/package versions were used\n\n\ngoing bigger:\n\nproject-oriented workflow\nproject-specific filepaths\ncontained in a single project folder\n\nwe will be using RProjects to achieve this",
+    "crumbs": [
+      "D. Palleschi",
+      "Day 1",
+      "Reproducible analyses in R"
+    ]
+  },
+  {
+    "objectID": "pages/reproducibility.html#project-management",
+    "href": "pages/reproducibility.html#project-management",
+    "title": "Reproducible analyses in R",
+    "section": "3.2 Project management",
+    "text": "3.2 Project management\n\nfolder structure\nproject-relative file paths\nappropriate documentation\n\ne.g., README files\n\nit’s great to map out your project structure early on\n\nbut it will grow as you go along\nreproducible principles facilitate adapting as it grows",
+    "crumbs": [
+      "D. Palleschi",
+      "Day 1",
+      "Reproducible analyses in R"
+    ]
+  },
+  {
+    "objectID": "pages/reproducibility.html#naming-conventions-1",
+    "href": "pages/reproducibility.html#naming-conventions-1",
+    "title": "Reproducible analyses in R",
+    "section": "3.3 Naming conventions",
+    "text": "3.3 Naming conventions\n\nthere are some “rules” for naming files, folders, and variables\n\nThe Turing Way: Naming files, folders, and other things\nJenny Bryan: naming things (Reproducible Science Workshop 2015)\nDanielle Navarro: Project structure\n\n\n\n\n\nAvoid special characters\n\nensures machine readability\n\nMake names concise but meaningful\n\nensures human-readability\n\nAvoid spaces\n\ntry CamelCase, snake case (snake_case), or skewer case (skewer-case)\nor use hyphens (-) to separate chunks, and underscores (_) to connect words of the same chunk\n\n\n\n\nConsider default ordering\n\ne.g., with dates (ISO 8601): YYYY-MM-DD\nwith folders or files: numerical prefixes (e.g., 01-data_cleaning.R, 02-data_visualisation.R)\n\nBe consistent\n\nas long as your names are machine and human readable\n\n\n\n\n\n\n\n\n\n\nTidy data\n\n\n\n\nTidy datasets are all alike but every messy dataset is messy in its own way\n— Wickham (2014)\n\n\nTidy data",
+    "crumbs": [
+      "D. Palleschi",
+      "Day 1",
+      "Reproducible analyses in R"
+    ]
+  },
+  {
+    "objectID": "pages/reproducibility.html#literate-programming",
+    "href": "pages/reproducibility.html#literate-programming",
+    "title": "Reproducible analyses in R",
+    "section": "3.4 Literate programming",
+    "text": "3.4 Literate programming\n\nInstead of imagining that our main task is to instruct a computer what to do, let us concentrate rather on explaining to human beings what we want a computer to do.\n\n— Knuth (1984), p. 97\n\n\n\noriginally used to refer to writing programs\nbut also applies to analysis code\n\nespecially if we’re aiming for reproducibility\n\n\n\n\nmain concepts:\n\ncode is linear (this pre-dates Knuth, 1984)\ninformative but concise commenting\n\n\n\n\nmain benefits:\n\nfacilitates maintenance\nhelpful for future-you, collaborators, etc.",
+    "crumbs": [
+      "D. Palleschi",
+      "Day 1",
+      "Reproducible analyses in R"
+    ]
+  },
+  {
+    "objectID": "pages/reproducibility.html#version-control-not-covered-in-this-workshop",
+    "href": "pages/reproducibility.html#version-control-not-covered-in-this-workshop",
+    "title": "Reproducible analyses in R",
+    "section": "3.5 Version control (not covered in this workshop)",
+    "text": "3.5 Version control (not covered in this workshop)\n\ngit: local tracking\nuseful for the analysis and writing phases\n\nbut can be tricky for collaboration\n\nGitHub/GitLab: remote tracking\n\nstore your changes to your local git repository\nthen push them to your remote repository\n\nsafe guards against local hardware/software issues\n\nlost or damaged computer or local files\n\nand allows for collaboration or sharing",
+    "crumbs": [
+      "D. Palleschi",
+      "Day 1",
+      "Reproducible analyses in R"
+    ]
+  },
+  {
+    "objectID": "pages/reproducibility.html#writing-not-covered-in-this-workshop",
+    "href": "pages/reproducibility.html#writing-not-covered-in-this-workshop",
+    "title": "Reproducible analyses in R",
+    "section": "3.6 Writing (not covered in this workshop)",
+    "text": "3.6 Writing (not covered in this workshop)\n\ndynamic reports with Markdown syntax\n\ne.g., Rmarkdown, Quarto\nintegration of data, code, and prose\n\nfacilitates cross-referencing within document\nintegration of citation management tools\nsupports LaTeX syntax for example sentences and tables\n\n\npapaja package for APA-formatted Rmarkdown documents\nchallenge: collaboration\n\nnot all collaborators know these tools\ntrack changes not currently possible",
+    "crumbs": [
+      "D. Palleschi",
+      "Day 1",
+      "Reproducible analyses in R"
+    ]
+  },
+  {
+    "objectID": "pages/reproducibility.html#data-management-and-sharing-plans-dmsp",
+    "href": "pages/reproducibility.html#data-management-and-sharing-plans-dmsp",
+    "title": "Reproducible analyses in R",
+    "section": "4.1 Data Management (and Sharing) Plans (DM(S)P)",
+    "text": "4.1 Data Management (and Sharing) Plans (DM(S)P)\n\nresearch data management is relevant for all stages of the data life cycle\n\nplanning, collection, processing, archiving, publishing\n\nDMSPs are required by some funding bodies\n\neven if not, they’re an important part of project planning\n\nquestions to consider:\n\ndo I have data from human participants?\ndo I have data from vulnerable groups (children, patients, etc.)\nhave I collected any identifiable data from humans? (direct or indirect)\n\n\n\nFacilitating data management/sharing\n\nplanning and implementing folder structure, file and variable names\nkeep everything relevant to a certain project in one place (i.e., folder)\n\nuse subfolders appropriately\navoid mixing subfolders and files within a single folder",
+    "crumbs": [
+      "D. Palleschi",
+      "Day 1",
+      "Reproducible analyses in R"
+    ]
+  },
+  {
+    "objectID": "pages/reproducibility.html#documentation",
+    "href": "pages/reproducibility.html#documentation",
+    "title": "Reproducible analyses in R",
+    "section": "4.2 Documentation",
+    "text": "4.2 Documentation\n\nmetadata\n\nproject README\ncodebook/data dictionary\n\nREADME should contain\n\na project description\nrelevant links\ndescription of folder structure\n\ncan be updated as the project develops\nREADME.md files in GitHub/Lab are automatically used as a project description\n\n.md is a plain text document\nuses markdown syntax\n\nREAMD files don’t need to be markdown files, but",
+    "crumbs": [
+      "D. Palleschi",
+      "Day 1",
+      "Reproducible analyses in R"
+    ]
+  },
+  {
+    "objectID": "pages/reproducibility.html#version-control-again",
+    "href": "pages/reproducibility.html#version-control-again",
+    "title": "Reproducible analyses in R",
+    "section": "4.3 Version control (again)",
+    "text": "4.3 Version control (again)\n\nversion control is an important aspect of data management\n\ncan be done with git, or manually\n\nmanual version control ()",
+    "crumbs": [
+      "D. Palleschi",
+      "Day 1",
+      "Reproducible analyses in R"
+    ]
+  },
+  {
+    "objectID": "pages/reproducibility.html#persistant-public-storage",
+    "href": "pages/reproducibility.html#persistant-public-storage",
+    "title": "Reproducible analyses in R",
+    "section": "4.4 Persistant (public) storage",
+    "text": "4.4 Persistant (public) storage\n\nGitHub/Lab are sub-optimal\n\ndeveloper-focused\ntypically lack thorough documentation/metadata\nnot very user-friendly for non-users\n\nOSF, Zenodo\n\nOpen Science-focused\ncan be linked to a GitHub/Lab repository\nfacilitate thorough documentation\nuser-friendly",
     "crumbs": [
       "D. Palleschi",
       "Day 1",
@@ -243,200 +391,335 @@
     "text": "How to implement reproducibility?\n\nnot exactly straightforward\n\nthere are degrees of reproducibility\nthe rest of our time will be spent on this topic\n\n\nsharing code and data is a first step\n\nthink of the FAIR principles of data sharing\napply them to sharing analyses as well"
   },
   {
-    "objectID": "pages/reproducibility-slides.html#reproducibility-rates-in-linguistic-research",
-    "href": "pages/reproducibility-slides.html#reproducibility-rates-in-linguistic-research",
+    "objectID": "pages/reproducibility-slides.html#reproducibility-rates-of-published-works",
+    "href": "pages/reproducibility-slides.html#reproducibility-rates-of-published-works",
     "title": "Reproducible analyses in R",
-    "section": "Reproducibility rates in linguistic research",
-    "text": "Reproducibility rates in linguistic research\n\n\n\n\n\n\nFigure 4: Source: Bochynska et al. (2023), p. 11 (all rights reserved)\n\n\n\n\n\n\n\n\n\nmeta-analysis of 519 randomly sampled articles from various linguistic journales\n\npre- and post-reproducibility crisis (2008/9, 2018/19) (Bochynska et al., 2023)\n\ndifferentiated between primary (collected for study) and secondary (pre-existing) data\n\n\nreported a post-RC increase in shared materials, data, and analyses\n\nbut still low rates of each\n\n\nhigher rates of secondary data sharing, presumably due to publicly available corpora\ndata shared more often than analyses, pre- and post-RC"
+    "section": "Reproducibility rates of published works",
+    "text": "Reproducibility rates of published works\n\nrates of reproducibility vary across fields (see Bochynska et al., 2023 for a review)\n\nopen access: 25-65%\ndata and analyses sharing: 11-33%\npre-registrations: 0-3%"
   },
   {
-    "objectID": "pages/reproducibility-slides.html#journal-of-memory-and-language",
-    "href": "pages/reproducibility-slides.html#journal-of-memory-and-language",
+    "objectID": "pages/reproducibility-slides.html#beyond-the-reproducibility-spectrum",
+    "href": "pages/reproducibility-slides.html#beyond-the-reproducibility-spectrum",
     "title": "Reproducible analyses in R",
-    "section": "Journal of Memory and Language",
-    "text": "Journal of Memory and Language\n\nmeta-analysis of articles from JML (Laurinavichyute et al., 2022)\n\nbefore and after an Open Science Policy was introduced in 2019\n\n\n\n\n\nFigure 5: Source: Laurinavichyute et al. (2022), p. 5 (all rights reserved)\n\ncode and data availability improved\nbut reproducibility rate ranged from 34-56%, depending on criteria\nhigher rates compared to field-wide meta-analysis (Bochynska et al., 2023)"
+    "section": "Beyond the reproducibility spectrum",
+    "text": "Beyond the reproducibility spectrum\n\nthere are different levels of reproducibility\n\nthe bare minimum is sharing the code and data\n\nand including session information:\n\nwhich operating system was used\nwhich software/package versions were used\n\n\n\n\ngoing bigger:\n\nproject-oriented workflow\nproject-specific filepaths\ncontained in a single project folder\n\n\nwe will be using RProjects to achieve this"
   },
   {
-    "objectID": "pages/rprojects.html",
-    "href": "pages/rprojects.html",
-    "title": "RProjects",
+    "objectID": "pages/reproducibility-slides.html#project-management",
+    "href": "pages/reproducibility-slides.html#project-management",
+    "title": "Reproducible analyses in R",
+    "section": "Project management",
+    "text": "Project management\n\nfolder structure\nproject-relative file paths\nappropriate documentation\n\ne.g., README files\n\n\nit’s great to map out your project structure early on\n\nbut it will grow as you go along\nreproducible principles facilitate adapting as it grows"
+  },
+  {
+    "objectID": "pages/reproducibility-slides.html#naming-conventions",
+    "href": "pages/reproducibility-slides.html#naming-conventions",
+    "title": "Reproducible analyses in R",
+    "section": "Naming conventions",
+    "text": "Naming conventions\n\nthere are some “rules” for naming files, folders, and variables\n\nThe Turing Way: Naming files, folders, and other things\nJenny Bryan: naming things (Reproducible Science Workshop 2015)\nDanielle Navarro: Project structure\n\n\n\n\n\n\n\nAvoid special characters\n\nensures machine readability\n\n\n\nMake names concise but meaningful\n\nensures human-readability\n\n\n\nAvoid spaces\n\ntry CamelCase, snake case (snake_case), or skewer case (skewer-case)\nor use hyphens (-) to separate chunks, and underscores (_) to connect words of the same chunk\n\n\n\n\n\n\nConsider default ordering\n\ne.g., with dates (ISO 8601): YYYY-MM-DD\n\nwith folders or files: numerical prefixes (e.g., 01-data_cleaning.R, 02-data_visualisation.R)\n\n\n\nBe consistent\n\nas long as your names are machine and human readable"
+  },
+  {
+    "objectID": "pages/reproducibility-slides.html#literate-programming",
+    "href": "pages/reproducibility-slides.html#literate-programming",
+    "title": "Reproducible analyses in R",
+    "section": "Literate programming",
+    "text": "Literate programming\n\nInstead of imagining that our main task is to instruct a computer what to do, let us concentrate rather on explaining to human beings what we want a computer to do.\n\n— Knuth (1984), p. 97\n\n\n\noriginally used to refer to writing programs\nbut also applies to analysis code\n\nespecially if we’re aiming for reproducibility\n\n\n\n\n\n\nmain concepts:\n\ncode is linear (this pre-dates Knuth, 1984)\n\ninformative but concise commenting\n\n\n\n\n\n\nmain benefits:\n\nfacilitates maintenance\nhelpful for future-you, collaborators, etc."
+  },
+  {
+    "objectID": "pages/reproducibility-slides.html#version-control-not-covered-in-this-workshop",
+    "href": "pages/reproducibility-slides.html#version-control-not-covered-in-this-workshop",
+    "title": "Reproducible analyses in R",
+    "section": "Version control (not covered in this workshop)",
+    "text": "Version control (not covered in this workshop)\n\ngit: local tracking\nuseful for the analysis and writing phases\n\nbut can be tricky for collaboration\n\n\nGitHub/GitLab: remote tracking\n\nstore your changes to your local git repository\nthen push them to your remote repository\n\n\nsafe guards against local hardware/software issues\n\nlost or damaged computer or local files\n\n\nand allows for collaboration or sharing"
+  },
+  {
+    "objectID": "pages/reproducibility-slides.html#writing-not-covered-in-this-workshop",
+    "href": "pages/reproducibility-slides.html#writing-not-covered-in-this-workshop",
+    "title": "Reproducible analyses in R",
+    "section": "Writing (not covered in this workshop)",
+    "text": "Writing (not covered in this workshop)\n\n\ndynamic reports with Markdown syntax\n\ne.g., Rmarkdown, Quarto\nintegration of data, code, and prose\n\nfacilitates cross-referencing within document\nintegration of citation management tools\nsupports LaTeX syntax for example sentences and tables\n\n\n\n\npapaja package for APA-formatted Rmarkdown documents\n\nchallenge: collaboration\n\nnot all collaborators know these tools\ntrack changes not currently possible"
+  },
+  {
+    "objectID": "pages/reproducibility-slides.html#data-management-and-sharing-plans-dmsp",
+    "href": "pages/reproducibility-slides.html#data-management-and-sharing-plans-dmsp",
+    "title": "Reproducible analyses in R",
+    "section": "Data Management (and Sharing) Plans (DM(S)P)",
+    "text": "Data Management (and Sharing) Plans (DM(S)P)\n\nresearch data management is relevant for all stages of the data life cycle\n\nplanning, collection, processing, archiving, publishing\n\n\nDMSPs are required by some funding bodies\n\neven if not, they’re an important part of project planning\n\n\nquestions to consider:\n\ndo I have data from human participants?\ndo I have data from vulnerable groups (children, patients, etc.)\nhave I collected any identifiable data from humans? (direct or indirect)"
+  },
+  {
+    "objectID": "pages/reproducibility-slides.html#documentation",
+    "href": "pages/reproducibility-slides.html#documentation",
+    "title": "Reproducible analyses in R",
+    "section": "Documentation",
+    "text": "Documentation\n\n\nmetadata\n\nproject README\ncodebook/data dictionary\n\n\n\nREADME should contain\n\na project description\nrelevant links\ndescription of folder structure\n\n\ncan be updated as the project develops\n\nREADME.md files in GitHub/Lab are automatically used as a project description\n\n\n.md is a plain text document\nuses markdown syntax\n\n\nREAMD files don’t need to be markdown files, but"
+  },
+  {
+    "objectID": "pages/reproducibility-slides.html#version-control-again",
+    "href": "pages/reproducibility-slides.html#version-control-again",
+    "title": "Reproducible analyses in R",
+    "section": "Version control (again)",
+    "text": "Version control (again)\n\nversion control is an important aspect of data management\n\ncan be done with git, or manually\n\n\nmanual version control ()"
+  },
+  {
+    "objectID": "pages/reproducibility-slides.html#persistant-public-storage",
+    "href": "pages/reproducibility-slides.html#persistant-public-storage",
+    "title": "Reproducible analyses in R",
+    "section": "Persistant (public) storage",
+    "text": "Persistant (public) storage\n\nGitHub/Lab are sub-optimal\n\ndeveloper-focused\ntypically lack thorough documentation/metadata\nnot very user-friendly for non-users\n\n\nOSF, Zenodo\n\nOpen Science-focused\ncan be linked to a GitHub/Lab repository\nfacilitate thorough documentation\nuser-friendly"
+  },
+  {
+    "objectID": "pages/R-Projects.html",
+    "href": "pages/R-Projects.html",
+    "title": "R-Projects",
     "section": "",
-    "text": "Today we will…\n\nlearn about project-oriented workflows\ncreate an RProject\nuse project-relative filepaths with the here package"
+    "text": "Today we will…\n\nlearn about project-oriented workflows\ncreate an R-Project\nuse project-relative filepaths with the here package",
+    "crumbs": [
+      "D. Palleschi",
+      "Day 1",
+      "R-Projects"
+    ]
   },
   {
-    "objectID": "pages/rprojects.html#folder-structure",
-    "href": "pages/rprojects.html#folder-structure",
-    "title": "RProjects",
+    "objectID": "pages/R-Projects.html#folder-structure",
+    "href": "pages/R-Projects.html#folder-structure",
+    "title": "R-Projects",
     "section": "Folder structure",
-    "text": "Folder structure\n\na core computer literacy skill\n\nkeep your Desktop as empty as possible\nhave a sensible folder structure\navoid mixing subfolders and files\n\ni.e., if a folder contains subfolders, ideally it should not contain files"
+    "text": "Folder structure\n\na core computer literacy skill\n\nkeep your Desktop as empty as possible\nhave a sensible folder structure\navoid mixing subfolders and files\n\ni.e., if a folder contains subfolders, ideally it should not contain files",
+    "crumbs": [
+      "D. Palleschi",
+      "Day 1",
+      "R-Projects"
+    ]
   },
   {
-    "objectID": "pages/rprojects.html#creating-a-new-project",
-    "href": "pages/rprojects.html#creating-a-new-project",
-    "title": "RProjects",
+    "objectID": "pages/R-Projects.html#creating-a-new-project",
+    "href": "pages/R-Projects.html#creating-a-new-project",
+    "title": "R-Projects",
     "section": "Creating a new Project",
-    "text": "Creating a new Project\n\nwhen?\n\nwhenever you’re starting a new course or project which will use R\n\nwhy?\n\nto keep all the relavent materials in one place\n\nwhere?\n\nsomewhere that makes sense, e.g., a folder called SoSe2024 or Mastersarbeit\n\nhow?\n\nFile &gt; New Project &gt; New Directory &gt; New Project &gt; [Directory name] &gt; Create Project\n\n\n\n\n\n\n\n\n\n\nNew RProject\n\n\n\nCreate a new RProject for this workshop\n\nFile &gt; New Project &gt; New Directory &gt; New Project &gt; [Directory name] &gt; Create Project\nmake sure you choose a sensible location"
+    "text": "Creating a new Project\n\nwhen?\n\nwhenever you’re starting a new course oR-Project which will use R\n\nwhy?\n\nto keep all the relavent materials in one place\n\nwhere?\n\nsomewhere that makes sense, e.g., a folder called SoSe2024 or Mastersarbeit\n\nhow?\n\nFile &gt; New Project &gt; New Directory &gt; New Project &gt; [Directory name] &gt; Create Project\n\n\n\n\n\n\n\n\n\n\nNew R-Project\n\n\n\nCreate a new R-Project for this workshop\n\nFile &gt; New Project &gt; New Directory &gt; New Project &gt; [Directory name] &gt; Create Project\nmake sure you choose a sensible location",
+    "crumbs": [
+      "D. Palleschi",
+      "Day 1",
+      "R-Projects"
+    ]
   },
   {
-    "objectID": "pages/rprojects.html#opening-a-project",
-    "href": "pages/rprojects.html#opening-a-project",
-    "title": "RProjects",
+    "objectID": "pages/R-Projects.html#opening-a-project",
+    "href": "pages/R-Projects.html#opening-a-project",
+    "title": "R-Projects",
     "section": "Opening a Project",
-    "text": "Opening a Project\n\nto open a project, locate its .Rproj file and double-click\nor if you’re already in RStudio, you can use the Project (None) drop-down (top right)\n\n\n\n\n\n\n\n\n\n\n\nFigure 1: Double-click .Rproj\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 2: Open from RStudio"
+    "text": "Opening a Project\n\nto open a project, locate its .Rproj file and double-click\nor if you’re already in RStudio, you can use the Project (None) drop-down (top right)\n\n\n\n\n\n\n\n\n\n\n\nFigure 1: Double-click .Rproj\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 2: Open from RStudio",
+    "crumbs": [
+      "D. Palleschi",
+      "Day 1",
+      "R-Projects"
+    ]
   },
   {
-    "objectID": "pages/rprojects.html#adding-a-readme-file",
-    "href": "pages/rprojects.html#adding-a-readme-file",
-    "title": "RProjects",
+    "objectID": "pages/R-Projects.html#adding-a-readme-file",
+    "href": "pages/R-Projects.html#adding-a-readme-file",
+    "title": "R-Projects",
     "section": "Adding a README file",
-    "text": "Adding a README file\n\nFile &gt; New File &gt; Markdown File (not R Markdown!)\n\nadd some text describing the purpose of this project\ninclude your name, the date\nuse Markdown formatting (e.g., # for headings, *italics*, **bold**)\n\nsave as README.md in your project directory"
+    "text": "Adding a README file\n\nFile &gt; New File &gt; Markdown File (not R Markdown!)\n\nadd some text describing the purpose of this project\ninclude your name, the date\nuse Markdown formatting (e.g., # for headings, *italics*, **bold**)\n\nsave as README.md in youR-Project directory",
+    "crumbs": [
+      "D. Palleschi",
+      "Day 1",
+      "R-Projects"
+    ]
   },
   {
-    "objectID": "pages/rprojects.html#global-rstudio-options",
-    "href": "pages/rprojects.html#global-rstudio-options",
-    "title": "RProjects",
+    "objectID": "pages/R-Projects.html#global-rstudio-options",
+    "href": "pages/R-Projects.html#global-rstudio-options",
+    "title": "R-Projects",
     "section": "Global RStudio options",
-    "text": "Global RStudio options\n\n\n\n\n\n\n\n\n\n\nFigure 3: RStudio settings for reproducibility\n\n\n\n\n\n\n\nTools &gt; Global Options\n\nWorkspace: Restore .RData into workspace at startup: NO\nSave workspace to .RData on exit: Never\n\nthis will ensure that you are always starting with a clean slate\n\nand that your code is not dependent on some pacakge or object you created in another session\n\nthis is also how RMarkdown and Quarto scripts run\n\nthey start with an empty environment and run the script linearly"
+    "text": "Global RStudio options\n\n\n\n\n\n\n\n\n\n\nFigure 3: RStudio settings for reproducibility\n\n\n\n\n\n\n\nTools &gt; Global Options\n\nWorkspace: Restore .RData into workspace at startup: NO\nSave workspace to .RData on exit: Never\n\nthis will ensure that you are always starting with a clean slate\n\nand that your code is not dependent on some pacakge or object you created in another session\n\nthis is also how RMarkdown and Quarto scripts run\n\nthey start with an empty environment and run the script linearly",
+    "crumbs": [
+      "D. Palleschi",
+      "Day 1",
+      "R-Projects"
+    ]
   },
   {
-    "objectID": "pages/rprojects.html#section-1",
-    "href": "pages/rprojects.html#section-1",
-    "title": "RProjects",
+    "objectID": "pages/R-Projects.html#section-1",
+    "href": "pages/R-Projects.html#section-1",
+    "title": "R-Projects",
     "section": "",
-    "text": "Global settings\n\n\n\nChange your Global Options so that\n\nWorkspace: Restore .RData into workspace at startup: NO\nSave workspace to .RData on exit: Never"
+    "text": "Global settings\n\n\n\nChange your Global Options so that\n\nWorkspace: Restore .RData into workspace at startup: NO\nSave workspace to .RData on exit: Never",
+    "crumbs": [
+      "D. Palleschi",
+      "Day 1",
+      "R-Projects"
+    ]
   },
   {
-    "objectID": "pages/rprojects.html#identifying-your-rproject",
-    "href": "pages/rprojects.html#identifying-your-rproject",
-    "title": "RProjects",
-    "section": "Identifying your RProject",
-    "text": "Identifying your RProject\n\nthere are a ways to check which (if any) RProject you’re in\n\nthere are 6 differences between Figure 4 and Figure 5\nwhich is in an RProject session?\n\n\n\nSpot the differencesShow the differences\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 4: RStudio Session A\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 5: RStudio Session B\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 6: How to tell if you’re in a project"
+    "objectID": "pages/R-Projects.html#identifying-your-r-project",
+    "href": "pages/R-Projects.html#identifying-your-r-project",
+    "title": "R-Projects",
+    "section": "Identifying your R-Project",
+    "text": "Identifying your R-Project\n\nthere are a ways to check which (if any) R-Project you’re in\n\nthere are 6 differences between Figure 4 and Figure 5\nwhich is in an R-Project session?\n\n\n\nSpot the differencesShow the differences\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 4: RStudio Session A\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 5: RStudio Session B\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 6: How to tell if you’re in a project",
+    "crumbs": [
+      "D. Palleschi",
+      "Day 1",
+      "R-Projects"
+    ]
   },
   {
-    "objectID": "pages/rprojects.html#the-problem-with-setwd",
-    "href": "pages/rprojects.html#the-problem-with-setwd",
-    "title": "RProjects",
+    "objectID": "pages/R-Projects.html#the-problem-with-setwd",
+    "href": "pages/R-Projects.html#the-problem-with-setwd",
+    "title": "R-Projects",
     "section": "The problem with setwd()",
-    "text": "The problem with setwd()\n\n\nIf the first line of your R script is\nsetwd(\"C:\\Users\\jenny\\path\\that\\only\\I\\have\")\nI will come into your office and SET YOUR COMPUTER ON FIRE🔥.\n\n— Jenny Bryan\n\n\nsetwd() depends on your entire machine’s folder structure\nsetwd() breaks when you\n\nsend your project folder to a collaborator\nmake your analyses open\nchange the location of your project folder\n\nusing slashes is also dependent on your operating system"
+    "text": "The problem with setwd()\n\n\nIf the first line of your R script is\nsetwd(\"C:\\Users\\jenny\\path\\that\\only\\I\\have\")\nI will come into your office and SET YOUR COMPUTER ON FIRE🔥.\n\n— Jenny Bryan\n\n\nsetwd() depends on your entire machine’s folder structure\nsetwd() breaks when you\n\nsend youR-Project folder to a collaborator\nmake your analyses open\nchange the location of youR-Project folder\n\nusing slashes is also dependent on your operating system\n\n\ntrying to use somebody else’s (or your former) folder path will result in a warning message like:\n\n\nError in setwd(\"/Users/danielapalleschi/Documents/R/rproject-template\") : cannot change working directory",
+    "crumbs": [
+      "D. Palleschi",
+      "Day 1",
+      "R-Projects"
+    ]
   },
   {
-    "objectID": "pages/rprojects.html#the-benefit-of-here",
-    "href": "pages/rprojects.html#the-benefit-of-here",
-    "title": "RProjects",
+    "objectID": "pages/R-Projects.html#the-benefit-of-here",
+    "href": "pages/R-Projects.html#the-benefit-of-here",
+    "title": "R-Projects",
     "section": "The benefit of here()",
-    "text": "The benefit of here()\n\nuses the top-level directory of your project as the working directory\ncan separate folder names with a comma"
+    "text": "The benefit of here()\n\nuses the top-level directory of your Project as the working directory\n\nmeaning we never need to specify the path to our project folder relative to our current higher-level folder structure\n\ncan separate folder names with a comma\n\nmeaning it doesn’t matter if the original code was written on a Mac or a Windows machine",
+    "crumbs": [
+      "D. Palleschi",
+      "Day 1",
+      "R-Projects"
+    ]
   },
   {
-    "objectID": "pages/rprojects.html#section-3",
-    "href": "pages/rprojects.html#section-3",
-    "title": "RProjects",
+    "objectID": "pages/R-Projects.html#section-6",
+    "href": "pages/R-Projects.html#section-6",
+    "title": "R-Projects",
     "section": "",
-    "text": "here\n\n\n\nLoad the dataset using here\n\nInstall here (e.g., install.packages(\"here\"))\nLoad here at the beginning of your package\n\nor use here:: before calling a function\n\nUse the here() function to load in your data\nInspect the dataset however you usually would (e.g., summary(), names(), etc.)\nSave your script"
+    "text": "here\n\n\n\nIn your R Project, load the cwiek_2021- using here\n\nInstall here (e.g., install.packages(\"here\"))\nLoad here at the beginning of your package\n\nor use here:: before calling a function\n\nUse the here() function to load in your data\nInspect the dataset however you usually would (e.g., summary(), names(), etc.)\nSave your script",
+    "crumbs": [
+      "D. Palleschi",
+      "Day 1",
+      "R-Projects"
+    ]
   },
   {
-    "objectID": "pages/rprojects.html#herehere",
-    "href": "pages/rprojects.html#herehere",
-    "title": "RProjects",
+    "objectID": "pages/R-Projects.html#herehere",
+    "href": "pages/R-Projects.html#herehere",
+    "title": "R-Projects",
     "section": "here::here()",
-    "text": "here::here()\n\ninstall package\n\n\n\n\nIn the Console\n\ninstall.packages(\"here\")\n\n\n\nload package and call the here function\n\n\n# load package\nlibrary(here)\n\n# read in data\ndf_data &lt;- read.csv(here(\"data\", \"data_lifetime_pilot.csv\"))\n\n\nor directly call the here function without loading the package\n\n\n# read in data without loading here\ndf_data &lt;- read.csv(here::here(\"data\", \"data_lifetime_pilot.csv\"))\n\n\nnote that I stored the data with the prefix df_\n\ndf stands for dataframe\n\nI recommend using object-type defining prefixes for all objects in your Environment\n\ne.g., fit_ for models, fig_ for figures, sum_ for summaries, tbl_ for tables, etc."
+    "text": "here::here()\n\ninstall package\n\n\n\n\nIn the Console\n\ninstall.packages(\"here\")\n\n\n\nload package and call the here function\n\n\n# load package\nlibrary(here)\n\n# read in data\ndf_data &lt;- read.csv(here(\"data\", \"data_lifetime_pilot.csv\"))\n\n\nor directly call the here function without loading the package\n\n\n# read in data without loading here\ndf_data &lt;- read.csv(here::here(\"data\", \"data_lifetime_pilot.csv\"))\n\n\nnote that I stored the data with the prefix df_\n\ndf stands for dataframe\n\nI recommend using object-type defining prefixes for all objects in your Environment\n\ne.g., fit_ for models, fig_ for figures, sum_ for summaries, tbl_ for tables, etc.",
+    "crumbs": [
+      "D. Palleschi",
+      "Day 1",
+      "R-Projects"
+    ]
   },
   {
-    "objectID": "pages/rprojects.html#section-4",
-    "href": "pages/rprojects.html#section-4",
-    "title": "RProjects",
+    "objectID": "pages/R-Projects.html#section-7",
+    "href": "pages/R-Projects.html#section-7",
+    "title": "R-Projects",
     "section": "",
-    "text": "Reproduce your analysis\n\n\n\n\nPerform some data exploration (e.g., with names(), summary(), dplyr::glimpse(), whatever you typically do)\nSave your script, then close RStudio/your Rproject.\nRe-open the project. Can you re-run the script?"
+    "text": "Reproduce your analysis\n\n\n\n\nPerform some data exploration (e.g., with names(), summary(), dplyr::glimpse(), whatever you typically do)\nSave your script, then close RStudio/your R-Project.\nRe-open the project. Can you re-run the script?",
+    "crumbs": [
+      "D. Palleschi",
+      "Day 1",
+      "R-Projects"
+    ]
   },
   {
-    "objectID": "pages/rprojects-slides.html#folder-structure",
-    "href": "pages/rprojects-slides.html#folder-structure",
-    "title": "RProjects",
+    "objectID": "pages/R-Projects-slides.html#folder-structure",
+    "href": "pages/R-Projects-slides.html#folder-structure",
+    "title": "R-Projects",
     "section": "Folder structure",
     "text": "Folder structure\n\na core computer literacy skill\n\nkeep your Desktop as empty as possible\nhave a sensible folder structure\navoid mixing subfolders and files\n\ni.e., if a folder contains subfolders, ideally it should not contain files"
   },
   {
-    "objectID": "pages/rprojects-slides.html#creating-a-new-project",
-    "href": "pages/rprojects-slides.html#creating-a-new-project",
-    "title": "RProjects",
+    "objectID": "pages/R-Projects-slides.html#creating-a-new-project",
+    "href": "pages/R-Projects-slides.html#creating-a-new-project",
+    "title": "R-Projects",
     "section": "Creating a new Project",
-    "text": "Creating a new Project\n\nwhen?\n\nwhenever you’re starting a new course or project which will use R\n\n\nwhy?\n\nto keep all the relavent materials in one place\n\n\nwhere?\n\nsomewhere that makes sense, e.g., a folder called SoSe2024 or Mastersarbeit\n\n\n\nhow?\n\nFile &gt; New Project &gt; New Directory &gt; New Project &gt; [Directory name] &gt; Create Project"
+    "text": "Creating a new Project\n\nwhen?\n\nwhenever you’re starting a new course oR-Project which will use R\n\n\nwhy?\n\nto keep all the relavent materials in one place\n\n\nwhere?\n\nsomewhere that makes sense, e.g., a folder called SoSe2024 or Mastersarbeit\n\n\n\nhow?\n\nFile &gt; New Project &gt; New Directory &gt; New Project &gt; [Directory name] &gt; Create Project"
   },
   {
-    "objectID": "pages/rprojects-slides.html#opening-a-project",
-    "href": "pages/rprojects-slides.html#opening-a-project",
-    "title": "RProjects",
+    "objectID": "pages/R-Projects-slides.html#opening-a-project",
+    "href": "pages/R-Projects-slides.html#opening-a-project",
+    "title": "R-Projects",
     "section": "Opening a Project",
     "text": "Opening a Project\n\nto open a project, locate its .Rproj file and double-click\nor if you’re already in RStudio, you can use the Project (None) drop-down (top right)\n\n\n\n\n\n\n\nFigure 1: Double-click .Rproj\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 2: Open from RStudio"
   },
   {
-    "objectID": "pages/rprojects-slides.html#adding-a-readme-file",
-    "href": "pages/rprojects-slides.html#adding-a-readme-file",
-    "title": "RProjects",
+    "objectID": "pages/R-Projects-slides.html#adding-a-readme-file",
+    "href": "pages/R-Projects-slides.html#adding-a-readme-file",
+    "title": "R-Projects",
     "section": "Adding a README file",
-    "text": "Adding a README file\n\n\nFile &gt; New File &gt; Markdown File (not R Markdown!)\n\nadd some text describing the purpose of this project\ninclude your name, the date\nuse Markdown formatting (e.g., # for headings, *italics*, **bold**)\n\n\nsave as README.md in your project directory"
+    "text": "Adding a README file\n\n\nFile &gt; New File &gt; Markdown File (not R Markdown!)\n\nadd some text describing the purpose of this project\ninclude your name, the date\nuse Markdown formatting (e.g., # for headings, *italics*, **bold**)\n\n\nsave as README.md in youR-Project directory"
   },
   {
-    "objectID": "pages/rprojects-slides.html#global-rstudio-options",
-    "href": "pages/rprojects-slides.html#global-rstudio-options",
-    "title": "RProjects",
+    "objectID": "pages/R-Projects-slides.html#global-rstudio-options",
+    "href": "pages/R-Projects-slides.html#global-rstudio-options",
+    "title": "R-Projects",
     "section": "Global RStudio options",
     "text": "Global RStudio options\n\n\n\n\n\n\nFigure 3: RStudio settings for reproducibility\n\n\n\n\n\n\n\n\n\n\nTools &gt; Global Options\n\n\nWorkspace: Restore .RData into workspace at startup: NO\nSave workspace to .RData on exit: Never\n\n\nthis will ensure that you are always starting with a clean slate\n\nand that your code is not dependent on some pacakge or object you created in another session\n\n\nthis is also how RMarkdown and Quarto scripts run\n\nthey start with an empty environment and run the script linearly"
   },
   {
-    "objectID": "pages/rprojects-slides.html#section-1",
-    "href": "pages/rprojects-slides.html#section-1",
-    "title": "RProjects",
+    "objectID": "pages/R-Projects-slides.html#section-1",
+    "href": "pages/R-Projects-slides.html#section-1",
+    "title": "R-Projects",
     "section": "",
     "text": "Global settings\n\n\nChange your Global Options so that\n\n\nWorkspace: Restore .RData into workspace at startup: NO\nSave workspace to .RData on exit: Never"
   },
   {
-    "objectID": "pages/rprojects-slides.html#identifying-your-rproject",
-    "href": "pages/rprojects-slides.html#identifying-your-rproject",
-    "title": "RProjects",
-    "section": "Identifying your RProject",
-    "text": "Identifying your RProject\n\nthere are a ways to check which (if any) RProject you’re in\n\nthere are 6 differences between Figure 4 and Figure 5\n\nwhich is in an RProject session?\n\n\n\n\n\nSpot the differences\nShow the differences\n\n\n\n\n\n\n\n\n\nFigure 4: RStudio Session A\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 5: RStudio Session B\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 6: How to tell if you’re in a project"
+    "objectID": "pages/R-Projects-slides.html#identifying-your-r-project",
+    "href": "pages/R-Projects-slides.html#identifying-your-r-project",
+    "title": "R-Projects",
+    "section": "Identifying your R-Project",
+    "text": "Identifying your R-Project\n\nthere are a ways to check which (if any) R-Project you’re in\n\nthere are 6 differences between Figure 4 and Figure 5\n\nwhich is in an R-Project session?\n\n\n\n\n\nSpot the differences\nShow the differences\n\n\n\n\n\n\n\n\n\nFigure 4: RStudio Session A\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 5: RStudio Session B\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 6: How to tell if you’re in a project"
   },
   {
-    "objectID": "pages/rprojects-slides.html#the-problem-with-setwd",
-    "href": "pages/rprojects-slides.html#the-problem-with-setwd",
-    "title": "RProjects",
-    "section": "The problem with setwd()\n",
-    "text": "The problem with setwd()\n\n\n\nIf the first line of your R script is\nsetwd(\"C:\\Users\\jenny\\path\\that\\only\\I\\have\")\nI will come into your office and SET YOUR COMPUTER ON FIRE🔥.\n\n— Jenny Bryan\n\n\n\nsetwd() depends on your entire machine’s folder structure\n\nsetwd() breaks when you\n\nsend your project folder to a collaborator\nmake your analyses open\nchange the location of your project folder\n\n\nusing slashes is also dependent on your operating system"
-  },
-  {
-    "objectID": "pages/rprojects-slides.html#the-benefit-of-here",
-    "href": "pages/rprojects-slides.html#the-benefit-of-here",
-    "title": "RProjects",
-    "section": "The benefit of here()\n",
-    "text": "The benefit of here()\n\n\nuses the top-level directory of your project as the working directory\ncan separate folder names with a comma"
-  },
-  {
-    "objectID": "pages/rprojects-slides.html#section-3",
-    "href": "pages/rprojects-slides.html#section-3",
-    "title": "RProjects",
+    "objectID": "pages/R-Projects-slides.html#section-4",
+    "href": "pages/R-Projects-slides.html#section-4",
+    "title": "R-Projects",
     "section": "",
-    "text": "here\n\n\nLoad the dataset using here\n\nInstall here (e.g., install.packages(\"here\"))\nLoad here at the beginning of your package\n\nor use here:: before calling a function\n\n\nUse the here() function to load in your data\nInspect the dataset however you usually would (e.g., summary(), names(), etc.)\nSave your script"
+    "text": "Figure 7: Illustration by Allison Horst"
   },
   {
-    "objectID": "pages/rprojects-slides.html#herehere",
-    "href": "pages/rprojects-slides.html#herehere",
-    "title": "RProjects",
+    "objectID": "pages/R-Projects-slides.html#the-problem-with-setwd",
+    "href": "pages/R-Projects-slides.html#the-problem-with-setwd",
+    "title": "R-Projects",
+    "section": "The problem with setwd()\n",
+    "text": "The problem with setwd()\n\n\n\nIf the first line of your R script is\nsetwd(\"C:\\Users\\jenny\\path\\that\\only\\I\\have\")\nI will come into your office and SET YOUR COMPUTER ON FIRE🔥.\n\n— Jenny Bryan\n\n\n\nsetwd() depends on your entire machine’s folder structure\n\nsetwd() breaks when you\n\nsend youR-Project folder to a collaborator\nmake your analyses open\nchange the location of youR-Project folder\n\n\nusing slashes is also dependent on your operating system"
+  },
+  {
+    "objectID": "pages/R-Projects-slides.html#the-benefit-of-here",
+    "href": "pages/R-Projects-slides.html#the-benefit-of-here",
+    "title": "R-Projects",
+    "section": "The benefit of here()\n",
+    "text": "The benefit of here()\n\n\nuses the top-level directory of your Project as the working directory\n\nmeaning we never need to specify the path to our project folder relative to our current higher-level folder structure\n\n\ncan separate folder names with a comma\n\nmeaning it doesn’t matter if the original code was written on a Mac or a Windows machine"
+  },
+  {
+    "objectID": "pages/R-Projects-slides.html#section-6",
+    "href": "pages/R-Projects-slides.html#section-6",
+    "title": "R-Projects",
+    "section": "",
+    "text": "here\n\n\nIn your R Project, load the cwiek_2021- using here\n\nInstall here (e.g., install.packages(\"here\"))\nLoad here at the beginning of your package\n\nor use here:: before calling a function\n\n\nUse the here() function to load in your data\nInspect the dataset however you usually would (e.g., summary(), names(), etc.)\nSave your script"
+  },
+  {
+    "objectID": "pages/R-Projects-slides.html#herehere",
+    "href": "pages/R-Projects-slides.html#herehere",
+    "title": "R-Projects",
     "section": "here::here()",
     "text": "here::here()\n\ninstall package\n\n\n\n\nIn the Console\n\ninstall.packages(\"here\")\n\n\n\nload package and call the here function\n\n\n# load package\nlibrary(here)\n\n# read in data\ndf_data &lt;- read.csv(here(\"data\", \"data_lifetime_pilot.csv\"))\n\n\nor directly call the here function without loading the package\n\n\n# read in data without loading here\ndf_data &lt;- read.csv(here::here(\"data\", \"data_lifetime_pilot.csv\"))\n\n\nnote that I stored the data with the prefix df_\n\n\ndf stands for dataframe\n\n\nI recommend using object-type defining prefixes for all objects in your Environment\n\ne.g., fit_ for models, fig_ for figures, sum_ for summaries, tbl_ for tables, etc."
   },
   {
-    "objectID": "pages/rprojects-slides.html#section-4",
-    "href": "pages/rprojects-slides.html#section-4",
-    "title": "RProjects",
+    "objectID": "pages/R-Projects-slides.html#section-7",
+    "href": "pages/R-Projects-slides.html#section-7",
+    "title": "R-Projects",
     "section": "",
-    "text": "Reproduce your analysis\n\n\n\nPerform some data exploration (e.g., with names(), summary(), dplyr::glimpse(), whatever you typically do)\nSave your script, then close RStudio/your Rproject.\nRe-open the project. Can you re-run the script?"
+    "text": "Reproduce your analysis\n\n\n\nPerform some data exploration (e.g., with names(), summary(), dplyr::glimpse(), whatever you typically do)\nSave your script, then close RStudio/your R-Project.\nRe-open the project. Can you re-run the script?"
   },
   {
     "objectID": "examples/literate-programming.html",
     "href": "examples/literate-programming.html",
     "title": "Literate programming",
     "section": "",
-    "text": "Set-up environment: load packages and data\n\n\nInstall the tidyverse and here packages. This will not run when we render the script.\n\n# install packages\ninstall.packages(\"tidyverse\")\ninstall.packages(\"here\")\n\nLoad required packages.\n\n# load packages\nlibrary(tidyverse)\nlibrary(here)\n\nPrint the project directory filepath using the here package.\n\n# print project directory\nhere()\n\n[1] \"/Users/danielapalleschi/Documents/ZAS/zas-reproducibility-2024\"\n\n\n\n\n\n\ndf_chromy &lt;- read_csv(here(\"data\", \"chromy_et-al_2023_English_final.csv\"))"
+    "text": "Set-up environment: load packages and data\n\n\nInstall the tidyverse and here packages. This will not run when we render the script.\n\n# install packages\ninstall.packages(\"tidyverse\")\ninstall.packages(\"here\")\n\nLoad required packages.\n\n# load packages\nlibrary(tidyverse)\nlibrary(here)\n\nPrint the project directory filepath using the here package.\n\n# print project directory\nhere()\n\n[1] \"/Users/danielapalleschi/Documents/ZAS/zas-reproducibility-2024\"\n\n\n\n\n\n\ndf_icon &lt;- read_csv(here(\"data\", \"cwiek_2021-online_cleaned.csv\"))"
   },
   {
     "objectID": "examples/literate-programming.html#packages",
@@ -450,7 +733,7 @@
     "href": "examples/literate-programming.html#load-data",
     "title": "Literate programming",
     "section": "",
-    "text": "df_chromy &lt;- read_csv(here(\"data\", \"chromy_et-al_2023_English_final.csv\"))"
+    "text": "df_icon &lt;- read_csv(here(\"data\", \"cwiek_2021-online_cleaned.csv\"))"
   },
   {
     "objectID": "index_slides.html#schedule",
@@ -518,25 +801,18 @@
     ]
   },
   {
-    "objectID": "examples/chromy-2023_eda.html",
-    "href": "examples/chromy-2023_eda.html",
+    "objectID": "examples/eda-cwiek_2021.html",
+    "href": "examples/eda-cwiek_2021.html",
     "title": "EDA of Lacina et al. (2023)",
     "section": "",
-    "text": "This script produces an exploratory data analysis of the L1 English experiment dataset from Chromý et al. (2023)."
+    "text": "This script produces an exploratory data analysis of the online experiment dataset from @cwiek_novel_2021 (OSF: osf.io/4na58/)"
   },
   {
-    "objectID": "examples/chromy-2023_eda.html#response-time-distributions",
-    "href": "examples/chromy-2023_eda.html#response-time-distributions",
-    "title": "EDA of Lacina et al. (2023)",
-    "section": "Response time distributions",
-    "text": "Response time distributions\n\ndf_chromy |&gt; \n  filter(word_no %in% c(8)) |&gt; \n  summarise(\n    mean = mean(read_times, na.rm = T),\n    sd = sd(read_times, na.rm = T),\n    N = n(),\n    .by = c(atr_num, verb_num, word_no)\n  )\n\n# A tibble: 4 × 6\n  atr_num verb_num word_no  mean    sd     N\n  &lt;chr&gt;   &lt;chr&gt;      &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt;\n1 atr.pl  verb.pl        8  380.  216.  1188\n2 atr.sg  verb.sg        8  355.  212.  1188\n3 atr.pl  verb.sg        8  363.  270.  1188\n4 atr.sg  verb.pl        8  408.  280.  1188\n\n\nLonger reading times for singular referents with plural verb than plural referent with singular verb (mismatch conditions).\n\ndf_chromy |&gt;\n  # filter(word_no %in% c(6:9)) |&gt; \n  mutate(agreement = ifelse(str_sub(atr_num,-2) == str_sub(verb_num,-2), \"agree\", \"disagree\"),\n         condition = paste(verb_num, atr_num, sep = \"_\")) |&gt; \n  drop_na() |&gt;\n  summarise(\n    N = n(),\n    mean = mean(read_times, na.rm = T),\n    se = sd(read_times, na.rm = T)/sqrt(length(read_times)),\n    ci = 1.96*se,\n    .by = c(agreement, condition, word_no, atr_num, verb_num)\n  )  |&gt; \n  arrange(verb_num) |&gt; \n  ggplot() +\n  aes(x = as_factor(word_no), y = mean, colour = verb_num, shape = atr_num,\n      group = condition) +\n  geom_point(position = position_dodge(0.6), size = 2) +\n  geom_errorbar(aes(ymin = mean - ci, ymax = mean + ci), position = position_dodge(0.6), width = .4) +\n  # stat_summary(position = position_dodge(0.6)) +\n  geom_line(aes(linetype = agreement), position = position_dodge(0.6)) +\n  labs(title = \"Mean self-paced reading times with 95% CIs\",\n       y = \"Reading time (ms)\",\n       x = \"Sentence position\")\n\n\n\n\n\n\n\n\nSentence region 8: longer RTs for mismatches with singular attributes (i.e., grammaticality). Opposite (but smaller) effect for plural attributes in this region: longer RTs for matching attribute and verb number marking (agreement attraction)."
-  },
-  {
-    "objectID": "examples/chromy-2023_eda.html#accuracy-distributions",
-    "href": "examples/chromy-2023_eda.html#accuracy-distributions",
+    "objectID": "examples/eda-cwiek_2021.html#accuracy-distributions",
+    "href": "examples/eda-cwiek_2021.html#accuracy-distributions",
     "title": "EDA of Lacina et al. (2023)",
     "section": "Accuracy distributions",
-    "text": "Accuracy distributions\n\ndf_chromy |&gt; \n  distinct(participant, item, .keep_all = T) |&gt; \n  tabyl(atr_num, verb_num, correct) |&gt; \n  adorn_totals(where = c(\"col\", \"row\"))\n\n$`0`\n atr_num verb.pl verb.sg Total\n  atr.pl      73      78   151\n  atr.sg      73      63   136\n   Total     146     141   287\n\n$`1`\n atr_num verb.pl verb.sg Total\n  atr.pl    1115    1110  2225\n  atr.sg    1115    1125  2240\n   Total    2230    2235  4465\n\n\n4465 correct responses overall, 287 incorrect."
+    "text": "Accuracy distributions\n\ndf_icon |&gt; \n  distinct(id, unique_item, .keep_all = T) |&gt; \n  tabyl(english_L2, category, acc) |&gt; \n  adorn_totals(where = c(\"col\", \"row\"))\n\n$`0`\n english_L2 action noun property Total\n      FALSE   1367 2260     2411  6038\n       TRUE   4520 7543     8573 20636\n      Total   5887 9803    10984 26674\n\n$`1`\n english_L2 action  noun property Total\n      FALSE   3166  4539     3128 10833\n       TRUE  11156 15979    10643 37778\n      Total  14322 20518    13771 48611\n\n\n48611 correct responses overall, 26674 incorrect."
   },
   {
     "objectID": "pages/packages-slides.html#cran-packages",
