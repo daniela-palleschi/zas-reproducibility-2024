@@ -13,7 +13,7 @@ margin-footer: |
   </div>
 
 website:
-  title: "Reproducible Analyses in R (ZAS Workshop)"
+  title: "Reproducible Workflow in R (ZAS Workshop)"
   twitter-card: true
   navbar:
     right:
@@ -24,7 +24,7 @@ website:
         href: https://github.com/daniela-palleschi/zas-reproducibility-2024
         aria-label: Source Code
       - icon: life-preserver
-        href: https://osf.io/vtk2q/
+        href: https://osf.io/byj2f/
         aria-label: OSF materials
   sidebar:
     style: "docked"
