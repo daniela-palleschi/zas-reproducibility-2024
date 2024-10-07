@@ -430,12 +430,11 @@ Daniela Palleschi
 </div>
 
   <p class="date">Tue Oct 8, 2024</p>
-</section><section id="learning-objectives" class="title-slide slide level1 unnumbered unlisted center"><h1>Learning Objectives</h1>
-<p>Today we will…</p>
+</section><section id="topics" class="title-slide slide level1 unnumbered unlisted center"><h1>Topics</h1>
 <ul>
-<li class="fragment">learn about project-oriented workflows</li>
-<li class="fragment">create an R-Project</li>
-<li class="fragment">use project-relative filepaths with the <code>here</code> package</li>
+<li class="fragment">Project-oriented workflows</li>
+<li class="fragment">creating an R-Project</li>
+<li class="fragment">project-relative filepaths with the <code>here</code> package</li>
 </ul></section><section id="installation-requirements" class="title-slide slide level1 center"><h1>Installation requirements</h1>
 <ul>
 <li class="fragment">required installations/recent versions of:
@@ -716,7 +715,7 @@ Figure&nbsp;6: How to tell if you’re in a project
 </div>
 </div>
 </div>
-</section></section><section><section id="folder-structure-1" class="title-slide slide level1 center" data-stack-name="Folder structure"><h1>Folder structure</h1>
+</section><section id="folder-structure-1" class="title-slide slide level2 center"><h2>Folder structure</h2>
 <ul>
 <li class="fragment">some folders you’ll typically want to have:
 <ul>
@@ -751,15 +750,22 @@ Figure&nbsp;6: How to tell if you’re in a project
 <ul>
 <li class="fragment">description of data collection:</li>
 </ul>
+<div class="fragment">
 <blockquote>
 <p>In an online experiment with listeners of 25 different languages (from nine language families), participants listened to the 90 vocalizations (three for each of the 30 meanings), and for each, guessed its intended meaning from six written alternatives</p>
 <p>– <span class="citation" data-cites="cwiek_novel_2021">Ćwiek et al. (<a href="#/references" role="doc-biblioref" onclick="">2021</a>)</span></p>
 </blockquote>
+</div>
 <ul>
 <li class="fragment">you could also download the data directly from GitHub in R:</li>
 </ul>
 <div class="fragment">
-
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="fu">write.csv</span>(</span>
+<span id="cb1-2"><a></a>  <span class="at">file =</span> <span class="st">"data/cwiek_2021-online_cleaned.csv"</span>,</span>
+<span id="cb1-3"><a></a>  <span class="fu">read.csv</span>(<span class="st">"https://raw.githubusercontent.com/bodowinter/iconicity_challenge/refs/heads/master/data/online_cleaned.csv"</span>)</span>
+<span id="cb1-4"><a></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </div>
 </section><section id="scripts" class="title-slide slide level3 center"><h3><code>scripts/</code></h3>
 <ul>
@@ -890,9 +896,9 @@ Figure&nbsp;7: Illustration by <a href="https://github.com/allisonhorst">Allison
 <p><strong><code>here</code></strong></p>
 </div>
 <div class="callout-content">
-<p>In your R Project, load the <code>cwiek_2021-</code> using <code>here</code></p>
+<p>In your R Project, load the <code>cwiek_2021-online_cleaned.csv</code> data using <code>here</code></p>
 <ol type="1">
-<li class="fragment">Install <code>here</code> (e.g., <code>install.packages("here")</code>)</li>
+<li class="fragment">Install <code>here</code> (if needed; e.g., <code>install.packages("here")</code>)</li>
 <li class="fragment">Load <code>here</code> at the beginning of your package
 <ul>
 <li class="fragment">or use <code>here::</code> before calling a function</li>
@@ -914,26 +920,27 @@ Figure&nbsp;7: Illustration by <a href="https://github.com/allisonhorst">Allison
 <div class="code-with-filename-file">
 <pre><strong>In the Console</strong></pre>
 </div>
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="fu">install.packages</span>(<span class="st">"here"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a><span class="fu">install.packages</span>(<span class="st">"here"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 <ul>
 <li class="fragment">load package and call the <code>here</code> function</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a><span class="co"># load package</span></span>
-<span id="cb2-2"><a></a><span class="fu">library</span>(here)</span>
-<span id="cb2-3"><a></a></span>
-<span id="cb2-4"><a></a><span class="co"># read in data</span></span>
-<span id="cb2-5"><a></a>df_data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="fu">here</span>(<span class="st">"data"</span>, <span class="st">"data_lifetime_pilot.csv"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a><span class="co"># load package</span></span>
+<span id="cb3-2"><a></a><span class="fu">library</span>(here)</span>
+<span id="cb3-3"><a></a></span>
+<span id="cb3-4"><a></a><span class="co"># read in data</span></span>
+<span id="cb3-5"><a></a>df_icon <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="fu">here</span>(<span class="st">"data"</span>, <span class="st">"cwiek_2021-online_cleaned.csv"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ul>
 <li class="fragment">or directly call the <code>here</code> function without loading the package</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a><span class="co"># read in data without loading here</span></span>
-<span id="cb3-2"><a></a>df_data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"data"</span>, <span class="st">"data_lifetime_pilot.csv"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a><span class="co"># read in data without loading here</span></span>
+<span id="cb4-2"><a></a>df_icon <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"data"</span>, <span class="st">"cwiek_2021-online_cleaned.csv"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+</section><section id="section-7" class="title-slide slide level3 unlisted uncounted unnumbered center"><h3></h3>
 <ul>
 <li class="fragment">note that I stored the data with the prefix <code>df_</code>
 <ul>
@@ -946,7 +953,7 @@ Figure&nbsp;7: Illustration by <a href="https://github.com/allisonhorst">Allison
 <li class="fragment">e.g., <code>fit_</code> for models, <code>fig_</code> for figures, <code>sum_</code> for summaries, <code>tbl_</code> for tables, etc.</li>
 </ul>
 </li>
-</ul></section><section id="section-7" class="title-slide slide level2 unlisted unnumbered center scrollable"><h2></h2>
+</ul></section><section id="section-8" class="title-slide slide level2 unlisted unnumbered center scrollable"><h2></h2>
 <div class="callout callout-tip callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
@@ -964,12 +971,11 @@ Figure&nbsp;7: Illustration by <a href="https://github.com/allisonhorst">Allison
 </div>
 </div>
 </div>
-</section></section><section id="learning-objectives-1" class="title-slide slide level1 unnumbered unlisted uncounted center"><h1>Learning objectives 🏁</h1>
-<p>Today we learned…</p>
+</section></section><section id="topics-1" class="title-slide slide level1 unnumbered unlisted nonincremental center"><h1>Topics 🏁</h1>
 <ul>
-<li class="fragment">learn about project-oriented workflows ✅</li>
-<li class="fragment">create an R-Project ✅</li>
-<li class="fragment">establish a self-contained project environment with <code>here</code> ✅</li>
+<li class="fragment">Project-oriented workflows ✅</li>
+<li class="fragment">creating an R-Project ✅</li>
+<li class="fragment">project-relative filepaths with the <code>here</code> package ✅</li>
 </ul></section><section id="references" class="title-slide slide level1 unlisted unnumbered smaller scrollable" data-visibility="uncounted"><h1>References</h1>
 <div id="refs" class="references csl-bib-body hanging-indent" data-custom-style="Bibliography" data-entry-spacing="0" data-line-spacing="2" role="list">
 <div id="ref-bryan_what_nodate" class="csl-entry" role="listitem">

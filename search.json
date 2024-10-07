@@ -4,7 +4,7 @@
     "href": "pages/literate_programming.html",
     "title": "Writing Reproducible Code",
     "section": "",
-    "text": "learn about literate programming and modular analyses\ncreate and render a dynamic report with Quarto\nload data using here",
+    "text": "modular analyses and literate programming\ncreate and render a dynamic report with Quarto\ndocumenting your dependencies",
     "crumbs": [
       "D. Palleschi",
       "Day 2",
@@ -15,8 +15,8 @@
     "objectID": "pages/literate_programming.html#writing-linear-code",
     "href": "pages/literate_programming.html#writing-linear-code",
     "title": "Writing Reproducible Code",
-    "section": "Writing linear code",
-    "text": "Writing linear code\n\nyou need to load a package before you call a function from it\n\nif we’re just working in an R session, before means temporally prior\nwith linear code, before means higher up in the script\n\nsuch pre-requisite code must\n\nbe present in the script\nappear above the first line of code that uses a function from this package\n\nmissing pre-requisite code might not throw an error message\n\nbut might produce output we aren’t expecting\ne.g., forgetting to filter out certain observations\nor forgetting that some observations have been filtered out",
+    "section": "3.1 Writing linear code",
+    "text": "3.1 Writing linear code\n\nyou need to load a package before you call a function from it\n\nif we’re just working in an R session, before means temporally prior\nwith linear code, before means higher up in the script\n\nsuch pre-requisite code must\n\nbe present in the script\nappear above the first line of code that uses a function from this package\n\nmissing pre-requisite code might not throw an error message\n\nbut might produce output we aren’t expecting\ne.g., forgetting to filter out certain observations\nor forgetting that some observations have been filtered out",
     "crumbs": [
       "D. Palleschi",
       "Day 2",
@@ -27,8 +27,8 @@
     "objectID": "pages/literate_programming.html#literate-programming",
     "href": "pages/literate_programming.html#literate-programming",
     "title": "Writing Reproducible Code",
-    "section": "Literate programming",
-    "text": "Literate programming\n\nInstead of imagining that our main task is to instruct a computer what to do, let us concentrate rather on explaining to human beings what we want a computer to do.\n\n— Knuth (1984), p. 97\n\nrefers to writing and documenting our code so that humans can understand it\n\nimportant for us: we are (generally) not professional programmers, nor are our peers\n\nwe need to not only know what our code is doing when we look back at it in the future/share it\nthe easiest way: informative comments\n\nthe length and frequency of these comments is your choice",
+    "section": "3.2 Literate programming",
+    "text": "3.2 Literate programming\n\nInstead of imagining that our main task is to instruct a computer what to do, let us concentrate rather on explaining to human beings what we want a computer to do.\n\n— Knuth (1984), p. 97\n\nrefers to writing and documenting our code so that humans can understand it\n\nimportant for us: we are (generally) not professional programmers, nor are our peers\n\nwe need to not only know what our code is doing when we look back at it in the future/share it\nthe easiest way: informative comments\n\nthe length and frequency of these comments is your choice",
     "crumbs": [
       "D. Palleschi",
       "Day 2",
@@ -39,8 +39,8 @@
     "objectID": "pages/literate_programming.html#example-r-script-1",
     "href": "pages/literate_programming.html#example-r-script-1",
     "title": "Writing Reproducible Code",
-    "section": "Example R script",
-    "text": "Example R script\n#| eval: false\n#| echo: true\n#| code-fold: false\n#| code-summary: \"Example\"\n\n# Analysis script for phoneme paper\n# author: Joe DiMaggio\n# date: Feb. 29, 2024\n# purpose: analyse cleaned dataset\n\n# Set-up ###\n\n# load required packages\nlibrary(dplyr) # data wrangling\nlibrary(readr) # loding data\nlibrary(here) # project-relative file path\n\n# Load-in data\ndf_phon &lt;- read_csv(here(\"data\", \"phoneme_tidy_data.csv\"))\n\n# Explore data ###\nsummary(df_phone)\n\nbegins with some meta-information about the document, including its purpose\n\naids in knowing which scripts to run in which sequence\n\nthere are three hashtags after some headings (###)\n\nthis is helpful because it structures the outline of the document in RStudio\n\nthe purpose of chunks of code are written above\n\ndescription of specific lines of code are also given",
+    "section": "3.3 Example R script",
+    "text": "3.3 Example R script\n#| eval: false\n#| echo: true\n#| code-fold: false\n#| code-summary: \"Example\"\n\n# Analysis script for phoneme paper\n# author: Joe DiMaggio\n# date: Feb. 29, 2024\n# purpose: analyse cleaned dataset\n\n# Set-up ###\n\n# load required packages\nlibrary(dplyr) # data wrangling\nlibrary(readr) # loding data\nlibrary(here) # project-relative file path\n\n# Load-in data\ndf_phon &lt;- read_csv(here(\"data\", \"phoneme_tidy_data.csv\"))\n\n# Explore data ###\nsummary(df_phone)\n\nbegins with some meta-information about the document, including its purpose\n\naids in knowing which scripts to run in which sequence\n\nthere are three hashtags after some headings (###)\n\nthis is helpful because it structures the outline of the document in RStudio\n\nthe purpose of chunks of code are written above\n\ndescription of specific lines of code are also given",
     "crumbs": [
       "D. Palleschi",
       "Day 2",
@@ -51,8 +51,8 @@
     "objectID": "pages/literate_programming.html#yaml",
     "href": "pages/literate_programming.html#yaml",
     "title": "Writing Reproducible Code",
-    "section": "YAML",
-    "text": "YAML\n\nthe section at the very top fenced by ---\ncontains all the meta information about your document\n\ne.g. title, author name, date\nalso formatting information, e.g. type of output file\n\nthere are many document formatting and customisation options that we won’t cover in this course\nbut for example I have many YAML formatting options in the source code of my slides\n\n\n---\ntitle: \"My title\"\n---\n\n\n\n\n\n\n\nYAML\n\n\n\n\n\nchange the title if you want to do so.\nguess how to add a subtitle (hint: it is similar to adding a title)\nadd an author, author: ‘firstname lastname’ (see example below)\nadd a table of contents (Table of Contents = toc) by changing format so that it looks like this:\n\n\n---\ntitle: \"Dynamic reports\"\nauthor: \"Daniela Palleschi\"\nformat:\n  pdf:\n    toc: true\n---\n\n\nRender the document. Do you see the changes?",
+    "section": "4.1 YAML",
+    "text": "4.1 YAML\n\nthe section at the very top fenced by ---\ncontains all the meta information about your document\n\ne.g. title, author name, date\nalso formatting information, e.g. type of output file\n\nthere are many document formatting and customisation options that we won’t cover in this course\nbut for example I have many YAML formatting options in the source code of my slides\n\n\n---\ntitle: \"My title\"\n---\n\n\n\n\n\n\n\nYAML\n\n\n\n\n\nchange the title if you want to do so.\nguess how to add a subtitle (hint: it is similar to adding a title)\nadd an author, author: ‘firstname lastname’ (see example below)\nadd a table of contents (Table of Contents = toc) by changing format so that it looks like this:\n\n\n---\ntitle: \"Dynamic reports\"\nauthor: \"Daniela Palleschi\"\nformat:\n  pdf:\n    toc: true\n---\n\n\nRender the document. Do you see the changes?",
     "crumbs": [
       "D. Palleschi",
       "Day 2",
@@ -63,8 +63,8 @@
     "objectID": "pages/literate_programming.html#structure-your-reports",
     "href": "pages/literate_programming.html#structure-your-reports",
     "title": "Writing Reproducible Code",
-    "section": "Structure your reports",
-    "text": "Structure your reports\n\nremember to use (sub-)headings (e.g., # Set-up)\ndescribe the function/purpose at the beginning of the script\ndocument your train of thought and findings throughout the script\n\ne.g., why are you producing this plot, what does it tell you?\n\ngive an overview of the findings/end result at the end\nit’s wise to avoid very long, multi-purpose scripts\n\nrule of thumb: one script per product or purpose\ne.g., data cleaning, exploration, analysis, publication figures, etc.",
+    "section": "4.2 Structure your reports",
+    "text": "4.2 Structure your reports\n\nremember to use (sub-)headings (e.g., # Set-up)\ndescribe the function/purpose at the beginning of the script\ndocument your train of thought and findings throughout the script\n\ne.g., why are you producing this plot, what does it tell you?\n\ngive an overview of the findings/end result at the end\nit’s wise to avoid very long, multi-purpose scripts\n\nrule of thumb: one script per product or purpose\ne.g., data cleaning, exploration, analysis, publication figures, etc.",
     "crumbs": [
       "D. Palleschi",
       "Day 2",
@@ -75,8 +75,8 @@
     "objectID": "pages/literate_programming.html#code-chunks",
     "href": "pages/literate_programming.html#code-chunks",
     "title": "Writing Reproducible Code",
-    "section": "Code chunks",
-    "text": "Code chunks\n\nthe main benefit of dynamic reports: combining text with code (and code output)\nR code goes in code chunks:\n\n\n```{r}\n2+2\n```\n\n[1] 4\n\n\n\nto add a code chunk: Code &gt; Insert Chunk\n\nor use the keyboard shortcut: Cmd+Opt+I (Mac) / Ctrl+Alt+I (Windows)\n\n\n\n\n\n\n\n\nAdding structure and code chunks\n\n\n\n\n\nUse the example R script above to create a structured document\n\nuse headings (#) and subheadings (##) accordingly\n\nLoad in our dataset in a code chunk\nRender the document. Do you see the changes?",
+    "section": "4.3 Code chunks",
+    "text": "4.3 Code chunks\n\nthe main benefit of dynamic reports: combining text with code (and code output)\nR code goes in code chunks:\n\n\n```{r}\n2+2\n```\n\n[1] 4\n\n\n\nto add a code chunk: Code &gt; Insert Chunk\n\nor use the keyboard shortcut: Cmd+Opt+I (Mac) / Ctrl+Alt+I (Windows)\n\n\n\n\n\n\n\n\nAdding structure and code chunks\n\n\n\n\n\nUse the example R script above to create a structured document\n\nuse headings (#) and subheadings (##) accordingly\n\nLoad in our dataset in a code chunk\nRender the document. Do you see the changes?",
     "crumbs": [
       "D. Palleschi",
       "Day 2",
@@ -87,8 +87,8 @@
     "objectID": "pages/literate_programming.html#session-info",
     "href": "pages/literate_programming.html#session-info",
     "title": "Writing Reproducible Code",
-    "section": "Session info",
-    "text": "Session info\n\nso, print your session info at the end of every script\n\nthis will print your R version, package versions, and more\n\n\n\nsessionInfo()",
+    "section": "5.1 Session info",
+    "text": "5.1 Session info\n\nso, print your session info at the end of every script\n\nthis will print your R version, package versions, and more\n\n\n\nsessionInfo()",
     "crumbs": [
       "D. Palleschi",
       "Day 2",
@@ -560,6 +560,13 @@
     "text": "Identifying your R-Project\n\nthere are a ways to check which (if any) R-Project you’re in\n\nthere are 6 differences between Figure 4 and Figure 5\n\nwhich is in an R-Project session?\n\n\n\n\n\nSpot the differences\nShow the differences\n\n\n\n\n\n\n\n\n\nFigure 4: RStudio Session A\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 5: RStudio Session B\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 6: How to tell if you’re in a project"
   },
   {
+    "objectID": "pages/R-Projects-slides.html#folder-structure-1",
+    "href": "pages/R-Projects-slides.html#folder-structure-1",
+    "title": "R-Projects",
+    "section": "Folder structure",
+    "text": "Folder structure\n\nsome folders you’ll typically want to have:\n\n\ndata: containing your dataset(s)\n\nscripts (or analyses, etc.): containing any analysis scripts\n\nmanuscript: containing any write-ups of your results\n\nmaterials: containing relevant experiment materials (e.g., stimuli)\n\n\nlet’s just create the first 2 (data and scripts)"
+  },
+  {
     "objectID": "pages/R-Projects-slides.html#section-4",
     "href": "pages/R-Projects-slides.html#section-4",
     "title": "R-Projects",
@@ -585,18 +592,18 @@
     "href": "pages/R-Projects-slides.html#section-6",
     "title": "R-Projects",
     "section": "",
-    "text": "here\n\n\nIn your R Project, load the cwiek_2021- using here\n\nInstall here (e.g., install.packages(\"here\"))\nLoad here at the beginning of your package\n\nor use here:: before calling a function\n\n\nUse the here() function to load in your data\nInspect the dataset however you usually would (e.g., summary(), names(), etc.)\nSave your script"
+    "text": "here\n\n\nIn your R Project, load the cwiek_2021-online_cleaned.csv data using here\n\nInstall here (if needed; e.g., install.packages(\"here\"))\nLoad here at the beginning of your package\n\nor use here:: before calling a function\n\n\nUse the here() function to load in your data\nInspect the dataset however you usually would (e.g., summary(), names(), etc.)\nSave your script"
   },
   {
     "objectID": "pages/R-Projects-slides.html#herehere",
     "href": "pages/R-Projects-slides.html#herehere",
     "title": "R-Projects",
     "section": "here::here()",
-    "text": "here::here()\n\ninstall package\n\n\n\n\nIn the Console\n\ninstall.packages(\"here\")\n\n\n\nload package and call the here function\n\n\n# load package\nlibrary(here)\n\n# read in data\ndf_data &lt;- read.csv(here(\"data\", \"data_lifetime_pilot.csv\"))\n\n\nor directly call the here function without loading the package\n\n\n# read in data without loading here\ndf_data &lt;- read.csv(here::here(\"data\", \"data_lifetime_pilot.csv\"))\n\n\nnote that I stored the data with the prefix df_\n\n\ndf stands for dataframe\n\n\nI recommend using object-type defining prefixes for all objects in your Environment\n\ne.g., fit_ for models, fig_ for figures, sum_ for summaries, tbl_ for tables, etc."
+    "text": "here::here()\n\ninstall package\n\n\n\n\nIn the Console\n\ninstall.packages(\"here\")\n\n\n\nload package and call the here function\n\n\n# load package\nlibrary(here)\n\n# read in data\ndf_icon &lt;- read.csv(here(\"data\", \"cwiek_2021-online_cleaned.csv\"))\n\n\nor directly call the here function without loading the package\n\n\n# read in data without loading here\ndf_icon &lt;- read.csv(here::here(\"data\", \"cwiek_2021-online_cleaned.csv\"))"
   },
   {
-    "objectID": "pages/R-Projects-slides.html#section-7",
-    "href": "pages/R-Projects-slides.html#section-7",
+    "objectID": "pages/R-Projects-slides.html#section-8",
+    "href": "pages/R-Projects-slides.html#section-8",
     "title": "R-Projects",
     "section": "",
     "text": "Reproduce your analysis\n\n\n\nPerform some data exploration (e.g., with names(), summary(), dplyr::glimpse(), whatever you typically do)\nSave your script, then close RStudio/your R-Project.\nRe-open the project. Can you re-run the script?"
@@ -606,7 +613,7 @@
     "href": "pages/R-Projects.html",
     "title": "R-Projects",
     "section": "",
-    "text": "Today we will…\n\nlearn about project-oriented workflows\ncreate an R-Project\nuse project-relative filepaths with the here package",
+    "text": "Project-oriented workflows\ncreating an R-Project\nproject-relative filepaths with the here package",
     "crumbs": [
       "D. Palleschi",
       "Day 1",
@@ -617,8 +624,8 @@
     "objectID": "pages/R-Projects.html#folder-structure",
     "href": "pages/R-Projects.html#folder-structure",
     "title": "R-Projects",
-    "section": "Folder structure",
-    "text": "Folder structure\n\na core computer literacy skill\n\nkeep your Desktop as empty as possible\nhave a sensible folder structure\navoid mixing subfolders and files\n\ni.e., if a folder contains subfolders, ideally it should not contain files",
+    "section": "2.1 Folder structure",
+    "text": "2.1 Folder structure\n\na core computer literacy skill\n\nkeep your Desktop as empty as possible\nhave a sensible folder structure\navoid mixing subfolders and files\n\ni.e., if a folder contains subfolders, ideally it should not contain files",
     "crumbs": [
       "D. Palleschi",
       "Day 1",
@@ -629,8 +636,8 @@
     "objectID": "pages/R-Projects.html#creating-a-new-project",
     "href": "pages/R-Projects.html#creating-a-new-project",
     "title": "R-Projects",
-    "section": "Creating a new Project",
-    "text": "Creating a new Project\n\nwhen?\n\nwhenever you’re starting a new course oR-Project which will use R\n\nwhy?\n\nto keep all the relavent materials in one place\n\nwhere?\n\nsomewhere that makes sense, e.g., a folder called SoSe2024 or Mastersarbeit\n\nhow?\n\nFile &gt; New Project &gt; New Directory &gt; New Project &gt; [Directory name] &gt; Create Project\n\n\n\n\n\n\n\n\n\n\nNew R-Project\n\n\n\nCreate a new R-Project for this workshop\n\nFile &gt; New Project &gt; New Directory &gt; New Project &gt; [Directory name] &gt; Create Project\nmake sure you choose a sensible location",
+    "section": "3.1 Creating a new Project",
+    "text": "3.1 Creating a new Project\n\nwhen?\n\nwhenever you’re starting a new course oR-Project which will use R\n\nwhy?\n\nto keep all the relavent materials in one place\n\nwhere?\n\nsomewhere that makes sense, e.g., a folder called SoSe2024 or Mastersarbeit\n\nhow?\n\nFile &gt; New Project &gt; New Directory &gt; New Project &gt; [Directory name] &gt; Create Project\n\n\n\n\n\n\n\n\n\n\nNew R-Project\n\n\n\nCreate a new R-Project for this workshop\n\nFile &gt; New Project &gt; New Directory &gt; New Project &gt; [Directory name] &gt; Create Project\nmake sure you choose a sensible location",
     "crumbs": [
       "D. Palleschi",
       "Day 1",
@@ -641,8 +648,8 @@
     "objectID": "pages/R-Projects.html#opening-a-project",
     "href": "pages/R-Projects.html#opening-a-project",
     "title": "R-Projects",
-    "section": "Opening a Project",
-    "text": "Opening a Project\n\nto open a project, locate its .Rproj file and double-click\nor if you’re already in RStudio, you can use the Project (None) drop-down (top right)\n\n\n\n\n\n\n\n\n\n\n\nFigure 1: Double-click .Rproj\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 2: Open from RStudio",
+    "section": "3.2 Opening a Project",
+    "text": "3.2 Opening a Project\n\nto open a project, locate its .Rproj file and double-click\nor if you’re already in RStudio, you can use the Project (None) drop-down (top right)\n\n\n\n\n\n\n\n\n\n\n\nFigure 1: Double-click .Rproj\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 2: Open from RStudio",
     "crumbs": [
       "D. Palleschi",
       "Day 1",
@@ -653,8 +660,8 @@
     "objectID": "pages/R-Projects.html#adding-a-readme-file",
     "href": "pages/R-Projects.html#adding-a-readme-file",
     "title": "R-Projects",
-    "section": "Adding a README file",
-    "text": "Adding a README file\n\nFile &gt; New File &gt; Markdown File (not R Markdown!)\n\nadd some text describing the purpose of this project\ninclude your name, the date\nuse Markdown formatting (e.g., # for headings, *italics*, **bold**)\n\nsave as README.md in youR-Project directory",
+    "section": "3.3 Adding a README file",
+    "text": "3.3 Adding a README file\n\nFile &gt; New File &gt; Markdown File (not R Markdown!)\n\nadd some text describing the purpose of this project\ninclude your name, the date\nuse Markdown formatting (e.g., # for headings, *italics*, **bold**)\n\nsave as README.md in youR-Project directory",
     "crumbs": [
       "D. Palleschi",
       "Day 1",
@@ -665,8 +672,8 @@
     "objectID": "pages/R-Projects.html#global-rstudio-options",
     "href": "pages/R-Projects.html#global-rstudio-options",
     "title": "R-Projects",
-    "section": "Global RStudio options",
-    "text": "Global RStudio options\n\n\n\n\n\n\n\n\n\n\nFigure 3: RStudio settings for reproducibility\n\n\n\n\n\n\n\nTools &gt; Global Options\n\nWorkspace: Restore .RData into workspace at startup: NO\nSave workspace to .RData on exit: Never\n\nthis will ensure that you are always starting with a clean slate\n\nand that your code is not dependent on some pacakge or object you created in another session\n\nthis is also how RMarkdown and Quarto scripts run\n\nthey start with an empty environment and run the script linearly",
+    "section": "3.4 Global RStudio options",
+    "text": "3.4 Global RStudio options\n\n\n\n\n\n\n\n\n\n\nFigure 3: RStudio settings for reproducibility\n\n\n\n\n\n\n\nTools &gt; Global Options\n\nWorkspace: Restore .RData into workspace at startup: NO\nSave workspace to .RData on exit: Never\n\nthis will ensure that you are always starting with a clean slate\n\nand that your code is not dependent on some pacakge or object you created in another session\n\nthis is also how RMarkdown and Quarto scripts run\n\nthey start with an empty environment and run the script linearly",
     "crumbs": [
       "D. Palleschi",
       "Day 1",
@@ -689,8 +696,20 @@
     "objectID": "pages/R-Projects.html#identifying-your-r-project",
     "href": "pages/R-Projects.html#identifying-your-r-project",
     "title": "R-Projects",
-    "section": "Identifying your R-Project",
-    "text": "Identifying your R-Project\n\nthere are a ways to check which (if any) R-Project you’re in\n\nthere are 6 differences between Figure 4 and Figure 5\nwhich is in an R-Project session?\n\n\n\nSpot the differencesShow the differences\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 4: RStudio Session A\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 5: RStudio Session B\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 6: How to tell if you’re in a project",
+    "section": "3.5 Identifying your R-Project",
+    "text": "3.5 Identifying your R-Project\n\nthere are a ways to check which (if any) R-Project you’re in\n\nthere are 6 differences between Figure 4 and Figure 5\nwhich is in an R-Project session?\n\n\n\nSpot the differencesShow the differences\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 4: RStudio Session A\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 5: RStudio Session B\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 6: How to tell if you’re in a project",
+    "crumbs": [
+      "D. Palleschi",
+      "Day 1",
+      "R-Projects"
+    ]
+  },
+  {
+    "objectID": "pages/R-Projects.html#folder-structure-1",
+    "href": "pages/R-Projects.html#folder-structure-1",
+    "title": "R-Projects",
+    "section": "3.6 Folder structure",
+    "text": "3.6 Folder structure\n\nsome folders you’ll typically want to have:\n\ndata: containing your dataset(s)\nscripts (or analyses, etc.): containing any analysis scripts\nmanuscript: containing any write-ups of your results\nmaterials: containing relevant experiment materials (e.g., stimuli)\n\nlet’s just create the first 2 (data and scripts)\n\n\ndata/\n\ndo you have “raw”, i.e., pre-processed data?\n\nif so, you might want to create a raw sub-folder\nand any other relevant sub-folders (e.g., processed or tidy)\n\ndownload the online_cleaned.csv dataset from the GitHub or OSF repo from Ćwiek et al. (2021)\n\nor, move a dataset of your own to this folder\n\nsave the file as cwiek_2021-online_cleaned.csv\n\n\ndescription of data collection:\n\n\n\nIn an online experiment with listeners of 25 different languages (from nine language families), participants listened to the 90 vocalizations (three for each of the 30 meanings), and for each, guessed its intended meaning from six written alternatives\n– Ćwiek et al. (2021)\n\n\n\nyou could also download the data directly from GitHub in R:\n\n\n\nwrite.csv(\n  file = \"data/cwiek_2021-online_cleaned.csv\",\n  read.csv(\"https://raw.githubusercontent.com/bodowinter/iconicity_challenge/refs/heads/master/data/online_cleaned.csv\")\n  )\n\n\n\n\nscripts/\n\ntry to create a single script for each “product”\n\ne.g., anonymised data, ‘cleaned’ data, data exploration, visualisation, analyses, etc.\n\nyou can create sub-folders as the project develops and move scripts around\n\nfor now, let’s create a new script to take a look at our data\n\n\n\n\n\n\n\n\n\n\n\nNew script\n\n\n\nCreate a new script:\n\nFile &gt; New File &gt; Choose your preferred script type\nSave it in your scripts/ folder: File &gt; Save as...\n\n\n\n\n\nLoad in the data\n\nload in the data however you normally would\n\ne.g., read.csv(), readr::read_csv(), …\n\n\n\n\nExercise: mini-Code Review\n\n\n\n\n\n\nR-Project template\n\n\n\n\n\nDownload the R-Project template at https://osf.io/ctmwj/\nOpen (or switch to) rproject-template.Rproj\nInspect the folder structure and the files.\nLook at the scripts/ folder. Is it clear which scripts should be run first?\nTry running 02-visualisation.R first. Do you encounter any problems?",
     "crumbs": [
       "D. Palleschi",
       "Day 1",
@@ -701,8 +720,8 @@
     "objectID": "pages/R-Projects.html#the-problem-with-setwd",
     "href": "pages/R-Projects.html#the-problem-with-setwd",
     "title": "R-Projects",
-    "section": "The problem with setwd()",
-    "text": "The problem with setwd()\n\n\nIf the first line of your R script is\nsetwd(\"C:\\Users\\jenny\\path\\that\\only\\I\\have\")\nI will come into your office and SET YOUR COMPUTER ON FIRE🔥.\n\n— Jenny Bryan\n\n\nsetwd() depends on your entire machine’s folder structure\nsetwd() breaks when you\n\nsend youR-Project folder to a collaborator\nmake your analyses open\nchange the location of youR-Project folder\n\nusing slashes is also dependent on your operating system\n\n\ntrying to use somebody else’s (or your former) folder path will result in a warning message like:\n\n\nError in setwd(\"/Users/danielapalleschi/Documents/R/rproject-template\") : cannot change working directory",
+    "section": "4.1 The problem with setwd()",
+    "text": "4.1 The problem with setwd()\n\n\nIf the first line of your R script is\nsetwd(\"C:\\Users\\jenny\\path\\that\\only\\I\\have\")\nI will come into your office and SET YOUR COMPUTER ON FIRE🔥.\n\n— Jenny Bryan\n\n\nsetwd() depends on your entire machine’s folder structure\nsetwd() breaks when you\n\nsend youR-Project folder to a collaborator\nmake your analyses open\nchange the location of youR-Project folder\n\nusing slashes is also dependent on your operating system\n\n\ntrying to use somebody else’s (or your former) folder path will result in a warning message like:\n\n\nError in setwd(\"/Users/danielapalleschi/Documents/R/rproject-template\") : cannot change working directory",
     "crumbs": [
       "D. Palleschi",
       "Day 1",
@@ -713,8 +732,8 @@
     "objectID": "pages/R-Projects.html#the-benefit-of-here",
     "href": "pages/R-Projects.html#the-benefit-of-here",
     "title": "R-Projects",
-    "section": "The benefit of here()",
-    "text": "The benefit of here()\n\nuses the top-level directory of your Project as the working directory\n\nmeaning we never need to specify the path to our project folder relative to our current higher-level folder structure\n\ncan separate folder names with a comma\n\nmeaning it doesn’t matter if the original code was written on a Mac or a Windows machine",
+    "section": "4.2 The benefit of here()",
+    "text": "4.2 The benefit of here()\n\nuses the top-level directory of your Project as the working directory\n\nmeaning we never need to specify the path to our project folder relative to our current higher-level folder structure\n\ncan separate folder names with a comma\n\nmeaning it doesn’t matter if the original code was written on a Mac or a Windows machine",
     "crumbs": [
       "D. Palleschi",
       "Day 1",
@@ -726,7 +745,7 @@
     "href": "pages/R-Projects.html#section-6",
     "title": "R-Projects",
     "section": "",
-    "text": "here\n\n\n\nIn your R Project, load the cwiek_2021- using here\n\nInstall here (e.g., install.packages(\"here\"))\nLoad here at the beginning of your package\n\nor use here:: before calling a function\n\nUse the here() function to load in your data\nInspect the dataset however you usually would (e.g., summary(), names(), etc.)\nSave your script",
+    "text": "here\n\n\n\nIn your R Project, load the cwiek_2021-online_cleaned.csv data using here\n\nInstall here (if needed; e.g., install.packages(\"here\"))\nLoad here at the beginning of your package\n\nor use here:: before calling a function\n\nUse the here() function to load in your data\nInspect the dataset however you usually would (e.g., summary(), names(), etc.)\nSave your script",
     "crumbs": [
       "D. Palleschi",
       "Day 1",
@@ -737,8 +756,8 @@
     "objectID": "pages/R-Projects.html#herehere",
     "href": "pages/R-Projects.html#herehere",
     "title": "R-Projects",
-    "section": "here::here()",
-    "text": "here::here()\n\ninstall package\n\n\n\n\nIn the Console\n\ninstall.packages(\"here\")\n\n\n\nload package and call the here function\n\n\n# load package\nlibrary(here)\n\n# read in data\ndf_data &lt;- read.csv(here(\"data\", \"data_lifetime_pilot.csv\"))\n\n\nor directly call the here function without loading the package\n\n\n# read in data without loading here\ndf_data &lt;- read.csv(here::here(\"data\", \"data_lifetime_pilot.csv\"))\n\n\nnote that I stored the data with the prefix df_\n\ndf stands for dataframe\n\nI recommend using object-type defining prefixes for all objects in your Environment\n\ne.g., fit_ for models, fig_ for figures, sum_ for summaries, tbl_ for tables, etc.",
+    "section": "4.3 here::here()",
+    "text": "4.3 here::here()\n\ninstall package\n\n\n\n\nIn the Console\n\ninstall.packages(\"here\")\n\n\n\nload package and call the here function\n\n\n# load package\nlibrary(here)\n\n# read in data\ndf_icon &lt;- read.csv(here(\"data\", \"cwiek_2021-online_cleaned.csv\"))\n\n\nor directly call the here function without loading the package\n\n\n# read in data without loading here\ndf_icon &lt;- read.csv(here::here(\"data\", \"cwiek_2021-online_cleaned.csv\"))\n\n\nnote that I stored the data with the prefix df_\n\ndf stands for dataframe\n\nI recommend using object-type defining prefixes for all objects in your Environment\n\ne.g., fit_ for models, fig_ for figures, sum_ for summaries, tbl_ for tables, etc.",
     "crumbs": [
       "D. Palleschi",
       "Day 1",
@@ -746,8 +765,8 @@
     ]
   },
   {
-    "objectID": "pages/R-Projects.html#section-7",
-    "href": "pages/R-Projects.html#section-7",
+    "objectID": "pages/R-Projects.html#section-8",
+    "href": "pages/R-Projects.html#section-8",
     "title": "R-Projects",
     "section": "",
     "text": "Reproduce your analysis\n\n\n\n\nPerform some data exploration (e.g., with names(), summary(), dplyr::glimpse(), whatever you typically do)\nSave your script, then close RStudio/your R-Project.\nRe-open the project. Can you re-run the script?",
