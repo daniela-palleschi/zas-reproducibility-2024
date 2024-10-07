@@ -1,35 +1,35 @@
 ---
-title: "RProjects"
+title: "R-Projects"
 subtitle: "Creating a project-oriented workflow in R"
 author: "Daniela Palleschi"
-institute: Humboldt-Universität zu Berlin
+institute: Leibniz-Zentrum Allgemeine Sprachwissenschaft
 lang: en
 date: 2024-10-08
 date-format: "ddd MMM D, YYYY"
 date-modified: last-modified
 language: 
-  title-block-published: "Workshop Day 2"
+  title-block-published: "Workshop Day 1"
   title-block-modified: "Last Modified"
 format: 
   html:
-    output-file: rprojects.html
+    output-file: R-Projects.html
     number-sections: false
     toc: true
     code-overflow: wrap
     code-tools: true
     embed-resources: false
   pdf:
-    output-file: rprojects.pdf
+    output-file: R-Projects.pdf
     toc: true
     number-sections: false
     colorlinks: true
     code-overflow: wrap
   revealjs:
-    footer: "RProjects and {here}"
-    output-file: rprojects-slides.html
+    footer: "R-Projects and {here}"
+    output-file: R-Projects-slides.html
 editor_options: 
   chunk_output_type: console
-bibliography: ../bibs/rprojects.bib
+bibliography: ../bibs/RProjects.bib
 execute:
   echo: false
 ---
@@ -37,7 +37,7 @@ execute:
 ```{r}
 #| echo: false
 #| eval: false
-rbbt::bbt_update_bib(here::here("rprojects.qmd"))
+rbbt::bbt_update_bib(here::here("pages", "RProjects.qmd"))
 ```
 
 # Learning Objectives {.unnumbered .unlisted}
@@ -45,7 +45,7 @@ rbbt::bbt_update_bib(here::here("rprojects.qmd"))
 Today we will...
 
 -   learn about project-oriented workflows
--   create an RProject
+-   create an R-Project
 -   use project-relative filepaths with the `here` package
 
 # Installation requirements
@@ -77,23 +77,23 @@ Today we will...
   + avoid mixing subfolders and files
     + i.e., if a folder contains subfolders, ideally it should not contain files
 
-# RProjects  {data-stack-name="R Projects"}
+# R-Projects  {data-stack-name="R-Projects"}
 
 - in data analysis, using an IDE is beneficial
   + e.g., RStudio
 - most IDEs have their own implementation of a Project
-- in RStudio, this is the RProject
+- in RStudio, this is the R-Project
   + creates a `.Rproj` file in a project folder
   + stores project settings
-- you can have several RProjects open simultaneously
+- you can have several R-Projects open simultaneously
   + and run several scripts across projects simultaneously
-- most importantly, RProjects (can) centralise a specific project's workflow and file path
-- to read more about R Projects, check out [Section 6.2: Projects](https://r4ds.hadley.nz/workflow-scripts.html#projects) from @wickham_r_2023 [or [Ch. 8 -  Workflow: Projects](https://r4ds.had.co.nz/workflow-projects.html) in @wickham_r_2016]
+- most importantly, R-Projects (can) centralise a specific project's workflow and file path
+- to read more about R-Projects, check out [Section 6.2: Projects](https://r4ds.hadley.nz/workflow-scripts.html#projects) from @wickham_r_2023 [or [Ch. 8 -  Workflow: Projects](https://r4ds.had.co.nz/workflow-projects.html) in @wickham_r_2016]
 
 ## Creating a new Project
 
 - when?
-  + whenever you're starting a new course or project which will use R
+  + whenever you're starting a new course oR-Project which will use R
 - why?
   + to keep all the relavent materials in one place
 - where?
@@ -104,9 +104,9 @@ Today we will...
 ### {.unnumbered .unlisted}
 
 ::: {.callout-tip}
-# New RProject
+# New R-Project
 
-Create a new RProject for this workshop
+Create a new R-Project for this workshop
 
   + `File > New Project > New Directory > New Project > [Directory name] > Create Project`
   + make sure you choose a sensible location
@@ -150,7 +150,7 @@ magick::image_read(here::here("media", "rstudio_project_open.png"))
   + add some text describing the purpose of this project
   + include your name, the date
   + use Markdown formatting (e.g., `#` for headings, `*italics*`, `**bold**`)
-- save as `README.md` in your project directory
+- save as `README.md` in youR-Project directory
 
 ## Global RStudio options
 
@@ -194,11 +194,11 @@ Change your Global Options so that
   + Save workspace to .RData on exit: Never
 :::
 
-## Identifying your RProject {.smaller}
+## Identifying your R-Project {.smaller}
 
-- there are a ways to check which (if any) RProject you're in
+- there are a ways to check which (if any) R-Project you're in
   + there are 6 differences between @fig-noproject and @fig-project
-  + which is in an RProject session?
+  + which is in an R-Project session?
 
 ::: {.panel-tabset}
 
@@ -239,7 +239,7 @@ magick::image_read(here::here("media", "rstudio_project.png"))
 #| label: fig-project-diffs
 #| fig-cap: How to tell if you're in a project
 #| out-width: "80%"
-magick::image_read(here::here("media", "rproject_spot-the-diffs.png"))
+magick::image_read(here::here("media", "RProject_spot-the-diffs.png"))
 ```
 
 :::
@@ -258,8 +258,24 @@ magick::image_read(here::here("media", "rproject_spot-the-diffs.png"))
 - do you have "raw", i.e., pre-processed data?
   + if so, you might want to create a `raw` sub-folder
   + and any other relevant sub-folders (e.g., `processed` or `tidy`)
-- download [the dataset](https://osf.io/ushpw) from the workshop repo [from @chromy_number_2023]
+- download [the dataset](https://osf.io/ushpw) from the workshop repo [from @cwiek_novel_2021]
   + *or*, move a dataset of your own to this folder
+  
+> Participants listened to each of the 90 vocalizations, and for each one, guessed its meaning from 6 alternatives (the correct meaning plus five randomly generated alternatives).
+>
+-- @cwiek_novel_2021
+
+```{r}
+#| eval: false
+write.csv(file = "data/cwieck_2021-online_cleaned.csv", "https://raw.githubusercontent.com/bodowinter/iconicity_challenge/refs/heads/master/data/online_cleaned.csv")
+```
+
+```{r}
+#| echo: false
+#| eval: false
+write.csv(file = here::here("data/cwieck_2021-online_cleaned.csv"), "https://raw.githubusercontent.com/bodowinter/iconicity_challenge/refs/heads/master/data/online_cleaned.csv")
+```
+
 
 ### `scripts/`
 
@@ -283,17 +299,38 @@ Create a new script:
 
 - load in the data however you normally would
   + e.g., `read.csv()`, `readr::read_csv()`, ...
+  
+::: {.content-hidden when-format="revealjs"}
+### Exercise: mini-Code Review
+:::
+
+::: {.callout-tip}
+#### R-Project template
+
+::: nonincremental
+1. Download the R-Project template at [https://osf.io/ctmwj/](https://osf.io/ctmwj/)
+2. Open (or switch to) `rproject-template.Rproj`
+3. Inspect the folder structure and the files.
+4. Look at the `scripts/` folder. Is it clear which scripts should be run first?
+5. Try running `02-visualisation.R` first. Do you encounter any problems?
+
+:::
+:::
 
 # `here`-package {data-stack-name="{here}"}
 
 - `here` package [@here-package] enables file referencing
   + avoids the use of `setwd()`
 
+::: {.content-visible when-format="revealjs"}
+## {.unnumbered .unlisted}
+:::
 ```{r}
 #| label: fig-here
 #| fig-cap: Illustration by [Allison Horst](https://github.com/allisonhorst)
 magick::image_read(here::here("media", "Horst_here.png"))
 ```
+
 
 ## The problem with `setwd()`
 
@@ -311,22 +348,35 @@ magick::image_read(here::here("media", "Horst_here.png"))
 
 - `setwd()` depends on your entire machine's folder structure
 - `setwd()` breaks when you
-  + send your project folder to a collaborator
+  + send youR-Project folder to a collaborator
   + make your analyses open
-  + change the location of your project folder
+  + change the location of youR-Project folder
 - using slashes is also dependent on your operating system
+
+::: {.content-visible when-format="revealjs"}
+### {.unnumbered}
+:::
+
+- trying to use somebody else's (or your former) folder path will result in a warning message like:
+
+::: {.fragment}
+`Error in setwd("/Users/danielapalleschi/Documents/R/rproject-template") : `
+ ` cannot change working directory`
+:::
 
 ## The benefit of `here()`
 
-- uses the top-level directory of your project as the working directory
+- uses the top-level directory of your Project as the working directory
+  + meaning we never need to specify the path to our project folder relative to our current higher-level folder structure
 - can separate folder names with a comma
+  + meaning it doesn't matter if the original code was written on a Mac or a Windows machine
 
 ## {.unlisted .unnumbered}
 
 ::: {.callout-tip}
 # `here`
 
-Load the dataset using `here`
+In your R Project, load the `cwiek_2021-` using `here`
 
 1. Install `here` (e.g., `install.packages("here")`)
 2. Load `here` at the beginning of your package
@@ -380,7 +430,7 @@ df_data <- read.csv(here::here("data", "data_lifetime_pilot.csv"))
 # Reproduce your analysis
 
 1. Perform some data exploration (e.g., with `names()`, `summary()`, `dplyr::glimpse()`, whatever you typically do)
-1. Save your script, then close RStudio/your Rproject.
+1. Save your script, then close RStudio/your R-Project.
 2. Re-open the project. Can you re-run the script?
 :::
 
@@ -389,14 +439,14 @@ df_data <- read.csv(here::here("data", "data_lifetime_pilot.csv"))
 Today we learned...
 
 -   learn about project-oriented workflows ✅
--   create an RProject ✅
+-   create an R-Project ✅
 -   establish a self-contained project environment with `here` ✅
 
 # References {.unlisted .unnumbered visibility="uncounted"}
 
 ---
 nocite: |
-  @bryan_what_nodate-1
+  @bryan_what_nodate
   @bryan_chapter_nodate
   @noauthor_using_2024
 ---
