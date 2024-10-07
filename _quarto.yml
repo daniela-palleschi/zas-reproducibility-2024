@@ -1,6 +1,17 @@
 project:
   type: website
 
+# add ZAS and Leibniz logos w/ hyperlinks
+margin-footer: |
+  <div style="text-align: center;">
+    <a href="https://www.leibniz-zas.de/en/" target="_blank" rel="noopener noreferrer" style="display: inline-block; margin-right: 20px;">
+        <img src="/logos/ZAS_Marke-Kurz_4c.png" alt="https://www.leibniz-zas.de/en/" style="height: 70px; width: auto;"/>
+    </a>
+    <a href="https://www.leibniz-gemeinschaft.de/en/" target="_blank" rel="noopener noreferrer" style="display: inline-block;">
+        <img src="/logos/Leibniz-Gemeinschaft-Logo-ENG_blau.png" alt="https://www.leibniz-gemeinschaft.de/en/" style="height: 60px; width: auto;"/>
+    </a>
+  </div>
+
 website:
   title: "Reproducible Analyses in R (ZAS Workshop)"
   twitter-card: true
@@ -24,12 +35,12 @@ website:
     - section: "Day 1"
       contents:
         - pages/reproducibility.qmd
-        - pages/R-workflow.qmd
+        # - pages/R-workflow.qmd
         - pages/rprojects.qmd
     - section: "Day 2"
       contents:
       - pages/literate_programming.qmd
-      - pages/pkg_management.qmd
+      # - pages/pkg_management.qmd
 
 csl: apa.csl
 
@@ -42,7 +53,9 @@ format:
       light: 
         - flatly
         - custom.scss
-      dark: darkly
+      dark:
+        - darkly
+        - custom.scss
     code-tools: true
     toc: true
     page-layout: full

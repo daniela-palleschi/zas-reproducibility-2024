@@ -2,7 +2,7 @@
 title: "Building a reproducible workflow in R"
 subtitle: "Project-oriented workflow"
 author: "Daniela Palleschi"
-institute: "Humboldt-Universität zu Berlin"
+institute: "Leibniz-Zentrum Allgemeine Sprachwissenschaft"
 lang: en
 date: 2024-10-08
 date-format: "ddd MMM D, YYYY"

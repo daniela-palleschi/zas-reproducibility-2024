@@ -20,6 +20,7 @@ Materials/website mat's for a two-part workshop on reproducibility given at the 
     + `html`: html document containing the slide content, with links to slides and PDF on the bottom right hand side
     + `_slides.html`: HTML slides
     + `_slides.pdf`: PDF of the slides (can be viewed in-browser)
+- `data/`: contains example data set from Ćwiek et al. (2021); OSF: [osf.io/4na58/](https://osf.io/4na58/)
 
 ## Useful links:
 
@@ -27,6 +28,8 @@ Materials/website mat's for a two-part workshop on reproducibility given at the 
   - intro to Quarto: [https://daniela-palleschi.github.io/r4ling/mats/03-quarto_1.html](https://daniela-palleschi.github.io/r4ling/mats/03-quarto_1.html)
   - 4-day workshop on reproducibility: [https://daniela-palleschi.github.io/SSOL24-reproducibility-workshop/](https://daniela-palleschi.github.io/SSOL24-reproducibility-workshop/)
 
+# References
 
+Ćwiek, A., Fuchs, S., Draxler, C., Asu, E. L., Dediu, D., Hiovain, K., ... & Perlman, M. (2021). Novel vocalizations are understood across cultures. Scientific Reports, 11(1), 10108.
 
 

@@ -54,7 +54,7 @@ source(here::here("functions", "print_image.R"))
 #| echo: false
 #| eval: false
 # run manually
-rbbt::bbt_update_bib(here::here("slides", "day1", "reproducibility.qmd"))
+rbbt::bbt_update_bib(here::here("pages", "reproducibility.qmd"))
 ```
 
 # Topics {.unnumbered .unlisted}
@@ -355,14 +355,14 @@ print_image(here::here("media/peng_2011_reproducibility_spectrum.png"))
 :::
 :::
 
-# Reproducibility rates of published works {data-stack-name="Reproducibility rates"}
+## Reproducibility rates of published works {data-stack-name="Reproducibility rates"}
 
 - rates of reproducibility vary across fields [see @bochynska_reproducible_2023 for a review]
     - open access: 25-65%
     - data and analyses sharing: 11-33%
     - pre-registrations: 0-3%
 
-## Reproducibility rates in linguistic research {.smaller}
+### Reproducibility rates in linguistic research {.smaller}
 
 ::: columns
 ::: {.column width="60%"}
@@ -387,7 +387,7 @@ print_image(here::here("media/bochynska_reproducibility.png"))
 :::
 :::
 
-## Journal of Memory and Language
+### Journal of Memory and Language
 
 -   meta-analysis of articles from JML [@laurinavichyute_share_2022]
     -   before and after an Open Science Policy was introduced in 2019
@@ -404,6 +404,222 @@ print_image(here::here("media/laurinavichyute_reproducibility.png"))
 -   code and data availability improved
 -   but reproducibility rate ranged from 34-56%, depending on criteria
 -   higher rates compared to field-wide meta-analysis [@bochynska_reproducible_2023]
+
+# Reproducible Practices {data-stack-name="Reproducible Practices"}
+
+## Beyond the reproducibility spectrum
+
+-   there are different levels of reproducibility
+    -   the *bare minimum* is sharing the code and data
+    -   *and* including session information:
+        -   which operating system was used
+        -   which software/package versions were used
+-   going bigger:
+    -   project-oriented workflow
+    -   project-specific filepaths
+    -   contained in a single project folder
+-   we will be using RProjects to achieve this
+
+## Project management
+
+-   folder structure
+-   project-relative file paths
+-   appropriate documentation
+    -   e.g., README files
+-   it's great to map out your project structure early on
+    -   but it will grow as you go along
+    -   reproducible principles facilitate adapting as it grows
+
+::: {.content-visible when-format="revealjs"}
+## Naming conventions {.smaller}
+:::
+::: {.content-visible unless-format="revealjs"}
+## Naming conventions
+:::
+
+- there are some "rules" for naming files, folders, and variables
+    + [The Turing Way: Naming files, folders, and other things](https://the-turing-way.netlify.app/project-design/filenaming.html)
+    + [Jenny Bryan: naming things (Reproducible Science Workshop 2015)](https://speakerdeck.com/jennybc/how-to-name-files)
+    + [Danielle Navarro: Project structure](https://djnavarro.net/slides-project-structure)
+
+::: columns
+
+::: {.column width="50%"}
+
+1. [Avoid special characters]{style="color: #8D203D"}
+    + ensures machine readability
+2. [Make names concise but meaningful]{style="color: #8D203D"}
+    + ensures human-readability
+3. [Avoid spaces]{style="color: #8D203D"}
+    + try `CamelCase`, snake case (`snake_case`), or skewer case (`skewer-case`)
+    + or use hyphens (`-`) to separate chunks, and underscores (`_`) to connect words of the same chunk
+
+:::
+
+::: {.column width="50%"}
+4. [Consider default ordering]{style="color: #8D203D"}
+    + e.g., with dates (ISO 8601): `YYYY-MM-DD`
+    + with folders or files: numerical prefixes (e.g., `01-data_cleaning.R`, `02-data_visualisation.R`)
+5. [Be *consistent*]{style="color: #8D203D"}
+    + as long as your names are machine and human readable
+
+:::
+
+:::
+
+::: {.content-hidden when-format="revealjs"}
+::: {.callout-tip}
+
+### Tidy data
+
+> Tidy datasets are all alike but every messy dataset is messy in its own way
+>
+--- @wickham_tidy_2014
+
+- Tidy data
+
+:::
+:::
+
+::: {.content-visible when-format="revealjs"}
+### Tidy data practices
+
+::: {.fragment}
+> Good coding style is like correct punctuation: you can manage without it, butitsuremakesthingseasiertoread.
+>
+--- [Tidyverse Style Guide](https://style.tidyverse.org/)
+:::
+
+- the Tidyverse "is an opinionated collection of R packages designed for data science. All packages share an underlying design philosophy, grammar, and data structures." ([https://www.tidyverse.org/](https://www.tidyverse.org/))
+  + "tidy" code should use snake case (this_is_snake_case) @wickham_r_2023
+:::
+
+## Literate programming
+
+> Instead of imagining that our main task is to instruct a *computer* what to do, let us concentrate rather on explaining to *human beings* what we want a computer to do.
+
+--- @Knuth_literate_1984, p. 97
+
+::: columns
+::: {.column width="100%"}
+-   originally used to refer to writing programs
+-   but also applies to analysis code
+    -   especially if we're aiming for reproducibility
+:::
+
+::: {.column width="50%"}
+-   main concepts:
+
+    -   code is linear [this pre-dates @Knuth_literate_1984]
+    -   informative but concise commenting
+:::
+
+::: {.column width="50%"}
+-   main benefits:
+
+    -   facilitates maintenance
+    -   helpful for future-you, collaborators, etc.
+:::
+:::
+
+## Version control (not covered in this workshop)
+
+-   git: local tracking
+-   useful for the analysis and writing phases
+    -   but can be tricky for collaboration
+-   GitHub/GitLab: remote tracking
+    -   store your changes to your local git repository
+    -   then push them to your remote repository
+-   safe guards against local hardware/software issues
+    -   lost or damaged computer or local files
+-   and allows for collaboration or sharing
+
+## Writing (not covered in this workshop)
+
+-   dynamic reports with Markdown syntax
+
+    -   e.g., Rmarkdown, Quarto
+    -   integration of data, code, and prose
+        -   facilitates cross-referencing within document
+        -   integration of citation management tools
+        -   supports LaTeX syntax for example sentences and tables
+
+-   `papaja` package for APA-formatted Rmarkdown documents
+
+-   challenge: collaboration
+
+    -   not all collaborators know these tools
+    -   track changes not currently possible
+
+# Data management and sharing {data-stack-name="Data Management"}
+
+## Data Management (and Sharing) Plans (DM(S)P)
+
+- research data management is relevant for all stages of the data life cycle
+  + planning, collection, processing, archiving, publishing
+- DMSPs are required by some funding bodies
+  + even if not, they're an important part of project planning
+- questions to consider:
+  + do I have data from human participants?
+  + do I have data from vulnerable groups (children, patients, etc.)
+  + have I collected any identifiable data from humans? (direct or indirect)
+
+### Facilitating data management/sharing
+
+- planning and implementing folder structure, file and variable names
+- keep everything relevant to a certain project in one place (i.e., folder)
+  + use subfolders appropriately
+  + avoid mixing subfolders and files within a single folder
+
+## Documentation
+
+-   metadata
+    -   project README
+    -   codebook/data dictionary
+
+-   README should contain
+    -   a project description
+    -   relevant links
+    -   description of folder structure
+
+-   can be updated as the project develops
+
+-   README.md files in GitHub/Lab are automatically used as a project description
+    -   `.md` is a plain text document
+    -   uses markdown syntax
+-   REAMD files don't need to be markdown files, but 
+    
+## Version control (again)
+
+- version control is an important aspect of data management
+  + can be done with git, or manually
+- manual version control ()
+
+## Persistant (public) storage
+
+-   GitHub/Lab are sub-optimal
+    -   developer-focused
+    -   typically lack thorough documentation/metadata
+    -   not very user-friendly for non-users
+-   OSF, Zenodo
+    -   Open Science-focused
+    -   can be linked to a GitHub/Lab repository
+    -   facilitate thorough documentation
+    -   user-friendly
+
+
+
+# Setting up a project
+
+-   required installations/recent versions of:
+    -   R
+        -   preferably version `4.4.0`, "Puppy Cup" or higher
+        -   check current version with `R.version`
+        -   download/update: <https://cran.r-project.org/bin/macosx/>
+    -   RStudio
+        -   preferably a version from 2024
+        -   Help \> Check for updates
+        -   new install: <https://posit.co/download/rstudio-desktop/>
 
 # Steps we'll take
 
@@ -437,10 +653,14 @@ print_image(here::here("media/laurinavichyute_reproducibility.png"))
 -   Reproducibility: What it is and why/how to practice it ✅
 -   Concepts for building a reproducible workflow ✅
 
-# References {.unlisted .unnumbered visibility="uncounted"}
+# References {.unlisted .unnumbered visibility="uncounted" .r-fit-text}
+
+- some additional resources that provide a list of tips include:
+  - 
 
 ---
-nocite: |
+nocite: | 
+  @bowers_how_2016, @nagler_coding_1995, @wilson_good_2017, @corker_open_2022
 ---
 
 ::: {#refs custom-style="Bibliography"}

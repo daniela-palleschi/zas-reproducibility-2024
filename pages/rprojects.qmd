@@ -258,24 +258,39 @@ magick::image_read(here::here("media", "RProject_spot-the-diffs.png"))
 - do you have "raw", i.e., pre-processed data?
   + if so, you might want to create a `raw` sub-folder
   + and any other relevant sub-folders (e.g., `processed` or `tidy`)
-- download [the dataset](https://osf.io/ushpw) from the workshop repo [from @cwiek_novel_2021]
+- download the [online_cleaned.csv](https://raw.githubusercontent.com/bodowinter/iconicity_challenge/refs/heads/master/data/online_cleaned.csv) dataset from the [GitHub](https://github.com/bodowinter/iconicity_challenge/tree/master) or [OSF](https://osf.io/4na58/) repo from @cwiek_novel_2021
   + *or*, move a dataset of your own to this folder
-  
-> Participants listened to each of the 90 vocalizations, and for each one, guessed its meaning from 6 alternatives (the correct meaning plus five randomly generated alternatives).
+
+- save the file as `cwiek_2021-online_cleaned.csv`
+
+::: {.content-visible when-format="revealjs"}
+### {.unlisted .unnumbered}
+:::
+
+- description of data collection:
+
+> In an online experiment with listeners of 25 different languages (from nine language families), participants listened to the 90 vocalizations (three for each of the 30 meanings), and for each, guessed its intended meaning from six written alternatives
 >
 -- @cwiek_novel_2021
 
+- you could also download the data directly from GitHub in R:
+
+::: {.fragment}
 ```{r}
 #| eval: false
-write.csv(file = "data/cwieck_2021-online_cleaned.csv", "https://raw.githubusercontent.com/bodowinter/iconicity_challenge/refs/heads/master/data/online_cleaned.csv")
+write.csv(
+  file = "data/cwiek_2021-online_cleaned.csv",
+  read.csv("https://raw.githubusercontent.com/bodowinter/iconicity_challenge/refs/heads/master/data/online_cleaned.csv")
+  )
 ```
 
 ```{r}
 #| echo: false
 #| eval: false
-write.csv(file = here::here("data/cwieck_2021-online_cleaned.csv"), "https://raw.githubusercontent.com/bodowinter/iconicity_challenge/refs/heads/master/data/online_cleaned.csv")
+write_csv(
+  file = here::here("data/cwiek_2021-online_cleaned.csv"), read_csv("https://raw.githubusercontent.com/bodowinter/iconicity_challenge/refs/heads/master/data/online_cleaned.csv"))
 ```
-
+:::
 
 ### `scripts/`
 

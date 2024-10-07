@@ -40,7 +40,7 @@ here()
 ## Load data
 
 ```{r}
-df_chromy <- read_csv(here("data", "chromy_et-al_2023_English_final.csv"))
+df_icon <- read_csv(here("data", "cwiek_2021-online_cleaned.csv"))
 ```
 
 
@@ -49,24 +49,24 @@ df_chromy <- read_csv(here("data", "chromy_et-al_2023_English_final.csv"))
 Take a look at the data using `glimpse()` from the `dplyr` package.
 
 ```{r}
-glimpse(df_chromy)
+glimpse(df_icon)
 ```
 
-Summary statistics of self-paced reading times (all sentence regions).
+Summary statistics of longitude and latitude.
 
 ```{r}
-summary(df_chromy$ReadTimes)
+summary(df_icon$Latitude)
+```
+
+```{r}
+summary(df_icon$Longitude)
 ```
 
 Visualise distribution of reading times (milliseconds) for critical sentence regions. I'll use base R functions to keep things simple for now.
 
 ```{r}
-plot(df_chromy$ReadTimes, df_chromy$WordNo)
+plot(df_icon$Latitude, df_icon$Longitude)
 ```
-
-There were some long observations.
-
-We see some sentence positions had overall shorter reading times (e.g., sentence positions 7 and 11) and some had more spread (e.g., 1 through 6, 12).
 
 # Session Info
 

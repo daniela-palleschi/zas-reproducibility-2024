@@ -2,7 +2,7 @@
 title: "Writing Reproducible Code"
 subtitle: "Literate, linear programming and modularity"
 author: "Daniela Palleschi"
-institute: Humboldt-Universität zu Berlin
+institute: Leibniz-Zentrum Allgemeine Sprachwissenschaft
 lang: en
 date: 2024-10-17
 date-format: "ddd MMM D, YYYY"
@@ -387,7 +387,7 @@ Render the document. If it works, continue. If not, check that you aren't missin
 
 5. Render the document
 
-6. In a code chunk: load in the dataset (e.g., `df_chromy <- read_csv(here::here("data", "chromy_et-al_2023_English_final.csv"))`)
+6. In a code chunk: load in the dataset (e.g., `df_icon <- read_csv(here::here("data", "cwiek_2021-online_cleaned.csv"))`)
     + explore the dataset however you normally would (e.g., `summary()`)
     + if you have some experience with R, try producing plots of the data
   

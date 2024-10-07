@@ -2,7 +2,7 @@
 title: "Package management"
 subtitle: "Creating and maintaining project-relative package libraries with `renv`"
 author: "Daniela Palleschi"
-institute: Humboldt-Universität zu Berlin
+institute: Leibniz-Zentrum Allgemeine Sprachwissenschaft
 lang: en
 date: 2024-10-17
 date-format: "ddd MMM D, YYYY"
