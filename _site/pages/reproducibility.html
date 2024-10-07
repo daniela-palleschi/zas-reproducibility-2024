@@ -2,13 +2,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.553">
+<meta name="generator" content="quarto-1.5.57">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Daniela Palleschi">
 
-<title>Reproducible Workflow in R (ZAS Workshop) - Reproducible analyses in R</title>
+<title>Reproducible analyses in R – Reproducible Workflow in R (ZAS Workshop)</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -34,7 +34,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -124,7 +124,7 @@ div.csl-indent {
   }
 }</script>
 
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <script type="text/javascript">
@@ -154,7 +154,7 @@ window.Quarto = {
 };
 </script>
 
-<meta name="twitter:title" content="Reproducible Workflow in R (ZAS Workshop) - Reproducible analyses in R">
+<meta name="twitter:title" content="Reproducible analyses in R – Reproducible Workflow in R (ZAS Workshop)">
 <meta name="twitter:description" content="What, Why, and How?">
 <meta name="twitter:card" content="summary">
 </head>
@@ -171,7 +171,7 @@ window.Quarto = {
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -193,20 +193,20 @@ window.Quarto = {
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
-          <div class="quarto-navbar-tools">
+            <div class="quarto-navbar-tools">
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
       </div> <!-- /container-fluid -->
     </nav>
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
         <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../pages/reproducibility.html">Day 1</a></li><li class="breadcrumb-item"><a href="../pages/reproducibility.html">Reproducible analyses in R</a></li></ol></nav>
-        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
-      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
@@ -231,9 +231,9 @@ window.Quarto = {
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
  <span class="menu-text">Day 1</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -254,9 +254,9 @@ window.Quarto = {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false">
  <span class="menu-text">Day 2</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -325,8 +325,7 @@ window.Quarto = {
   <li><a href="#version-control-again" id="toc-version-control-again" class="nav-link" data-scroll-target="#version-control-again"><span class="header-section-number">4.3</span> Version control (again)</a></li>
   <li><a href="#persistant-public-storage" id="toc-persistant-public-storage" class="nav-link" data-scroll-target="#persistant-public-storage"><span class="header-section-number">4.4</span> Persistant (public) storage</a></li>
   </ul></li>
-  <li><a href="#setting-up-a-project" id="toc-setting-up-a-project" class="nav-link" data-scroll-target="#setting-up-a-project"><span class="header-section-number">5</span> Setting up a project</a></li>
-  <li><a href="#steps-well-take" id="toc-steps-well-take" class="nav-link" data-scroll-target="#steps-well-take"><span class="header-section-number">6</span> Steps we’ll take</a></li>
+  <li><a href="#steps-well-take" id="toc-steps-well-take" class="nav-link" data-scroll-target="#steps-well-take"><span class="header-section-number">5</span> Steps we’ll take</a></li>
   </ul>
 <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="reproducibility.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li><li><a href="reproducibility-slides.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></nav>
     <div class="quarto-margin-footer"><div class="margin-footer-item">
@@ -471,7 +470,7 @@ window.Quarto = {
 <div class="fragment" data-fragment-index="1">
 <div class="cell" data-layout-align="center" data-set.cap.width="true">
 <div class="cell-output-display">
-<div id="fig-kathawalla" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
+<div id="fig-kathawalla" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-kathawalla-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="reproducibility_files/figure-html/fig-kathawalla-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:80.0%">
@@ -502,7 +501,7 @@ The replication crisis
 <p>The issue became more widespread with the publication of <span class="citation" data-cites="ioannidis_why_2005">Ioannidis (<a href="#ref-ioannidis_why_2005" role="doc-biblioref">2005</a>)</span>, entitled <em>Most published research findigns are false</em>. This paper defined bias in terms of design, analysis, and presentation factors with a focus on issues with <em>p</em>-values and statistical power. Since then there have been many replication attempts of influential (and lesser influential) papers. Strikingly, <span class="citation" data-cites="open_science_collaboration_estimating_2015">Open Science Collaboration (<a href="#ref-open_science_collaboration_estimating_2015" role="doc-biblioref">2015</a>)</span> reports 100 psychological studies run by 270 collaborators. They reported significant effects in only 36% of replications, with 47% of originally reported effects falling within 95% CIs of the replication effect. In essence: fewer significant findings and smaller effect sizes were found in replication studies compared to the original 100 studies <a href="#fig-replication" class="quarto-xref">Figure&nbsp;2</a>.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-replication" class="quarto-figure quarto-figure-center quarto-float anchored">
+<div id="fig-replication" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-replication-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="reproducibility_files/figure-html/fig-replication-1.png" class="img-fluid figure-img" style="width:60.0%">
@@ -606,7 +605,7 @@ Figure&nbsp;2: Source: <span class="citation" data-cites="open_science_collabora
 <div class="column" style="width:40%;">
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-FAIR" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
+<div id="fig-FAIR" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-FAIR-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="reproducibility_files/figure-html/fig-FAIR-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:80.0%">
@@ -661,7 +660,7 @@ Figure&nbsp;3: Source: <a href="https://www.nlm.nih.gov/oet/ed/cde/tutorial/02-3
 <div class="fragment" data-fragment-index="1">
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-peng_2011" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
+<div id="fig-peng_2011" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-peng_2011-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="reproducibility_files/figure-html/fig-peng_2011-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:50.0%">
@@ -827,7 +826,7 @@ Figure&nbsp;4: Source: <span class="citation" data-cites="peng_reproducible_2011
 <div class="column" style="width:60%;">
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-bochynska" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
+<div id="fig-bochynska" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-bochynska-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="reproducibility_files/figure-html/fig-bochynska-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:95.0%">
@@ -866,7 +865,7 @@ Figure&nbsp;5: Source: <span class="citation" data-cites="bochynska_reproducible
 </ul>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-laurinavichyute" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
+<div id="fig-laurinavichyute" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-laurinavichyute-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="reproducibility_files/figure-html/fig-laurinavichyute-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:95.0%">
@@ -1146,28 +1145,8 @@ Tidy data
 </ul>
 </section>
 </section>
-<section id="setting-up-a-project" class="level1" data-number="5">
-<h1 data-number="5"><span class="header-section-number">5</span> Setting up a project</h1>
-<ul>
-<li>required installations/recent versions of:
-<ul>
-<li>R
-<ul>
-<li>preferably version <code>4.4.0</code>, “Puppy Cup” or higher</li>
-<li>check current version with <code>R.version</code></li>
-<li>download/update: <a href="https://cran.r-project.org/bin/macosx/" class="uri">https://cran.r-project.org/bin/macosx/</a></li>
-</ul></li>
-<li>RStudio
-<ul>
-<li>preferably a version from 2024</li>
-<li>Help &gt; Check for updates</li>
-<li>new install: <a href="https://posit.co/download/rstudio-desktop/" class="uri">https://posit.co/download/rstudio-desktop/</a></li>
-</ul></li>
-</ul></li>
-</ul>
-</section>
-<section id="steps-well-take" class="level1" data-number="6">
-<h1 data-number="6"><span class="header-section-number">6</span> Steps we’ll take</h1>
+<section id="steps-well-take" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> Steps we’ll take</h1>
 <ol type="1">
 <li>Open source software:
 <ul>
@@ -1208,7 +1187,7 @@ Tidy data
 <section id="references" class="level1 unlisted unnumbered r-fit-text" data-visibility="uncounted">
 <h1 class="unlisted unnumbered r-fit-text" data-visibility="uncounted">References</h1>
 <ul>
-<li><h2 id="some-additional-resources-that-provide-a-list-of-tips-include" data-number="6.1" class="anchored" data-anchor-id="references"><span class="header-section-number">6.1</span> some additional resources that provide a list of tips include:</h2></li>
+<li><h2 id="some-additional-resources-that-provide-a-list-of-tips-include" data-number="5.1" class="anchored" data-anchor-id="references"><span class="header-section-number">5.1</span> some additional resources that provide a list of tips include:</h2></li>
 </ul>
 <div id="refs" class="references csl-bib-body hanging-indent" data-custom-style="Bibliography" data-entry-spacing="0" data-line-spacing="2" role="list">
 <div id="ref-bochynska_reproducible_2023" class="csl-entry" role="listitem">
@@ -1437,18 +1416,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -1480,7 +1448,29 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
   const viewSource = window.document.getElementById('quarto-view-source') ||
                      window.document.getElementById('quarto-code-tools-source');
   if (viewSource) {
@@ -1534,12 +1524,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp("https:\/\/daniela-palleschi\.github\.io\/zas-reproducibility-2024\/");
+      var filterRegex = new RegExp('/' + window.location.host + '/');
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
     // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
     for (var i=0; i<links.length; i++) {
       const link = links[i];
       if (!isInternal(link.href)) {
@@ -2471,65 +2461,51 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb1-621"><a href="#cb1-621" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>facilitate thorough documentation</span>
 <span id="cb1-622"><a href="#cb1-622" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>user-friendly</span>
 <span id="cb1-623"><a href="#cb1-623" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-624"><a href="#cb1-624" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-624"><a href="#cb1-624" aria-hidden="true" tabindex="-1"></a><span class="fu"># Steps we'll take</span></span>
 <span id="cb1-625"><a href="#cb1-625" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-626"><a href="#cb1-626" aria-hidden="true" tabindex="-1"></a><span class="fu"># Setting up a project</span></span>
-<span id="cb1-627"><a href="#cb1-627" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-628"><a href="#cb1-628" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>required installations/recent versions of:</span>
-<span id="cb1-629"><a href="#cb1-629" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>R</span>
-<span id="cb1-630"><a href="#cb1-630" aria-hidden="true" tabindex="-1"></a><span class="ss">        -   </span>preferably version <span class="in">`4.4.0`</span>, "Puppy Cup" or higher</span>
-<span id="cb1-631"><a href="#cb1-631" aria-hidden="true" tabindex="-1"></a><span class="ss">        -   </span>check current version with <span class="in">`R.version`</span></span>
-<span id="cb1-632"><a href="#cb1-632" aria-hidden="true" tabindex="-1"></a><span class="ss">        -   </span>download/update: <span class="ot">&lt;https://cran.r-project.org/bin/macosx/&gt;</span></span>
-<span id="cb1-633"><a href="#cb1-633" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>RStudio</span>
-<span id="cb1-634"><a href="#cb1-634" aria-hidden="true" tabindex="-1"></a><span class="ss">        -   </span>preferably a version from 2024</span>
-<span id="cb1-635"><a href="#cb1-635" aria-hidden="true" tabindex="-1"></a><span class="ss">        -   </span>Help <span class="sc">\&gt;</span> Check for updates</span>
-<span id="cb1-636"><a href="#cb1-636" aria-hidden="true" tabindex="-1"></a><span class="ss">        -   </span>new install: <span class="ot">&lt;https://posit.co/download/rstudio-desktop/&gt;</span></span>
-<span id="cb1-637"><a href="#cb1-637" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-638"><a href="#cb1-638" aria-hidden="true" tabindex="-1"></a><span class="fu"># Steps we'll take</span></span>
-<span id="cb1-639"><a href="#cb1-639" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-640"><a href="#cb1-640" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Open source software:</span>
-<span id="cb1-641"><a href="#cb1-641" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>R, an open source statistical programming language</span>
-<span id="cb1-642"><a href="#cb1-642" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>in RStudio, an IDE (integrated developer environment)</span>
-<span id="cb1-643"><a href="#cb1-643" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>with <span class="co">[</span><span class="ot">R Projects</span><span class="co">](https://support.posit.co/hc/en-us/articles/200526207-Using-RStudio-Projects)</span></span>
-<span id="cb1-644"><a href="#cb1-644" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-645"><a href="#cb1-645" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Project-oriented workflow: </span>
-<span id="cb1-646"><a href="#cb1-646" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>establish folder structure</span>
-<span id="cb1-647"><a href="#cb1-647" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>and file/variable naming conventions</span>
-<span id="cb1-648"><a href="#cb1-648" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>use project-relative filepaths with the <span class="in">`here`</span> package</span>
-<span id="cb1-649"><a href="#cb1-649" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>establish and maintain project-relative package library with <span class="in">`renv`</span> (time permitting)</span>
-<span id="cb1-650"><a href="#cb1-650" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb1-651"><a href="#cb1-651" aria-hidden="true" tabindex="-1"></a>::: {.content-visible when-format="revealjs"}</span>
-<span id="cb1-652"><a href="#cb1-652" aria-hidden="true" tabindex="-1"></a><span class="fu"># {-}</span></span>
-<span id="cb1-653"><a href="#cb1-653" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-654"><a href="#cb1-654" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb1-655"><a href="#cb1-655" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Practice literate programming:</span>
-<span id="cb1-656"><a href="#cb1-656" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>writing clean, commented, linear code</span>
-<span id="cb1-657"><a href="#cb1-657" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>in dynamic reports (e.g., Quarto, R markdown)</span>
-<span id="cb1-658"><a href="#cb1-658" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>practice modularity, i.e., 1 script = 1 purpose</span>
-<span id="cb1-659"><a href="#cb1-659" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-660"><a href="#cb1-660" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>Sharing and checking our code</span>
-<span id="cb1-661"><a href="#cb1-661" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>uploading our code and data to an OSF repository</span>
-<span id="cb1-662"><a href="#cb1-662" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>conducting a code review</span>
-<span id="cb1-663"><a href="#cb1-663" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-664"><a href="#cb1-664" aria-hidden="true" tabindex="-1"></a><span class="fu"># Topics 🏁 {.unnumbered .unlisted .uncounted}</span></span>
+<span id="cb1-626"><a href="#cb1-626" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Open source software:</span>
+<span id="cb1-627"><a href="#cb1-627" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>R, an open source statistical programming language</span>
+<span id="cb1-628"><a href="#cb1-628" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>in RStudio, an IDE (integrated developer environment)</span>
+<span id="cb1-629"><a href="#cb1-629" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>with <span class="co">[</span><span class="ot">R Projects</span><span class="co">](https://support.posit.co/hc/en-us/articles/200526207-Using-RStudio-Projects)</span></span>
+<span id="cb1-630"><a href="#cb1-630" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-631"><a href="#cb1-631" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Project-oriented workflow: </span>
+<span id="cb1-632"><a href="#cb1-632" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>establish folder structure</span>
+<span id="cb1-633"><a href="#cb1-633" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>and file/variable naming conventions</span>
+<span id="cb1-634"><a href="#cb1-634" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>use project-relative filepaths with the <span class="in">`here`</span> package</span>
+<span id="cb1-635"><a href="#cb1-635" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>establish and maintain project-relative package library with <span class="in">`renv`</span> (time permitting)</span>
+<span id="cb1-636"><a href="#cb1-636" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb1-637"><a href="#cb1-637" aria-hidden="true" tabindex="-1"></a>::: {.content-visible when-format="revealjs"}</span>
+<span id="cb1-638"><a href="#cb1-638" aria-hidden="true" tabindex="-1"></a><span class="fu"># {-}</span></span>
+<span id="cb1-639"><a href="#cb1-639" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-640"><a href="#cb1-640" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb1-641"><a href="#cb1-641" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Practice literate programming:</span>
+<span id="cb1-642"><a href="#cb1-642" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>writing clean, commented, linear code</span>
+<span id="cb1-643"><a href="#cb1-643" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>in dynamic reports (e.g., Quarto, R markdown)</span>
+<span id="cb1-644"><a href="#cb1-644" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>practice modularity, i.e., 1 script = 1 purpose</span>
+<span id="cb1-645"><a href="#cb1-645" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-646"><a href="#cb1-646" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>Sharing and checking our code</span>
+<span id="cb1-647"><a href="#cb1-647" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>uploading our code and data to an OSF repository</span>
+<span id="cb1-648"><a href="#cb1-648" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>conducting a code review</span>
+<span id="cb1-649"><a href="#cb1-649" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-650"><a href="#cb1-650" aria-hidden="true" tabindex="-1"></a><span class="fu"># Topics 🏁 {.unnumbered .unlisted .uncounted}</span></span>
+<span id="cb1-651"><a href="#cb1-651" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-652"><a href="#cb1-652" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Open Science Practices ✅</span>
+<span id="cb1-653"><a href="#cb1-653" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Reproducibility: What it is and why/how to practice it ✅</span>
+<span id="cb1-654"><a href="#cb1-654" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Concepts for building a reproducible workflow ✅</span>
+<span id="cb1-655"><a href="#cb1-655" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-656"><a href="#cb1-656" aria-hidden="true" tabindex="-1"></a><span class="fu"># References {.unlisted .unnumbered visibility="uncounted" .r-fit-text}</span></span>
+<span id="cb1-657"><a href="#cb1-657" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-658"><a href="#cb1-658" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>some additional resources that provide a list of tips include:</span>
+<span id="cb1-659"><a href="#cb1-659" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span></span>
+<span id="cb1-660"><a href="#cb1-660" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-661"><a href="#cb1-661" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb1-662"><a href="#cb1-662" aria-hidden="true" tabindex="-1"></a>nocite: | </span>
+<span id="cb1-663"><a href="#cb1-663" aria-hidden="true" tabindex="-1"></a>  @bowers_how_2016, @nagler_coding_1995, @wilson_good_2017, @corker_open_2022</span>
+<span id="cb1-664"><a href="#cb1-664" aria-hidden="true" tabindex="-1"></a>---</span>
 <span id="cb1-665"><a href="#cb1-665" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-666"><a href="#cb1-666" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Open Science Practices ✅</span>
-<span id="cb1-667"><a href="#cb1-667" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Reproducibility: What it is and why/how to practice it ✅</span>
-<span id="cb1-668"><a href="#cb1-668" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Concepts for building a reproducible workflow ✅</span>
-<span id="cb1-669"><a href="#cb1-669" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-670"><a href="#cb1-670" aria-hidden="true" tabindex="-1"></a><span class="fu"># References {.unlisted .unnumbered visibility="uncounted" .r-fit-text}</span></span>
-<span id="cb1-671"><a href="#cb1-671" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-672"><a href="#cb1-672" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>some additional resources that provide a list of tips include:</span>
-<span id="cb1-673"><a href="#cb1-673" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span></span>
-<span id="cb1-674"><a href="#cb1-674" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-675"><a href="#cb1-675" aria-hidden="true" tabindex="-1"></a>---</span>
-<span id="cb1-676"><a href="#cb1-676" aria-hidden="true" tabindex="-1"></a>nocite: | </span>
-<span id="cb1-677"><a href="#cb1-677" aria-hidden="true" tabindex="-1"></a>  @bowers_how_2016, @nagler_coding_1995, @wilson_good_2017, @corker_open_2022</span>
-<span id="cb1-678"><a href="#cb1-678" aria-hidden="true" tabindex="-1"></a>---</span>
-<span id="cb1-679"><a href="#cb1-679" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-680"><a href="#cb1-680" aria-hidden="true" tabindex="-1"></a>::: {#refs custom-style="Bibliography"}</span>
-<span id="cb1-681"><a href="#cb1-681" aria-hidden="true" tabindex="-1"></a>:::</span>
-</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-666"><a href="#cb1-666" aria-hidden="true" tabindex="-1"></a>::: {#refs custom-style="Bibliography"}</span>
+<span id="cb1-667"><a href="#cb1-667" aria-hidden="true" tabindex="-1"></a>:::</span>
+</code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 
