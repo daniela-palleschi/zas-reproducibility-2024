@@ -606,6 +606,20 @@ print_image(here::here("media/laurinavichyute_reproducibility.png"))
     -   can be linked to a GitHub/Lab repository
     -   facilitate thorough documentation
     -   user-friendly
+  
+::: {.content-visible when-format="revealjs"}
+##
+:::
+
+::: {.callout-warning}
+## ZAS Data Protocol
+
+From the Employee Handbook (p. 37-8):
+
+> All data must always be stored on your personal OneDrive or a SharePoint drive of the relevant project.
+
+Make sure this is the case!! This however does not make the data public, which usually happens after publication of a relevant manuscript.
+:::
 
 # Steps we'll take
 
@@ -640,9 +654,6 @@ print_image(here::here("media/laurinavichyute_reproducibility.png"))
 -   Concepts for building a reproducible workflow ✅
 
 # References {.unlisted .unnumbered visibility="uncounted" .r-fit-text}
-
-- some additional resources that provide a list of tips include:
-  - 
 
 ---
 nocite: | 
