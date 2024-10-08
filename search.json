@@ -896,6 +896,13 @@
     "text": "Persistant (public) storage\n\nGitHub/Lab are sub-optimal\n\ndeveloper-focused\ntypically lack thorough documentation/metadata\nnot very user-friendly for non-users\n\n\nOSF, Zenodo\n\nOpen Science-focused\ncan be linked to a GitHub/Lab repository\nfacilitate thorough documentation\nuser-friendly"
   },
   {
+    "objectID": "pages/reproducibility-slides.html#section",
+    "href": "pages/reproducibility-slides.html#section",
+    "title": "Reproducible analyses in R",
+    "section": "",
+    "text": "ZAS Data Protocol\n\n\nFrom the Employee Handbook (p. 37-8):\n\nAll data must always be stored on your personal OneDrive or a SharePoint drive of the relevant project.\n\nMake sure this is the case!! This however does not make the data public, which usually happens after publication of a relevant manuscript."
+  },
+  {
     "objectID": "pages/reproducibility.html",
     "href": "pages/reproducibility.html",
     "title": "Reproducible analyses in R",
@@ -1092,7 +1099,7 @@
     "href": "pages/reproducibility.html#persistant-public-storage",
     "title": "Reproducible analyses in R",
     "section": "4.4 Persistant (public) storage",
-    "text": "4.4 Persistant (public) storage\n\nGitHub/Lab are sub-optimal\n\ndeveloper-focused\ntypically lack thorough documentation/metadata\nnot very user-friendly for non-users\n\nOSF, Zenodo\n\nOpen Science-focused\ncan be linked to a GitHub/Lab repository\nfacilitate thorough documentation\nuser-friendly",
+    "text": "4.4 Persistant (public) storage\n\nGitHub/Lab are sub-optimal\n\ndeveloper-focused\ntypically lack thorough documentation/metadata\nnot very user-friendly for non-users\n\nOSF, Zenodo\n\nOpen Science-focused\ncan be linked to a GitHub/Lab repository\nfacilitate thorough documentation\nuser-friendly\n\n\n\n\n\n\n\n\nZAS Data Protocol\n\n\n\nFrom the Employee Handbook (p. 37-8):\n\nAll data must always be stored on your personal OneDrive or a SharePoint drive of the relevant project.\n\nMake sure this is the case!! This however does not make the data public, which usually happens after publication of a relevant manuscript.",
     "crumbs": [
       "D. Palleschi",
       "Day 1",
