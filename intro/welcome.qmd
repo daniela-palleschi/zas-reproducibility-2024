@@ -1,0 +1,61 @@
+---
+title: "Reproducible workflows in R"
+subtitle: "Workshop Welcome"
+author: "Daniela Palleschi"
+institute: "Leibniz-Zentrum Allgemeine Sprachwissenschaft (ZAS)"
+lang: en
+date: 2024-10-08
+date-format: "ddd MMM D, YYYY"
+language: 
+  title-block-published: "Workshop Day 1"
+format: 
+  html:
+    output-file: welcome.html
+    number-sections: true
+    number-depth: 2
+    toc: true
+    code-overflow: wrap
+    code-tools: true
+    embed-resources: false
+  revealjs:
+    output-file: welcome-slides.html
+    footer: "Welcome"
+editor_options: 
+  chunk_output_type: console
+# bibliography: ../bibs/reproducibility.bib
+---
+
+# Welcome! {data-stack-name="Schedule"}
+
+- we have two three-hour sessions (in room 1.02 and via Teams)
+  + Tuesday, Oct. 8 from 1pm - 4pm
+  + Thursday, Oct. 17 from 1pm - 4pm
+- the Teams session will be recorded and shared internally
+
+# Topics {data-stack-name="Topics"}
+
+- Open Science Practices in general
+- reproducibility specifically
+- implementing a reproducible, project-oriented workflow in R
+  + R Projects
+  + best coding practices (modular, literate programming)
+  + the `here` package for project-relative file paths
+  + the `renv` package for project-relative package libraries
+  + other topics as requested
+  
+# Resources {data-stack-name="Resources"}
+
+- website: [https://daniela-palleschi.github.io/zas-reproducibility-2024/](https://daniela-palleschi.github.io/zas-reproducibility-2024/)
+- source code on
+  + [GitHub](https://github.com/daniela-palleschi/zas-reproducibility-2024)
+  + [OSF](https://osf.io/byj2f/)
+
+- example R Project template on
+  + [GitHub](https://github.com/daniela-palleschi/rproject-template)
+  + [OSF](https://osf.io/ctmwj/)
+
+# Quesionnaire {data-stack-name="Questionnaire"}
+
+Go to `menti.com` and enter the code **2610 8907** to answer a few questions
+
+
