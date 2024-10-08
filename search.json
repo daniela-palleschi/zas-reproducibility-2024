@@ -289,7 +289,7 @@
     "href": "pages/packages-slides.html#section",
     "title": "Package management",
     "section": "",
-    "text": "pacman package (optional)\n\n\n\n\na package management tool\nwe’ll use the p_load() function to replace install.packages() and library() in our worksflow\n\ntakes a list of packages, and checks if each package is installed already\nif yes, the package is loaded (as with library())\nif no, the package is installed (as with install.packages()) and then loaded (as with library())\n\n\nonly works with CRAN packages (which is all we have for now anyway), although pacman has a function for developer packages (which we’ll talk about later)\n\nTo get started: install pacman (install.packages(\"pacman\")). Then, you can load in your packages using pacman::p_load(), or with a long list of library() calls like we’ve previously done (you see why I prefer p_load()!).\n\n\n\n\n\nLoading packages with `pacman::p_load()`\n\npacman::p_load(tidyverse, here, janitor)\n\n\n\n\n\n\nLoading packages with `library()`\n\nlibrary(tidyverse)\nlibrary(here)\nlibrary(janitor)\n\n\n\nThe additional benefit of p_load() is that, if you don’t actually have one of the packages installed it will automatically be installed and then loaded. With library() you would instead get an error message."
+    "text": "pacman package (optional)\n\n\n\n\na package management tool\nwe’ll use the p_load() function to replace install.packages() and library() in our worksflow\n\ntakes a list of packages, and checks if each package is installed already\nif yes, the package is loaded (as with library())\nif no, the package is installed (as with install.packages()) and then loaded (as with library())\n\n\nonly works with CRAN packages (which is all we have for now anyway), although pacman has a function for developer packages (which we’ll talk about later)\n\nTo get started: install pacman (install.packages(\"pacman\")). Then, you can load in your packages using pacman::p_load(), or with a long list of library() calls like we’ve previously done (you see why I prefer p_load()!).\n\n\n\n\n\nLoading packages with `pacman::p_load()`\n\npacman::p_load(tidyverse, here, janitor)\n\n\n\n\n\n\nLoading packages with `library()`\n\nlibrary(tidyverse)\nlibrary(here)\nlibrary(janitor)\n\n\n\n\nThe additional benefit of p_load() is that, if you don’t actually have one of the packages installed it will automatically be installed and then loaded. With library() you would instead get an error message."
   },
   {
     "objectID": "pages/packages-slides.html#developer-packages",
@@ -440,7 +440,7 @@
     "href": "index.html#schedule",
     "title": "",
     "section": "Schedule",
-    "text": "Schedule\nTable 1 shows the tentative plan for the workshop and may be adjusted based on the needs of the participants.\n\n\n\n\nTable 1: Tentative schedule for the 2-day workshop\n\n\n\n\n\n\n\n\n\n\n\n\nDay 1: Tues. Oct. 8, 1-4pm\n\n\n(i)\nOpen Science Practices and reproducibility\n\n\n(ii)\nData management: folder/file organisation, data handling\n\n\n(iii)\nWorking with RProjects + project-relative filepaths with {here}\n\n\nDay 2: Thurs. Oct. 17, 1-4pm\n\n\n(iv)\nModular analyses and literate programming with Quarto\n\n\n(v)\nPackage management with {renv}\n\n\n(vii)\nCode review via online repositories",
+    "text": "Schedule\nTable 1 shows the tentative plan for the workshop and may be adjusted based on the needs of the participants.\n\n\n\n\nTable 1: Tentative schedule for the 2-day workshop\n\n\n\n\n\n\n\n\n\n\n\n\n\nDay 1: Tues. Oct. 8, 1-4pm\n\n\n(i)\nOpen Science Practices and reproducibility\n\n\n(ii)\nData management: folder/file organisation, data handling\n\n\n(iii)\nWorking with RProjects + project-relative filepaths with {here}\n\n\nDay 2: Thurs. Oct. 17, 1-4pm\n\n\n(iv)\nModular analyses and literate programming with Quarto\n\n\n(v)\nPackage management with {renv}\n\n\n(vii)\nCode review via online repositories",
     "crumbs": [
       "D. Palleschi",
       "Workshop overview"
@@ -473,7 +473,7 @@
     "href": "index_slides.html#schedule",
     "title": "Reproducible Workflow in R (ZAS Workshop)",
     "section": "Schedule",
-    "text": "Schedule\nTable 1 shows the tentative plan for the workshop and may be adjusted based on the needs of the participants.\n\n\n\nTable 1: Tentative schedule for the 2-day workshop\n\n\n\n\n\n\n\n\n\nDay 1: Tues. Oct. 8, 1-4pm\n\n\n(i)\nOpen Science Practices and reproducibility\n\n\n(ii)\nData management: folder/file organisation, data handling\n\n\n(iii)\nWorking with RProjects + project-relative filepaths with {here}\n\n\nDay 2: Thurs. Oct. 17, 1-4pm\n\n\n(iv)\nModular analyses and literate programming with Quarto\n\n\n(v)\nPackage management with {renv}\n\n\n(vii)\nCode review via online repositories"
+    "text": "Schedule\nTable 1 shows the tentative plan for the workshop and may be adjusted based on the needs of the participants.\n\n\n\nTable 1: Tentative schedule for the 2-day workshop\n\n\n\n\n\n\n\n\n\n\nDay 1: Tues. Oct. 8, 1-4pm\n\n\n(i)\nOpen Science Practices and reproducibility\n\n\n(ii)\nData management: folder/file organisation, data handling\n\n\n(iii)\nWorking with RProjects + project-relative filepaths with {here}\n\n\nDay 2: Thurs. Oct. 17, 1-4pm\n\n\n(iv)\nModular analyses and literate programming with Quarto\n\n\n(v)\nPackage management with {renv}\n\n\n(vii)\nCode review via online repositories"
   },
   {
     "objectID": "index_slides.html#how-to-navigate-this-website",
@@ -490,18 +490,25 @@
     "text": "Software: R and RStudio\nPlease make sure you have recent versions of R and RStudio installed prior to the workshop. Below you will find information on how to check which version of R and RStudio you currently have, and how to install or update them as needed."
   },
   {
+    "objectID": "intro/welcome.html",
+    "href": "intro/welcome.html",
+    "title": "Reproducible workflows in R",
+    "section": "",
+    "text": "1 Welcome!\n\nwe have two three-hour sessions (in room 1.02 and via Teams)\n\nTuesday, Oct. 8 from 1pm - 4pm\nThursday, Oct. 17 from 1pm - 4pm\n\nthe Teams session will be recorded and shared internally\n\n\n\n2 Topics\n\nOpen Science Practices in general\nreproducibility specifically\nimplementing a reproducible, project-oriented workflow in R\n\nR Projects\nbest coding practices (modular, literate programming)\nthe here package for project-relative file paths\nthe renv package for project-relative package libraries\nother topics as requested\n\n\n\n\n3 Resources\n\nwebsite: https://daniela-palleschi.github.io/zas-reproducibility-2024/\nsource code on\n\nGitHub\nOSF\n\nexample R Project template on\n\nGitHub\nOSF\n\n\n\n\n4 Quesionnaire\nGo to menti.com and enter the code 2610 8907 to answer a few questions"
+  },
+  {
     "objectID": "examples/literate-programming.html",
     "href": "examples/literate-programming.html",
     "title": "Literate programming",
     "section": "",
-    "text": "Set-up environment: load packages and data\n\n\nInstall the tidyverse and here packages. This will not run when we render the script.\n\n# install packages\ninstall.packages(\"tidyverse\")\ninstall.packages(\"here\")\n\nLoad required packages.\n\n# load packages\nlibrary(tidyverse)\nlibrary(here)\n\nPrint the project directory filepath using the here package.\n\n# print project directory\nhere()\n\n[1] \"/Users/palleschi/Documents/ZAS/Workshops/zas-reproducibility-2024\"\n\n\n\n\n\n\ndf_icon &lt;- read_csv(here(\"data\", \"cwiek_2021-online_cleaned.csv\"))"
+    "text": "Set-up environment: load packages and data\n\n\nInstall the tidyverse and here packages. This will not run when we render the script.\n\n# install packages\ninstall.packages(\"tidyverse\")\ninstall.packages(\"here\")\n\nLoad required packages.\n\n# load packages\nlibrary(tidyverse)\nlibrary(here)\n\nPrint the project directory filepath using the here package.\n\n# print project directory\nhere()\n\n[1] \"/Users/danielapalleschi/Documents/ZAS/zas-reproducibility-2024\"\n\n\n\n\n\n\ndf_icon &lt;- read_csv(here(\"data\", \"cwiek_2021-online_cleaned.csv\"))"
   },
   {
     "objectID": "examples/literate-programming.html#packages",
     "href": "examples/literate-programming.html#packages",
     "title": "Literate programming",
     "section": "",
-    "text": "Install the tidyverse and here packages. This will not run when we render the script.\n\n# install packages\ninstall.packages(\"tidyverse\")\ninstall.packages(\"here\")\n\nLoad required packages.\n\n# load packages\nlibrary(tidyverse)\nlibrary(here)\n\nPrint the project directory filepath using the here package.\n\n# print project directory\nhere()\n\n[1] \"/Users/palleschi/Documents/ZAS/Workshops/zas-reproducibility-2024\""
+    "text": "Install the tidyverse and here packages. This will not run when we render the script.\n\n# install packages\ninstall.packages(\"tidyverse\")\ninstall.packages(\"here\")\n\nLoad required packages.\n\n# load packages\nlibrary(tidyverse)\nlibrary(here)\n\nPrint the project directory filepath using the here package.\n\n# print project directory\nhere()\n\n[1] \"/Users/danielapalleschi/Documents/ZAS/zas-reproducibility-2024\""
   },
   {
     "objectID": "examples/literate-programming.html#load-data",
@@ -557,7 +564,7 @@
     "href": "pages/R-Projects-slides.html#identifying-your-r-project",
     "title": "R-Projects",
     "section": "Identifying your R-Project",
-    "text": "Identifying your R-Project\n\nthere are a ways to check which (if any) R-Project you’re in\n\nthere are 6 differences between Figure 4 and Figure 5\n\nwhich is in an R-Project session?\n\n\n\n\n\nSpot the differences\nShow the differences\n\n\n\n\n\n\n\n\n\nFigure 4: RStudio Session A\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 5: RStudio Session B\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 6: How to tell if you’re in a project"
+    "text": "Identifying your R-Project\n\nthere are a ways to check which (if any) R-Project you’re in\n\nthere are 6 differences between Figure 4 and Figure 5\n\nwhich is in an R-Project session?\n\n\n\n\n\nSpot the differences\nShow the differences\n\n\n\n\n\n\n\n\n\nFigure 4: RStudio Session A\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 5: RStudio Session B\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 6: How to tell if you’re in a project"
   },
   {
     "objectID": "pages/R-Projects-slides.html#folder-structure-1",

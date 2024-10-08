@@ -9,9 +9,9 @@
 <link href="../site_libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.57">
+<meta name="generator" content="quarto-1.4.553">
 <meta name="author" content="Daniela Palleschi">
-<title>Reproducible Workflow in R (ZAS Workshop) – R-Projects</title>
+<title>Reproducible Workflow in R (ZAS Workshop) - R-Projects</title>
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -42,7 +42,7 @@
     }
     @media print {
     pre > code.sourceCode { white-space: pre-wrap; }
-    pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
     }
     pre.numberSource code
       { counter-reset: source-line 0; }
@@ -70,7 +70,7 @@
     code span.at { color: #657422; } /* Attribute */
     code span.bn { color: #ad0000; } /* BaseN */
     code span.bu { } /* BuiltIn */
-    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
+    code span.cf { color: #003b4f; } /* ControlFlow */
     code span.ch { color: #20794d; } /* Char */
     code span.cn { color: #8f5902; } /* Constant */
     code span.co { color: #5e5e5e; } /* Comment */
@@ -84,7 +84,7 @@
     code span.fu { color: #4758ab; } /* Function */
     code span.im { color: #00769e; } /* Import */
     code span.in { color: #5e5e5e; } /* Information */
-    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
+    code span.kw { color: #003b4f; } /* Keyword */
     code span.op { color: #5e5e5e; } /* Operator */
     code span.ot { color: #003b4f; } /* Other */
     code span.pp { color: #ad0000; } /* Preprocessor */
@@ -407,7 +407,7 @@
       margin-right: 0; 
     }
   </style>
-<meta name="twitter:title" content="R-Projects – Reproducible Workflow in R (ZAS Workshop)">
+<meta name="twitter:title" content="Reproducible Workflow in R (ZAS Workshop) - R-Projects">
 <meta name="twitter:description" content="Creating a project-oriented workflow in R">
 <meta name="twitter:card" content="summary">
 </head>
@@ -557,7 +557,7 @@ Daniela Palleschi
 <div class="column" style="width:50%;">
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-click-open" class="quarto-float quarto-figure quarto-figure-center">
+<div id="fig-click-open" class="quarto-figure quarto-figure-center quarto-float">
 <figure class="quarto-float quarto-float-fig"><figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-click-open-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;1: Double-click <code>.Rproj</code>
 </figcaption><div aria-describedby="fig-click-open-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -570,7 +570,7 @@ Figure&nbsp;1: Double-click <code>.Rproj</code>
 </div><div class="column" style="width:50%;">
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-project-open" class="quarto-float quarto-figure quarto-figure-center">
+<div id="fig-project-open" class="quarto-figure quarto-figure-center quarto-float">
 <figure class="quarto-float quarto-float-fig"><figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-project-open-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;2: Open from RStudio
 </figcaption><div aria-describedby="fig-project-open-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -580,7 +580,8 @@ Figure&nbsp;2: Open from RStudio
 </div>
 </div>
 </div>
-</div></div>
+</div>
+</div>
 </section><section id="adding-a-readme-file" class="title-slide slide level2 center"><h2>Adding a README file</h2>
 <ul>
 <li class="fragment">
@@ -597,7 +598,7 @@ Figure&nbsp;2: Open from RStudio
 <div class="column" style="width:50%;">
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-rstudio-settings" class="quarto-float quarto-figure quarto-figure-center">
+<div id="fig-rstudio-settings" class="quarto-figure quarto-figure-center quarto-float">
 <figure class="quarto-float quarto-float-fig"><figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-rstudio-settings-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;3: RStudio settings for reproducibility
 </figcaption><div aria-describedby="fig-rstudio-settings-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -628,7 +629,8 @@ Figure&nbsp;3: RStudio settings for reproducibility
 </ul>
 </li>
 </ul>
-</div></div>
+</div>
+</div>
 </section><section id="section-1" class="title-slide slide level2 unnumbered unlisted center"><h2></h2>
 <div class="callout callout-tip callout-titled callout-style-default">
 <div class="callout-body">
@@ -669,7 +671,7 @@ Figure&nbsp;3: RStudio settings for reproducibility
 <div class="column" style="width:45%;">
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-noproject" class="quarto-float quarto-figure quarto-figure-center">
+<div id="fig-noproject" class="quarto-figure quarto-figure-center quarto-float">
 <figure class="quarto-float quarto-float-fig"><figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-noproject-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;4: RStudio Session A
 </figcaption><div aria-describedby="fig-noproject-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -684,7 +686,7 @@ Figure&nbsp;4: RStudio Session A
 </div><div class="column" style="width:45%;">
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-project" class="quarto-float quarto-figure quarto-figure-center">
+<div id="fig-project" class="quarto-figure quarto-figure-center quarto-float">
 <figure class="quarto-float quarto-float-fig"><figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-project-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;5: RStudio Session B
 </figcaption><div aria-describedby="fig-project-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -694,12 +696,13 @@ Figure&nbsp;5: RStudio Session B
 </div>
 </div>
 </div>
-</div></div>
+</div>
+</div>
 </div>
 <div id="tabset-1-2">
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-project-diffs" class="quarto-float quarto-figure quarto-figure-center">
+<div id="fig-project-diffs" class="quarto-figure quarto-figure-center quarto-float">
 <figure class="quarto-float quarto-float-fig"><figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-project-diffs-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;6: How to tell if you’re in a project
 </figcaption><div aria-describedby="fig-project-diffs-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -1266,7 +1269,18 @@ Wickham, H., &amp; Grolemund, G. (2016). <em>R for data science: Import, tidy, t
         }
         return false;
       }
-      const onCopySuccess = function(e) {
+      const clipboard = new window.ClipboardJS('.code-copy-button', {
+        text: function(trigger) {
+          const codeEl = trigger.previousElementSibling.cloneNode(true);
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+        }
+      });
+      clipboard.on('success', function(e) {
         // button target
         const button = e.trigger;
         // don't keep focus
@@ -1298,29 +1312,7 @@ Wickham, H., &amp; Grolemund, G. (2016). <em>R for data science: Import, tidy, t
         }, 1000);
         // clear code selection
         e.clearSelection();
-      }
-      const getTextToCopy = function(trigger) {
-          const codeEl = trigger.previousElementSibling.cloneNode(true);
-          for (const childEl of codeEl.children) {
-            if (isCodeAnnotation(childEl)) {
-              childEl.remove();
-            }
-          }
-          return codeEl.innerText;
-      }
-      const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
-        text: getTextToCopy
       });
-      clipboard.on('success', onCopySuccess);
-      if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-        // For code content inside modals, clipBoardJS needs to be initialized with a container option
-        // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
-        const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
-          text: getTextToCopy,
-          container: window.document.getElementById('quarto-embedded-source-code-modal')
-        });
-        clipboardModal.on('success', onCopySuccess);
-      }
         var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
         var mailtoRegex = new RegExp(/^mailto:/);
           var filterRegex = new RegExp("https:\/\/daniela-palleschi\.github\.io\/zas-reproducibility-2024\/");
@@ -1328,7 +1320,7 @@ Wickham, H., &amp; Grolemund, G. (2016). <em>R for data science: Import, tidy, t
             return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
         }
         // Inspect non-navigation links and adorn them if external
-     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
         for (var i=0; i<links.length; i++) {
           const link = links[i];
           if (!isInternal(link.href)) {
