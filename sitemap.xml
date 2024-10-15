@@ -9,51 +9,67 @@
     <lastmod>2024-10-15T16:29:11.444Z</lastmod>
   </url>
   <url>
-    <loc>https://daniela-palleschi.github.io/zas-reproducibility-2024/pages/packages.html</loc>
-    <lastmod>2024-10-15T16:35:12.162Z</lastmod>
-  </url>
-  <url>
-    <loc>https://daniela-palleschi.github.io/zas-reproducibility-2024/pages/packages-slides.html</loc>
-    <lastmod>2024-10-15T16:35:12.162Z</lastmod>
-  </url>
-  <url>
-    <loc>https://daniela-palleschi.github.io/zas-reproducibility-2024/examples/eda-cwiek_2021.html</loc>
-    <lastmod>2024-10-07T17:30:51.691Z</lastmod>
-  </url>
-  <url>
-    <loc>https://daniela-palleschi.github.io/zas-reproducibility-2024/index.html</loc>
-    <lastmod>2024-10-07T07:43:19.516Z</lastmod>
-  </url>
-  <url>
-    <loc>https://daniela-palleschi.github.io/zas-reproducibility-2024/index_slides.html</loc>
-    <lastmod>2024-10-07T07:43:19.516Z</lastmod>
-  </url>
-  <url>
-    <loc>https://daniela-palleschi.github.io/zas-reproducibility-2024/intro/welcome-slides.html</loc>
-    <lastmod>2024-10-08T08:38:52.306Z</lastmod>
-  </url>
-  <url>
-    <loc>https://daniela-palleschi.github.io/zas-reproducibility-2024/intro/welcome.html</loc>
-    <lastmod>2024-10-08T08:38:52.306Z</lastmod>
-  </url>
-  <url>
-    <loc>https://daniela-palleschi.github.io/zas-reproducibility-2024/examples/literate-programming.html</loc>
-    <lastmod>2024-10-07T17:36:28.799Z</lastmod>
-  </url>
-  <url>
-    <loc>https://daniela-palleschi.github.io/zas-reproducibility-2024/pages/R-Projects-slides.html</loc>
-    <lastmod>2024-10-07T18:21:15.355Z</lastmod>
-  </url>
-  <url>
-    <loc>https://daniela-palleschi.github.io/zas-reproducibility-2024/pages/R-Projects.html</loc>
-    <lastmod>2024-10-07T18:21:15.355Z</lastmod>
+    <loc>https://daniela-palleschi.github.io/zas-reproducibility-2024/pages/reproducibility.html</loc>
+    <lastmod>2024-10-08T08:57:52.657Z</lastmod>
   </url>
   <url>
     <loc>https://daniela-palleschi.github.io/zas-reproducibility-2024/pages/reproducibility-slides.html</loc>
     <lastmod>2024-10-08T08:57:52.657Z</lastmod>
   </url>
   <url>
-    <loc>https://daniela-palleschi.github.io/zas-reproducibility-2024/pages/reproducibility.html</loc>
-    <lastmod>2024-10-08T08:57:52.657Z</lastmod>
+    <loc>https://daniela-palleschi.github.io/zas-reproducibility-2024/pages/R-Projects.html</loc>
+    <lastmod>2024-10-07T18:21:15.355Z</lastmod>
+  </url>
+  <url>
+    <loc>https://daniela-palleschi.github.io/zas-reproducibility-2024/pages/R-Projects-slides.html</loc>
+    <lastmod>2024-10-07T18:21:15.355Z</lastmod>
+  </url>
+  <url>
+    <loc>https://daniela-palleschi.github.io/zas-reproducibility-2024/examples/literate-programming.html</loc>
+    <lastmod>2024-10-07T17:36:28.799Z</lastmod>
+  </url>
+  <url>
+    <loc>https://daniela-palleschi.github.io/zas-reproducibility-2024/intro/welcome.html</loc>
+    <lastmod>2024-10-08T08:38:52.306Z</lastmod>
+  </url>
+  <url>
+    <loc>https://daniela-palleschi.github.io/zas-reproducibility-2024/intro/welcome-slides.html</loc>
+    <lastmod>2024-10-08T08:38:52.306Z</lastmod>
+  </url>
+  <url>
+    <loc>https://daniela-palleschi.github.io/zas-reproducibility-2024/intro/wrapup-slides.html</loc>
+    <lastmod>2024-10-15T17:39:03.691Z</lastmod>
+  </url>
+  <url>
+    <loc>https://daniela-palleschi.github.io/zas-reproducibility-2024/intro/wrapup.html</loc>
+    <lastmod>2024-10-15T17:39:03.691Z</lastmod>
+  </url>
+  <url>
+    <loc>https://daniela-palleschi.github.io/zas-reproducibility-2024/index_slides.html</loc>
+    <lastmod>2024-10-07T07:43:19.516Z</lastmod>
+  </url>
+  <url>
+    <loc>https://daniela-palleschi.github.io/zas-reproducibility-2024/index.html</loc>
+    <lastmod>2024-10-07T07:43:19.516Z</lastmod>
+  </url>
+  <url>
+    <loc>https://daniela-palleschi.github.io/zas-reproducibility-2024/examples/eda-cwiek_2021.html</loc>
+    <lastmod>2024-10-07T17:30:51.691Z</lastmod>
+  </url>
+  <url>
+    <loc>https://daniela-palleschi.github.io/zas-reproducibility-2024/pages/packages-slides.html</loc>
+    <lastmod>2024-10-15T16:35:12.162Z</lastmod>
+  </url>
+  <url>
+    <loc>https://daniela-palleschi.github.io/zas-reproducibility-2024/pages/packages.html</loc>
+    <lastmod>2024-10-15T16:35:12.162Z</lastmod>
+  </url>
+  <url>
+    <loc>https://daniela-palleschi.github.io/zas-reproducibility-2024/pages/repositories-slides.html</loc>
+    <lastmod>2024-10-15T18:19:43.174Z</lastmod>
+  </url>
+  <url>
+    <loc>https://daniela-palleschi.github.io/zas-reproducibility-2024/pages/repositories.html</loc>
+    <lastmod>2024-10-15T18:19:43.174Z</lastmod>
   </url>
 </urlset>
