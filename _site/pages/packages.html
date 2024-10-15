@@ -244,6 +244,12 @@ div.csl-indent {
  <span class="menu-text">Package management</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../pages/repositories.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Publishing our project and conducting a code review</span></a>
+  </div>
+</li>
       </ul>
   </li>
     </ul>
@@ -1334,7 +1340,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp('/' + window.location.host + '/');
+      var filterRegex = new RegExp("https:\/\/daniela-palleschi\.github\.io\/zas-reproducibility-2024\/");
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
