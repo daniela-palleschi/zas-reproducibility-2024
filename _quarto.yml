@@ -35,12 +35,11 @@ website:
     - section: "Day 1"
       contents:
         - pages/reproducibility.qmd
-        # - pages/R-workflow.qmd
         - pages/rprojects.qmd
     - section: "Day 2"
       contents:
       - pages/literate_programming.qmd
-      # - pages/pkg_management.qmd
+      - pages/pkg_management.qmd
 
 csl: apa.csl
 

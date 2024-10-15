@@ -41,23 +41,28 @@ execute:
 rbbt::bbt_update_bib(here::here("slides", "packages", "packages.qmd"))
 ```
 
-# Learning objectives {.unlisted .unnumbered}
+# Topics {.unlisted .unnumbered}
 
-Today we will...
-
-- learn about R package repositories
-- learn how package dependencies can break code
-- use the `renv` package to create and maintain a project-relative package library
+- R packages and dependencies
+- package versions and libraries
+- the `renv` package: creating a project-relative package library
+- project package library
+- lockfile maintenance
 
 # Resources {.unnumbered .unlisted}
 
+::: nonincremental
+
 - to read more on today's topic, check out:
+  - [Ch. 10 (Basic reprodubility: freezing packages)](https://raps-with-r.dev/repro_intro.html) from @rodrigues_building_nodate
+  - the [`renv` website](https://rstudio.github.io/renv/index.html)
+  - or the [CRAN documentation](https://cran.r-project.org/web/packages/renv/index.html) and vignettes therein (e.g.,: [Introduction to renv](https://cran.r-project.org/web/packages/renv/vignettes/renv.html))
 
-- [Ch. 10 (Basic reprodubility: freezing packages)](https://raps-with-r.dev/repro_intro.html) from @rodrigues_building_nodate
-- the [`renv` website](https://rstudio.github.io/renv/index.html) 
-  + or [CRAN documentation](https://cran.r-project.org/web/packages/renv/index.html) and vignettes therein (e.g.,: [Introduction to renv](https://cran.r-project.org/web/packages/renv/vignettes/renv.html))
+:::
 
-# Packages  {data-stack-name="Packages"}
+# R Packages  {data-stack-name="R Packages"}
+
+## R packages
 
 - most open source software (like R) has a range of libraries available
   + created by other users/developers and shared for free
@@ -69,7 +74,7 @@ Today we will...
 ## CRAN packages
 
 - the Comprehensive R Archive Network: R's central software repository
-  + currently 20,888 available!
+  + currently ~~20,888~~ 21,497 available!
 - an archive of the most recent package versions
 - for a package to be included in the CRAN, it must go through a lot of tests and checks
   + any updates or changes must again be reviewed before being added to CRAN
@@ -117,7 +122,7 @@ The additional benefit of `p_load()` is that, if you don't actually have one of 
 ## Developer packages
 
 - often hosted on GitHub or GitLab, where packages are typically developed before being reviewed and added to the CRAN
-  + benefit: you can make whatever you changes to your package that you like without having to pass a review on the CRAN
+  + benefit: developers can make whatever changes to their package that they like without having to pass a review on the CRAN
 - since CRAN packages are often developed on GH or GL, pre-release (beta) versions will often be available on a GH repo
 - packages/package versions on GH cannot be installed via `install.packages()`
   + we'll see later how to do this
@@ -132,18 +137,22 @@ The additional benefit of `p_load()` is that, if you don't actually have one of 
   + when we update these packages for current analyses, this might disrupt the code from 3 years ago
 - we'll see one (partial) solution for this problem soon
 
-# Package versions  {data-stack-name="Package versions"}
+# Package versions and libraries  {data-stack-name="Versions and libraries"}
+
+## Package versions
 
 - packages can be updated at any time
   + if hosted on the CRAN, they newer versions are first reviewed/rigorously tested
   + if hosted on GitHub/Lab, nobody needs to check the update before publication
 - if you want to check which version of a package you're using, you can run `packageVersion("package")`
 
+::: {.fragment}
 ```{r}
 #| eval: true
 #| output-location: fragment
 packageVersion("ggplot2")
 ```
+:::
 
 ## Updating packages
 
@@ -159,19 +168,24 @@ packageVersion("ggplot2")
   + a folder that contains all the packages, called a library
 - to find out where this (global) package library is, run `.libPaths()`
 
+::: {.fragment}
+
 ```{r}
 #| eval: false
 .libPaths()
 ```
+:::
 
 - the output should currently produce a single file path, something like:
 
+::: {.fragment}
 ```
 > .libPaths()
 [1] "/Library/Frameworks/R.framework/Versions/4.4-arm64/Resources/library"
 ```
+:::
 
-- this is the location of your global package library
+- this is the location of your global/system package library
 
 ## Package versions and reproducibility
 
@@ -182,15 +196,19 @@ packageVersion("ggplot2")
 - we need a project-relative package library that is independent of the global library
   + we'll use the `renv` package to do this
 
-# `renv`  {data-stack-name="{renv}"}
+# The `renv` package  {data-stack-name="{renv}"}
 
-- [`renv`](https://rstudio.github.io/renv/articles/renv.html) aids in maintaining *`r`*eproducible *`env`*ironments in R projects
+## `R`eproducible `Env`ironments for R projects
+
+- [`renv`](https://rstudio.github.io/renv/articles/renv.html) aids in maintaining *`r`*eproducible *`env`*ironments in R projects [@renv]
 - available on the CRAN
 
+::: {.fragment}
 ```{r filename="Run in the Console"}
 #| eval: false
 install.packages("renv")
 ```
+:::
 
 - main benefit: creates a self-contained, independent library per R Project
   + avoids cross-library package contamination
@@ -240,17 +258,19 @@ install.packages("renv")
   # )
 ```
 
-# Initialise project library  {data-stack-name="Initialise"}
+## Initialise project library
 
 - run the following in the Console *or* in a code chunk but with `#| eval: false`
   + we only want to run this *once* per R Project
   + when working in an actual project, I would just run this in the console
   + for learning/documenting how to use `renv`, I would keep this in a code chunk with `#| eval: false`
-  
+
+::: {.fragment}
 ```{r filename="In the Console or with eval: false"}
 #| eval: false
 renv::init()
 ```
+:::
 
 ::: {.content-visible when-format="revealjs"}
 ##
@@ -277,7 +297,7 @@ Restarting R session...
 - Project '~/Documents/IdSL/Teaching/SoSe24/M.A./r4repro_student' loaded. [renv 1.0.7]
 ```
 
-## New files
+### New files
 
 - `renv::init()` creates three new files or directories
   + `renv.lock`
@@ -286,7 +306,7 @@ Restarting R session...
 
 - explore these files/folders and see if you can figure out what they contain
 
-## `renv.lock`
+### `renv.lock`
 
 - contains metadata about the packages and their versions that you have installed
   + this is enough metadata to re-install these package versions on a new machine
@@ -294,15 +314,15 @@ Restarting R session...
   - `R`: info on R version and list of repositories where packages were installed from
   - `Packages`: a record per package with necessary info for re-installation
 
-## `renv/`
+### `renv/`
 
 - importantly, contains your project-relative `library/`
-  + this is instead of using the one library on your computer
+  + this is instead of using the local/system library on your computer
 - provides us with "isolation": the package versions used in an R Project is independent of the global library
   + in other words, different R Projects can use different package versions
   + updating packages globally, or in one project, will not affect other project libraries
   
-## `.RProfile`
+### `.RProfile`
 
 - runs whenver you (re-)start your R Project
 - at this point, should contain a single line:
@@ -315,108 +335,143 @@ source("renv/activate.R")
 - if you go to this R script, you'll send a lot of code
   + this essentially loads in your project library
 
-## Project library
+# Project library {data-stack-name="Project library"}
 
-- now if we re-run `.libPaths()`, we should see our project library
+## Locating our project library
 
+- if we re-run `.libPaths()`, we should see our project library
+
+::: {.fragment}
 ```{r filename="Run in the Console"}
-#| eval: false
+#| eval: true
+#| echo: fragment
 .libPaths()
 ```
-
-```
-> .libPaths()
-[1] "/Users/danielapalleschi/Documents/IdSL/Teaching/SoSe24/M.A./r4repro_SoSe2024/renv/library/macos/R-4.4/aarch64-apple-darwin20"
-[2] "/Users/danielapalleschi/Library/Caches/org.R-project.R/R/renv/sandbox/macos/R-4.4/aarch64-apple-darwin20/f7156815"  
-```
+:::
 
 - `[1]` is the local project library path
 - `[2]` is the path to a global package cache that `renv` maintains so that you don't repeatedly download packages to your machine for each project library
   + e.g., if we already have `ggplot2` installed globally on our machine, whenever we want to add it to a project library we don't need to re-install it entirely from the CRAN (unless we want a different package version)
 
-# Installing more packages
+## Installing more packages
 
 - which packages are stored in `renv.lock`?
   + only those that are used within your project
 - packages not used in your project but installed in your global library aren't included
   + to add these packages, or any other packages you want, you need to (re-)install them locally within your project
   
-- let's install a package that we'll use later on: `lme4`
-  
+- let's install a package that you'll likely have already installed elsewhere: `lme4` [@lme4]
+
+:::: {.columns}
+
+::: {.column width="30%"}
+::: {.fragment}
 ```{r}
-#| code-fold: true
 #| eval: false
 # as usual
 install.packages("lme4")
+# or with pacman::p_load()
+pacman::p_load("lme4")
 # or with the renv package
 renv::install("lme4")
 ```
+:::
+:::
+
+::: {.column width="70%"}
 
 - if you already have a package on your machine (in your global library), `renv` will just grab it from the global cache
 - if not, it will be downloaded from CRAN
+:::
+
+::::
 
 ## Installing a new package
 
-- let's also install a package I'm confident you don't already have on your machine (as you might've already worked with `lme4` in other classes)
-  + [`brms`] for Bayesian regression models using Stan
+- let's also install a package I'm confident you don't already have on your machine
+  + `beepr`, which can play notification sounds [@beepr]
 
+::: {.fragment}
 ```{r}
-#| code-fold: true
 #| eval: false
-install.packages("brms")
-renv::install("brms")
+install.packages("beepr")
 ```
+:::
 
 - and if we want a specific package version:
 
+::: {.fragment}
 ```{r}
-renv::install("brms@2.19.0")
+renv::install("beepr@1.3")
 ```
+:::
+
+- to test out `beepr`:
+
+::: {.fragment}
+```{r}
+#| eval: false
+beepr::beep()
+```
+:::
 
 
 ## Installing developer packages
 
 - not all packages are available on the CRAN
   + we can install developer packages from GitHub or GitLab using, e.g., the `install_github()` function from either the `remotes` or `devtools` package (both are very common)
-  
+
+::: {.fragment}
 ```{r}
 remotes::install_github("paul-buerkner/brms")
 devtools::install_github("paul-buerkner/brms")
 ```
+:::
 
 - *or* we can use `renv::install()`
 
+::: {.fragment}
 ```{r}
 # most recent version
 renv::install("paul-buerkner/brms")
 ```
+:::
 
+- or a specific previous version (you need the commit ID)
+
+::: {.fragment}
 ```{r}
-# a specific previous version, for which you'll need the commit ID
+
 renv::install("paul-buerkner/brms@db6ddde90ba533cb3942bc5a62b03803773b9844")
 ```
+:::
 
+# Maintaining your lockfile (`renv.lock`) {data-stack-name="Lockfile maintenance"}
 
-# Lockfile status
+## Lockfile status
 
 - you should make a habit of checking the status of your lockfile
   + you can do this by running the following:
 
+::: {.fragment}
 ```{r}
 #| eval: false
 renv::status()
 ```
+:::
 
 - ideally, you'll usually get the following message:
 
+::: {.fragment}
 ```
 > renv::status()
 No issues found -- the project is in a consistent state.
 ```
+:::
 
 - but if you've installed or updated some packages, you will get a list of any packages that are out-of-sync or haven't been stored in the lockfile (as should be our case)
 
-## Updating `renv.lock` file
+### Updating `renv.lock` file
 
 - to update the lockfile and library, simply run:
 
@@ -428,7 +483,7 @@ renv::snapshot()
 - you'll be given a list of changes to be made and asked if you want to proceed
   + if not problems are mentioned, then you can go ahead
 
-# Updating packages
+## Updating packages
 
 - to update packages using `renv`, we can use:
 
@@ -442,7 +497,7 @@ renv::update.packages()
   + to do this, include the argument `lock = TRUE`
 - you can also use these functions to only check by including `check = T`
 
-# Restoring lockfile
+## Restoring lockfile
 
 ```{r}
 #| eval: false
@@ -477,22 +532,36 @@ renv::restore()
 # Session Info
 
 - whether you're using `renv` or not, *always* end a script with `sessionInfo()`
-  + with dynamic reports: this will print out the package versions used to produce the output
-  + in R: you can save the info as an object and save it as an RDS file
-    + or run it, copy-and-paste the output in the script, and comment it all out
 
+::: {.fragment}
 ```{r}
 #| eval: true
 sessionInfo()
 ```
+:::
 
-# Learning objectives {.unlisted .unnumbered}
+::: {.content-visible when-format="revealjs"}
+# Current state of your R Project
+:::
 
-Today we will...
+::: {.callout-note}
+## Your practice R Project
 
-- learn about R package repositories
-- learn how package dependencies can break code
-- use the `renv` package to create and maintain a project-relative package library
+Recall that we created a new R Project. It should now have:
+
+- the dataset in the `data/` folder
+- some `scripts/` (perhaps R scripts from last week, at least one Quarto script from this week)
+- a `renv.lock` file, `.Rprofile`, and a `renv/` folder
+
+:::
+
+# Topics 🏁 {.unlisted .unnumbered}
+
+- R packages and dependencies ✅
+- package versions and libraries ✅
+- the `renv` package: creating a project-relative package library ✅
+- project package library ✅
+- lockfile maintenance ✅
 
 # References {.unlisted .unnumbered visibility="uncounted"}
 

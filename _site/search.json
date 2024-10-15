@@ -112,7 +112,7 @@
     "href": "pages/literate_programming.html#session-info",
     "title": "Writing Reproducible Code",
     "section": "4.1 Session info",
-    "text": "4.1 Session info\n\nso, print your session info at the end of every script\n\nthis will print your R version, package versions, and more\n\n\n\nsessionInfo()",
+    "text": "4.1 Session info\n\nso, print your session info at the end of every script\n\nthis will print your R version, package versions, and more\n\n\n\n\nsessionInfo()\n\n\n\nwith dynamic reports: this will be produced the output\n\nfor R scripts: you can save the info as an object and save it as an RDS file (I recommend saving it alongside the relevant script, with the same name plus session_info or something of the like)\n\n\n\n\nmy_session &lt;- sessionInfo()\nsaveRDS(my_session, file = here(\"scripts\", \"03-analyses\", \"phoneme_analyses-session_info.rds\"))\n\n\n\nor run it, copy-and-paste the output in the script, and comment it all out",
     "crumbs": [
       "D. Palleschi",
       "Day 2",
@@ -206,140 +206,273 @@
     "href": "pages/literate_programming-slides.html#session-info",
     "title": "Writing Reproducible Code",
     "section": "Session info",
-    "text": "Session info\n\nso, print your session info at the end of every script\n\nthis will print your R version, package versions, and more\n\n\n\nsessionInfo()"
+    "text": "Session info\n\nso, print your session info at the end of every script\n\nthis will print your R version, package versions, and more\n\n\n\n\nsessionInfo()\n\n\n\nwith dynamic reports: this will be produced the output\n\nfor R scripts: you can save the info as an object and save it as an RDS file (I recommend saving it alongside the relevant script, with the same name plus session_info or something of the like)\n\n\n\n\nmy_session &lt;- sessionInfo()\nsaveRDS(my_session, file = here(\"scripts\", \"03-analyses\", \"phoneme_analyses-session_info.rds\"))\n\n\n\nor run it, copy-and-paste the output in the script, and comment it all out"
   },
   {
     "objectID": "pages/packages.html",
     "href": "pages/packages.html",
     "title": "Package management",
     "section": "",
-    "text": "Today we will…\n\nlearn about R package repositories\nlearn how package dependencies can break code\nuse the renv package to create and maintain a project-relative package library"
+    "text": "R packages and dependencies\npackage versions and libraries\nthe renv package: creating a project-relative package library\nproject package library\nlockfile maintenance",
+    "crumbs": [
+      "D. Palleschi",
+      "Day 2",
+      "Package management"
+    ]
+  },
+  {
+    "objectID": "pages/packages.html#r-packages-1",
+    "href": "pages/packages.html#r-packages-1",
+    "title": "Package management",
+    "section": "1.1 R packages",
+    "text": "1.1 R packages\n\nmost open source software (like R) has a range of libraries available\n\ncreated by other users/developers and shared for free\n\nthe benefit of open software (besides being free) is that we don’t have to wait for an updated version to be released by a company\n\nand anybody can create an R package to facilitate certain tasks or fix some problem\n\nthis is part of the reason for the success and popularity of R\n\nsomeone else has likely created a package for some problem or need you have",
+    "crumbs": [
+      "D. Palleschi",
+      "Day 2",
+      "Package management"
+    ]
   },
   {
     "objectID": "pages/packages.html#cran-packages",
     "href": "pages/packages.html#cran-packages",
     "title": "Package management",
-    "section": "1.1 CRAN packages",
-    "text": "1.1 CRAN packages\n\nthe Comprehensive R Archive Network: R’s central software repository\n\ncurrently 20,888 available!\n\nan archive of the most recent package versions\nfor a package to be included in the CRAN, it must go through a lot of tests and checks\n\nany updates or changes must again be reviewed before being added to CRAN\n\nCRAN packages can be installed using install.packages(), as we’ve been doing\n\n\n\n\n\n\n\npacman package (optional)\n\n\n\n\n\na package management tool\nwe’ll use the p_load() function to replace install.packages() and library() in our worksflow\n\ntakes a list of packages, and checks if each package is installed already\nif yes, the package is loaded (as with library())\nif no, the package is installed (as with install.packages()) and then loaded (as with library())\n\nonly works with CRAN packages (which is all we have for now anyway), although pacman has a function for developer packages (which we’ll talk about later)\n\nTo get started: install pacman (install.packages(\"pacman\")). Then, you can load in your packages using pacman::p_load(), or with a long list of library() calls like we’ve previously done (you see why I prefer p_load()!).\n\n\n\n\n\nLoading packages with `pacman::p_load()`\n\npacman::p_load(tidyverse, here, janitor)\n\n\n\n\n\n\nLoading packages with `library()`\n\nlibrary(tidyverse)\nlibrary(here)\nlibrary(janitor)\n\n\n\n\nThe additional benefit of p_load() is that, if you don’t actually have one of the packages installed it will automatically be installed and then loaded. With library() you would instead get an error message."
+    "section": "1.2 CRAN packages",
+    "text": "1.2 CRAN packages\n\nthe Comprehensive R Archive Network: R’s central software repository\n\ncurrently 20,888 21,497 available!\n\nan archive of the most recent package versions\nfor a package to be included in the CRAN, it must go through a lot of tests and checks\n\nany updates or changes must again be reviewed before being added to CRAN\n\nCRAN packages can be installed using install.packages(), as we’ve been doing\n\n\n\n\n\n\n\npacman package (optional)\n\n\n\n\n\na package management tool\nwe’ll use the p_load() function to replace install.packages() and library() in our worksflow\n\ntakes a list of packages, and checks if each package is installed already\nif yes, the package is loaded (as with library())\nif no, the package is installed (as with install.packages()) and then loaded (as with library())\n\nonly works with CRAN packages (which is all we have for now anyway), although pacman has a function for developer packages (which we’ll talk about later)\n\nTo get started: install pacman (install.packages(\"pacman\")). Then, you can load in your packages using pacman::p_load(), or with a long list of library() calls like we’ve previously done (you see why I prefer p_load()!).\n\n\n\n\n\nLoading packages with `pacman::p_load()`\n\npacman::p_load(tidyverse, here, janitor)\n\n\n\n\n\n\nLoading packages with `library()`\n\nlibrary(tidyverse)\nlibrary(here)\nlibrary(janitor)\n\n\n\n\nThe additional benefit of p_load() is that, if you don’t actually have one of the packages installed it will automatically be installed and then loaded. With library() you would instead get an error message.",
+    "crumbs": [
+      "D. Palleschi",
+      "Day 2",
+      "Package management"
+    ]
   },
   {
     "objectID": "pages/packages.html#developer-packages",
     "href": "pages/packages.html#developer-packages",
     "title": "Package management",
-    "section": "1.2 Developer packages",
-    "text": "1.2 Developer packages\n\noften hosted on GitHub or GitLab, where packages are typically developed before being reviewed and added to the CRAN\n\nbenefit: you can make whatever you changes to your package that you like without having to pass a review on the CRAN\n\nsince CRAN packages are often developed on GH or GL, pre-release (beta) versions will often be available on a GH repo\npackages/package versions on GH cannot be installed via install.packages()\n\nwe’ll see later how to do this"
+    "section": "1.3 Developer packages",
+    "text": "1.3 Developer packages\n\noften hosted on GitHub or GitLab, where packages are typically developed before being reviewed and added to the CRAN\n\nbenefit: developers can make whatever changes to their package that they like without having to pass a review on the CRAN\n\nsince CRAN packages are often developed on GH or GL, pre-release (beta) versions will often be available on a GH repo\npackages/package versions on GH cannot be installed via install.packages()\n\nwe’ll see later how to do this",
+    "crumbs": [
+      "D. Palleschi",
+      "Day 2",
+      "Package management"
+    ]
   },
   {
     "objectID": "pages/packages.html#dependencies",
     "href": "pages/packages.html#dependencies",
     "title": "Package management",
-    "section": "1.3 Dependencies",
-    "text": "1.3 Dependencies\n\nsome packages are dependent on specific versions of other packages\n\nif so, you will be prompted during installation to install these dependencies\nbut beware: sometimes this overwrites an existing package version you already have, which can break code that was written with this older version\n\nthis is especially true because, as our projects are currently set up, we have one global package version on our computer\n\nso analyses we ran 3 years ago would’ve used older versions of packages\nwhen we update these packages for current analyses, this might disrupt the code from 3 years ago\n\nwe’ll see one (partial) solution for this problem soon"
+    "section": "1.4 Dependencies",
+    "text": "1.4 Dependencies\n\nsome packages are dependent on specific versions of other packages\n\nif so, you will be prompted during installation to install these dependencies\nbut beware: sometimes this overwrites an existing package version you already have, which can break code that was written with this older version\n\nthis is especially true because, as our projects are currently set up, we have one global package version on our computer\n\nso analyses we ran 3 years ago would’ve used older versions of packages\nwhen we update these packages for current analyses, this might disrupt the code from 3 years ago\n\nwe’ll see one (partial) solution for this problem soon",
+    "crumbs": [
+      "D. Palleschi",
+      "Day 2",
+      "Package management"
+    ]
+  },
+  {
+    "objectID": "pages/packages.html#package-versions",
+    "href": "pages/packages.html#package-versions",
+    "title": "Package management",
+    "section": "2.1 Package versions",
+    "text": "2.1 Package versions\n\npackages can be updated at any time\n\nif hosted on the CRAN, they newer versions are first reviewed/rigorously tested\nif hosted on GitHub/Lab, nobody needs to check the update before publication\n\nif you want to check which version of a package you’re using, you can run packageVersion(\"package\")\n\n\n\npackageVersion(\"ggplot2\")\n\n[1] '3.5.1'",
+    "crumbs": [
+      "D. Palleschi",
+      "Day 2",
+      "Package management"
+    ]
   },
   {
     "objectID": "pages/packages.html#updating-packages",
     "href": "pages/packages.html#updating-packages",
     "title": "Package management",
-    "section": "2.1 Updating packages",
-    "text": "2.1 Updating packages\n\nto check if a package needs updating, you can:\n\ngo to Tools &gt; Check for package updates, or\nrun update.packages()\n\neach will tell you which packages can be updated to which versions\n\nand give you the option of updating these packages"
+    "section": "2.2 Updating packages",
+    "text": "2.2 Updating packages\n\nto check if a package needs updating, you can:\n\ngo to Tools &gt; Check for package updates, or\nrun update.packages()\n\neach will tell you which packages can be updated to which versions\n\nand give you the option of updating these packages",
+    "crumbs": [
+      "D. Palleschi",
+      "Day 2",
+      "Package management"
+    ]
   },
   {
     "objectID": "pages/packages.html#package-library",
     "href": "pages/packages.html#package-library",
     "title": "Package management",
-    "section": "2.2 Package library",
-    "text": "2.2 Package library\n\nwhere do all these installed packages go?\n\na folder that contains all the packages, called a library\n\nto find out where this (global) package library is, run .libPaths()\n\n\n.libPaths()\n\n\nthe output should currently produce a single file path, something like:\n\n&gt; .libPaths()\n[1] \"/Library/Frameworks/R.framework/Versions/4.4-arm64/Resources/library\"\n\nthis is the location of your global package library"
+    "section": "2.3 Package library",
+    "text": "2.3 Package library\n\nwhere do all these installed packages go?\n\na folder that contains all the packages, called a library\n\nto find out where this (global) package library is, run .libPaths()\n\n\n\n.libPaths()\n\n\n\nthe output should currently produce a single file path, something like:\n\n\n&gt; .libPaths()\n[1] \"/Library/Frameworks/R.framework/Versions/4.4-arm64/Resources/library\"\n\n\nthis is the location of your global/system package library",
+    "crumbs": [
+      "D. Palleschi",
+      "Day 2",
+      "Package management"
+    ]
   },
   {
     "objectID": "pages/packages.html#package-versions-and-reproducibility",
     "href": "pages/packages.html#package-versions-and-reproducibility",
     "title": "Package management",
-    "section": "2.3 Package versions and reproducibility",
-    "text": "2.3 Package versions and reproducibility\n\nwe’ve seen that package versions and dependencies can easily break our existing code\nthis means that older projects that were built using previous package versions won’t be able to run if we update these packages in our global package library\n\nalso a problem in the future: our current code will depend on the package versions we’re using today\n\nwe need a project-relative package library that is independent of the global library\n\nwe’ll use the renv package to do this"
+    "section": "2.4 Package versions and reproducibility",
+    "text": "2.4 Package versions and reproducibility\n\nwe’ve seen that package versions and dependencies can easily break our existing code\nthis means that older projects that were built using previous package versions won’t be able to run if we update these packages in our global package library\n\nalso a problem in the future: our current code will depend on the package versions we’re using today\n\nwe need a project-relative package library that is independent of the global library\n\nwe’ll use the renv package to do this",
+    "crumbs": [
+      "D. Palleschi",
+      "Day 2",
+      "Package management"
+    ]
+  },
+  {
+    "objectID": "pages/packages.html#reproducible-environments-for-r-projects",
+    "href": "pages/packages.html#reproducible-environments-for-r-projects",
+    "title": "Package management",
+    "section": "3.1 Reproducible Environments for R projects",
+    "text": "3.1 Reproducible Environments for R projects\n\nrenv aids in maintaining reproducible environments in R projects (Ushey & Wickham, 2024)\navailable on the CRAN\n\n\n\n\n\nRun in the Console\n\ninstall.packages(\"renv\")\n\n\n\n\nmain benefit: creates a self-contained, independent library per R Project\n\navoids cross-library package contamination\n\nrenv freezes and stores package versions used in a project\nbut does not make a project reproducible across R versions and machines\n\nthat’s because older package versions are not always compatible with newer computational environments",
+    "crumbs": [
+      "D. Palleschi",
+      "Day 2",
+      "Package management"
+    ]
   },
   {
     "objectID": "pages/packages.html#limits-of-renv",
     "href": "pages/packages.html#limits-of-renv",
     "title": "Package management",
-    "section": "3.1 Limits of renv",
-    "text": "3.1 Limits of renv\nrenv…\n\n\n…can\n\nkeep track of packages and their versions\ncreate a project-specific library per R version\nautomatically load/install these package versions\n\n\n…cannot\n\nmake a project reproducible across all computational environments\nload/install package versions that are incompatible with current R versions or computational environments\nguarantee full long-term reproduciblity"
+    "section": "3.2 Limits of renv",
+    "text": "3.2 Limits of renv\nrenv…\n\n\n…can\n\nkeep track of packages and their versions\ncreate a project-specific library per R version\nautomatically load/install these package versions\n\n\n…cannot\n\nmake a project reproducible across all computational environments\nload/install package versions that are incompatible with current R versions or computational environments\nguarantee full long-term reproduciblity",
+    "crumbs": [
+      "D. Palleschi",
+      "Day 2",
+      "Package management"
+    ]
   },
   {
     "objectID": "pages/packages.html#renv-workflow",
     "href": "pages/packages.html#renv-workflow",
     "title": "Package management",
-    "section": "3.2 renv workflow",
-    "text": "3.2 renv workflow\n\nFigure 1 visualises a project workflow with renv\nnext we’ll see how we use these functions to set-up and maintain a project-specific package library\n\n\n\n\n\n\n\n\n\nFigure 1: Source: CRAN vignette ‘Introduction to renv’ (all rights reserved)"
+    "section": "3.3 renv workflow",
+    "text": "3.3 renv workflow\n\nFigure 1 visualises a project workflow with renv\nnext we’ll see how we use these functions to set-up and maintain a project-specific package library\n\n\n\n\n\n\n\n\n\nFigure 1: Source: CRAN vignette ‘Introduction to renv’ (all rights reserved)",
+    "crumbs": [
+      "D. Palleschi",
+      "Day 2",
+      "Package management"
+    ]
   },
   {
-    "objectID": "pages/packages.html#new-files",
-    "href": "pages/packages.html#new-files",
+    "objectID": "pages/packages.html#initialise-project-library",
+    "href": "pages/packages.html#initialise-project-library",
     "title": "Package management",
-    "section": "4.1 New files",
-    "text": "4.1 New files\n\nrenv::init() creates three new files or directories\n\nrenv.lock\nrenv/\n.Rprofile\n\nexplore these files/folders and see if you can figure out what they contain"
+    "section": "3.4 Initialise project library",
+    "text": "3.4 Initialise project library\n\nrun the following in the Console or in a code chunk but with #| eval: false\n\nwe only want to run this once per R Project\nwhen working in an actual project, I would just run this in the console\nfor learning/documenting how to use renv, I would keep this in a code chunk with #| eval: false\n\n\n\n\n\n\nIn the Console or with eval: false\n\nrenv::init()\n\n\n\n\nyou should see something like this in the Console:\n\n- Linking packages into the project library ... [137/137] Done!\n- Resolving missing dependencies ... \n# Installing packages --------------------------------------------------------\nThe following package(s) will be updated in the lockfile:\n\n# CRAN -----------------------------------------------------------------------\n[long list of packages and their versions]\n\nThe version of R recorded in the lockfile will be updated:\n- R               [* -&gt; 4.4.0]\n\n- Lockfile written to \"~/Documents/IdSL/Teaching/SoSe24/M.A./r4repro_student/renv.lock\".\n\nRestarting R session...\n\n- Project '~/Documents/IdSL/Teaching/SoSe24/M.A./r4repro_student' loaded. [renv 1.0.7]\n\n3.4.1 New files\n\nrenv::init() creates three new files or directories\n\nrenv.lock\nrenv/\n.Rprofile\n\nexplore these files/folders and see if you can figure out what they contain\n\n\n\n3.4.2 renv.lock\n\ncontains metadata about the packages and their versions that you have installed\n\nthis is enough metadata to re-install these package versions on a new machine\n\ntwo main components:\n\nR: info on R version and list of repositories where packages were installed from\nPackages: a record per package with necessary info for re-installation\n\n\n\n\n3.4.3 renv/\n\nimportantly, contains your project-relative library/\n\nthis is instead of using the local/system library on your computer\n\nprovides us with “isolation”: the package versions used in an R Project is independent of the global library\n\nin other words, different R Projects can use different package versions\nupdating packages globally, or in one project, will not affect other project libraries\n\n\n\n\n3.4.4 .RProfile\n\nruns whenver you (re-)start your R Project\nat this point, should contain a single line:\n\n\nsource(\"renv/activate.R\")\n\n\nif you go to this R script, you’ll send a lot of code\n\nthis essentially loads in your project library",
+    "crumbs": [
+      "D. Palleschi",
+      "Day 2",
+      "Package management"
+    ]
   },
   {
-    "objectID": "pages/packages.html#renv.lock",
-    "href": "pages/packages.html#renv.lock",
+    "objectID": "pages/packages.html#locating-our-project-library",
+    "href": "pages/packages.html#locating-our-project-library",
     "title": "Package management",
-    "section": "4.2 renv.lock",
-    "text": "4.2 renv.lock\n\ncontains metadata about the packages and their versions that you have installed\n\nthis is enough metadata to re-install these package versions on a new machine\n\ntwo main components:\n\nR: info on R version and list of repositories where packages were installed from\nPackages: a record per package with necessary info for re-installation"
+    "section": "4.1 Locating our project library",
+    "text": "4.1 Locating our project library\n\nif we re-run .libPaths(), we should see our project library\n\n\n\n\n\nRun in the Console\n\n.libPaths()\n\n\n[1] \"/Users/danielapalleschi/Documents/ZAS/zas-reproducibility-2024/renv/library/macos/R-4.4/aarch64-apple-darwin20\"   \n[2] \"/Users/danielapalleschi/Library/Caches/org.R-project.R/R/renv/sandbox/macos/R-4.4/aarch64-apple-darwin20/f7156815\"\n\n\n\n\n[1] is the local project library path\n[2] is the path to a global package cache that renv maintains so that you don’t repeatedly download packages to your machine for each project library\n\ne.g., if we already have ggplot2 installed globally on our machine, whenever we want to add it to a project library we don’t need to re-install it entirely from the CRAN (unless we want a different package version)",
+    "crumbs": [
+      "D. Palleschi",
+      "Day 2",
+      "Package management"
+    ]
   },
   {
-    "objectID": "pages/packages.html#renv-1",
-    "href": "pages/packages.html#renv-1",
+    "objectID": "pages/packages.html#installing-more-packages",
+    "href": "pages/packages.html#installing-more-packages",
     "title": "Package management",
-    "section": "4.3 renv/",
-    "text": "4.3 renv/\n\nimportantly, contains your project-relative library/\n\nthis is instead of using the one library on your computer\n\nprovides us with “isolation”: the package versions used in an R Project is independent of the global library\n\nin other words, different R Projects can use different package versions\nupdating packages globally, or in one project, will not affect other project libraries"
-  },
-  {
-    "objectID": "pages/packages.html#rprofile",
-    "href": "pages/packages.html#rprofile",
-    "title": "Package management",
-    "section": "4.4 .RProfile",
-    "text": "4.4 .RProfile\n\nruns whenver you (re-)start your R Project\nat this point, should contain a single line:\n\n\nsource(\"renv/activate.R\")\n\n\nif you go to this R script, you’ll send a lot of code\n\nthis essentially loads in your project library"
-  },
-  {
-    "objectID": "pages/packages.html#project-library",
-    "href": "pages/packages.html#project-library",
-    "title": "Package management",
-    "section": "4.5 Project library",
-    "text": "4.5 Project library\n\nnow if we re-run .libPaths(), we should see our project library\n\n\n\n\nRun in the Console\n\n.libPaths()\n\n\n&gt; .libPaths()\n[1] \"/Users/danielapalleschi/Documents/IdSL/Teaching/SoSe24/M.A./r4repro_SoSe2024/renv/library/macos/R-4.4/aarch64-apple-darwin20\"\n[2] \"/Users/danielapalleschi/Library/Caches/org.R-project.R/R/renv/sandbox/macos/R-4.4/aarch64-apple-darwin20/f7156815\"  \n\n[1] is the local project library path\n[2] is the path to a global package cache that renv maintains so that you don’t repeatedly download packages to your machine for each project library\n\ne.g., if we already have ggplot2 installed globally on our machine, whenever we want to add it to a project library we don’t need to re-install it entirely from the CRAN (unless we want a different package version)"
+    "section": "4.2 Installing more packages",
+    "text": "4.2 Installing more packages\n\nwhich packages are stored in renv.lock?\n\nonly those that are used within your project\n\npackages not used in your project but installed in your global library aren’t included\n\nto add these packages, or any other packages you want, you need to (re-)install them locally within your project\n\nlet’s install a package that you’ll likely have already installed elsewhere: lme4 (Bates et al., 2015)\n\n\n\n\n\n# as usual\ninstall.packages(\"lme4\")\n# or with pacman::p_load()\npacman::p_load(\"lme4\")\n# or with the renv package\nrenv::install(\"lme4\")\n\n\n\n\nif you already have a package on your machine (in your global library), renv will just grab it from the global cache\nif not, it will be downloaded from CRAN",
+    "crumbs": [
+      "D. Palleschi",
+      "Day 2",
+      "Package management"
+    ]
   },
   {
     "objectID": "pages/packages.html#installing-a-new-package",
     "href": "pages/packages.html#installing-a-new-package",
     "title": "Package management",
-    "section": "5.1 Installing a new package",
-    "text": "5.1 Installing a new package\n\nlet’s also install a package I’m confident you don’t already have on your machine (as you might’ve already worked with lme4 in other classes)\n\n[brms] for Bayesian regression models using Stan\n\n\n\n\nCode\ninstall.packages(\"brms\")\nrenv::install(\"brms\")\n\n\n\nand if we want a specific package version:\n\n\nrenv::install(\"brms@2.19.0\")"
+    "section": "4.3 Installing a new package",
+    "text": "4.3 Installing a new package\n\nlet’s also install a package I’m confident you don’t already have on your machine\n\nbeepr, which can play notification sounds (Bååth, 2024)\n\n\n\n\ninstall.packages(\"beepr\")\n\n\n\nand if we want a specific package version:\n\n\n\nrenv::install(\"beepr@1.3\")\n\n\n\nto test out beepr:\n\n\n\nbeepr::beep()",
+    "crumbs": [
+      "D. Palleschi",
+      "Day 2",
+      "Package management"
+    ]
   },
   {
     "objectID": "pages/packages.html#installing-developer-packages",
     "href": "pages/packages.html#installing-developer-packages",
     "title": "Package management",
-    "section": "5.2 Installing developer packages",
-    "text": "5.2 Installing developer packages\n\nnot all packages are available on the CRAN\n\nwe can install developer packages from GitHub or GitLab using, e.g., the install_github() function from either the remotes or devtools package (both are very common)\n\n\n\nremotes::install_github(\"paul-buerkner/brms\")\ndevtools::install_github(\"paul-buerkner/brms\")\n\n\nor we can use renv::install()\n\n\n# most recent version\nrenv::install(\"paul-buerkner/brms\")\n\n\n# a specific previous version, for which you'll need the commit ID\nrenv::install(\"paul-buerkner/brms@db6ddde90ba533cb3942bc5a62b03803773b9844\")"
+    "section": "4.4 Installing developer packages",
+    "text": "4.4 Installing developer packages\n\nnot all packages are available on the CRAN\n\nwe can install developer packages from GitHub or GitLab using, e.g., the install_github() function from either the remotes or devtools package (both are very common)\n\n\n\n\nremotes::install_github(\"paul-buerkner/brms\")\ndevtools::install_github(\"paul-buerkner/brms\")\n\n\n\nor we can use renv::install()\n\n\n\n# most recent version\nrenv::install(\"paul-buerkner/brms\")\n\n\n\nor a specific previous version (you need the commit ID)\n\n\n\nrenv::install(\"paul-buerkner/brms@db6ddde90ba533cb3942bc5a62b03803773b9844\")",
+    "crumbs": [
+      "D. Palleschi",
+      "Day 2",
+      "Package management"
+    ]
   },
   {
-    "objectID": "pages/packages.html#updating-renv.lock-file",
-    "href": "pages/packages.html#updating-renv.lock-file",
+    "objectID": "pages/packages.html#lockfile-status",
+    "href": "pages/packages.html#lockfile-status",
     "title": "Package management",
-    "section": "6.1 Updating renv.lock file",
-    "text": "6.1 Updating renv.lock file\n\nto update the lockfile and library, simply run:\n\n\nrenv::snapshot()\n\n\nyou’ll be given a list of changes to be made and asked if you want to proceed\n\nif not problems are mentioned, then you can go ahead"
+    "section": "5.1 Lockfile status",
+    "text": "5.1 Lockfile status\n\nyou should make a habit of checking the status of your lockfile\n\nyou can do this by running the following:\n\n\n\n\nrenv::status()\n\n\n\nideally, you’ll usually get the following message:\n\n\n&gt; renv::status()\nNo issues found -- the project is in a consistent state.\n\n\nbut if you’ve installed or updated some packages, you will get a list of any packages that are out-of-sync or haven’t been stored in the lockfile (as should be our case)\n\n\n5.1.1 Updating renv.lock file\n\nto update the lockfile and library, simply run:\n\n\nrenv::snapshot()\n\n\nyou’ll be given a list of changes to be made and asked if you want to proceed\n\nif not problems are mentioned, then you can go ahead",
+    "crumbs": [
+      "D. Palleschi",
+      "Day 2",
+      "Package management"
+    ]
+  },
+  {
+    "objectID": "pages/packages.html#updating-packages-1",
+    "href": "pages/packages.html#updating-packages-1",
+    "title": "Package management",
+    "section": "5.2 Updating packages",
+    "text": "5.2 Updating packages\n\nto update packages using renv, we can use:\n\n\nrenv::update()\n# or\nrenv::update.packages()\n\n\nthis will not automatically store the updated versions in the lockfile\n\nto do this, include the argument lock = TRUE\n\nyou can also use these functions to only check by including check = T",
+    "crumbs": [
+      "D. Palleschi",
+      "Day 2",
+      "Package management"
+    ]
+  },
+  {
+    "objectID": "pages/packages.html#restoring-lockfile",
+    "href": "pages/packages.html#restoring-lockfile",
+    "title": "Package management",
+    "section": "5.3 Restoring lockfile",
+    "text": "5.3 Restoring lockfile\n\nrenv::restore()\n\n\nthis will restore the current project’s package versions to be those stored in the lockfile\n\nbut only if the library was built in the same R version\notherwise, all packages need to be installed, and might not function the same\n\nuseful if you\n\nwant to revert to the stored package versions\nwant to run your project on another computer (e.g., a collaborator)",
+    "crumbs": [
+      "D. Palleschi",
+      "Day 2",
+      "Package management"
+    ]
   },
   {
     "objectID": "pages/packages.html#posit-public-package-manager",
     "href": "pages/packages.html#posit-public-package-manager",
     "title": "Package management",
-    "section": "9.1 Posit Public Package Manager",
-    "text": "9.1 Posit Public Package Manager\n\nPosit (formerly called RStudio, the parent company of R) has a public package manager: https://packagemanager.posit.co/client/#/\nyou can select a snapshot of the CRAN at a specific date: https://packagemanager.posit.co/client/#/repos/cran/setup\n\nSnapshots: do you want to freeze package versions to enhance reproducibility?: Select Yes, always install packages from the date I choose\nfollow the rest of the instructions"
+    "section": "6.1 Posit Public Package Manager",
+    "text": "6.1 Posit Public Package Manager\n\nPosit (formerly called RStudio, the parent company of R) has a public package manager: https://packagemanager.posit.co/client/#/\nyou can select a snapshot of the CRAN at a specific date: https://packagemanager.posit.co/client/#/repos/cran/setup\n\nSnapshots: do you want to freeze package versions to enhance reproducibility?: Select Yes, always install packages from the date I choose\nfollow the rest of the instructions",
+    "crumbs": [
+      "D. Palleschi",
+      "Day 2",
+      "Package management"
+    ]
+  },
+  {
+    "objectID": "pages/packages-slides.html#r-packages-1",
+    "href": "pages/packages-slides.html#r-packages-1",
+    "title": "Package management",
+    "section": "R packages",
+    "text": "R packages\n\nmost open source software (like R) has a range of libraries available\n\ncreated by other users/developers and shared for free\n\n\nthe benefit of open software (besides being free) is that we don’t have to wait for an updated version to be released by a company\n\nand anybody can create an R package to facilitate certain tasks or fix some problem\n\n\nthis is part of the reason for the success and popularity of R\n\nsomeone else has likely created a package for some problem or need you have"
   },
   {
     "objectID": "pages/packages-slides.html#cran-packages",
     "href": "pages/packages-slides.html#cran-packages",
     "title": "Package management",
     "section": "CRAN packages",
-    "text": "CRAN packages\n\nthe Comprehensive R Archive Network: R’s central software repository\n\ncurrently 20,888 available!\n\n\nan archive of the most recent package versions\nfor a package to be included in the CRAN, it must go through a lot of tests and checks\n\nany updates or changes must again be reviewed before being added to CRAN\n\n\nCRAN packages can be installed using install.packages(), as we’ve been doing"
+    "text": "CRAN packages\n\nthe Comprehensive R Archive Network: R’s central software repository\n\ncurrently 20,888 21,497 available!\n\n\nan archive of the most recent package versions\nfor a package to be included in the CRAN, it must go through a lot of tests and checks\n\nany updates or changes must again be reviewed before being added to CRAN\n\n\nCRAN packages can be installed using install.packages(), as we’ve been doing"
   },
   {
     "objectID": "pages/packages-slides.html#section",
@@ -353,7 +486,7 @@
     "href": "pages/packages-slides.html#developer-packages",
     "title": "Package management",
     "section": "Developer packages",
-    "text": "Developer packages\n\noften hosted on GitHub or GitLab, where packages are typically developed before being reviewed and added to the CRAN\n\nbenefit: you can make whatever you changes to your package that you like without having to pass a review on the CRAN\n\n\nsince CRAN packages are often developed on GH or GL, pre-release (beta) versions will often be available on a GH repo\npackages/package versions on GH cannot be installed via install.packages()\n\nwe’ll see later how to do this"
+    "text": "Developer packages\n\noften hosted on GitHub or GitLab, where packages are typically developed before being reviewed and added to the CRAN\n\nbenefit: developers can make whatever changes to their package that they like without having to pass a review on the CRAN\n\n\nsince CRAN packages are often developed on GH or GL, pre-release (beta) versions will often be available on a GH repo\npackages/package versions on GH cannot be installed via install.packages()\n\nwe’ll see later how to do this"
   },
   {
     "objectID": "pages/packages-slides.html#dependencies",
@@ -361,6 +494,13 @@
     "title": "Package management",
     "section": "Dependencies",
     "text": "Dependencies\n\nsome packages are dependent on specific versions of other packages\n\nif so, you will be prompted during installation to install these dependencies\nbut beware: sometimes this overwrites an existing package version you already have, which can break code that was written with this older version\n\n\nthis is especially true because, as our projects are currently set up, we have one global package version on our computer\n\nso analyses we ran 3 years ago would’ve used older versions of packages\nwhen we update these packages for current analyses, this might disrupt the code from 3 years ago\n\n\nwe’ll see one (partial) solution for this problem soon"
+  },
+  {
+    "objectID": "pages/packages-slides.html#package-versions",
+    "href": "pages/packages-slides.html#package-versions",
+    "title": "Package management",
+    "section": "Package versions",
+    "text": "Package versions\n\npackages can be updated at any time\n\nif hosted on the CRAN, they newer versions are first reviewed/rigorously tested\nif hosted on GitHub/Lab, nobody needs to check the update before publication\n\n\nif you want to check which version of a package you’re using, you can run packageVersion(\"package\")\n\n\n\n\npackageVersion(\"ggplot2\")\n\n\n\n[1] '3.5.1'"
   },
   {
     "objectID": "pages/packages-slides.html#updating-packages",
@@ -374,7 +514,7 @@
     "href": "pages/packages-slides.html#package-library",
     "title": "Package management",
     "section": "Package library",
-    "text": "Package library\n\nwhere do all these installed packages go?\n\na folder that contains all the packages, called a library\n\n\nto find out where this (global) package library is, run .libPaths()\n\n\n\n.libPaths()\n\n\nthe output should currently produce a single file path, something like:\n\n&gt; .libPaths()\n[1] \"/Library/Frameworks/R.framework/Versions/4.4-arm64/Resources/library\"\n\nthis is the location of your global package library"
+    "text": "Package library\n\nwhere do all these installed packages go?\n\na folder that contains all the packages, called a library\n\n\nto find out where this (global) package library is, run .libPaths()\n\n\n\n\n.libPaths()\n\n\n\nthe output should currently produce a single file path, something like:\n\n\n&gt; .libPaths()\n[1] \"/Library/Frameworks/R.framework/Versions/4.4-arm64/Resources/library\"\n\n\nthis is the location of your global/system package library"
   },
   {
     "objectID": "pages/packages-slides.html#package-versions-and-reproducibility",
@@ -382,6 +522,13 @@
     "title": "Package management",
     "section": "Package versions and reproducibility",
     "text": "Package versions and reproducibility\n\nwe’ve seen that package versions and dependencies can easily break our existing code\nthis means that older projects that were built using previous package versions won’t be able to run if we update these packages in our global package library\n\nalso a problem in the future: our current code will depend on the package versions we’re using today\n\n\nwe need a project-relative package library that is independent of the global library\n\nwe’ll use the renv package to do this"
+  },
+  {
+    "objectID": "pages/packages-slides.html#reproducible-environments-for-r-projects",
+    "href": "pages/packages-slides.html#reproducible-environments-for-r-projects",
+    "title": "Package management",
+    "section": "\nReproducible Environments for R projects",
+    "text": "Reproducible Environments for R projects\n\n\nrenv aids in maintaining reproducible environments in R projects (Ushey & Wickham, 2024)\n\navailable on the CRAN\n\n\n\n\n\nRun in the Console\n\ninstall.packages(\"renv\")\n\n\n\n\nmain benefit: creates a self-contained, independent library per R Project\n\navoids cross-library package contamination\n\n\n\nrenv freezes and stores package versions used in a project\nbut does not make a project reproducible across R versions and machines\n\nthat’s because older package versions are not always compatible with newer computational environments"
   },
   {
     "objectID": "pages/packages-slides.html#limits-of-renv",
@@ -398,6 +545,13 @@
     "text": "renv workflow\n\n\nFigure 1 visualises a project workflow with renv\n\nnext we’ll see how we use these functions to set-up and maintain a project-specific package library\n\n\n\nFigure 1: Source: CRAN vignette ‘Introduction to renv’ (all rights reserved)"
   },
   {
+    "objectID": "pages/packages-slides.html#initialise-project-library",
+    "href": "pages/packages-slides.html#initialise-project-library",
+    "title": "Package management",
+    "section": "Initialise project library",
+    "text": "Initialise project library\n\nrun the following in the Console or in a code chunk but with #| eval: false\n\nwe only want to run this once per R Project\nwhen working in an actual project, I would just run this in the console\nfor learning/documenting how to use renv, I would keep this in a code chunk with #| eval: false\n\n\n\n\n\n\n\n\nIn the Console or with eval: false\n\nrenv::init()"
+  },
+  {
     "objectID": "pages/packages-slides.html#section-1",
     "href": "pages/packages-slides.html#section-1",
     "title": "Package management",
@@ -405,60 +559,53 @@
     "text": "you should see something like this in the Console:\n\n- Linking packages into the project library ... [137/137] Done!\n- Resolving missing dependencies ... \n# Installing packages --------------------------------------------------------\nThe following package(s) will be updated in the lockfile:\n\n# CRAN -----------------------------------------------------------------------\n[long list of packages and their versions]\n\nThe version of R recorded in the lockfile will be updated:\n- R               [* -&gt; 4.4.0]\n\n- Lockfile written to \"~/Documents/IdSL/Teaching/SoSe24/M.A./r4repro_student/renv.lock\".\n\nRestarting R session...\n\n- Project '~/Documents/IdSL/Teaching/SoSe24/M.A./r4repro_student' loaded. [renv 1.0.7]"
   },
   {
-    "objectID": "pages/packages-slides.html#new-files",
-    "href": "pages/packages-slides.html#new-files",
+    "objectID": "pages/packages-slides.html#locating-our-project-library",
+    "href": "pages/packages-slides.html#locating-our-project-library",
     "title": "Package management",
-    "section": "New files",
-    "text": "New files\n\n\nrenv::init() creates three new files or directories\n\nrenv.lock\nrenv/\n.Rprofile\n\n\nexplore these files/folders and see if you can figure out what they contain"
+    "section": "Locating our project library",
+    "text": "Locating our project library\n\nif we re-run .libPaths(), we should see our project library\n\n\n\n\n\nRun in the Console\n\n.libPaths()\n\n\n[1] \"/Users/danielapalleschi/Documents/ZAS/zas-reproducibility-2024/renv/library/macos/R-4.4/aarch64-apple-darwin20\"   \n[2] \"/Users/danielapalleschi/Library/Caches/org.R-project.R/R/renv/sandbox/macos/R-4.4/aarch64-apple-darwin20/f7156815\"\n\n\n\n\n\n[1] is the local project library path\n\n[2] is the path to a global package cache that renv maintains so that you don’t repeatedly download packages to your machine for each project library\n\ne.g., if we already have ggplot2 installed globally on our machine, whenever we want to add it to a project library we don’t need to re-install it entirely from the CRAN (unless we want a different package version)"
   },
   {
-    "objectID": "pages/packages-slides.html#renv.lock",
-    "href": "pages/packages-slides.html#renv.lock",
+    "objectID": "pages/packages-slides.html#installing-more-packages",
+    "href": "pages/packages-slides.html#installing-more-packages",
     "title": "Package management",
-    "section": "renv.lock",
-    "text": "renv.lock\n\ncontains metadata about the packages and their versions that you have installed\n\nthis is enough metadata to re-install these package versions on a new machine\n\n\ntwo main components:\n\n\nR: info on R version and list of repositories where packages were installed from\n\nPackages: a record per package with necessary info for re-installation"
-  },
-  {
-    "objectID": "pages/packages-slides.html#renv-1",
-    "href": "pages/packages-slides.html#renv-1",
-    "title": "Package management",
-    "section": "renv/",
-    "text": "renv/\n\nimportantly, contains your project-relative library/\n\nthis is instead of using the one library on your computer\n\n\nprovides us with “isolation”: the package versions used in an R Project is independent of the global library\n\nin other words, different R Projects can use different package versions\nupdating packages globally, or in one project, will not affect other project libraries"
-  },
-  {
-    "objectID": "pages/packages-slides.html#rprofile",
-    "href": "pages/packages-slides.html#rprofile",
-    "title": "Package management",
-    "section": ".RProfile",
-    "text": ".RProfile\n\nruns whenver you (re-)start your R Project\nat this point, should contain a single line:\n\n\nsource(\"renv/activate.R\")\n\n\nif you go to this R script, you’ll send a lot of code\n\nthis essentially loads in your project library"
-  },
-  {
-    "objectID": "pages/packages-slides.html#project-library",
-    "href": "pages/packages-slides.html#project-library",
-    "title": "Package management",
-    "section": "Project library",
-    "text": "Project library\n\nnow if we re-run .libPaths(), we should see our project library\n\n\n\n\nRun in the Console\n\n.libPaths()\n\n\n&gt; .libPaths()\n[1] \"/Users/danielapalleschi/Documents/IdSL/Teaching/SoSe24/M.A./r4repro_SoSe2024/renv/library/macos/R-4.4/aarch64-apple-darwin20\"\n[2] \"/Users/danielapalleschi/Library/Caches/org.R-project.R/R/renv/sandbox/macos/R-4.4/aarch64-apple-darwin20/f7156815\"  \n\n\n[1] is the local project library path\n\n[2] is the path to a global package cache that renv maintains so that you don’t repeatedly download packages to your machine for each project library\n\ne.g., if we already have ggplot2 installed globally on our machine, whenever we want to add it to a project library we don’t need to re-install it entirely from the CRAN (unless we want a different package version)"
+    "section": "Installing more packages",
+    "text": "Installing more packages\n\nwhich packages are stored in renv.lock?\n\nonly those that are used within your project\n\n\npackages not used in your project but installed in your global library aren’t included\n\nto add these packages, or any other packages you want, you need to (re-)install them locally within your project\n\n\nlet’s install a package that you’ll likely have already installed elsewhere: lme4 (Bates et al., 2015)\n\n\n\n\n\n\n# as usual\ninstall.packages(\"lme4\")\n# or with pacman::p_load()\npacman::p_load(\"lme4\")\n# or with the renv package\nrenv::install(\"lme4\")\n\n\n\n\nif you already have a package on your machine (in your global library), renv will just grab it from the global cache\nif not, it will be downloaded from CRAN"
   },
   {
     "objectID": "pages/packages-slides.html#installing-a-new-package",
     "href": "pages/packages-slides.html#installing-a-new-package",
     "title": "Package management",
     "section": "Installing a new package",
-    "text": "Installing a new package\n\nlet’s also install a package I’m confident you don’t already have on your machine (as you might’ve already worked with lme4 in other classes)\n\n[brms] for Bayesian regression models using Stan\n\n\n\n\nCodeinstall.packages(\"brms\")\nrenv::install(\"brms\")\n\n\n\nand if we want a specific package version:\n\n\nrenv::install(\"brms@2.19.0\")"
+    "text": "Installing a new package\n\nlet’s also install a package I’m confident you don’t already have on your machine\n\n\nbeepr, which can play notification sounds (Bååth, 2024)\n\n\n\n\n\n\ninstall.packages(\"beepr\")\n\n\n\nand if we want a specific package version:\n\n\n\nrenv::install(\"beepr@1.3\")\n\n\n\nto test out beepr:\n\n\n\nbeepr::beep()"
   },
   {
     "objectID": "pages/packages-slides.html#installing-developer-packages",
     "href": "pages/packages-slides.html#installing-developer-packages",
     "title": "Package management",
     "section": "Installing developer packages",
-    "text": "Installing developer packages\n\nnot all packages are available on the CRAN\n\nwe can install developer packages from GitHub or GitLab using, e.g., the install_github() function from either the remotes or devtools package (both are very common)\n\n\n\n\nremotes::install_github(\"paul-buerkner/brms\")\ndevtools::install_github(\"paul-buerkner/brms\")\n\n\n\nor we can use renv::install()\n\n\n\n# most recent version\nrenv::install(\"paul-buerkner/brms\")\n\n\n# a specific previous version, for which you'll need the commit ID\nrenv::install(\"paul-buerkner/brms@db6ddde90ba533cb3942bc5a62b03803773b9844\")"
+    "text": "Installing developer packages\n\nnot all packages are available on the CRAN\n\nwe can install developer packages from GitHub or GitLab using, e.g., the install_github() function from either the remotes or devtools package (both are very common)\n\n\n\n\n\nremotes::install_github(\"paul-buerkner/brms\")\ndevtools::install_github(\"paul-buerkner/brms\")\n\n\n\n\nor we can use renv::install()\n\n\n\n\n# most recent version\nrenv::install(\"paul-buerkner/brms\")\n\n\n\nor a specific previous version (you need the commit ID)\n\n\n\nrenv::install(\"paul-buerkner/brms@db6ddde90ba533cb3942bc5a62b03803773b9844\")"
   },
   {
-    "objectID": "pages/packages-slides.html#updating-renv.lock-file",
-    "href": "pages/packages-slides.html#updating-renv.lock-file",
+    "objectID": "pages/packages-slides.html#lockfile-status",
+    "href": "pages/packages-slides.html#lockfile-status",
     "title": "Package management",
-    "section": "Updating renv.lock file",
-    "text": "Updating renv.lock file\n\nto update the lockfile and library, simply run:\n\n\nrenv::snapshot()\n\n\nyou’ll be given a list of changes to be made and asked if you want to proceed\n\nif not problems are mentioned, then you can go ahead"
+    "section": "Lockfile status",
+    "text": "Lockfile status\n\nyou should make a habit of checking the status of your lockfile\n\nyou can do this by running the following:\n\n\n\n\n\nrenv::status()\n\n\n\nideally, you’ll usually get the following message:\n\n\n&gt; renv::status()\nNo issues found -- the project is in a consistent state.\n\n\nbut if you’ve installed or updated some packages, you will get a list of any packages that are out-of-sync or haven’t been stored in the lockfile (as should be our case)"
+  },
+  {
+    "objectID": "pages/packages-slides.html#updating-packages-1",
+    "href": "pages/packages-slides.html#updating-packages-1",
+    "title": "Package management",
+    "section": "Updating packages",
+    "text": "Updating packages\n\nto update packages using renv, we can use:\n\n\nrenv::update()\n# or\nrenv::update.packages()\n\n\nthis will not automatically store the updated versions in the lockfile\n\nto do this, include the argument lock = TRUE\n\n\n\nyou can also use these functions to only check by including check = T"
+  },
+  {
+    "objectID": "pages/packages-slides.html#restoring-lockfile",
+    "href": "pages/packages-slides.html#restoring-lockfile",
+    "title": "Package management",
+    "section": "Restoring lockfile",
+    "text": "Restoring lockfile\n\nrenv::restore()\n\n\nthis will restore the current project’s package versions to be those stored in the lockfile\n\nbut only if the library was built in the same R version\notherwise, all packages need to be installed, and might not function the same\n\n\nuseful if you\n\nwant to revert to the stored package versions\nwant to run your project on another computer (e.g., a collaborator)"
   },
   {
     "objectID": "pages/packages-slides.html#posit-public-package-manager",

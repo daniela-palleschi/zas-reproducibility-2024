@@ -361,11 +361,28 @@ format:
 - so, print your session info at the end of every script
   + this will print your R version, package versions, and more
 
+::: {.fragment}
 ```{r}
 #| echo: true
 #| eval: false
 sessionInfo()
 ```
+:::
+
+- with dynamic reports: this will be produced the output
+  + for R scripts: you can save the info as an object and save it as an RDS file (I recommend saving it alongside the relevant script, with the same name plus `session_info` or something of the like)
+
+::: {.fragment}
+```{r}
+#| eval: false
+#| echo: true
+my_session <- sessionInfo()
+saveRDS(my_session, file = here("scripts", "03-analyses", "phoneme_analyses-session_info.rds"))
+```
+
+:::
+
+- or run it, copy-and-paste the output in the script, and comment it all out
 
 ::: {.content-hidden when-format="revealjs"}
 # Tips and tricks
