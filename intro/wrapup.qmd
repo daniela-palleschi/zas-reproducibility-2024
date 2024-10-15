@@ -1,0 +1,70 @@
+---
+title: "Reproducible workflows in R"
+subtitle: "Workshop Wrap-up"
+author: "Daniela Palleschi"
+institute: "Leibniz-Zentrum Allgemeine Sprachwissenschaft (ZAS)"
+lang: en
+date: 2024-10-17
+date-format: "ddd MMM D, YYYY"
+language: 
+  title-block-published: "Workshop Day 2"
+format: 
+  html:
+    output-file: wrapup.html
+    number-sections: true
+    number-depth: 2
+    toc: true
+    code-overflow: wrap
+    code-tools: true
+    embed-resources: false
+  revealjs:
+    output-file: wrapup-slides.html
+    footer: "Wrap-up"
+editor_options: 
+  chunk_output_type: console
+echo: false
+---
+
+```{r}
+pacman::p_load(
+  here
+)
+```
+
+# Intro questionnaire {data-stack-name="Welcome questionnaire results"}
+
+##
+
+```{r}
+magick::image_read(here("mentimeter", "open_science-wordcloud.pdf"))
+```
+
+##
+
+```{r}
+magick::image_read(here("mentimeter", "reproducibility-wordcloud.pdf"))
+```
+
+##
+
+```{r}
+magick::image_read(here("mentimeter", "hope-to-learn-1.pdf"))
+```
+
+##
+
+```{r}
+magick::image_read(here("mentimeter", "hope-to-learn-2.pdf"))
+```
+
+#
+
+```{r}
+magick::image_read(here("mentimeter", "familiarity.pdf"))
+```
+
+# Wrap-up questionnaire {data-stack-name="Wrap-up questionnaire"}
+
+## Mentimeter
+
+Go to `menti.com` and enter the code **5541 7751** to answer a few questions
