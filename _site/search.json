@@ -1,10 +1,10 @@
 [
   {
-    "objectID": "pages/literate_programming.html",
-    "href": "pages/literate_programming.html",
+    "objectID": "pages/literate_programming.html#reproducible-code-1",
+    "href": "pages/literate_programming.html#reproducible-code-1",
     "title": "Writing Reproducible Code",
-    "section": "",
-    "text": "modular analyses and literate programming\ncreate and render a dynamic report with Quarto\ndocumenting your dependencies",
+    "section": "2.1 Reproducible code",
+    "text": "2.1 Reproducible code\n\nhow you write your code is the first step in making it reproducible\nthe first principle is that your code must be linear\n\nthis means code must be written in a linear fashion\ni.e., our scripts should run from top-to-bottom\n\n\n\n\n\nExample\n\nNon-linear code\n\nread_csv(here(\"data\", \"my_data.csv\"))\n\nlibrary(readr)\nlibrary(here)",
     "crumbs": [
       "D. Palleschi",
       "Day 2",
@@ -15,8 +15,8 @@
     "objectID": "pages/literate_programming.html#writing-linear-code",
     "href": "pages/literate_programming.html#writing-linear-code",
     "title": "Writing Reproducible Code",
-    "section": "3.1 Writing linear code",
-    "text": "3.1 Writing linear code\n\nyou need to load a package before you call a function from it\n\nif we’re just working in an R session, before means temporally prior\nwith linear code, before means higher up in the script\n\nsuch pre-requisite code must\n\nbe present in the script\nappear above the first line of code that uses a function from this package\n\nmissing pre-requisite code might not throw an error message\n\nbut might produce output we aren’t expecting\ne.g., forgetting to filter out certain observations\nor forgetting that some observations have been filtered out",
+    "section": "2.2 Writing linear code",
+    "text": "2.2 Writing linear code\n\nyou need to load a package before you call a function from it\n\nif we’re just working in an R session, before means temporally prior\nwith linear code, before means higher up in the script\n\nsuch pre-requisite code must\n\nbe present in the script\nappear above the first line of code that uses a function from this package\n\nmissing pre-requisite code might not throw an error message\n\nbut might produce output we aren’t expecting\ne.g., forgetting to filter out certain observations\nor forgetting that some observations have been filtered out",
     "crumbs": [
       "D. Palleschi",
       "Day 2",
@@ -27,8 +27,8 @@
     "objectID": "pages/literate_programming.html#literate-programming",
     "href": "pages/literate_programming.html#literate-programming",
     "title": "Writing Reproducible Code",
-    "section": "3.2 Literate programming",
-    "text": "3.2 Literate programming\n\nInstead of imagining that our main task is to instruct a computer what to do, let us concentrate rather on explaining to human beings what we want a computer to do.\n\n— Knuth (1984), p. 97\n\nrefers to writing and documenting our code so that humans can understand it\n\nimportant for us: we are (generally) not professional programmers, nor are our peers\n\nwe need to not only know what our code is doing when we look back at it in the future/share it\nthe easiest way: informative comments\n\nthe length and frequency of these comments is your choice",
+    "section": "2.3 Literate programming",
+    "text": "2.3 Literate programming\n\n\nInstead of imagining that our main task is to instruct a computer what to do, let us concentrate rather on explaining to human beings what we want a computer to do.\n\n— Knuth (1984), p. 97\n\n\nour code should also be literate\ni.e., we should write and document our code so that humans can understand it\n\nimportant for us: we are (generally) not professional programmers, nor are our peers\n\nwe need to know what our code is doing when we look back at it in the future/share it\nthe easiest way: informative comments\n\nthe length and frequency of these comments is your choice",
     "crumbs": [
       "D. Palleschi",
       "Day 2",
@@ -39,8 +39,32 @@
     "objectID": "pages/literate_programming.html#example-r-script-1",
     "href": "pages/literate_programming.html#example-r-script-1",
     "title": "Writing Reproducible Code",
-    "section": "3.3 Example R script",
-    "text": "3.3 Example R script\n#| eval: false\n#| echo: true\n#| code-fold: false\n#| code-summary: \"Example\"\n\n# Analysis script for phoneme paper\n# author: Joe DiMaggio\n# date: Feb. 29, 2024\n# purpose: analyse cleaned dataset\n\n# Set-up ###\n\n# load required packages\nlibrary(dplyr) # data wrangling\nlibrary(readr) # loding data\nlibrary(here) # project-relative file path\n\n# Load-in data\ndf_phon &lt;- read_csv(here(\"data\", \"phoneme_tidy_data.csv\"))\n\n# Explore data ###\nsummary(df_phone)\n\nbegins with some meta-information about the document, including its purpose\n\naids in knowing which scripts to run in which sequence\n\nthere are three hashtags after some headings (###)\n\nthis is helpful because it structures the outline of the document in RStudio\n\nthe purpose of chunks of code are written above\n\ndescription of specific lines of code are also given",
+    "section": "2.4 Example R script",
+    "text": "2.4 Example R script\n\n\n\n\n\n\nanalysis4.R\n\nlibrary(dplyr)\nlibrary(readr)\nlibrary(here)\n\ndf_phon &lt;- read_csv(here(\"data\", \"phoneme_tidy_data.csv\"))\n\nsummary(df_phone)\n\nplot(df_phon$duration, df_phon$mean_f0)\n\n\n\n\n\n\n\n\n\n\n\nphoneme_analysis.R\n\n# [example script]\n1# Analysis script for phoneme paper\n# author: Joe DiMaggio\n# date: Feb. 29, 2024\n# purpose: analyse cleaned dataset\n\n2# Set-up ###\n\n3# load required packages\n4library(dplyr) # data wrangling\nlibrary(readr) # loding data\nlibrary(here) # project-relative file path\n\n# Load-in data\ndf_phon &lt;- read_csv(here(\"data\", \"phoneme_tidy_data.csv\"))\n\n# Explore data ###\nsummary(df_phone)\n\n# scatterplot: phoneme duration by mean f0\nplot(df_phon$duration, df_phon$mean_f0)\n\n\n\n1\n\nbegins with some meta-information about the document, including its purpose\n\n2\n\nheading with three hashtags at the end (###) –&gt; creates structured Outline\n\n3\n\nthe purpose of chunks of code are written above\n\n4\n\ndescription of specific lines of code are also given\n\n\n\n\n\n\n\n\n\nthe metadata, headings, and informative comments in phoneme_analysis.R make the second script much easier to follow\nthis becomes more important with longer, more complex scripts",
+    "crumbs": [
+      "D. Palleschi",
+      "Day 2",
+      "Writing Reproducible Code"
+    ]
+  },
+  {
+    "objectID": "pages/literate_programming.html#modular-analyses",
+    "href": "pages/literate_programming.html#modular-analyses",
+    "title": "Writing Reproducible Code",
+    "section": "2.5 Modular analyses",
+    "text": "2.5 Modular analyses\n\nrecall our scripts folder (which you might’ve named analysis or something else)\nideally, this would also contain subfolders, one for each stage of your analysis\n\nor at least, multiple scripts\n\nthis is the concept of modularity (Bowers & Voors, 2016; Nagler, 1995)\n\nseparating data cleaning, pre-processing, recoding, merging, analyses, etc. into files/scripts\n\n\n\n\n\n\n\n\nModularity\n\n\n\n\n\nThe concept of modularity relating to data analysis refers to saving different stages of data manipulation and analysis in separate scripts (Nagler, 1995). An important step is to also ensure the scripts are appropriately named so that the structure of your analysis/scripts folder “can be a map itself” (Bowers & Voors, 2016, p. 838).\nA suggestion I have is to add numerical prefixes before scripts to explicitly state the order in which they must be run. For example, the script that reads in the raw data and cleans/preprocesses it (e.g., renaming or removing irrelevant/redundant variables) and exports a new data file that will be used in subsequent scripts could be called 00_cleaning.qmd or something of the sort. My current prefered analysis script structure for a given data set is as follows:\nscripts/\n  00_cleaning.qmd\n  01_preprocessing-and-eda.qmd\n  02_analyses.qmd\n  03_figures.qmd\n  04_tables.qmd\nWhere EDA refers to Exploratory Data Analysis, where I look at things like distributions of variables and demographic information. You’ll note the 03_figures.qmd and 04_tables.qmd scripts follow the 02_analyses.qmd script. This is because my figures and tables include model results or predictions, and so need to follow the analyses.",
+    "crumbs": [
+      "D. Palleschi",
+      "Day 2",
+      "Writing Reproducible Code"
+    ]
+  },
+  {
+    "objectID": "pages/literate_programming.html#dynamic-reports-.rmd-and-.qmd",
+    "href": "pages/literate_programming.html#dynamic-reports-.rmd-and-.qmd",
+    "title": "Writing Reproducible Code",
+    "section": "3.1 Dynamic reports: .Rmd and .qmd",
+    "text": "3.1 Dynamic reports: .Rmd and .qmd\n\nR scripts are useful, but don’t show the code output\n\nand commenting can get clunky\n\ndynamic reports combine prose, code, and code output\n\nR markdown (.Rmd file extension) and Quarto (.qmd ) are extensions of markdown\n\ncan embed R code ‘chunks’ in a script, thus producing ‘dynamic’ reports\n\nproduce a variety of output files which contain text, R code chunks, and the code chunk outputs all in one\n\nfor example, we can look at the example script phoneme_analysis.R, but we have no idea what the scatterplot it produced looks like\n\n\n\n\n\n\n\nTask: New Quarto document\n\n\n\n\n\nNavigate to File &gt; New file &gt; Quarto document\nWrite some title, your name (Author), make sure ‘Visual markdown Editor’ is unchecked\nClick ‘Create’\nA new tab will open in R Studio. Press the ‘Render’ button above the top of the document, you will be prompted to save the document. Store it in a folder called scripts and save it as 01-literate-programming.qmd.\nWhat happens?\n\n\n\n\n\nR v. Rmarkdown v. Quarto\n\n.R files contain (R) source code only\n.Rmd files are dynamic reports that support\n\nR-Code (and R-packages)\n\n.qmd files are dynamic reports (RStudio v2022.07 or later)\n\nR-Code (and R-packages)\nnative support for Python (and Jupyter-Notebooks)\nnative support for Julia\n\n\n\n\n\n\n\n\nCheck your RStudio version\n\n\n\n\nRun the following in the Console: RStudio.Version()$version\n\nif the output is 2022.07 or higher you can use Quarto\nif not: update RStudio: Help &gt; Check for updates",
     "crumbs": [
       "D. Palleschi",
       "Day 2",
@@ -51,8 +75,8 @@
     "objectID": "pages/literate_programming.html#yaml",
     "href": "pages/literate_programming.html#yaml",
     "title": "Writing Reproducible Code",
-    "section": "4.1 YAML",
-    "text": "4.1 YAML\n\nthe section at the very top fenced by ---\ncontains all the meta information about your document\n\ne.g. title, author name, date\nalso formatting information, e.g. type of output file\n\nthere are many document formatting and customisation options that we won’t cover in this course\nbut for example I have many YAML formatting options in the source code of my slides\n\n\n---\ntitle: \"My title\"\n---\n\n\n\n\n\n\n\nYAML\n\n\n\n\n\nchange the title if you want to do so.\nguess how to add a subtitle (hint: it is similar to adding a title)\nadd an author, author: ‘firstname lastname’ (see example below)\nadd a table of contents (Table of Contents = toc) by changing format so that it looks like this:\n\n\n---\ntitle: \"Dynamic reports\"\nauthor: \"Daniela Palleschi\"\nformat:\n  pdf:\n    toc: true\n---\n\n\nRender the document. Do you see the changes?",
+    "section": "3.2 YAML",
+    "text": "3.2 YAML\n\nthe section at the very top fenced by ---\ncontains all the meta information about your document\n\ne.g. title, author name, date\nalso formatting information, e.g. type of output file\n\nthere are many document formatting and customisation options, checkout the Quarto website for more\nbut for example I have many YAML formatting options in the source code of my slides\n\n\n---\ntitle: \"My title\"\n---\n\n\n\n\n\n\n\nYAML\n\n\n\n\n\nchange the title if you want to do so.\nguess how to add a subtitle (hint: it is similar to adding a title)\nadd an author, author: ‘firstname lastname’ (see example below)\nadd a table of contents (Table of Contents = toc) by changing format so that it looks like this:\n\n\n---\ntitle: \"Dynamic reports\"\nauthor: \"Daniela Palleschi\"\nformat:\n  pdf:\n    toc: true\n---\n\n\nRender the document. Do you see the changes?",
     "crumbs": [
       "D. Palleschi",
       "Day 2",
@@ -63,8 +87,8 @@
     "objectID": "pages/literate_programming.html#structure-your-reports",
     "href": "pages/literate_programming.html#structure-your-reports",
     "title": "Writing Reproducible Code",
-    "section": "4.2 Structure your reports",
-    "text": "4.2 Structure your reports\n\nremember to use (sub-)headings (e.g., # Set-up)\ndescribe the function/purpose at the beginning of the script\ndocument your train of thought and findings throughout the script\n\ne.g., why are you producing this plot, what does it tell you?\n\ngive an overview of the findings/end result at the end\nit’s wise to avoid very long, multi-purpose scripts\n\nrule of thumb: one script per product or purpose\ne.g., data cleaning, exploration, analysis, publication figures, etc.",
+    "section": "3.3 Structure your reports",
+    "text": "3.3 Structure your reports\n\nremember to use (sub-)headings (e.g., # Set-up)\n\nN.B., you don’t need the 3 hashtags here (only in R scripts)\n\ndescribe the function/purpose at the beginning of the script\ndocument your train of thought and findings throughout the script\n\ne.g., why are you producing this plot, what does it tell you?\n\ngive an overview of the findings/end result at the end\nit’s wise to avoid very long, multi-purpose scripts\n\nrule of thumb: one script per product or purpose\ne.g., data cleaning, exploration, analysis, publication figures, etc.",
     "crumbs": [
       "D. Palleschi",
       "Day 2",
@@ -75,8 +99,8 @@
     "objectID": "pages/literate_programming.html#code-chunks",
     "href": "pages/literate_programming.html#code-chunks",
     "title": "Writing Reproducible Code",
-    "section": "4.3 Code chunks",
-    "text": "4.3 Code chunks\n\nthe main benefit of dynamic reports: combining text with code (and code output)\nR code goes in code chunks:\n\n\n```{r}\n2+2\n```\n\n[1] 4\n\n\n\nto add a code chunk: Code &gt; Insert Chunk\n\nor use the keyboard shortcut: Cmd+Opt+I (Mac) / Ctrl+Alt+I (Windows)\n\n\n\n\n\n\n\n\nAdding structure and code chunks\n\n\n\n\n\nUse the example R script above to create a structured document\n\nuse headings (#) and subheadings (##) accordingly\n\nLoad in our dataset in a code chunk\nRender the document. Do you see the changes?",
+    "section": "3.4 Code chunks",
+    "text": "3.4 Code chunks\n\nthe main benefit of dynamic reports: combining text with code (and code output)\nR code goes in code chunks:\n\n\n```{r}\n2+2\n```\n\n[1] 4\n\n\n\nto add a code chunk: Code &gt; Insert Chunk\n\nor use the keyboard shortcut: Cmd+Opt+I (Mac) / Ctrl+Alt+I (Windows)\n\n\n\n\n\n\n\n\nAdding structure and code chunks\n\n\n\n\n\nUse the example R script above to create a structured document\n\nuse headings (#) and subheadings (##) accordingly\n\nLoad in our dataset in a code chunk\nRender the document. Do you see the changes?",
     "crumbs": [
       "D. Palleschi",
       "Day 2",
@@ -87,8 +111,8 @@
     "objectID": "pages/literate_programming.html#session-info",
     "href": "pages/literate_programming.html#session-info",
     "title": "Writing Reproducible Code",
-    "section": "5.1 Session info",
-    "text": "5.1 Session info\n\nso, print your session info at the end of every script\n\nthis will print your R version, package versions, and more\n\n\n\nsessionInfo()",
+    "section": "4.1 Session info",
+    "text": "4.1 Session info\n\nso, print your session info at the end of every script\n\nthis will print your R version, package versions, and more\n\n\n\nsessionInfo()",
     "crumbs": [
       "D. Palleschi",
       "Day 2",
@@ -96,46 +120,79 @@
     ]
   },
   {
+    "objectID": "pages/literate_programming.html#why-restart-r-and-not-rmlistls",
+    "href": "pages/literate_programming.html#why-restart-r-and-not-rmlistls",
+    "title": "Writing Reproducible Code",
+    "section": "5.1 Why Restart R and not rm(list=ls())?",
+    "text": "5.1 Why Restart R and not rm(list=ls())?\nYou’ll recall that we discussed Jenny Bryan’s threat of setting your computer on fire if you have setwd() in your scripts. She made the same threat for those who use rm(list = ls()), the intention of which is to clear your R environment so that you can start with a clean slate. The problem is that this isn’t even what rm(list = ls()) does, it only removes the user-created objects from your Global Environment.\nHere’s what she had to say about the matter on a blog post on the tidyverse.org website in 2017, shortly after her tongue-in-cheek slides went viral on #rstats Twitter:\n\nThe problem is that rm(list = ls()) does NOT, in fact, create a fresh R process. All it does is delete user-created objects from the global workspace. Many other changes to the R landscape persist invisibly and can have profound effects on subsequent development. […] Why does this matter? It makes your script vulnerable to hidden dependencies on things you ran in this R process before you executed rm(list = ls()).\n\n— Jenny Bryan blog post ‘Project-oriented workflow’",
+    "crumbs": [
+      "D. Palleschi",
+      "Day 2",
+      "Writing Reproducible Code"
+    ]
+  },
+  {
+    "objectID": "pages/literate_programming-slides.html#reproducible-code-1",
+    "href": "pages/literate_programming-slides.html#reproducible-code-1",
+    "title": "Writing Reproducible Code",
+    "section": "Reproducible code",
+    "text": "Reproducible code\n\nhow you write your code is the first step in making it reproducible\nthe first principle is that your code must be linear\n\nthis means code must be written in a linear fashion\ni.e., our scripts should run from top-to-bottom\n\n\n\n\n\nExample\n\nNon-linear code\n\nread_csv(here(\"data\", \"my_data.csv\"))\n\nlibrary(readr)\nlibrary(here)"
+  },
+  {
     "objectID": "pages/literate_programming-slides.html#writing-linear-code",
     "href": "pages/literate_programming-slides.html#writing-linear-code",
     "title": "Writing Reproducible Code",
     "section": "Writing linear code",
-    "text": "Writing linear code\n\nyou need to load a package before you call a function from it\n\nif we’re just working in an R session, before means temporally prior\nwith linear code, before means higher up in the script\n\n\nsuch pre-requisite code must\n\nbe present in the script\nappear above the first line of code that uses a function from this package\n\n\nmissing pre-requisite code might not throw an error message\n\nbut might produce output we aren’t expecting\ne.g., forgetting to filter out certain observations\nor forgetting that some observations have been filtered out"
+    "text": "Writing linear code\n\nyou need to load a package before you call a function from it\n\nif we’re just working in an R session, before means temporally prior\nwith linear code, before means higher up in the script\n\nsuch pre-requisite code must\n\nbe present in the script\nappear above the first line of code that uses a function from this package\n\nmissing pre-requisite code might not throw an error message\n\nbut might produce output we aren’t expecting\ne.g., forgetting to filter out certain observations\nor forgetting that some observations have been filtered out"
   },
   {
     "objectID": "pages/literate_programming-slides.html#literate-programming",
     "href": "pages/literate_programming-slides.html#literate-programming",
     "title": "Writing Reproducible Code",
     "section": "Literate programming",
-    "text": "Literate programming\n\nInstead of imagining that our main task is to instruct a computer what to do, let us concentrate rather on explaining to human beings what we want a computer to do.\n\n— Knuth (1984), p. 97\n\nrefers to writing and documenting our code so that humans can understand it\n\nimportant for us: we are (generally) not professional programmers, nor are our peers\n\n\nwe need to not only know what our code is doing when we look back at it in the future/share it\nthe easiest way: informative comments\n\nthe length and frequency of these comments is your choice"
+    "text": "Literate programming\n\n\nInstead of imagining that our main task is to instruct a computer what to do, let us concentrate rather on explaining to human beings what we want a computer to do.\n\n— Knuth (1984), p. 97\n\n\nour code should also be literate\ni.e., we should write and document our code so that humans can understand it\n\nimportant for us: we are (generally) not professional programmers, nor are our peers\n\nwe need to know what our code is doing when we look back at it in the future/share it\nthe easiest way: informative comments\n\nthe length and frequency of these comments is your choice"
   },
   {
     "objectID": "pages/literate_programming-slides.html#example-r-script",
     "href": "pages/literate_programming-slides.html#example-r-script",
     "title": "Writing Reproducible Code",
     "section": "Example R script",
-    "text": "Example R script\n#| eval: false\n#| echo: true\n#| code-fold: false\n#| code-summary: \"Example\"\n\n# Analysis script for phoneme paper\n# author: Joe DiMaggio\n# date: Feb. 29, 2024\n# purpose: analyse cleaned dataset\n\n# Set-up ###\n\n# load required packages\nlibrary(dplyr) # data wrangling\nlibrary(readr) # loding data\nlibrary(here) # project-relative file path\n\n# Load-in data\ndf_phon &lt;- read_csv(here(\"data\", \"phoneme_tidy_data.csv\"))\n\n# Explore data ###\nsummary(df_phone)\n\nbegins with some meta-information about the document, including its purpose\n\naids in knowing which scripts to run in which sequence\n\n\nthere are three hashtags after some headings (###)\n\nthis is helpful because it structures the outline of the document in RStudio\n\n\nthe purpose of chunks of code are written above\n\ndescription of specific lines of code are also given"
+    "text": "Example R script\n\n\n\n\n\n\nanalysis4.R\n\nlibrary(dplyr)\nlibrary(readr)\nlibrary(here)\n\ndf_phon &lt;- read_csv(here(\"data\", \"phoneme_tidy_data.csv\"))\n\nsummary(df_phone)\n\nplot(df_phon$duration, df_phon$mean_f0)\n\n\n\n\n\n\n\n\n\n\n\nphoneme_analysis.R\n\n# [example script]\n1# Analysis script for phoneme paper\n# author: Joe DiMaggio\n# date: Feb. 29, 2024\n# purpose: analyse cleaned dataset\n\n2# Set-up ###\n\n3# load required packages\n4library(dplyr) # data wrangling\nlibrary(readr) # loding data\nlibrary(here) # project-relative file path\n\n# Load-in data\ndf_phon &lt;- read_csv(here(\"data\", \"phoneme_tidy_data.csv\"))\n\n# Explore data ###\nsummary(df_phone)\n\n# scatterplot: phoneme duration by mean f0\nplot(df_phon$duration, df_phon$mean_f0)\n\n\n\n1\n\nbegins with some meta-information about the document, including its purpose\n\n2\n\nheading with three hashtags at the end (###) –&gt; creates structured Outline\n\n3\n\nthe purpose of chunks of code are written above\n\n4\n\ndescription of specific lines of code are also given\n\n\n\n\n\n\n\n\n\nthe metadata, headings, and informative comments in phoneme_analysis.R make the second script much easier to follow\nthis becomes more important with longer, more complex scripts"
+  },
+  {
+    "objectID": "pages/literate_programming-slides.html#modular-analyses",
+    "href": "pages/literate_programming-slides.html#modular-analyses",
+    "title": "Writing Reproducible Code",
+    "section": "Modular analyses",
+    "text": "Modular analyses\n\nrecall our scripts folder (which you might’ve named analysis or something else)\nideally, this would also contain subfolders, one for each stage of your analysis\n\nor at least, multiple scripts\n\nthis is the concept of modularity (Bowers & Voors, 2016; Nagler, 1995)\n\nseparating data cleaning, pre-processing, recoding, merging, analyses, etc. into files/scripts"
+  },
+  {
+    "objectID": "pages/literate_programming-slides.html#dynamic-reports-.rmd-and-.qmd",
+    "href": "pages/literate_programming-slides.html#dynamic-reports-.rmd-and-.qmd",
+    "title": "Writing Reproducible Code",
+    "section": "Dynamic reports: .Rmd and .qmd",
+    "text": "Dynamic reports: .Rmd and .qmd\n\nR scripts are useful, but don’t show the code output\n\nand commenting can get clunky\n\ndynamic reports combine prose, code, and code output\n\nR markdown (.Rmd file extension) and Quarto (.qmd ) are extensions of markdown\n\ncan embed R code ‘chunks’ in a script, thus producing ‘dynamic’ reports\n\nproduce a variety of output files which contain text, R code chunks, and the code chunk outputs all in one\n\nfor example, we can look at the example script phoneme_analysis.R, but we have no idea what the scatterplot it produced looks like"
   },
   {
     "objectID": "pages/literate_programming-slides.html#section",
     "href": "pages/literate_programming-slides.html#section",
     "title": "Writing Reproducible Code",
     "section": "",
-    "text": "Task: New Quarto document\n\n\n\nNavigate to File &gt; New file &gt; Quarto document\n\nWrite some title, your name (Author), make sure ‘Visual markdown Editor’ is unchecked\n\nClick ‘Create’\nA new tab will open in R Studio. Press the ‘Render’ button above the top of the document, you will be prompted to save the document. Store it in a folder called scripts and save it as 01-literate-programming.qmd.\nWhat happens?"
+    "text": "Task: New Quarto document\n\n\n\n\nNavigate to File &gt; New file &gt; Quarto document\nWrite some title, your name (Author), make sure ‘Visual markdown Editor’ is unchecked\nClick ‘Create’\nA new tab will open in R Studio. Press the ‘Render’ button above the top of the document, you will be prompted to save the document. Store it in a folder called scripts and save it as 01-literate-programming.qmd.\nWhat happens?"
   },
   {
     "objectID": "pages/literate_programming-slides.html#yaml",
     "href": "pages/literate_programming-slides.html#yaml",
     "title": "Writing Reproducible Code",
     "section": "YAML",
-    "text": "YAML\n\nthe section at the very top fenced by ---\n\ncontains all the meta information about your document\n\ne.g. title, author name, date\nalso formatting information, e.g. type of output file\n\n\nthere are many document formatting and customisation options that we won’t cover in this course\nbut for example I have many YAML formatting options in the source code of my slides\n\n\n---\ntitle: \"My title\"\n---"
+    "text": "YAML\n\nthe section at the very top fenced by ---\ncontains all the meta information about your document\n\ne.g. title, author name, date\nalso formatting information, e.g. type of output file\n\nthere are many document formatting and customisation options, checkout the Quarto website for more\nbut for example I have many YAML formatting options in the source code of my slides\n\n\n---\ntitle: \"My title\"\n---"
   },
   {
     "objectID": "pages/literate_programming-slides.html#structure-your-reports",
     "href": "pages/literate_programming-slides.html#structure-your-reports",
     "title": "Writing Reproducible Code",
     "section": "Structure your reports",
-    "text": "Structure your reports\n\nremember to use (sub-)headings (e.g., # Set-up)\ndescribe the function/purpose at the beginning of the script\ndocument your train of thought and findings throughout the script\n\ne.g., why are you producing this plot, what does it tell you?\n\n\ngive an overview of the findings/end result at the end\nit’s wise to avoid very long, multi-purpose scripts\n\nrule of thumb: one script per product or purpose\ne.g., data cleaning, exploration, analysis, publication figures, etc."
+    "text": "Structure your reports\n\nremember to use (sub-)headings (e.g., # Set-up)\n\nN.B., you don’t need the 3 hashtags here (only in R scripts)\n\ndescribe the function/purpose at the beginning of the script\ndocument your train of thought and findings throughout the script\n\ne.g., why are you producing this plot, what does it tell you?\n\ngive an overview of the findings/end result at the end\nit’s wise to avoid very long, multi-purpose scripts\n\nrule of thumb: one script per product or purpose\ne.g., data cleaning, exploration, analysis, publication figures, etc."
   },
   {
     "objectID": "pages/literate_programming-slides.html#code-chunks",
@@ -149,7 +206,7 @@
     "href": "pages/literate_programming-slides.html#session-info",
     "title": "Writing Reproducible Code",
     "section": "Session info",
-    "text": "Session info\n\nso, print your session info at the end of every script\n\nthis will print your R version, package versions, and more\n\n\n\n\nsessionInfo()"
+    "text": "Session info\n\nso, print your session info at the end of every script\n\nthis will print your R version, package versions, and more\n\n\n\nsessionInfo()"
   },
   {
     "objectID": "pages/packages.html",

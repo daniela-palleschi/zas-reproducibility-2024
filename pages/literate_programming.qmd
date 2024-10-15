@@ -18,6 +18,7 @@ format:
     toc: true
     code-overflow: wrap
     code-tools: true
+    code-annotations: select
     embed-resources: false
   pdf:
     output-file: literate_programming.pdf
@@ -28,6 +29,7 @@ format:
   revealjs:
     footer: "Reproducible code"
     output-file: literate_programming-slides.html
+    code-annotations: hover
 editor_options: 
   chunk_output_type: console
 bibliography: ../bibs/literate_programming.bib
@@ -40,51 +42,28 @@ bibliography: ../bibs/literate_programming.bib
 rbbt::bbt_update_bib(here::here("literate_programming.qmd"))
 ```
 
+
+```{css, echo=FALSE}
+.my_class1 {
+width: 600px;
+}
+```
+
 # Topics
 
 - modular analyses and literate programming
 - create and render a dynamic report with Quarto
 - documenting your dependencies
 
-# Modular analyses {data-stack-name="Modular analyses"}
-
-- recall our `scripts` folder (which you might've named `analysis` or something else)
-- ideally, this would also contain subfolders, one for each stage of your analysis
-  + or at least, multiple scripts
-- this is the concept of *modularity* [@bowers_how_2016; @nagler_coding_1995]
-  + separating data cleaning, pre-processing, recoding, merging, analyses, etc. into files/scripts
-
-::: {.content-visible unless-format="revealjs"}
-
-::: {.callout-tip collapse=true}
-## Modularity
-
-The concept of modularity relating to data analysis refers to saving different stages of data manipulation and analysis in separate scripts [@nagler_coding_1995]. An important step is to also ensure the scripts are appropriately named so that the structure of your analysis/scripts folder "can be a map itself" [@bowers_how_2016, p. 838].
-
-A suggestion I have is to add numerical prefixes before scripts to explicitly state the order in which they must be run. For example, the script that reads in the raw data and cleans/preprocesses it (e.g., renaming or removing irrelevant/redundant variables) and exports a new data file that will be used in subsequent scripts could be called `00_cleaning.qmd` or something of the sort. My current prefered analysis script structure for a given data set is as follows:
-
-```
-scripts/
-  00_cleaning.qmd
-  01_preprocessing-and-eda.qmd
-  02_analyses.qmd
-  03_figures.qmd
-  04_tables.qmd
-```
-
-Where EDA refers to Exploratory Data Analysis, where I look at things like distributions of variables and demographic information. You'll note the `03_figures.qmd` and `04_tables.qmd` scripts follow the `02_analyses.qmd` script. This is because my figures and tables include model results or predictions, and so need to follow the analyses.
-
-:::
-
-:::
-
 # Reproducible code {data-stack-name="Reproducible code"}
+
+## Reproducible code
 
 - how you write your code is the first step in making it reproducible
 
-- the first principle is that your code must be *linear*
+- the first principle is that your code must be [*linear*]{style="color: #8D203D"}
   + this means code must be written in a linear fashion
-  + this is because we typically run a script from top-to-bottom
+  + i.e., our scripts should run from top-to-bottom
 
 ```{r filename="Non-linear code"}
 #| eval: false
@@ -113,13 +92,16 @@ library(here)
 
 ## Literate programming
 
+::: {.fragment}
 > Instead of imagining that our main task is to instruct a *computer* what to do, let us concentrate rather on explaining to *human beings* what we want a computer to do.
 
 --- @Knuth_literate_1984, p. 97
+:::
 
-- refers to writing and documenting our code so that humans can understand it
+- our code should also be [*literate*]{style="color: #8D203D"}
+- i.e., we should write and document our code so that humans can understand it
   + important for us: we are (generally) not professional programmers, nor are our peers
-- we need to not only know what our code is doing when we look back at it in the future/share it
+- we need to know what our code is doing when we look back at it in the future/share it
 - the easiest way: informative comments
   + the length and frequency of these comments is your choice
 
@@ -131,41 +113,105 @@ library(here)
 ## Example R script
 :::
 
-```
+:::: {.columns}
+
+::: {.column width="45%"}
+::: {.fragment}
+```{r filename="analysis4.R"}
 #| eval: false
 #| echo: true
-#| code-fold: false
-#| code-summary: "Example"
+library(dplyr)
+library(readr)
+library(here)
 
-# Analysis script for phoneme paper
-# author: Joe DiMaggio
-# date: Feb. 29, 2024
-# purpose: analyse cleaned dataset
+df_phon <- read_csv(here("data", "phoneme_tidy_data.csv"))
 
-# Set-up ###
+summary(df_phone)
 
-# load required packages
-library(dplyr) # data wrangling
-library(readr) # loding data
-library(here) # project-relative file path
+plot(df_phon$duration, df_phon$mean_f0)
+```
+:::
+:::
+
+::: {.column width="10%"}
+:::
+
+::: {.column width="45%"}
+::: {.fragment}
+::: nonincremental
+```{r filename="phoneme_analysis.R"}
+#| eval: false
+#| echo: true
+# [example script]
+# Analysis script for phoneme paper # <1>
+# author: Joe DiMaggio # <1>
+# date: Feb. 29, 2024 # <1>
+# purpose: analyse cleaned dataset # <1>
+
+# Set-up ### # <2>
+
+# load required packages # <3>
+library(dplyr) # data wrangling # <4>
+library(readr) # loding data # <4>
+library(here) # project-relative file path # <4>
 
 # Load-in data
 df_phon <- read_csv(here("data", "phoneme_tidy_data.csv"))
 
 # Explore data ###
 summary(df_phone)
+
+# scatterplot: phoneme duration by mean f0
+plot(df_phon$duration, df_phon$mean_f0)
+```
+1. begins with some meta-information about the document, including its purpose
+2. heading with three hashtags at the end (`###`) --> creates structured Outline
+3. the purpose of chunks of code are written above
+4. description of specific lines of code are also given
+:::
+:::
+:::
+::::
+
+
+- the metadata, headings, and informative comments in `phoneme_analysis.R` make the second script much easier to follow
+- this becomes more important with longer, more complex scripts
+
+## Modular analyses
+
+- recall our `scripts` folder (which you might've named `analysis` or something else)
+- ideally, this would also contain subfolders, one for each stage of your analysis
+  + or at least, multiple scripts
+- this is the concept of *modularity* [@bowers_how_2016; @nagler_coding_1995]
+  + separating data cleaning, pre-processing, recoding, merging, analyses, etc. into files/scripts
+
+::: {.content-visible unless-format="revealjs"}
+
+::: {.callout-tip collapse=true}
+### Modularity
+
+The concept of modularity relating to data analysis refers to saving different stages of data manipulation and analysis in separate scripts [@nagler_coding_1995]. An important step is to also ensure the scripts are appropriately named so that the structure of your analysis/scripts folder "can be a map itself" [@bowers_how_2016, p. 838].
+
+A suggestion I have is to add numerical prefixes before scripts to explicitly state the order in which they must be run. For example, the script that reads in the raw data and cleans/preprocesses it (e.g., renaming or removing irrelevant/redundant variables) and exports a new data file that will be used in subsequent scripts could be called `00_cleaning.qmd` or something of the sort. My current prefered analysis script structure for a given data set is as follows:
+
+```
+scripts/
+  00_cleaning.qmd
+  01_preprocessing-and-eda.qmd
+  02_analyses.qmd
+  03_figures.qmd
+  04_tables.qmd
 ```
 
-- begins with some meta-information about the document, including its purpose
-  + aids in knowing which scripts to run in which sequence
+Where EDA refers to Exploratory Data Analysis, where I look at things like distributions of variables and demographic information. You'll note the `03_figures.qmd` and `04_tables.qmd` scripts follow the `02_analyses.qmd` script. This is because my figures and tables include model results or predictions, and so need to follow the analyses.
 
-- there are three hashtags after some headings (`###`)
-  + this is helpful because it structures the outline of the document in RStudio
+:::
 
-- the purpose of chunks of code are written above
-  + description of specific lines of code are also given
+:::
 
 # Dynamic reports {data-stack-name="Dynamic reports"}
+
+## Dynamic reports: `.Rmd` and `.qmd`
 
 - R scripts are useful, but don't show the code output
   + and commenting can get clunky
@@ -173,6 +219,7 @@ summary(df_phone)
   + R markdown (`.Rmd` file extension) and Quarto (`.qmd` ) are extensions of markdown
     + can embed R code 'chunks' in a script, thus producing 'dynamic' reports
   + produce a variety of output files which contain text, R code chunks, and the code chunk outputs all in one
+- for example, we can look at the example script `phoneme_analysis.R`, but we have no idea what the scatterplot it produced looks like
   
 ::: {.content-visible when-format="revealjs"}
 ## {-}
@@ -180,12 +227,13 @@ summary(df_phone)
 
 ::: {.callout-note} 
 ## Task: New Quarto document {.nonincremental}
-
+::: nonincremental
 1. Navigate to `File > New file > Quarto document`
 2. Write some title, your name (Author), make sure 'Visual markdown Editor' is *unchecked*
 3. Click 'Create'
 4. A new tab will open in R Studio. Press the 'Render' button above the top of the document, you will be prompted to save the document. Store it in a folder called `scripts` and save it as `01-literate-programming.qmd`.
 5. What happens?
+:::
 :::
 
 ### R v. Rmarkdown v. Quarto
@@ -193,7 +241,7 @@ summary(df_phone)
 -   `.R` files contain (R) source code only
 -   `.Rmd` files are *dynamic reports* that support
     -   R-Code (and R-packages)
--   `.qmd` files are *dynamic reports* (RStudio v2022.07 or later
+-   `.qmd` files are *dynamic reports* (RStudio v2022.07 or later)
     -   R-Code (and R-packages)
     -   native support for Python (and Jupyter-Notebooks)
     -   native support for Julia
@@ -219,7 +267,7 @@ Run the following in the Console: `RStudio.Version()$version`
 - contains all the meta information about your document 
   + e.g. title, author name, date
   + also formatting information, e.g. type of output file
-- there are many document formatting and customisation options that we won't cover in this course 
+- there are many document formatting and customisation options, checkout the [Quarto website](https://quarto.org/docs/reference/formats/html.html) for more
 - but for example I have many YAML formatting options in the source code of my slides
 
 ```{r}
@@ -261,6 +309,7 @@ format:
 ## Structure your reports
 
 - remember to use (sub-)headings (e.g., `# Set-up`)
+  + N.B., you don't need the 3 hashtags here (only in R scripts)
 - describe the function/purpose at the beginning of the script
 - document your train of thought and findings throughout the script
   + e.g., why are you producing this plot, what does it tell you?
@@ -330,11 +379,23 @@ sessionInfo()
   + this means no packages, data, functions, or any other dependencies are loaded
 - at the top of your script, always load packages required below
   + you can always add more packages to the list as you add to your script
-- **Render often**: when you make changes to your script make sure you re-render your document
+- **Render/Knit often**: when you make changes to your script make sure you re-render your document
   + checks you haven't introduced any errors
   + easier to troubleshoot if smaller changes have been made
 - if you can run your script manually from source but it won't render, restart your R session and see if you can still run it from source
   + often the problem is some dependency in your environment that is not linearly introduced in the script
+  
+::: {.content-visible unless-format="revealjs"}
+## Why `Restart R` and not `rm(list=ls())`?
+
+You'll recall that we discussed Jenny Bryan's threat of setting your computer on fire if you have `setwd()` in your scripts. She made the [same threat for those who use `rm(list = ls())`](https://x.com/hadleywickham/status/940021008764846080/photo/2), the intention of which is to clear your R environment so that you can start with a clean slate. The problem is that this isn't even what `rm(list = ls())` does, it only removes the user-created objects from your Global Environment.
+
+Here's what she had to say about the matter on a blog post on the `tidyverse.org` website in 2017, shortly after her tongue-in-cheek slides went viral on #rstats Twitter:
+
+> The problem is that rm(list = ls()) does NOT, in fact, create a fresh R process. All it does is delete user-created objects from the global workspace. Many other changes to the R landscape persist invisibly and can have profound effects on subsequent development. [...] Why does this matter? It makes your script vulnerable to hidden dependencies on things you ran in this R process before you executed rm(list = ls()).
+
+--- Jenny Bryan blog post ['Project-oriented workflow'](https://www.tidyverse.org/blog/2017/12/workflow-vs-script/)
+:::
 
 # Hands-on: working with Quarto
 
@@ -426,3 +487,5 @@ My session info.
 ```{r}
 sessionInfo()
 ```
+
+# References {-}
