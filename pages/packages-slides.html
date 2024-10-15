@@ -430,23 +430,31 @@ Daniela Palleschi
 </div>
 
   <p class="date">Thu Oct 17, 2024</p>
-</section><section id="learning-objectives" class="title-slide slide level1 unlisted unnumbered center"><h1>Learning objectives</h1>
-<p>Today we will…</p>
+</section><section id="topics" class="title-slide slide level1 unlisted unnumbered center"><h1>Topics</h1>
 <ul>
-<li class="fragment">learn about R package repositories</li>
-<li class="fragment">learn how package dependencies can break code</li>
-<li class="fragment">use the <code>renv</code> package to create and maintain a project-relative package library</li>
+<li class="fragment">R packages and dependencies</li>
+<li class="fragment">package versions and libraries</li>
+<li class="fragment">the <code>renv</code> package: creating a project-relative package library</li>
+<li class="fragment">project package library</li>
+<li class="fragment">lockfile maintenance</li>
 </ul></section><section id="resources" class="title-slide slide level1 unnumbered unlisted center"><h1>Resources</h1>
+<div>
 <ul>
-<li class="fragment"><p>to read more on today’s topic, check out:</p></li>
-<li class="fragment"><p><a href="https://raps-with-r.dev/repro_intro.html">Ch. 10 (Basic reprodubility: freezing packages)</a> from <span class="citation" data-cites="rodrigues_building_nodate">Rodrigues (<a href="#/references" role="doc-biblioref" onclick="">2023</a>)</span></p></li>
-<li class="fragment">
-<p>the <a href="https://rstudio.github.io/renv/index.html"><code>renv</code> website</a></p>
+<li>to read more on today’s topic, check out:
 <ul>
-<li class="fragment">or <a href="https://cran.r-project.org/web/packages/renv/index.html">CRAN documentation</a> and vignettes therein (e.g.,: <a href="https://cran.r-project.org/web/packages/renv/vignettes/renv.html">Introduction to renv</a>)</li>
+<li>
+<a href="https://raps-with-r.dev/repro_intro.html">Ch. 10 (Basic reprodubility: freezing packages)</a> from <span class="citation" data-cites="rodrigues_building_nodate">Rodrigues (<a href="#/references" role="doc-biblioref" onclick="">2023</a>)</span>
+</li>
+<li>the <a href="https://rstudio.github.io/renv/index.html"><code>renv</code> website</a>
+</li>
+<li>or the <a href="https://cran.r-project.org/web/packages/renv/index.html">CRAN documentation</a> and vignettes therein (e.g.,: <a href="https://cran.r-project.org/web/packages/renv/vignettes/renv.html">Introduction to renv</a>)</li>
 </ul>
 </li>
-</ul></section><section><section id="packages" class="title-slide slide level1 center" data-stack-name="Packages"><h1>Packages</h1>
+</ul>
+</div>
+</section><section><section id="r-packages" class="title-slide slide level1 center" data-stack-name="R Packages"><h1>R Packages</h1>
+
+</section><section id="r-packages-1" class="title-slide slide level2 center"><h2>R packages</h2>
 <ul>
 <li class="fragment">most open source software (like R) has a range of libraries available
 <ul>
@@ -467,7 +475,7 @@ Daniela Palleschi
 <ul>
 <li class="fragment">the Comprehensive R Archive Network: R’s central software repository
 <ul>
-<li class="fragment">currently 20,888 available!</li>
+<li class="fragment">currently <del>20,888</del> 21,497 available!</li>
 </ul>
 </li>
 <li class="fragment">an archive of the most recent package versions</li>
@@ -532,7 +540,7 @@ Daniela Palleschi
 <ul>
 <li class="fragment">often hosted on GitHub or GitLab, where packages are typically developed before being reviewed and added to the CRAN
 <ul>
-<li class="fragment">benefit: you can make whatever you changes to your package that you like without having to pass a review on the CRAN</li>
+<li class="fragment">benefit: developers can make whatever changes to their package that they like without having to pass a review on the CRAN</li>
 </ul>
 </li>
 <li class="fragment">since CRAN packages are often developed on GH or GL, pre-release (beta) versions will often be available on a GH repo</li>
@@ -556,7 +564,9 @@ Daniela Palleschi
 </ul>
 </li>
 <li class="fragment">we’ll see one (partial) solution for this problem soon</li>
-</ul></section></section><section><section id="package-versions" class="title-slide slide level1 center" data-stack-name="Package versions"><h1>Package versions</h1>
+</ul></section></section><section><section id="package-versions-and-libraries" class="title-slide slide level1 center" data-stack-name="Versions and libraries"><h1>Package versions and libraries</h1>
+
+</section><section id="package-versions" class="title-slide slide level2 center"><h2>Package versions</h2>
 <ul>
 <li class="fragment">packages can be updated at any time
 <ul>
@@ -567,12 +577,14 @@ Daniela Palleschi
 <li class="fragment">if you want to check which version of a package you’re using, you can run <code>packageVersion("package")</code>
 </li>
 </ul>
+<div class="fragment">
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a><span class="fu">packageVersion</span>(<span class="st">"ggplot2"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell fragment">
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] '3.5.1'</code></pre>
+</div>
 </div>
 </div>
 </section><section id="updating-packages" class="title-slide slide level2 center"><h2>Updating packages</h2>
@@ -599,16 +611,20 @@ Daniela Palleschi
 <li class="fragment">to find out where this (global) package library is, run <code><a href="https://rdrr.io/r/base/libPaths.html">.libPaths()</a></code>
 </li>
 </ul>
+<div class="fragment">
 <div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a><span class="fu">.libPaths</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </div>
 <ul>
 <li class="fragment">the output should currently produce a single file path, something like:</li>
 </ul>
+<div class="fragment">
 <pre><code>&gt; .libPaths()
 [1] "/Library/Frameworks/R.framework/Versions/4.4-arm64/Resources/library"</code></pre>
+</div>
 <ul>
-<li class="fragment">this is the location of your global package library</li>
+<li class="fragment">this is the location of your global/system package library</li>
 </ul></section><section id="package-versions-and-reproducibility" class="title-slide slide level2 center"><h2>Package versions and reproducibility</h2>
 <ul>
 <li class="fragment">we’ve seen that package versions and dependencies can easily break our existing code</li>
@@ -622,18 +638,24 @@ Daniela Palleschi
 <li class="fragment">we’ll use the <code>renv</code> package to do this</li>
 </ul>
 </li>
-</ul></section></section><section><section id="renv" class="title-slide slide level1 center" data-stack-name="{renv}"><h1><code>renv</code></h1>
+</ul></section></section><section><section id="the-renv-package" class="title-slide slide level1 center" data-stack-name="{renv}"><h1>The <code>renv</code> package</h1>
+
+</section><section id="reproducible-environments-for-r-projects" class="title-slide slide level2 center"><h2>
+<code>R</code>eproducible <code>Env</code>ironments for R projects</h2>
 <ul>
 <li class="fragment">
-<a href="https://rstudio.github.io/renv/articles/renv.html"><code>renv</code></a> aids in maintaining <em><code>r</code></em>eproducible <em><code>env</code></em>ironments in R projects</li>
+<a href="https://rstudio.github.io/renv/articles/renv.html"><code>renv</code></a> aids in maintaining <em><code>r</code></em>eproducible <em><code>env</code></em>ironments in R projects <span class="citation" data-cites="renv">(<a href="#/references" role="doc-biblioref" onclick="">Ushey &amp; Wickham, 2024</a>)</span>
+</li>
 <li class="fragment">available on the CRAN</li>
 </ul>
+<div class="fragment">
 <div class="cell">
 <div class="code-with-filename">
 <div class="code-with-filename-file">
 <pre><strong>Run in the Console</strong></pre>
 </div>
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a><span class="fu">install.packages</span>(<span class="st">"renv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </div>
 </div>
 <ul>
@@ -680,7 +702,7 @@ Daniela Palleschi
 
 <img data-src="pkg_management_files/figure-revealjs/fig-renv_workflow-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:75.0%"><p class="caption">
 Figure&nbsp;1: Source: <a href="https://cran.r-project.org/web/packages/renv/vignettes/renv.html">CRAN vignette ‘Introduction to renv’</a> (all rights reserved)
-</p></section></section><section><section id="initialise-project-library" class="title-slide slide level1 center" data-stack-name="Initialise"><h1>Initialise project library</h1>
+</p></section><section id="initialise-project-library" class="title-slide slide level2 center"><h2>Initialise project library</h2>
 <ul>
 <li class="fragment">run the following in the Console <em>or</em> in a code chunk but with <code>#| eval: false</code>
 <ul>
@@ -691,12 +713,14 @@ Figure&nbsp;1: Source: <a href="https://cran.r-project.org/web/packages/renv/vig
 </ul>
 </li>
 </ul>
+<div class="fragment">
 <div class="cell">
 <div class="code-with-filename">
 <div class="code-with-filename-file">
 <pre><strong>In the Console or with eval: false</strong></pre>
 </div>
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a>renv<span class="sc">::</span><span class="fu">init</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </div>
 </div>
 </section><section id="section-1" class="title-slide slide level2 center"><h2></h2>
@@ -719,7 +743,7 @@ The version of R recorded in the lockfile will be updated:
 Restarting R session...
 
 - Project '~/Documents/IdSL/Teaching/SoSe24/M.A./r4repro_student' loaded. [renv 1.0.7]</code></pre>
-</section><section id="new-files" class="title-slide slide level2 center"><h2>New files</h2>
+</section><section id="new-files" class="title-slide slide level3 center"><h3>New files</h3>
 <ul>
 <li class="fragment">
 <code><a href="https://rstudio.github.io/renv/reference/init.html">renv::init()</a></code> creates three new files or directories
@@ -730,7 +754,7 @@ Restarting R session...
 </ul>
 </li>
 <li class="fragment">explore these files/folders and see if you can figure out what they contain</li>
-</ul></section><section id="renv.lock" class="title-slide slide level2 center"><h2><code>renv.lock</code></h2>
+</ul></section><section id="renv.lock" class="title-slide slide level3 center"><h3><code>renv.lock</code></h3>
 <ul>
 <li class="fragment">contains metadata about the packages and their versions that you have installed
 <ul>
@@ -745,11 +769,11 @@ Restarting R session...
 <code>Packages</code>: a record per package with necessary info for re-installation</li>
 </ul>
 </li>
-</ul></section><section id="renv-1" class="title-slide slide level2 center"><h2><code>renv/</code></h2>
+</ul></section><section id="renv" class="title-slide slide level3 center"><h3><code>renv/</code></h3>
 <ul>
 <li class="fragment">importantly, contains your project-relative <code>library/</code>
 <ul>
-<li class="fragment">this is instead of using the one library on your computer</li>
+<li class="fragment">this is instead of using the local/system library on your computer</li>
 </ul>
 </li>
 <li class="fragment">provides us with “isolation”: the package versions used in an R Project is independent of the global library
@@ -758,7 +782,7 @@ Restarting R session...
 <li class="fragment">updating packages globally, or in one project, will not affect other project libraries</li>
 </ul>
 </li>
-</ul></section><section id="rprofile" class="title-slide slide level2 center"><h2><code>.RProfile</code></h2>
+</ul></section><section id="rprofile" class="title-slide slide level3 center"><h3><code>.RProfile</code></h3>
 <ul>
 <li class="fragment">runs whenver you (re-)start your R Project</li>
 <li class="fragment">at this point, should contain a single line:</li>
@@ -772,10 +796,13 @@ Restarting R session...
 <li class="fragment">this essentially loads in your project library</li>
 </ul>
 </li>
-</ul></section><section id="project-library" class="title-slide slide level2 center"><h2>Project library</h2>
+</ul></section></section><section><section id="project-library" class="title-slide slide level1 center" data-stack-name="Project library"><h1>Project library</h1>
+
+</section><section id="locating-our-project-library" class="title-slide slide level2 center"><h2>Locating our project library</h2>
 <ul>
-<li class="fragment">now if we re-run <code><a href="https://rdrr.io/r/base/libPaths.html">.libPaths()</a></code>, we should see our project library</li>
+<li class="fragment">if we re-run <code><a href="https://rdrr.io/r/base/libPaths.html">.libPaths()</a></code>, we should see our project library</li>
 </ul>
+<div class="fragment">
 <div class="cell">
 <div class="code-with-filename">
 <div class="code-with-filename-file">
@@ -783,10 +810,12 @@ Restarting R session...
 </div>
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a><span class="fu">.libPaths</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "/Users/danielapalleschi/Documents/ZAS/zas-reproducibility-2024/renv/library/macos/R-4.4/aarch64-apple-darwin20"   
+[2] "/Users/danielapalleschi/Library/Caches/org.R-project.R/R/renv/sandbox/macos/R-4.4/aarch64-apple-darwin20/f7156815"</code></pre>
 </div>
-<pre><code>&gt; .libPaths()
-[1] "/Users/danielapalleschi/Documents/IdSL/Teaching/SoSe24/M.A./r4repro_SoSe2024/renv/library/macos/R-4.4/aarch64-apple-darwin20"
-[2] "/Users/danielapalleschi/Library/Caches/org.R-project.R/R/renv/sandbox/macos/R-4.4/aarch64-apple-darwin20/f7156815"  </code></pre>
+</div>
+</div>
 <ul>
 <li class="fragment">
 <code>[1]</code> is the local project library path</li>
@@ -796,7 +825,7 @@ Restarting R session...
 <li class="fragment">e.g., if we already have <code>ggplot2</code> installed globally on our machine, whenever we want to add it to a project library we don’t need to re-install it entirely from the CRAN (unless we want a different package version)</li>
 </ul>
 </li>
-</ul></section></section><section><section id="installing-more-packages" class="title-slide slide level1 center"><h1>Installing more packages</h1>
+</ul></section><section id="installing-more-packages" class="title-slide slide level2 center"><h2>Installing more packages</h2>
 <ul>
 <li class="fragment">which packages are stored in <code>renv.lock</code>?
 <ul>
@@ -808,37 +837,58 @@ Restarting R session...
 <li class="fragment">to add these packages, or any other packages you want, you need to (re-)install them locally within your project</li>
 </ul>
 </li>
-<li class="fragment">let’s install a package that we’ll use later on: <code>lme4</code>
+<li class="fragment">let’s install a package that you’ll likely have already installed elsewhere: <code>lme4</code> <span class="citation" data-cites="lme4">(<a href="#/references" role="doc-biblioref" onclick="">Bates et al., 2015</a>)</span>
 </li>
 </ul>
+<div class="columns">
+<div class="column" style="width:30%;">
+<div class="fragment">
 <div class="cell">
-<details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a><span class="co"># as usual</span></span>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a><span class="co"># as usual</span></span>
 <span id="cb13-2"><a></a><span class="fu">install.packages</span>(<span class="st">"lme4"</span>)</span>
-<span id="cb13-3"><a></a><span class="co"># or with the renv package</span></span>
-<span id="cb13-4"><a></a>renv<span class="sc">::</span><span class="fu">install</span>(<span class="st">"lme4"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
+<span id="cb13-3"><a></a><span class="co"># or with pacman::p_load()</span></span>
+<span id="cb13-4"><a></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(<span class="st">"lme4"</span>)</span>
+<span id="cb13-5"><a></a><span class="co"># or with the renv package</span></span>
+<span id="cb13-6"><a></a>renv<span class="sc">::</span><span class="fu">install</span>(<span class="st">"lme4"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+</div>
+</div><div class="column" style="width:70%;">
 <ul>
 <li class="fragment">if you already have a package on your machine (in your global library), <code>renv</code> will just grab it from the global cache</li>
 <li class="fragment">if not, it will be downloaded from CRAN</li>
-</ul></section><section id="installing-a-new-package" class="title-slide slide level2 center"><h2>Installing a new package</h2>
+</ul>
+</div>
+</div>
+</section><section id="installing-a-new-package" class="title-slide slide level2 center"><h2>Installing a new package</h2>
 <ul>
-<li class="fragment">let’s also install a package I’m confident you don’t already have on your machine (as you might’ve already worked with <code>lme4</code> in other classes)
+<li class="fragment">let’s also install a package I’m confident you don’t already have on your machine
 <ul>
-<li class="fragment">[<code>brms</code>] for Bayesian regression models using Stan</li>
+<li class="fragment">
+<code>beepr</code>, which can play notification sounds <span class="citation" data-cites="beepr">(<a href="#/references" role="doc-biblioref" onclick="">Bååth, 2024</a>)</span>
+</li>
 </ul>
 </li>
 </ul>
+<div class="fragment">
 <div class="cell">
-<details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a><span class="fu">install.packages</span>(<span class="st">"brms"</span>)</span>
-<span id="cb14-2"><a></a>renv<span class="sc">::</span><span class="fu">install</span>(<span class="st">"brms"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a><span class="fu">install.packages</span>(<span class="st">"beepr"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </div>
 <ul>
 <li class="fragment">and if we want a specific package version:</li>
 </ul>
+<div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a></a>renv<span class="sc">::</span><span class="fu">install</span>(<span class="st">"brms@2.19.0"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a></a>renv<span class="sc">::</span><span class="fu">install</span>(<span class="st">"beepr@1.3"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<ul>
+<li class="fragment">to test out <code>beepr</code>:</li>
+</ul>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a></a>beepr<span class="sc">::</span><span class="fu">beep</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </div>
 </section><section id="installing-developer-packages" class="title-slide slide level2 center"><h2>Installing developer packages</h2>
 <ul>
@@ -848,24 +898,34 @@ Restarting R session...
 </ul>
 </li>
 </ul>
+<div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a></a>remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"paul-buerkner/brms"</span>)</span>
-<span id="cb16-2"><a></a>devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"paul-buerkner/brms"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a></a>remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"paul-buerkner/brms"</span>)</span>
+<span id="cb17-2"><a></a>devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"paul-buerkner/brms"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </div>
 <ul>
 <li class="fragment">
 <em>or</em> we can use <code><a href="https://rstudio.github.io/renv/reference/install.html">renv::install()</a></code>
 </li>
 </ul>
+<div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a></a><span class="co"># most recent version</span></span>
-<span id="cb17-2"><a></a>renv<span class="sc">::</span><span class="fu">install</span>(<span class="st">"paul-buerkner/brms"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a></a><span class="co"># most recent version</span></span>
+<span id="cb18-2"><a></a>renv<span class="sc">::</span><span class="fu">install</span>(<span class="st">"paul-buerkner/brms"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+</div>
+<ul>
+<li class="fragment">or a specific previous version (you need the commit ID)</li>
+</ul>
+<div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a></a><span class="co"># a specific previous version, for which you'll need the commit ID</span></span>
-<span id="cb18-2"><a></a>renv<span class="sc">::</span><span class="fu">install</span>(<span class="st">"paul-buerkner/brms@db6ddde90ba533cb3942bc5a62b03803773b9844"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a></a>renv<span class="sc">::</span><span class="fu">install</span>(<span class="st">"paul-buerkner/brms@db6ddde90ba533cb3942bc5a62b03803773b9844"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section></section><section><section id="lockfile-status" class="title-slide slide level1 center"><h1>Lockfile status</h1>
+</div>
+</section></section><section><section id="maintaining-your-lockfile-renv.lock" class="title-slide slide level1 center" data-stack-name="Lockfile maintenance"><h1>Maintaining your lockfile (<code>renv.lock</code>)</h1>
+
+</section><section id="lockfile-status" class="title-slide slide level2 center"><h2>Lockfile status</h2>
 <ul>
 <li class="fragment">you should make a habit of checking the status of your lockfile
 <ul>
@@ -873,22 +933,26 @@ Restarting R session...
 </ul>
 </li>
 </ul>
+<div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a></a>renv<span class="sc">::</span><span class="fu">status</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a></a>renv<span class="sc">::</span><span class="fu">status</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </div>
 <ul>
 <li class="fragment">ideally, you’ll usually get the following message:</li>
 </ul>
+<div class="fragment">
 <pre><code>&gt; renv::status()
 No issues found -- the project is in a consistent state.</code></pre>
+</div>
 <ul>
 <li class="fragment">but if you’ve installed or updated some packages, you will get a list of any packages that are out-of-sync or haven’t been stored in the lockfile (as should be our case)</li>
-</ul></section><section id="updating-renv.lock-file" class="title-slide slide level2 center"><h2>Updating <code>renv.lock</code> file</h2>
+</ul></section><section id="updating-renv.lock-file" class="title-slide slide level3 center"><h3>Updating <code>renv.lock</code> file</h3>
 <ul>
 <li class="fragment">to update the lockfile and library, simply run:</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a></a>renv<span class="sc">::</span><span class="fu">snapshot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a></a>renv<span class="sc">::</span><span class="fu">snapshot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ul>
 <li class="fragment">you’ll be given a list of changes to be made and asked if you want to proceed
@@ -896,14 +960,14 @@ No issues found -- the project is in a consistent state.</code></pre>
 <li class="fragment">if not problems are mentioned, then you can go ahead</li>
 </ul>
 </li>
-</ul></section></section><section id="updating-packages-1" class="title-slide slide level1 center"><h1>Updating packages</h1>
+</ul></section><section id="updating-packages-1" class="title-slide slide level2 center"><h2>Updating packages</h2>
 <ul>
 <li class="fragment">to update packages using <code>renv</code>, we can use:</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a></a>renv<span class="sc">::</span><span class="fu">update</span>()</span>
-<span id="cb22-2"><a></a><span class="co"># or</span></span>
-<span id="cb22-3"><a></a>renv<span class="sc">::</span><span class="fu">update.packages</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a></a>renv<span class="sc">::</span><span class="fu">update</span>()</span>
+<span id="cb23-2"><a></a><span class="co"># or</span></span>
+<span id="cb23-3"><a></a>renv<span class="sc">::</span><span class="fu">update.packages</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ul>
 <li class="fragment">this will not automatically store the updated versions in the lockfile
@@ -914,9 +978,9 @@ No issues found -- the project is in a consistent state.</code></pre>
 </li>
 <li class="fragment">you can also use these functions to only check by including <code>check = T</code>
 </li>
-</ul></section><section id="restoring-lockfile" class="title-slide slide level1 center"><h1>Restoring lockfile</h1>
+</ul></section><section id="restoring-lockfile" class="title-slide slide level2 center"><h2>Restoring lockfile</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a></a>renv<span class="sc">::</span><span class="fu">restore</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a></a>renv<span class="sc">::</span><span class="fu">restore</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ul>
 <li class="fragment">this will restore the current project’s package versions to be those stored in the lockfile
@@ -931,7 +995,7 @@ No issues found -- the project is in a consistent state.</code></pre>
 <li class="fragment">want to run your project on another computer (e.g., a collaborator)</li>
 </ul>
 </li>
-</ul></section><section><section id="additional-packages" class="title-slide slide level1 center"><h1>Additional packages</h1>
+</ul></section></section><section><section id="additional-packages" class="title-slide slide level1 center"><h1>Additional packages</h1>
 <ul>
 <li class="fragment"><p>some other packages that can be useful for package management or reproducibility</p></li>
 <li class="fragment">
@@ -963,18 +1027,11 @@ No issues found -- the project is in a consistent state.</code></pre>
 </ul></section></section><section id="session-info" class="title-slide slide level1 center"><h1>Session Info</h1>
 <ul>
 <li class="fragment">whether you’re using <code>renv</code> or not, <em>always</em> end a script with <code><a href="https://rdrr.io/r/utils/sessionInfo.html">sessionInfo()</a></code>
-<ul>
-<li class="fragment">with dynamic reports: this will print out the package versions used to produce the output</li>
-<li class="fragment">in R: you can save the info as an object and save it as an RDS file
-<ul>
-<li class="fragment">or run it, copy-and-paste the output in the script, and comment it all out</li>
-</ul>
 </li>
 </ul>
-</li>
-</ul>
+<div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a></a><span class="fu">sessionInfo</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a></a><span class="fu">sessionInfo</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>R version 4.4.1 (2024-06-14)
 Platform: aarch64-apple-darwin20
@@ -991,26 +1048,56 @@ time zone: Europe/Berlin
 tzcode source: internal
 
 attached base packages:
-[1] stats     graphics  grDevices utils     datasets  methods   base     
+[1] stats     graphics  grDevices datasets  utils     methods   base     
 
 loaded via a namespace (and not attached):
  [1] digest_0.6.35     fastmap_1.2.0     xfun_0.45         magrittr_2.0.3   
  [5] knitr_1.47        htmltools_0.5.8.1 rmarkdown_2.27    cli_3.6.2        
- [9] compiler_4.4.1    rprojroot_2.0.4   here_1.0.1        rstudioapi_0.16.0
-[13] tools_4.4.1       evaluate_0.24.0   Rcpp_1.0.12       yaml_2.3.8       
-[17] magick_2.8.3      rlang_1.1.4       jsonlite_1.8.8   </code></pre>
+ [9] renv_1.0.7        compiler_4.4.1    rprojroot_2.0.4   here_1.0.1       
+[13] rstudioapi_0.16.0 tools_4.4.1       evaluate_0.24.0   Rcpp_1.0.12      
+[17] yaml_2.3.8        magick_2.8.3      rlang_1.1.4       jsonlite_1.8.8   </code></pre>
 </div>
 </div>
-</section><section id="learning-objectives-1" class="title-slide slide level1 unlisted unnumbered center"><h1>Learning objectives</h1>
-<p>Today we will…</p>
+</div>
+</section><section id="current-state-of-your-r-project" class="title-slide slide level1 center"><h1>Current state of your R Project</h1>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Your practice R Project</strong></p>
+</div>
+<div class="callout-content">
+<p>Recall that we created a new R Project. It should now have:</p>
 <ul>
-<li class="fragment">learn about R package repositories</li>
-<li class="fragment">learn how package dependencies can break code</li>
-<li class="fragment">use the <code>renv</code> package to create and maintain a project-relative package library</li>
+<li class="fragment">the dataset in the <code>data/</code> folder</li>
+<li class="fragment">some <code>scripts/</code> (perhaps R scripts from last week, at least one Quarto script from this week)</li>
+<li class="fragment">a <code>renv.lock</code> file, <code>.Rprofile</code>, and a <code>renv/</code> folder</li>
+</ul>
+</div>
+</div>
+</div>
+</section><section id="topics-1" class="title-slide slide level1 unlisted unnumbered center"><h1>Topics 🏁</h1>
+<ul>
+<li class="fragment">R packages and dependencies ✅</li>
+<li class="fragment">package versions and libraries ✅</li>
+<li class="fragment">the <code>renv</code> package: creating a project-relative package library ✅</li>
+<li class="fragment">project package library ✅</li>
+<li class="fragment">lockfile maintenance ✅</li>
 </ul></section><section id="references" class="title-slide slide level1 unlisted unnumbered smaller scrollable" data-visibility="uncounted"><h1>References</h1>
 <div id="refs" class="references csl-bib-body hanging-indent" data-custom-style="Bibliography" data-entry-spacing="0" data-line-spacing="2" role="list">
+<div id="ref-beepr" class="csl-entry" role="listitem">
+Bååth, R. (2024). <em>Beepr: Easily play notification sounds on any platform</em>. <a href="https://CRAN.R-project.org/package=beepr">https://CRAN.R-project.org/package=beepr</a>
+</div>
+<div id="ref-lme4" class="csl-entry" role="listitem">
+Bates, D., Mächler, M., Bolker, B., &amp; Walker, S. (2015). Fitting linear mixed-effects models using <span class="nocase">lme4</span>. <em>Journal of Statistical Software</em>, <em>67</em>(1), 1–48. <a href="https://doi.org/10.18637/jss.v067.i01">https://doi.org/10.18637/jss.v067.i01</a>
+</div>
 <div id="ref-rodrigues_building_nodate" class="csl-entry" role="listitem">
 Rodrigues, B. (2023). <em>Building reproducible analytical pipelines with <span>R</span></em>.
+</div>
+<div id="ref-renv" class="csl-entry" role="listitem">
+Ushey, K., &amp; Wickham, H. (2024). <em>Renv: Project environments</em>. <a href="https://CRAN.R-project.org/package=renv">https://CRAN.R-project.org/package=renv</a>
 </div>
 </div>
 
