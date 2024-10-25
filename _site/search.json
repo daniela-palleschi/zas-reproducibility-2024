@@ -40,7 +40,7 @@
     "href": "pages/literate_programming.html#example-r-script-1",
     "title": "Writing Reproducible Code",
     "section": "2.4 Example R script",
-    "text": "2.4 Example R script\n\n\n\n\n\n\nanalysis4.R\n\nlibrary(dplyr)\nlibrary(readr)\nlibrary(here)\n\ndf_phon &lt;- read_csv(here(\"data\", \"phoneme_tidy_data.csv\"))\n\nsummary(df_phone)\n\nplot(df_phon$duration, df_phon$mean_f0)\n\n\n\n\n\n\n\n\n\n\n\nphoneme_analysis.R\n\n# [example script]\n1# Analysis script for phoneme paper\n# author: Joe DiMaggio\n# date: Feb. 29, 2024\n# purpose: analyse cleaned dataset\n\n2# Set-up ####\n\n3# load required packages\n4library(dplyr) # data wrangling\nlibrary(readr) # loding data\nlibrary(here) # project-relative file path\n\n# Load-in data\ndf_phon &lt;- read_csv(here(\"data\", \"phoneme_tidy_data.csv\"))\n\n# Explore data ----\nsummary(df_phone)\n\n# scatterplot: phoneme duration by mean f0\nplot(df_phon$duration, df_phon$mean_f0)\n\n\n\n1\n\nbegins with some meta-information about the document, including its purpose\n\n2\n\nheading with four hashtags (####) or hyphens (----) at the end –&gt; creates structured Outline (but be consistent!)\n\n3\n\nthe purpose of chunks of code are written above\n\n4\n\ndescription of specific lines of code are also given\n\n\n\n\n\n\n\n\n\nthe metadata, headings, and informative comments in phoneme_analysis.R make the second script much easier to follow\nthis becomes more important with longer, more complex scripts",
+    "text": "2.4 Example R script\n\n\n\n\n\n\nanalysis4.R\n\nlibrary(dplyr)\nlibrary(readr)\nlibrary(here)\n\ndf_phon &lt;- read_csv(here(\"data\", \"phoneme_tidy_data.csv\"))\n\nsummary(df_phone)\n\nplot(df_phon$duration, df_phon$mean_f0)\n\n\n\n\n\n\n\n\n\n\n\nphoneme_analysis.R\n\n# [example script]\n1# Analysis script for phoneme paper\n# author: Joe DiMaggio\n# date: Feb. 29, 2024\n# purpose: analyse cleaned dataset\n\n2# Set-up ####\n\n3# load required packages\n4library(dplyr) # data wrangling\nlibrary(readr) # loding data\nlibrary(here) # project-relative file path\n\n# Load-in data\ndf_phon &lt;- read_csv(here(\"data\", \"phoneme_tidy_data.csv\"))\n\n# Explore data ####\nsummary(df_phone)\n\n# scatterplot: phoneme duration by mean f0\nplot(df_phon$duration, df_phon$mean_f0)\n\n\n\n1\n\nbegins with some meta-information about the document, including its purpose\n\n2\n\nheading with four hashtags (####) or hyphens (----) at the end –&gt; creates structured Outline (but be consistent!)\n\n3\n\nthe purpose of chunks of code are written above\n\n4\n\ndescription of specific lines of code are also given\n\n\n\n\n\n\n\n\n\nthe metadata, headings, and informative comments in phoneme_analysis.R make the second script much easier to follow\nthis becomes more important with longer, more complex scripts",
     "crumbs": [
       "D. Palleschi",
       "Day 2",
@@ -157,7 +157,7 @@
     "href": "pages/literate_programming-slides.html#example-r-script",
     "title": "Writing Reproducible Code",
     "section": "Example R script",
-    "text": "Example R script\n\n\n\n\n\n\nanalysis4.R\n\nlibrary(dplyr)\nlibrary(readr)\nlibrary(here)\n\ndf_phon &lt;- read_csv(here(\"data\", \"phoneme_tidy_data.csv\"))\n\nsummary(df_phone)\n\nplot(df_phon$duration, df_phon$mean_f0)\n\n\n\n\n\n\n\n\n\n\n\nphoneme_analysis.R\n\n# [example script]\n1# Analysis script for phoneme paper\n# author: Joe DiMaggio\n# date: Feb. 29, 2024\n# purpose: analyse cleaned dataset\n\n2# Set-up ####\n\n3# load required packages\n4library(dplyr) # data wrangling\nlibrary(readr) # loding data\nlibrary(here) # project-relative file path\n\n# Load-in data\ndf_phon &lt;- read_csv(here(\"data\", \"phoneme_tidy_data.csv\"))\n\n# Explore data ----\nsummary(df_phone)\n\n# scatterplot: phoneme duration by mean f0\nplot(df_phon$duration, df_phon$mean_f0)\n\n\n\n1\n\nbegins with some meta-information about the document, including its purpose\n\n2\n\nheading with four hashtags (####) or hyphens (----) at the end –&gt; creates structured Outline (but be consistent!)\n\n3\n\nthe purpose of chunks of code are written above\n\n4\n\ndescription of specific lines of code are also given\n\n\n\n\n\n\n\n\n\nthe metadata, headings, and informative comments in phoneme_analysis.R make the second script much easier to follow\nthis becomes more important with longer, more complex scripts"
+    "text": "Example R script\n\n\n\n\n\n\nanalysis4.R\n\nlibrary(dplyr)\nlibrary(readr)\nlibrary(here)\n\ndf_phon &lt;- read_csv(here(\"data\", \"phoneme_tidy_data.csv\"))\n\nsummary(df_phone)\n\nplot(df_phon$duration, df_phon$mean_f0)\n\n\n\n\n\n\n\n\n\n\n\nphoneme_analysis.R\n\n# [example script]\n1# Analysis script for phoneme paper\n# author: Joe DiMaggio\n# date: Feb. 29, 2024\n# purpose: analyse cleaned dataset\n\n2# Set-up ####\n\n3# load required packages\n4library(dplyr) # data wrangling\nlibrary(readr) # loding data\nlibrary(here) # project-relative file path\n\n# Load-in data\ndf_phon &lt;- read_csv(here(\"data\", \"phoneme_tidy_data.csv\"))\n\n# Explore data ####\nsummary(df_phone)\n\n# scatterplot: phoneme duration by mean f0\nplot(df_phon$duration, df_phon$mean_f0)\n\n\n\n1\n\nbegins with some meta-information about the document, including its purpose\n\n2\n\nheading with four hashtags (####) or hyphens (----) at the end –&gt; creates structured Outline (but be consistent!)\n\n3\n\nthe purpose of chunks of code are written above\n\n4\n\ndescription of specific lines of code are also given\n\n\n\n\n\n\n\n\n\nthe metadata, headings, and informative comments in phoneme_analysis.R make the second script much easier to follow\nthis becomes more important with longer, more complex scripts"
   },
   {
     "objectID": "pages/literate_programming-slides.html#modular-analyses",
@@ -560,7 +560,7 @@
     "href": "pages/R-Projects.html#creating-a-new-project",
     "title": "R-Projects",
     "section": "3.1 Creating a new Project",
-    "text": "3.1 Creating a new Project\n\nwhen?\n\nwhenever you’re starting a new course oR-Project which will use R\n\nwhy?\n\nto keep all the relavent materials in one place\n\nwhere?\n\nsomewhere that makes sense, e.g., a folder called SoSe2024 or Mastersarbeit\n\nhow?\n\nFile &gt; New Project &gt; New Directory &gt; New Project &gt; [Directory name] &gt; Create Project\n\n\n\n\n\n\n\n\n\n\nNew R-Project\n\n\n\nCreate a new R-Project for this workshop\n\nFile &gt; New Project &gt; New Directory &gt; New Project &gt; [Directory name] &gt; Create Project\nmake sure you choose a sensible location",
+    "text": "3.1 Creating a new Project\n\nwhen?\n\nwhenever you’re starting a new course or project which will use R\n\nwhy?\n\nto keep all the relavent materials in one place\n\nwhere?\n\nsomewhere that makes sense, e.g., a folder called SoSe2024 or Mastersarbeit\n\nhow?\n\nFile &gt; New Project &gt; New Directory &gt; New Project &gt; [Directory name] &gt; Create Project\n\n\n\n\n\n\n\n\n\n\nNew R-Project\n\n\n\nCreate a new R-Project for this workshop\n\nFile &gt; New Project &gt; New Directory &gt; New Project &gt; [Directory name] &gt; Create Project\nmake sure you choose a sensible location",
     "crumbs": [
       "D. Palleschi",
       "Day 1",
@@ -584,7 +584,7 @@
     "href": "pages/R-Projects.html#adding-a-readme-file",
     "title": "R-Projects",
     "section": "3.3 Adding a README file",
-    "text": "3.3 Adding a README file\n\nFile &gt; New File &gt; Markdown File (not R Markdown!)\n\nadd some text describing the purpose of this project\ninclude your name, the date\nuse Markdown formatting (e.g., # for headings, *italics*, **bold**)\n\nsave as README.md in youR-Project directory",
+    "text": "3.3 Adding a README file\n\nFile &gt; New File &gt; Markdown File (not R Markdown!)\n\nadd some text describing the purpose of this project\ninclude your name, the date\nuse Markdown formatting (e.g., # for headings, *italics*, **bold**)\n\nsave as README.md in your project directory",
     "crumbs": [
       "D. Palleschi",
       "Day 1",
@@ -644,7 +644,7 @@
     "href": "pages/R-Projects.html#the-problem-with-setwd",
     "title": "R-Projects",
     "section": "4.1 The problem with setwd()",
-    "text": "4.1 The problem with setwd()\n\n\nIf the first line of your R script is\nsetwd(\"C:\\Users\\jenny\\path\\that\\only\\I\\have\")\nI will come into your office and SET YOUR COMPUTER ON FIRE🔥.\n\n— Jenny Bryan\n\n\nsetwd() depends on your entire machine’s folder structure\nsetwd() breaks when you\n\nsend youR-Project folder to a collaborator\nmake your analyses open\nchange the location of youR-Project folder\n\nusing slashes is also dependent on your operating system\n\n\ntrying to use somebody else’s (or your former) folder path will result in a warning message like:\n\n\nError in setwd(\"/Users/danielapalleschi/Documents/R/rproject-template\") : cannot change working directory",
+    "text": "4.1 The problem with setwd()\n\n\nIf the first line of your R script is\nsetwd(\"C:\\Users\\jenny\\path\\that\\only\\I\\have\")\nI will come into your office and SET YOUR COMPUTER ON FIRE🔥.\n\n— Jenny Bryan\n\n\nsetwd() depends on your entire machine’s folder structure\nsetwd() breaks when you\n\nsend your project folder to a collaborator\nmake your analyses open\nchange the location of your project folder\n\nusing slashes is also dependent on your operating system\n\n\ntrying to use somebody else’s (or your former) folder path will result in a warning message like:\n\n\nError in setwd(\"/Users/danielapalleschi/Documents/R/rproject-template\") : cannot change working directory",
     "crumbs": [
       "D. Palleschi",
       "Day 1",
@@ -711,7 +711,7 @@
     "href": "pages/R-Projects-slides.html#creating-a-new-project",
     "title": "R-Projects",
     "section": "Creating a new Project",
-    "text": "Creating a new Project\n\nwhen?\n\nwhenever you’re starting a new course oR-Project which will use R\n\n\nwhy?\n\nto keep all the relavent materials in one place\n\n\nwhere?\n\nsomewhere that makes sense, e.g., a folder called SoSe2024 or Mastersarbeit\n\n\n\nhow?\n\nFile &gt; New Project &gt; New Directory &gt; New Project &gt; [Directory name] &gt; Create Project"
+    "text": "Creating a new Project\n\nwhen?\n\nwhenever you’re starting a new course or project which will use R\n\n\nwhy?\n\nto keep all the relavent materials in one place\n\n\nwhere?\n\nsomewhere that makes sense, e.g., a folder called SoSe2024 or Mastersarbeit\n\n\n\nhow?\n\nFile &gt; New Project &gt; New Directory &gt; New Project &gt; [Directory name] &gt; Create Project"
   },
   {
     "objectID": "pages/R-Projects-slides.html#opening-a-project",
@@ -725,7 +725,7 @@
     "href": "pages/R-Projects-slides.html#adding-a-readme-file",
     "title": "R-Projects",
     "section": "Adding a README file",
-    "text": "Adding a README file\n\n\nFile &gt; New File &gt; Markdown File (not R Markdown!)\n\nadd some text describing the purpose of this project\ninclude your name, the date\nuse Markdown formatting (e.g., # for headings, *italics*, **bold**)\n\n\nsave as README.md in youR-Project directory"
+    "text": "Adding a README file\n\n\nFile &gt; New File &gt; Markdown File (not R Markdown!)\n\nadd some text describing the purpose of this project\ninclude your name, the date\nuse Markdown formatting (e.g., # for headings, *italics*, **bold**)\n\n\nsave as README.md in your project directory"
   },
   {
     "objectID": "pages/R-Projects-slides.html#global-rstudio-options",
@@ -767,7 +767,7 @@
     "href": "pages/R-Projects-slides.html#the-problem-with-setwd",
     "title": "R-Projects",
     "section": "The problem with setwd()\n",
-    "text": "The problem with setwd()\n\n\n\nIf the first line of your R script is\nsetwd(\"C:\\Users\\jenny\\path\\that\\only\\I\\have\")\nI will come into your office and SET YOUR COMPUTER ON FIRE🔥.\n\n— Jenny Bryan\n\n\n\nsetwd() depends on your entire machine’s folder structure\n\nsetwd() breaks when you\n\nsend youR-Project folder to a collaborator\nmake your analyses open\nchange the location of youR-Project folder\n\n\nusing slashes is also dependent on your operating system"
+    "text": "The problem with setwd()\n\n\n\nIf the first line of your R script is\nsetwd(\"C:\\Users\\jenny\\path\\that\\only\\I\\have\")\nI will come into your office and SET YOUR COMPUTER ON FIRE🔥.\n\n— Jenny Bryan\n\n\n\nsetwd() depends on your entire machine’s folder structure\n\nsetwd() breaks when you\n\nsend your project folder to a collaborator\nmake your analyses open\nchange the location of your project folder\n\n\nusing slashes is also dependent on your operating system"
   },
   {
     "objectID": "pages/R-Projects-slides.html#the-benefit-of-here",

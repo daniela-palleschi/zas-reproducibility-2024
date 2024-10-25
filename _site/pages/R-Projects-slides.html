@@ -511,7 +511,7 @@ Daniela Palleschi
 <ul>
 <li class="fragment">when?
 <ul>
-<li class="fragment">whenever you’re starting a new course oR-Project which will use R</li>
+<li class="fragment">whenever you’re starting a new course or project which will use R</li>
 </ul>
 </li>
 <li class="fragment">why?
@@ -592,7 +592,7 @@ Figure&nbsp;2: Open from RStudio
 <li class="fragment">use Markdown formatting (e.g., <code>#</code> for headings, <code>*italics*</code>, <code>**bold**</code>)</li>
 </ul>
 </li>
-<li class="fragment">save as <code>README.md</code> in youR-Project directory</li>
+<li class="fragment">save as <code>README.md</code> in your project directory</li>
 </ul></section><section id="global-rstudio-options" class="title-slide slide level2 center"><h2>Global RStudio options</h2>
 <div class="columns">
 <div class="column" style="width:50%;">
@@ -860,9 +860,9 @@ Figure&nbsp;7: Illustration by <a href="https://github.com/allisonhorst">Allison
 <li class="fragment">
 <code><a href="https://rdrr.io/r/base/getwd.html">setwd()</a></code> breaks when you
 <ul>
-<li class="fragment">send youR-Project folder to a collaborator</li>
+<li class="fragment">send your project folder to a collaborator</li>
 <li class="fragment">make your analyses open</li>
-<li class="fragment">change the location of youR-Project folder</li>
+<li class="fragment">change the location of your project folder</li>
 </ul>
 </li>
 <li class="fragment">using slashes is also dependent on your operating system</li>
@@ -1315,7 +1315,7 @@ Wickham, H., &amp; Grolemund, G. (2016). <em>R for data science: Import, tidy, t
       });
         var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
         var mailtoRegex = new RegExp(/^mailto:/);
-          var filterRegex = new RegExp("https:\/\/daniela-palleschi\.github\.io\/zas-reproducibility-2024\/");
+          var filterRegex = new RegExp('/' + window.location.host + '/');
         var isInternal = (href) => {
             return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
         }

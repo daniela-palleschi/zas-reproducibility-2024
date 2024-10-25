@@ -332,7 +332,7 @@ div.csl-indent {
     <div>
     <div class="quarto-title-meta-heading">Last Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">Mon Oct 7, 2024</p>
+      <p class="date-modified">Fri Oct 25, 2024</p>
     </div>
   </div>
     
@@ -425,7 +425,7 @@ div.csl-indent {
 <ul>
 <li>when?
 <ul>
-<li>whenever you’re starting a new course oR-Project which will use R</li>
+<li>whenever you’re starting a new course or project which will use R</li>
 </ul></li>
 <li>why?
 <ul>
@@ -510,7 +510,7 @@ Figure&nbsp;2: Open from RStudio
 <li>include your name, the date</li>
 <li>use Markdown formatting (e.g., <code>#</code> for headings, <code>*italics*</code>, <code>**bold**</code>)</li>
 </ul></li>
-<li>save as <code>README.md</code> in youR-Project directory</li>
+<li>save as <code>README.md</code> in your project directory</li>
 </ul>
 </section>
 <section id="global-rstudio-options" class="level2" data-number="3.4">
@@ -789,9 +789,9 @@ Figure&nbsp;7: Illustration by <a href="https://github.com/allisonhorst">Allison
 <li><code>setwd()</code> depends on your entire machine’s folder structure</li>
 <li><code>setwd()</code> breaks when you
 <ul>
-<li>send youR-Project folder to a collaborator</li>
+<li>send your project folder to a collaborator</li>
 <li>make your analyses open</li>
-<li>change the location of youR-Project folder</li>
+<li>change the location of your project folder</li>
 </ul></li>
 <li>using slashes is also dependent on your operating system</li>
 </ul>
@@ -1219,7 +1219,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp("https:\/\/daniela-palleschi\.github\.io\/zas-reproducibility-2024\/");
+      var filterRegex = new RegExp('/' + window.location.host + '/');
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
@@ -1641,7 +1641,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb5-94"><a href="#cb5-94" aria-hidden="true" tabindex="-1"></a><span class="fu">## Creating a new Project</span></span>
 <span id="cb5-95"><a href="#cb5-95" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-96"><a href="#cb5-96" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>when?</span>
-<span id="cb5-97"><a href="#cb5-97" aria-hidden="true" tabindex="-1"></a><span class="ss">  + </span>whenever you're starting a new course oR-Project which will use R</span>
+<span id="cb5-97"><a href="#cb5-97" aria-hidden="true" tabindex="-1"></a><span class="ss">  + </span>whenever you're starting a new course or project which will use R</span>
 <span id="cb5-98"><a href="#cb5-98" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>why?</span>
 <span id="cb5-99"><a href="#cb5-99" aria-hidden="true" tabindex="-1"></a><span class="ss">  + </span>to keep all the relavent materials in one place</span>
 <span id="cb5-100"><a href="#cb5-100" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>where?</span>
@@ -1698,7 +1698,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb5-155"><a href="#cb5-155" aria-hidden="true" tabindex="-1"></a><span class="ss">  + </span>add some text describing the purpose of this project</span>
 <span id="cb5-156"><a href="#cb5-156" aria-hidden="true" tabindex="-1"></a><span class="ss">  + </span>include your name, the date</span>
 <span id="cb5-157"><a href="#cb5-157" aria-hidden="true" tabindex="-1"></a><span class="ss">  + </span>use Markdown formatting (e.g., <span class="in">`#`</span> for headings, <span class="in">`*italics*`</span>, <span class="in">`**bold**`</span>)</span>
-<span id="cb5-158"><a href="#cb5-158" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>save as <span class="in">`README.md`</span> in youR-Project directory</span>
+<span id="cb5-158"><a href="#cb5-158" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>save as <span class="in">`README.md`</span> in your project directory</span>
 <span id="cb5-159"><a href="#cb5-159" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-160"><a href="#cb5-160" aria-hidden="true" tabindex="-1"></a><span class="fu">## Global RStudio options</span></span>
 <span id="cb5-161"><a href="#cb5-161" aria-hidden="true" tabindex="-1"></a></span>
@@ -1919,9 +1919,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb5-390"><a href="#cb5-390" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-391"><a href="#cb5-391" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`setwd()`</span> depends on your entire machine's folder structure</span>
 <span id="cb5-392"><a href="#cb5-392" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`setwd()`</span> breaks when you</span>
-<span id="cb5-393"><a href="#cb5-393" aria-hidden="true" tabindex="-1"></a><span class="ss">  + </span>send youR-Project folder to a collaborator</span>
+<span id="cb5-393"><a href="#cb5-393" aria-hidden="true" tabindex="-1"></a><span class="ss">  + </span>send your project folder to a collaborator</span>
 <span id="cb5-394"><a href="#cb5-394" aria-hidden="true" tabindex="-1"></a><span class="ss">  + </span>make your analyses open</span>
-<span id="cb5-395"><a href="#cb5-395" aria-hidden="true" tabindex="-1"></a><span class="ss">  + </span>change the location of youR-Project folder</span>
+<span id="cb5-395"><a href="#cb5-395" aria-hidden="true" tabindex="-1"></a><span class="ss">  + </span>change the location of your project folder</span>
 <span id="cb5-396"><a href="#cb5-396" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>using slashes is also dependent on your operating system</span>
 <span id="cb5-397"><a href="#cb5-397" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-398"><a href="#cb5-398" aria-hidden="true" tabindex="-1"></a>::: {.content-visible when-format="revealjs"}</span>

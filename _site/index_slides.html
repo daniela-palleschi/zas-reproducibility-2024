@@ -396,7 +396,7 @@
 
 
 <section><section id="workshop-overview" class="title-slide slide level1 center"><h1>Workshop overview</h1>
-<p>This website contains slides for a two-part workshop given given by Daniela Palleschi at the <a href="https://ssol.ff.cuni.cz/">Leibniz-Zentrum Allgemeinesprachwissenschaft (ZAS)</a> Berlin. The tools discussed are specific to the R enviornment, but the concepts are universal and programming language agnostic. The materials are re-structured from various other renditions of the workshop, all of which were based on a semester-length course on the same topic given at the Humboldt-Universität zu Berlin in the summer semester 2024. The materials for the semester-length course are more exhaustive, and can be viewed <a href="https://daniela-palleschi.github.io/r4repro_SoSe2024/">here</a>.</p>
+<p>This website contains slides for a two-part workshop given given by Daniela Palleschi at the <a href="https://ssol.ff.cuni.cz/">Leibniz-Zentrum Allgemeinesprachwissenschaft (ZAS)</a> Berlin. The tools discussed are specific to the R enviornment, but the concepts are universal and programming language agnostic. The materials are re-structured from various other renditions of the workshop, all of which were based on a semester-length course on the same topic given at the Humboldt-Universität zu Berlin in the summer semester 2024. The materials for the semester-length course are more exhaustive, and can be viewed <a href="https://daniela-palleschi.github.io/r4repro_SoSe2024/">here</a>. Recordings of the workshop can be viewed by ZAS members via the Intranet.</p>
 </section><section id="schedule" class="title-slide slide level2 center"><h2>Schedule</h2>
 <p><a href="#/schedule" class="quarto-xref">Table&nbsp;1</a> shows the tentative plan for the workshop and may be adjusted based on the needs of the participants.</p>
 <div class="cell">
@@ -488,7 +488,7 @@ Table&nbsp;1: Tentative schedule for the 2-day workshop
 <pre><code>[1] "Race for Your Life"</code></pre>
 </div>
 </div>
-</section><section id="r-1" class="slide level4"><h4>R</h4>
+</section><section id="rstudio" class="slide level4"><h4>RStudio</h4>
 <p>To check which version of RStudio you currently have, run the command <code>R.version$version.string</code> in the Console (to print just the version name and release date), or <code>R.version$nickname</code> (to print the nickname). Be sure to include these only in the Console, as Rmarkdown/Quarto scripts will not be able to run these commands.</p>
 <div class="cell">
 <div class="code-with-filename">
@@ -877,7 +877,7 @@ Figure&nbsp;1: Help &gt; About RStudio
       });
         var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
         var mailtoRegex = new RegExp(/^mailto:/);
-          var filterRegex = new RegExp("https:\/\/daniela-palleschi\.github\.io\/zas-reproducibility-2024\/");
+          var filterRegex = new RegExp('/' + window.location.host + '/');
         var isInternal = (href) => {
             return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
         }
