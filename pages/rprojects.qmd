@@ -92,7 +92,7 @@ rbbt::bbt_update_bib(here::here("pages", "RProjects.qmd"))
 ## Creating a new Project
 
 - when?
-  + whenever you're starting a new course oR-Project which will use R
+  + whenever you're starting a new course or project which will use R
 - why?
   + to keep all the relavent materials in one place
 - where?
@@ -149,7 +149,7 @@ magick::image_read(here::here("media", "rstudio_project_open.png"))
   + add some text describing the purpose of this project
   + include your name, the date
   + use Markdown formatting (e.g., `#` for headings, `*italics*`, `**bold**`)
-- save as `README.md` in youR-Project directory
+- save as `README.md` in your project directory
 
 ## Global RStudio options
 
@@ -370,9 +370,9 @@ magick::image_read(here::here("media", "Horst_here.png"))
 
 - `setwd()` depends on your entire machine's folder structure
 - `setwd()` breaks when you
-  + send youR-Project folder to a collaborator
+  + send your project folder to a collaborator
   + make your analyses open
-  + change the location of youR-Project folder
+  + change the location of your project folder
 - using slashes is also dependent on your operating system
 
 ::: {.content-visible when-format="revealjs"}
