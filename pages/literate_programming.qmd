@@ -148,7 +148,7 @@ plot(df_phon$duration, df_phon$mean_f0)
 # date: Feb. 29, 2024 # <1>
 # purpose: analyse cleaned dataset # <1>
 
-# Set-up ### # <2>
+# Set-up #### # <2>
 
 # load required packages # <3>
 library(dplyr) # data wrangling # <4>
@@ -158,14 +158,14 @@ library(here) # project-relative file path # <4>
 # Load-in data
 df_phon <- read_csv(here("data", "phoneme_tidy_data.csv"))
 
-# Explore data ###
+# Explore data ####
 summary(df_phone)
 
 # scatterplot: phoneme duration by mean f0
 plot(df_phon$duration, df_phon$mean_f0)
 ```
 1. begins with some meta-information about the document, including its purpose
-2. heading with three hashtags at the end (`###`) --> creates structured Outline
+2. heading with four hashtags (`####`) or hyphens (`----`) at the end --> creates structured Outline (but be consistent!)
 3. the purpose of chunks of code are written above
 4. description of specific lines of code are also given
 :::
