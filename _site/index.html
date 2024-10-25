@@ -379,8 +379,8 @@ Table&nbsp;1: Tentative schedule for the 2-day workshop
 </div>
 </div>
 </section>
-<section id="r-1" class="level4">
-<h4 class="anchored" data-anchor-id="r-1">R</h4>
+<section id="rstudio" class="level4">
+<h4 class="anchored" data-anchor-id="rstudio">RStudio</h4>
 <p>To check which version of RStudio you currently have, run the command <code>R.version$version.string</code> in the Console (to print just the version name and release date), or <code>R.version$nickname</code> (to print the nickname). Be sure to include these only in the Console, as Rmarkdown/Quarto scripts will not be able to run these commands.</p>
 <div class="cell">
 <div class="code-with-filename">
@@ -752,7 +752,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp("https:\/\/daniela-palleschi\.github\.io\/zas-reproducibility-2024\/");
+      var filterRegex = new RegExp('/' + window.location.host + '/');
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
@@ -1127,7 +1127,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb7-84"><a href="#cb7-84" aria-hidden="true" tabindex="-1"></a><span class="in">R.version$nickname</span></span>
 <span id="cb7-85"><a href="#cb7-85" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb7-86"><a href="#cb7-86" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-87"><a href="#cb7-87" aria-hidden="true" tabindex="-1"></a><span class="fu">#### R</span></span>
+<span id="cb7-87"><a href="#cb7-87" aria-hidden="true" tabindex="-1"></a><span class="fu">#### RStudio</span></span>
 <span id="cb7-88"><a href="#cb7-88" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-89"><a href="#cb7-89" aria-hidden="true" tabindex="-1"></a>To check which version of RStudio you currently have, run the command <span class="in">`R.version$version.string`</span> in the Console (to print just the version name and release date), or <span class="in">`R.version$nickname`</span> (to print the nickname). Be sure to include these only in the Console, as Rmarkdown/Quarto scripts will not be able to run these commands.</span>
 <span id="cb7-90"><a href="#cb7-90" aria-hidden="true" tabindex="-1"></a></span>

@@ -639,7 +639,7 @@ div.csl-indent {
 <div id="fig-renv_workflow" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-renv_workflow-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="pkg_management_files/figure-html/fig-renv_workflow-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:75.0%">
+<img src="pkg_management_files/figure-revealjs/fig-renv_workflow-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:75.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-renv_workflow-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;1: Source: <a href="https://cran.r-project.org/web/packages/renv/vignettes/renv.html">CRAN vignette ‘Introduction to renv’</a> (all rights reserved)
@@ -1007,8 +1007,7 @@ loaded via a namespace (and not attached):
  [5] knitr_1.47        htmltools_0.5.8.1 rmarkdown_2.27    cli_3.6.2        
  [9] renv_1.0.7        compiler_4.4.1    rprojroot_2.0.4   here_1.0.1       
 [13] rstudioapi_0.16.0 tools_4.4.1       evaluate_0.24.0   Rcpp_1.0.12      
-[17] yaml_2.3.8        magick_2.8.3      rlang_1.1.4       jsonlite_1.8.8   
-[21] htmlwidgets_1.6.4</code></pre>
+[17] yaml_2.3.8        magick_2.8.3      rlang_1.1.4       jsonlite_1.8.8   </code></pre>
 </div>
 </div>
 </div>
@@ -1064,6 +1063,44 @@ Ushey, K., &amp; Wickham, H. (2024). <em>Renv: Project environments</em>. <a hre
 </section>
 
 </main> <!-- /main -->
+
+<script>
+  // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+  // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+  // slide changes (different for each slide format).
+  (function () {
+    // dispatch for htmlwidgets
+    function fireSlideEnter() {
+      const event = window.document.createEvent("Event");
+      event.initEvent("slideenter", true, true);
+      window.document.dispatchEvent(event);
+    }
+
+    function fireSlideChanged(previousSlide, currentSlide) {
+      fireSlideEnter();
+
+      // dispatch for shiny
+      if (window.jQuery) {
+        if (previousSlide) {
+          window.jQuery(previousSlide).trigger("hidden");
+        }
+        if (currentSlide) {
+          window.jQuery(currentSlide).trigger("shown");
+        }
+      }
+    }
+
+    // hookup for slidy
+    if (window.w3c_slidy) {
+      window.w3c_slidy.add_observer(function (slide_num) {
+        // slide_num starts at position 1
+        fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+      });
+    }
+
+  })();
+</script>
+
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -1340,7 +1377,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp("https:\/\/daniela-palleschi\.github\.io\/zas-reproducibility-2024\/");
+      var filterRegex = new RegExp('/' + window.location.host + '/');
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
