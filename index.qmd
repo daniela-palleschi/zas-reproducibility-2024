@@ -82,7 +82,7 @@ R.version$version.string
 R.version$nickname
 ```
 
-#### R
+#### RStudio
 
 To check which version of RStudio you currently have, run the command `R.version$version.string` in the Console (to print just the version name and release date), or `R.version$nickname` (to print the nickname). Be sure to include these only in the Console, as Rmarkdown/Quarto scripts will not be able to run these commands.
 
